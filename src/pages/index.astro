@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroContent from '../content/hero.md';
+import AboutContent from '../content/about.md';
+import CurrentContent from '../content/current.md';
+import BackgroundContent from '../content/background.md';
+import ContactContent from '../content/contact.md';
+import workData from '../content/work.json';
+const { work } = workData;
+const contactEmail = 'luis@example.com';
+const year = new Date().getFullYear();
+---
+<BaseLayout>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#selected-work">Selected Work</a></li>
+        <li><a href="#currently">Currently</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <!-- Hero Section -->
+      <HeroContent />
+    </section>
+    <section id="about">
+      <!-- About Section -->
+      <AboutContent />
+    </section>
+    <section id="selected-work">
+      <!-- Selected Work Section -->
+      <h2>Selected Work</h2>
+      {work.map((item) => (
+        <div class="work-item">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          {item.link && <a href={item.link}>View Project</a>}
+        </div>
+      ))}
+    </section>
+    <section id="currently">
+      <!-- Currently Section -->
+      <CurrentContent />
+    </section>
+    <section id="background">
+      <!-- Background Section -->
+      <BackgroundContent />
+    </section>
+    <section id="contact">
+      <!-- Contact Section -->
+      <ContactContent />
+      <p><a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
+    </section>
+  </main>
+  <footer>
+    &copy; {year} Luis Vieira
+  </footer>
+</BaseLayout>

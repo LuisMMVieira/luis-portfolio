@@ -1,0 +1,84 @@
+:root {
+  --font-family: "Inter", sans-serif;
+  --color-background: #fdfdfd;
+  --color-text: #222222;
+  --color-primary: #0055aa;
+  --color-accent: #ff5500;
+  --spacing-large: 4rem;
+  --spacing-medium: 2rem;
+  --spacing-small: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+header {
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--color-background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--color-primary);
+}
+
+main {
+  display: block;
+}
+
+section {
+  padding: var(--spacing-large) var(--spacing-medium);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: var(--spacing-small);
+  line-height: 1.2;
+}
+
+#selected-work .work-item {
+  margin-bottom: var(--spacing-medium);
+}
+
+#selected-work .work-item h3 {
+  margin-bottom: var(--spacing-small);
+}
+
+footer {
+  text-align: center;
+  padding: var(--spacing-medium);
+  font-size: 0.875rem;
+}

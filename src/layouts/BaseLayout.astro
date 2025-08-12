@@ -1,0 +1,16 @@
+---
+import "../styles/global.css";
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <slot name="head" />
+    <title><slot name="title">Luis Vieira | Portfolio</slot></title>
+  </head>
+  <body>
+    <slot />
+    <script type="module" src="/src/scripts/main.js"></script>
+  </body>
+</html>
