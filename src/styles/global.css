@@ -24,33 +24,6 @@ body {
   line-height: 1.6;
 }
 
-header {
-  padding: var(--spacing-small) var(--spacing-medium);
-  background-color: var(--color-background);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-medium);
-  justify-content: center;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--color-text);
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: var(--color-primary);
-}
-
 main {
   display: block;
 }

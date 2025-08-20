@@ -1,16 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroContent from '../content/hero.md';
-import AboutContent from '../content/about.md';
-import CurrentContent from '../content/current.md';
-import BackgroundContent from '../content/background.md';
-import ContactContent from '../content/contact.md';
-import workData from '../content/work.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroContent from "../content/hero.md";
+import AboutContent from "../content/about.md";
+import CurrentContent from "../content/current.md";
+import BackgroundContent from "../content/background.md";
+import ContactContent from "../content/contact.md";
+import workData from "../content/work.json";
 const { work } = workData;
-const contactEmail = 'luis@example.com';
+const contactEmail = "lmmvieira@gmail.com";
 const year = new Date().getFullYear();
 ---
-<BaseLayout>
+
+<BaseLayout title="Luis Vieira—Product Designer">
   <main>
     <section id="hero">
       <!-- Hero Section -->
@@ -23,13 +24,15 @@ const year = new Date().getFullYear();
     <section id="selected-work">
       <!-- Selected Work Section -->
       <h2>Selected Work</h2>
-      {work.map((item) => (
-        <div class="work-item">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-          {item.link && <a href={item.link}>View Project</a>}
-        </div>
-      ))}
+      {
+        work.map((item) => (
+          <div class="work-item">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            {item.link && <a href={item.link}>View Project</a>}
+          </div>
+        ))
+      }
     </section>
     <section id="currently">
       <!-- Currently Section -->
