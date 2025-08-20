@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
-const { title = "Luis Vieira | Portfolio" } = Astro.props;
+const {
+  title = "Luis Vieira—Product Designer",
+  description = "I design purposeful digital products—clear systems with human presence.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -9,6 +12,7 @@ const { title = "Luis Vieira | Portfolio" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
     <slot name="head" />
   </head>
   <body>
