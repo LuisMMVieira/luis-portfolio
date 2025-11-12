@@ -1,6 +1,6 @@
 :root {
-	font-size: 17px;
-  --font-family: 'Saans', sans-serif;
+  font-size: 14px;
+  --font-family: "Dazzed", sans-serif;
   --color-background: white;
   --color-text: #222222;
   --color-primary: #0055aa;
@@ -10,21 +10,28 @@
   --spacing-small: 1rem;
 }
 
-
+/*
 @font-face {
-  font-family: 'Saans';
-  src: url('/fonts/SaansSemiMono-TRIAL-Regular.woff2') format('woff2'),
-       url('SaansSemiMono-TRIAL-Regular.woff') format('woff');
+  font-family: "Saans";
+  src: url("/fonts/SaansSemiMono-TRIAL-Regular.woff2") format("woff2"),
+    url("SaansSemiMono-TRIAL-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Booton";
+  src: url("/fonts/BootonTRIAL-Heavy.woff2") format("woff2"),
+    url("/fonts/BootonTRIAL-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
 @font-face {
-  font-family: 'Booton';
-  src: url('/fonts/BootonTRIAL-Heavy.woff2') format('woff2'),
-       url('/fonts/BootonTRIAL-Heavy.woff') format('woff');
-  font-weight: 900;
+  font-family: "Dazzed";
+  src: url("/fonts/DazzedTRIAL-SemiBold.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
@@ -58,7 +65,7 @@ h1,
 h2,
 h3,
 .intro {
-	font-family: 'Booton', sans-serif;
+  font-size: var(--spacing-small);
   margin-bottom: var(--spacing-small);
   line-height: 1.2;
 }
