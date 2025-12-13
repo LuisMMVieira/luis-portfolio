@@ -10,3 +10,4 @@ subtitle: "Senior Digital Product Designer balancing art and technology to creat
 	intimate with systems<br />	
 	and aesthetics
 	</p>
+vdcvcvcc
