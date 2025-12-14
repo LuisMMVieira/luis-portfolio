@@ -1,8 +1,10 @@
 ---
-title: "Olá, I'm Luis Vieira"
-subtitle: "Senior Digital Product Designer balancing art and technology to create purposeful digital experiences."
 ---
 
-Hi there!
+<h1>
+<span class="intro-greeting">Hi there!</span>
 
+<span class="intro-headline">
 I’m Luís Vieira, a digital product designer, intimate with systems and aesthetics.
+</span>
+</h1>

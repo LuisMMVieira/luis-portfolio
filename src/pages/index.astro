@@ -1,50 +1,40 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+
 import IntroContent from "../content/intro.md";
 import WorkContent from "../content/work.md";
 import AboutContent from "../content/about.md";
 import ValuesContent from "../content/values.md";
 import BackgroundContent from "../content/background.md";
-const contactEmail = "lmmvieira@gmail.com";
-const year = new Date().getFullYear();
 ---
 
 <BaseLayout>
-  <section id="intro">
-    <div class="container">
-      <IntroContent />
-    </div>
-  </section>
+  <Section id="intro" class="home-section-grid">
+    <IntroContent />
+  </Section>
 
   <hr class="division" />
 
-  <section id="work">
-    <div class="container">
-      <WorkContent />
-    </div>
-  </section>
+  <Section id="work" class="home-section-grid">
+    <WorkContent />
+  </Section>
 
   <hr class="division" />
 
-  <section id="values">
-    <div class="container">
-      <ValuesContent />
-    </div>
-  </section>
+  <Section id="values" class="home-section-grid">
+    <ValuesContent />
+  </Section>
 
   <hr class="division" />
 
-  <section id="background">
-    <div class="container">
-      <BackgroundContent />
-    </div>
-  </section>
+  <Section id="background" class="home-section-grid">
+    <BackgroundContent />
+  </Section>
 
   <hr class="division" />
 
-  <section id="about">
-    <div class="container">
-      <AboutContent />
-    </div>
-  </section>
+  <Section id="about" class="home-section-grid">
+    <AboutContent />
+  </Section>
 </BaseLayout>

@@ -3,11 +3,11 @@
 	 Base colors
 	 ───────────────────────────────────────── */
 
-	--color-darkest: #000000;
-	--color-dark: #1a1a1a;
-	--color-mid: #696969;
-	--color-light: #e2e2e2;
-	--color-lightest: #ffffff;
+	 --color-darkest: oklch(0% 0 0);
+	 --color-dark:     oklch(15% 0 0);
+	 --color-mid:      oklch(46% 0 0);
+	 --color-light:    oklch(90% 0 0);
+	 --color-lightest: oklch(100% 0 0);
 
 
 /* ─────────────────────────────────────────
@@ -41,6 +41,15 @@
 	--spacing-xxxl: 5rem;    /* 80 */
 	--spacing-huge: 7.5rem;  /* 120 */
 	--spacing-max: 12.5rem;  /* 200 */
+
+
+	/* ─────────────────────────────────────────
+   Borders
+   ───────────────────────────────────────── */
+
+	 --border-width-hairline: 0.5px;
+	 --border-width-default: 1px;
+	 --border-width-thick: 2px;
 
 
 /* ─────────────────────────────────────────
@@ -88,19 +97,16 @@
 
 	 /* Hero */
 	--type-hero-font-family: var(--font-family-display);
-	--type-hero-font-weight: var(--font-weight-semibold);
-	--type-hero-font-size: var(--font-size-7);
-	--type-hero-line-height: var(--line-height-1);
+	--type-hero-font-size: var(--font-size-6);
+	--type-hero-line-height: var(--line-height-2);
 
 	/* Title 1 */
 	--type-title-1-font-family: var(--font-family-display);
-	--type-title-1-font-weight: var(--font-weight-semibold);
 	--type-title-1-font-size: var(--font-size-6);
 	--type-title-1-line-height: var(--line-height-3);
 
 	/* Title 2 */
 	--type-title-2-font-family: var(--font-family-display);
-	--type-title-2-font-weight: var(--font-weight-semibold);
 	--type-title-2-font-size: var(--font-size-5);
 	--type-title-2-line-height: var(--line-height-3);
 
@@ -129,4 +135,24 @@
 	--type-nav-line-height: var(--line-height-3);
 
 	--type-nav-active-font-weight: var(--font-weight-semibold);
+
+/* ─────────────────────────────────────────
+   Breakpoints (reference)
+   ───────────────────────────────────────── */
+
+	 --bp-md: 48rem;   /* 768px */
+	 --bp-lg: 75rem;   /* 1200px */
+
+}
+
+
+@media (min-width: 48rem) {
+	:root {
+		--type-hero-font-size: var(--font-size-7);
+		--type-hero-line-height: var(--line-height-1);
+	}
+}
+
+@media (min-width: 75rem) {
+
 }

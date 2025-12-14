@@ -14,6 +14,11 @@ body {
 	font-weight: var(--type-body-font-weight);
 }
 
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 /* Inline emphasis */
 strong, b {
 	font-weight: var(--font-weight-semibold);
@@ -64,3 +69,11 @@ small {
 	font-weight: var(--type-caption-font-weight);
 	color: var(--text-secondary);
 }
+
+/* ─────────────────────────────────────────
+	 Other elements
+	 ───────────────────────────────────────── */
+
+	 hr.division {
+			color: var(--border-default);
+	 }
