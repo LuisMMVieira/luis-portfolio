@@ -1,54 +1,50 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroContent from "../content/hero.md";
+import IntroContent from "../content/intro.md";
+import WorkContent from "../content/work.md";
 import AboutContent from "../content/about.md";
-import CurrentContent from "../content/current.md";
+import ValuesContent from "../content/values.md";
 import BackgroundContent from "../content/background.md";
-import ContactContent from "../content/contact.md";
-import workData from "../content/work.json";
-const { work } = workData;
 const contactEmail = "lmmvieira@gmail.com";
 const year = new Date().getFullYear();
 ---
 
 <BaseLayout>
-  <main>
-    <section id="hero">
-      <!-- Hero Section -->
-      <HeroContent />
-    </section>
-    <section id="about">
-      <!-- About Section -->
-      <AboutContent />
-    </section>
-    <section id="selected-work">
-      <!-- Selected Work Section -->
-      <h2>Selected Work</h2>
-      {
-        work.map((item) => (
-          <div class="work-item">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            {item.link && <a href={item.link}>View Project</a>}
-          </div>
-        ))
-      }
-    </section>
-    <section id="currently">
-      <!-- Currently Section -->
-      <CurrentContent />
-    </section>
-    <section id="background">
-      <!-- Background Section -->
+  <section id="intro">
+    <div class="container">
+      <IntroContent />
+    </div>
+  </section>
+
+  <hr class="division" />
+
+  <section id="work">
+    <div class="container">
+      <WorkContent />
+    </div>
+  </section>
+
+  <hr class="division" />
+
+  <section id="values">
+    <div class="container">
+      <ValuesContent />
+    </div>
+  </section>
+
+  <hr class="division" />
+
+  <section id="background">
+    <div class="container">
       <BackgroundContent />
-    </section>
-    <section id="contact">
-      <!-- Contact Section -->
-      <ContactContent />
-      <p><a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
-    </section>
-  </main>
-  <footer>
-    &copy; {year} Luis Vieira
-  </footer>
+    </div>
+  </section>
+
+  <hr class="division" />
+
+  <section id="about">
+    <div class="container">
+      <AboutContent />
+    </div>
+  </section>
 </BaseLayout>

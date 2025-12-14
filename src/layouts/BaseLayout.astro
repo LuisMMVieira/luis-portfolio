@@ -1,7 +1,7 @@
 ---
-import "../styles/global.css";
+import "../styles/main.css";
 const {
-  title = "Luis Vieira—Product Designer",
+  title = "Luis Vieira—Digital Product Designer",
   description = "I design purposeful digital products—clear systems with human presence.",
 } = Astro.props;
 ---
@@ -16,7 +16,12 @@ const {
     <slot name="head" />
   </head>
   <body>
-    <slot />
+    <div class="page">
+      <main class="content">
+        <slot />
+      </main>
+    </div>
+
     <script type="module" src="/scripts/main.js"></script>
   </body>
 </html>

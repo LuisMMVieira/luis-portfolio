@@ -1,0 +1,132 @@
+:root {
+/* ─────────────────────────────────────────
+	 Base colors
+	 ───────────────────────────────────────── */
+
+	--color-darkest: #000000;
+	--color-dark: #1a1a1a;
+	--color-mid: #696969;
+	--color-light: #e2e2e2;
+	--color-lightest: #ffffff;
+
+
+/* ─────────────────────────────────────────
+	 Semantic Colors
+	 ───────────────────────────────────────── */
+
+	--bg-default: var(--color-lightest);
+	--bg-elevated: var(--color-light);
+
+	--text-primary: var(--color-darkest);
+	--text-secondary: var(--color-mid);
+
+	--border-default: var(--color-light);
+	--border-strong: var(--color-mid);
+
+
+/* ─────────────────────────────────────────
+		Spacing (px → rem)
+		base: 16px
+		───────────────────────────────────────── */
+	
+	--spacing-none: 0;
+	--spacing-xxxs: 0.125rem; /* 2 */
+	--spacing-xxs: 0.25rem;   /* 4 */
+	--spacing-xs: 0.5rem;     /* 8 */
+	--spacing-sm: 0.75rem;    /* 12 */
+	--spacing-md: 1.25rem;   /* 20 */
+	--spacing-lg: 1.75rem;   /* 28 */
+	--spacing-xl: 2.5rem;    /* 40 */
+	--spacing-xxl: 3.5rem;   /* 56 */
+	--spacing-xxxl: 5rem;    /* 80 */
+	--spacing-huge: 7.5rem;  /* 120 */
+	--spacing-max: 12.5rem;  /* 200 */
+
+
+/* ─────────────────────────────────────────
+		Radius
+		───────────────────────────────────────── */
+
+	--radius-xs: 0.25rem;     /* 4 */
+	--radius-sm: 0.5rem;      /* 8 */
+	--radius-md: 1.25rem;    /* 20 */
+	--radius-lg: 2.5rem;     /* 40 */
+	--radius-infinite: 62.5rem; /* 1000 */
+
+/* ─────────────────────────────────────────
+	 Type
+	 ───────────────────────────────────────── */
+
+	/* Families */
+	--font-family-display: "Dazzed", system-ui, sans-serif;
+	--font-family-sans: "Inter", system-ui, sans-serif;
+
+	/* Weights */
+	--font-weight-regular: 400;
+	--font-weight-semibold: 600;
+
+	/* Font sizes (scale) */
+	--font-size-1: 0.75rem;   /* 12 */
+	--font-size-2: 0.875rem;  /* 14 */
+	--font-size-3: 1rem;      /* 16 */
+	--font-size-4: 1.25rem;   /* 20 */
+	--font-size-5: 1.375rem;  /* 22 */
+	--font-size-6: 2.25rem;   /* 36 */
+	--font-size-7: 3.25rem;   /* 52 */
+
+	/* Line heights (scale) */
+	--line-height-1: 1.04;  /* 104% */
+	--line-height-2: 1.10;  /* 110% */
+	--line-height-3: 1.20;  /* 120% */
+	--line-height-4: 1.30;  /* 130% */
+	--line-height-5: 1.40;  /* 140% */
+	--line-height-6: 1.50;  /* 150% */
+
+/* ─────────────────────────────────────────
+	 Type roles (semantic)
+	 ───────────────────────────────────────── */
+
+	 /* Hero */
+	--type-hero-font-family: var(--font-family-display);
+	--type-hero-font-weight: var(--font-weight-semibold);
+	--type-hero-font-size: var(--font-size-7);
+	--type-hero-line-height: var(--line-height-1);
+
+	/* Title 1 */
+	--type-title-1-font-family: var(--font-family-display);
+	--type-title-1-font-weight: var(--font-weight-semibold);
+	--type-title-1-font-size: var(--font-size-6);
+	--type-title-1-line-height: var(--line-height-3);
+
+	/* Title 2 */
+	--type-title-2-font-family: var(--font-family-display);
+	--type-title-2-font-weight: var(--font-weight-semibold);
+	--type-title-2-font-size: var(--font-size-5);
+	--type-title-2-line-height: var(--line-height-3);
+
+	/* Paragraph L */
+	--type-body-lg-font-family: var(--font-family-sans);
+	--type-body-lg-font-weight: var(--font-weight-regular);
+	--type-body-lg-font-size: var(--font-size-4);
+	--type-body-lg-line-height: var(--line-height-4);
+
+	/* Paragraph M (default) */
+	--type-body-font-family: var(--font-family-sans);
+	--type-body-font-weight: var(--font-weight-regular);
+	--type-body-font-size: var(--font-size-3);
+	--type-body-line-height: var(--line-height-5);
+
+	/* Paragraph S / Caption */
+	--type-caption-font-family: var(--font-family-sans);
+	--type-caption-font-weight: var(--font-weight-regular);
+	--type-caption-font-size: var(--font-size-1);
+	--type-caption-line-height: var(--line-height-6);
+
+	/* Nav */
+	--type-nav-font-family: var(--font-family-sans);
+	--type-nav-font-weight: var(--font-weight-regular);
+	--type-nav-font-size: var(--font-size-2);
+	--type-nav-line-height: var(--line-height-3);
+
+	--type-nav-active-font-weight: var(--font-weight-semibold);
+}
