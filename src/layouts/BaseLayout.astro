@@ -1,5 +1,7 @@
 ---
 import "../styles/main.css";
+import Header from "../components/Header.astro";
+
 const {
   title = "Luis Vieira—Digital Product Designer",
   description = "I design purposeful digital products—clear systems with human presence.",
@@ -11,12 +13,34 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="/fonts/DazzedTRIAL-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <title>{title}</title>
     <meta name="description" content={description} />
     <slot name="head" />
   </head>
   <body>
     <div class="page">
+      <Header />
       <main class="content">
         <slot />
       </main>

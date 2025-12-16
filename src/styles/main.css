@@ -5,20 +5,179 @@
 
 
 /* ─────────────────────────────────────────
-	 Section Home
+	 Grid System
 	 ───────────────────────────────────────── */
 
-.section {
-	padding-block: var(--spacing-xxxl);
-	padding-inline: var(--spacing-md);
+/*
+	Grid xs (mobile):
+	[outer] [middle] [outer]
 
-	@media (min-width: 48rem) {
-		padding-inline: var(--spacing-xl);
+	Grid md (tablet):
+	[outer] [middle-left | gutter | middle-right] [outer]
+
+	Grid xl (desktop):
+	[outer] [left | gutter] [middle-left | gutter | middle-right] [right] [outer]
+*/
+
+.section {
+	display: grid;
+	padding-block: var(--spacing-max);
+
+	/* xs: simple 3-column grid */
+	grid-template-columns:
+		[full-start] var(--spacing-md)
+		[content-start] 1fr [content-end]
+		var(--spacing-md) [full-end];
+}
+
+/* Place container in content area */
+.section > .container {
+	grid-column: content;
+}
+
+/* md: wider outer padding */
+@media (min-width: 48rem) {
+	.section {
+		grid-template-columns:
+			[full-start] var(--spacing-xl)
+			[content-start] 1fr [content-end]
+			var(--spacing-xl) [full-end];
 	}
 }
 
+/* xl: symmetric grid per Figma specs */
+@media (min-width: 75rem) {
+	:root {
+		/* Layout values for xl grid */
+		--layout-fixed: 200px;
+		--layout-content-half: 340px;
+	}
+
+	.section {
+		grid-template-columns:
+			[full-start] minmax(var(--spacing-xl), 1fr)
+			[left-start] var(--layout-fixed) [left-end content-start]
+			minmax(0, var(--layout-content-half)) [content-middle]
+			minmax(0, var(--layout-content-half)) [content-end right-start]
+			var(--layout-fixed) [right-end]
+			minmax(var(--spacing-xl), 1fr) [full-end];
+		/*
+			outer (min 40px, grows) |
+			200px fixed |
+			content (max 680px split in 2) |
+			200px fixed |
+			outer (min 40px, grows)
+		*/
+	}
+
+	.section > .container {
+		grid-column: content-start / content-end;
+	}
+}
+
+
+/* ─────────────────────────────────────────
+	 Header & Navigation
+	 ───────────────────────────────────────── */
+
+.site-header {
+	/* Sticky: starts at 96px, sticks at top when scrolling */
+	position: sticky;
+	top: 0;
+	z-index: 100;
+
+	/* Match section grid */
+	display: grid;
+	grid-template-columns:
+		[full-start] var(--spacing-md)
+		[content-start] 1fr [content-end]
+		var(--spacing-md) [full-end];
+
+	/* Initial offset: 96px = 6rem */
+	margin-block-start: 6rem;
+
+	/* Transparent background - blends with page */
+	background: var(--bg-default);
+}
+
+.site-nav {
+	grid-column: content;
+
+	/* xs: nav row */
+	display: flex;
+	align-items: center;
+	height: 57px;
+}
+
+.nav-list {
+	display: flex;
+	flex-direction: row;
+	gap: var(--spacing-md);
+}
+
+.nav-link {
+	font-family: var(--type-nav-font-family);
+	font-size: var(--type-nav-font-size);
+	line-height: var(--type-nav-line-height);
+	font-weight: var(--type-nav-font-weight);
+	color: var(--text-secondary);
+	text-decoration: none;
+}
+
+.nav-link:hover {
+	color: var(--text-primary);
+}
+
+/* Active state */
+.nav-link.is-active {
+	font-weight: var(--type-nav-active-font-weight);
+	color: var(--text-primary);
+}
+
+/* md: wider outer padding */
+@media (min-width: 48rem) {
+	.site-header {
+		grid-template-columns:
+			[full-start] var(--spacing-xl)
+			[content-start] 1fr [content-end]
+			var(--spacing-xl) [full-end];
+	}
+}
+
+/* xl: vertical nav fixed, aligned with [left-start] */
+@media (min-width: 75rem) {
+	.site-header {
+		position: fixed;
+		top: var(--spacing-max);
+		/* Align with [left-start]: 50vw - fixed - content-half */
+		left: calc(50vw - var(--layout-fixed) - var(--layout-content-half));
+		width: var(--layout-fixed);
+
+		/* Reset mobile styles */
+		display: block;
+		margin-block-start: 0;
+		background: transparent;
+	}
+
+	.site-nav {
+		display: block;
+		height: auto;
+	}
+
+	.nav-list {
+		flex-direction: column;
+		gap: var(--spacing-xxxs);
+	}
+}
+
+
+/* ─────────────────────────────────────────
+	 Section: Intro
+	 ───────────────────────────────────────── */
+
 .section#intro {
-	padding-block-start: var(--spacing-max);
+	/* Spacing after header nav */
+	padding-block-start: var(--spacing-xxl);
 	min-height: 100vh;
 
 	h1 {
@@ -34,13 +193,28 @@
 	h1 span {
 		display: block;
 	}
+
 	.intro-greeting {
 		font-size: var(--font-size-5);
 		line-height: var(--line-height-3);
 
-		@media (min-width: var(--bp-md)) {
+		@media (min-width: 48rem) {
 			font-size: var(--font-size-6);
 			line-height: var(--line-height-2);
+		}
+	}
+
+	@media (min-width: 75rem) {
+		/* On xl, header is fixed so intro needs top spacing */
+		padding-block-start: var(--spacing-max);
+
+		h1 {
+			position: relative;
+		}
+
+		.intro-greeting {
+			position: absolute;
+			top: calc(-1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-lg)));
 		}
 	}
 }
@@ -64,11 +238,13 @@
 
 
 /* ─────────────────────────────────────────
-	 Others
+	 Dividers
 	 ───────────────────────────────────────── */
 
 hr.division {
 	border: 0;
 	height: var(--border-width-hairline);
 	background: var(--border-default);
+	width: 100%;
+	margin: 0;
 }
