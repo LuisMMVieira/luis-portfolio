@@ -1,79 +1,8 @@
 @import "./reset.css";
 @import "./fonts.css";
 @import "./tokens.css";
+@import "./grid.css";
 @import "./global.css";
-
-
-/* ─────────────────────────────────────────
-	 Grid System
-	 ───────────────────────────────────────── */
-
-/*
-	Grid xs (mobile):
-	[outer] [middle] [outer]
-
-	Grid md (tablet):
-	[outer] [middle-left | gutter | middle-right] [outer]
-
-	Grid xl (desktop):
-	[outer] [left | gutter] [middle-left | gutter | middle-right] [right] [outer]
-*/
-
-.section {
-	display: grid;
-	padding-block: var(--spacing-max);
-
-	/* xs: simple 3-column grid */
-	grid-template-columns:
-		[full-start] var(--spacing-md)
-		[content-start] 1fr [content-end]
-		var(--spacing-md) [full-end];
-}
-
-/* Place container in content area */
-.section > .container {
-	grid-column: content;
-}
-
-/* md: wider outer padding */
-@media (min-width: 48rem) {
-	.section {
-		grid-template-columns:
-			[full-start] var(--spacing-xl)
-			[content-start] 1fr [content-end]
-			var(--spacing-xl) [full-end];
-	}
-}
-
-/* xl: symmetric grid per Figma specs */
-@media (min-width: 75rem) {
-	:root {
-		/* Layout values for xl grid */
-		--layout-fixed: 200px;
-		--layout-content-half: 340px;
-	}
-
-	.section {
-		grid-template-columns:
-			[full-start] minmax(var(--spacing-xl), 1fr)
-			[left-start] var(--layout-fixed) [left-end content-start]
-			minmax(0, var(--layout-content-half)) [content-middle]
-			minmax(0, var(--layout-content-half)) [content-end right-start]
-			var(--layout-fixed) [right-end]
-			minmax(var(--spacing-xl), 1fr) [full-end];
-		/*
-			outer (min 40px, grows) |
-			200px fixed |
-			content (max 680px split in 2) |
-			200px fixed |
-			outer (min 40px, grows)
-		*/
-	}
-
-	.section > .container {
-		grid-column: content-start / content-end;
-	}
-}
 
 
 /* ─────────────────────────────────────────

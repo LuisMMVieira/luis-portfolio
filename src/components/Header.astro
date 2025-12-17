@@ -1,6 +1,6 @@
 ---
 const navItems = [
-  { href: "#intro", label: "Intro", active: true },
+  { href: "#intro", label: "Intro" },
   { href: "#work", label: "Work" },
   { href: "#values", label: "Values" },
   { href: "#background", label: "Background" },
@@ -12,9 +12,9 @@ const navItems = [
   <nav class="site-nav" aria-label="Main navigation">
     <ul class="nav-list">
       {
-        navItems.map(({ href, label, active }) => (
+        navItems.map(({ href, label }) => (
           <li>
-            <a href={href} class:list={["nav-link", { "is-active": active }]}>
+            <a href={href} class="nav-link">
               {label}
             </a>
           </li>

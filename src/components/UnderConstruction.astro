@@ -1,0 +1,41 @@
+---
+// Only show in production
+const isProduction = import.meta.env.PROD;
+---
+
+{
+  isProduction && (
+    <div class="construction-overlay">
+      <div class="construction-content">
+        <h1>Under Construction</h1>
+        <p>Something new is coming soon.</p>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .construction-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .construction-content {
+    text-align: center;
+  }
+
+  .construction-content h1 {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-6);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .construction-content p {
+    color: var(--text-secondary);
+  }
+</style>
