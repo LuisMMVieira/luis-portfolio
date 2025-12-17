@@ -15,22 +15,17 @@
 	top: 0;
 	z-index: 100;
 
-	/* Match section grid */
-	display: grid;
-	grid-template-columns:
-		[full-start] var(--spacing-md)
-		[content-start] 1fr [content-end]
-		var(--spacing-md) [full-end];
-
 	/* Initial offset: 96px = 6rem */
 	margin-block-start: 6rem;
+
+	/* Padding aligns with section grid */
+	padding-inline: var(--spacing-md);
 
 	/* Transparent background - blends with page */
 	background: var(--bg-default);
 }
 
 .site-nav {
-	grid-column: content;
 
 	/* xs: nav row */
 	display: flex;
@@ -66,10 +61,7 @@
 /* md: wider outer padding */
 @media (min-width: 48rem) {
 	.site-header {
-		grid-template-columns:
-			[full-start] var(--spacing-xl)
-			[content-start] 1fr [content-end]
-			var(--spacing-xl) [full-end];
+		padding-inline: var(--spacing-xl);
 	}
 }
 
@@ -81,11 +73,17 @@
 		/* Align with [left-start]: 50vw - fixed - content-half */
 		left: calc(50vw - var(--layout-fixed) - var(--layout-content-half));
 		width: var(--layout-fixed);
+		margin-top: 0;
 
 		/* Reset mobile styles */
 		display: block;
-		margin-block-start: 0;
+		padding-inline: 0;
 		background: transparent;
+	}
+
+	.site-header.is-sticky {
+		/* Override sticky behavior on xl */
+		position: fixed;
 	}
 
 	.site-nav {
@@ -106,7 +104,7 @@
 
 .section#intro {
 	/* Spacing after header nav */
-	padding-block-start: var(--spacing-xxl);
+	padding-block-start: var(--spacing-lg);
 	min-height: 100vh;
 
 	h1 {
@@ -139,6 +137,7 @@
 
 		h1 {
 			position: relative;
+			bottom: var(--spacing-xxs);
 		}
 
 		.intro-greeting {
