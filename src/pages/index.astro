@@ -1,12 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
 import IntroContent from "../content/intro.md";
-import WorkContent from "../content/work.md";
 import AboutContent from "../content/about.md";
 import ValuesContent from "../content/values.md";
 import BackgroundContent from "../content/background.md";
+
+// Get all projects, sorted by order
+const projects = (await getCollection('projects'))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout>
@@ -17,7 +23,16 @@ import BackgroundContent from "../content/background.md";
   <hr class="division" />
 
   <Section id="work" class="home-section-grid">
-    <WorkContent />
+    <div class="projects-list">
+      {projects.map((project) => (
+        <ProjectCard
+          slug={project.slug}
+          title={project.data.title}
+          description={project.data.description}
+          cover={project.data.cover}
+        />
+      ))}
+    </div>
   </Section>
 
   <hr class="division" />

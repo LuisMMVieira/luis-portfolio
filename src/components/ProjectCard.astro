@@ -1,0 +1,103 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  cover: string;
+}
+
+const { slug, title, description, cover } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-card-image">
+    <img src={cover} alt={title} loading="lazy" />
+  </div>
+  <div class="project-card-info">
+    <h3 class="project-card-title">{title}</h3>
+    <p class="project-card-description">{description}</p>
+    <a href={`#${slug}`} class="project-card-link" data-project={slug}>
+      Read more
+    </a>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .project-card-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated);
+  }
+
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .project-card-title {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-3);
+    margin: 0;
+  }
+
+  .project-card-description {
+    font-family: var(--type-body-font-family);
+    font-size: var(--type-body-font-size);
+    line-height: var(--type-body-line-height);
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .project-card-link {
+    font-family: var(--type-body-font-family);
+    font-size: var(--type-body-font-size);
+    line-height: var(--type-body-line-height);
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    margin-top: var(--spacing-xs);
+  }
+
+  .project-card-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* xl: use section grid */
+  @media (min-width: 75rem) {
+    .project-card {
+      display: grid;
+      grid-column: content-start / full-end;
+      grid-template-columns: 
+        [content-start] minmax(0, var(--layout-content-half)) [content-middle]
+        minmax(0, var(--layout-content-half)) [content-end right-start]
+        var(--layout-fixed) [right-end];
+      gap: 0;
+      align-items: start;
+    }
+
+    .project-card-image {
+      grid-column: content-start / content-end;
+      border-radius: 0;
+    }
+
+    .project-card-info {
+      grid-column: right-start / right-end;
+      padding-block-start: var(--spacing-xs);
+    }
+  }
+</style>
+

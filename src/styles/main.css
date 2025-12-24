@@ -10,27 +10,23 @@
 	 ───────────────────────────────────────── */
 
 .site-header {
-	/* Sticky: starts at 96px, sticks at top when scrolling */
-	position: sticky;
+	position: fixed;
 	top: 0;
+	left: 0;
+	right: 0;
 	z-index: 100;
-
-	/* Initial offset: 96px = 6rem */
-	margin-block-start: 6rem;
 
 	/* Padding aligns with section grid */
 	padding-inline: var(--spacing-md);
 
-	/* Transparent background - blends with page */
 	background: var(--bg-default);
 }
 
 .site-nav {
-
-	/* xs: nav row */
 	display: flex;
 	align-items: center;
-	height: 57px;
+	padding-block-start: var(--spacing-md);
+	padding-block-end: var(--spacing-sm);
 }
 
 .nav-list {
@@ -65,30 +61,20 @@
 	}
 }
 
-/* xl: vertical nav fixed, aligned with [left-start] */
+/* xl: vertical nav on the left */
 @media (min-width: 75rem) {
 	.site-header {
-		position: fixed;
 		top: var(--spacing-max);
-		/* Align with [left-start]: 50vw - fixed - content-half */
 		left: calc(50vw - var(--layout-fixed) - var(--layout-content-half));
+		right: auto;
 		width: var(--layout-fixed);
-		margin-top: 0;
-
-		/* Reset mobile styles */
-		display: block;
 		padding-inline: 0;
 		background: transparent;
 	}
 
-	.site-header.is-sticky {
-		/* Override sticky behavior on xl */
-		position: fixed;
-	}
-
 	.site-nav {
 		display: block;
-		height: auto;
+		padding-block: 0;
 	}
 
 	.nav-list {
@@ -103,11 +89,10 @@
 	 ───────────────────────────────────────── */
 
 .section#intro {
-	/* Spacing after header nav */
-	padding-block-start: var(--spacing-lg);
 	min-height: 100vh;
 
 	h1 {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-md);
@@ -121,29 +106,39 @@
 		display: block;
 	}
 
+	.intro-headline {
+		text-wrap: balance;
+	}
+	
 	.intro-greeting {
+		position: absolute;
 		font-size: var(--font-size-5);
 		line-height: var(--line-height-3);
+		top: calc(-1 * (var(--font-size-5) * var(--line-height-3) + var(--spacing-md)));
 
 		@media (min-width: 48rem) {
 			font-size: var(--font-size-6);
 			line-height: var(--line-height-2);
-		}
-	}
-
-	@media (min-width: 75rem) {
-		/* On xl, header is fixed so intro needs top spacing */
-		padding-block-start: var(--spacing-max);
-
-		h1 {
-			position: relative;
-			bottom: var(--spacing-xxs);
-		}
-
-		.intro-greeting {
-			position: absolute;
 			top: calc(-1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-lg)));
 		}
+	}
+}
+
+
+/* ─────────────────────────────────────────
+	 Section: Work
+	 ───────────────────────────────────────── */
+
+.projects-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxl);
+	grid-column: content;
+}
+
+@media (min-width: 75rem) {
+	.projects-list {
+		grid-column: content-start / full-end;
 	}
 }
 

@@ -2,6 +2,7 @@
 import "../styles/main.css";
 import Header from "../components/Header.astro";
 import PasswordGate from "../components/PasswordGate.astro";
+import ProjectModal from "../components/ProjectModal.astro";
 
 const {
   title = "Luis Vieira—Digital Product Designer",
@@ -41,17 +42,14 @@ const {
   </head>
   <body>
     <PasswordGate />
-    <div
-      id="intro"
-      style="position: absolute; top: 0; height: 0; width: 0; pointer-events: none;"
-    >
-    </div>
     <div class="page">
       <Header />
       <main class="content">
         <slot />
       </main>
     </div>
+
+    <ProjectModal />
 
     <script type="module" src="/scripts/main.js"></script>
   </body>

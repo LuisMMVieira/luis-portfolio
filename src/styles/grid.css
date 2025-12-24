@@ -43,8 +43,8 @@
 @media (min-width: 75rem) {
 	:root {
 		/* Layout values for xl grid */
-		--layout-fixed: 200px;
-		--layout-content-half: 340px;
+		--layout-fixed: 240px;
+		--layout-content-half: 320px;
 	}
 
 	.section {
@@ -57,9 +57,9 @@
 			minmax(var(--spacing-xl), 1fr) [full-end];
 		/*
 			outer (min 40px, grows) |
-			200px fixed |
-			content (max 680px split in 2) |
-			200px fixed |
+			240px fixed |
+			content (max 640px split in 2) |
+			240px fixed |
 			outer (min 40px, grows)
 		*/
 	}

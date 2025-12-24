@@ -1,16 +1,3 @@
-// Handle Intro link click - scroll to top
-(function () {
-  const introLink = document.querySelector('.nav-link[href="#intro"]');
-  if (introLink) {
-    introLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      // Update URL without triggering scroll
-      history.pushState(null, "", "#intro");
-    });
-  }
-})();
-
 // Scroll Spy: Activate nav item when section reaches top of viewport
 (function () {
   const sections = document.querySelectorAll(".section[id]");
@@ -18,46 +5,25 @@
 
   if (!sections.length || !navLinks.length) return;
 
-  function updateActiveLink(targetId) {
-    navLinks.forEach((link) => link.classList.remove("is-active"));
-    if (targetId) {
-      const activeLink = document.querySelector(
-        `.nav-link[href="#${targetId}"]`
-      );
-      if (activeLink) {
-        activeLink.classList.add("is-active");
-      }
-    }
-  }
-
-  function checkActiveSection() {
-    // If at the top (within 150px), activate intro
-    if (window.scrollY < 150) {
-      updateActiveLink("intro");
-      return;
-    }
-
-    // Check sections with IDs
-    let activeId = null;
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      // Section is active if its top is between -100px and 200px from viewport top
-      if (rect.top <= 200 && rect.top >= -100) {
-        activeId = section.id;
-      }
-    });
-
-    if (activeId) {
-      updateActiveLink(activeId);
-    }
-  }
-
   const observer = new IntersectionObserver(
-    () => {
-      checkActiveSection();
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove active from all links
+          navLinks.forEach((link) => link.classList.remove("is-active"));
+
+          // Add active to matching link
+          const activeLink = document.querySelector(
+            `.nav-link[href="#${entry.target.id}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add("is-active");
+          }
+        }
+      });
     },
     {
-      // Trigger when section top reaches top ~5% of viewport
+      // Trigger when section top reaches top 5% of viewport
       rootMargin: "0px 0px -95% 0px",
       threshold: 0,
     }
@@ -65,26 +31,118 @@
 
   sections.forEach((section) => observer.observe(section));
 
-  // Initial check
-  checkActiveSection();
+  // Set intro as active on initial page load
+  const introLink = document.querySelector('.nav-link[href="#intro"]');
+  if (introLink) {
+    introLink.classList.add("is-active");
+  }
+})();
 
-  // Check on scroll
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        checkActiveSection();
-        ticking = false;
-      });
-      ticking = true;
+// Project Modal: Load project content dynamically
+(function () {
+  const modal = document.getElementById("project-modal");
+  const modalContent = modal?.querySelector(".project-modal-content");
+  const closeBtn = modal?.querySelector(".project-modal-close");
+  const backdrop = modal?.querySelector(".project-modal-backdrop");
+
+  if (!modal || !modalContent) return;
+
+  // Cache for loaded content
+  const contentCache = new Map();
+
+  // List of section IDs to exclude from project modal
+  const sectionIds = ["intro", "work", "values", "background", "about"];
+
+  function openModal(slug) {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    loadContent(slug);
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    // Update URL to remove hash
+    history.pushState(null, "", window.location.pathname);
+  }
+
+  async function loadContent(slug) {
+    // Check cache first
+    if (contentCache.has(slug)) {
+      modalContent.innerHTML = contentCache.get(slug);
+      return;
+    }
+
+    // Show loading state
+    modalContent.innerHTML = "";
+    modalContent.classList.add("is-loading");
+
+    try {
+      const response = await fetch(`/partials/projects/${slug}/`);
+      if (!response.ok) throw new Error("Failed to load project");
+
+      const html = await response.text();
+
+      // Extract body content from the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const content = doc.body.innerHTML;
+
+      // Cache and display
+      contentCache.set(slug, content);
+      modalContent.classList.remove("is-loading");
+      modalContent.innerHTML = content;
+    } catch (error) {
+      console.error("Error loading project:", error);
+      modalContent.classList.remove("is-loading");
+      modalContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+    }
+  }
+
+  // Handle project link clicks
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-project]");
+    if (link) {
+      e.preventDefault();
+      const slug = link.dataset.project;
+      history.pushState(null, "", `#${slug}`);
+      openModal(slug);
     }
   });
 
-  // Set intro as active on initial page load if at top or no hash
-  const hash = window.location.hash;
-  if (!hash || hash === "#intro") {
-    if (window.scrollY < 150) {
-      updateActiveLink("intro");
+  // Close button
+  closeBtn?.addEventListener("click", closeModal);
+
+  // Backdrop click
+  backdrop?.addEventListener("click", closeModal);
+
+  // ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+
+  // Handle hash on page load and hash change
+  function checkHash() {
+    const hash = window.location.hash.slice(1);
+    if (hash && !sectionIds.includes(hash)) {
+      openModal(hash);
     }
   }
+
+  // Check hash on load
+  checkHash();
+
+  // Handle browser back/forward
+  window.addEventListener("popstate", () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && !sectionIds.includes(hash)) {
+      openModal(hash);
+    } else {
+      closeModal();
+    }
+  });
 })();
