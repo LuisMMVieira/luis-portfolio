@@ -76,15 +76,12 @@ const { slug, title, description, cover } = Astro.props;
     text-decoration-thickness: 2px;
   }
 
-  /* xl: use section grid */
+  /* xl: use parent grid via subgrid */
   @media (min-width: 75rem) {
     .project-card {
       display: grid;
-      grid-column: content-start / full-end;
-      grid-template-columns: 
-        [content-start] minmax(0, var(--layout-content-half)) [content-middle]
-        minmax(0, var(--layout-content-half)) [content-end right-start]
-        var(--layout-fixed) [right-end];
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
       gap: 0;
       align-items: start;
     }

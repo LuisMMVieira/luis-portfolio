@@ -44,16 +44,19 @@ h1 {
 	font-family: var(--type-hero-font-family);
 	font-size: var(--type-hero-font-size);
 	line-height: var(--type-hero-line-height);
+	letter-spacing: -0.02em;
 }
 
 h2 {
 	font-size: var(--type-title-1-font-size);
 	line-height: var(--type-title-1-line-height);
+	letter-spacing: -0.02em;
 }
 
 h3 {
 	font-size: var(--type-title-2-font-size);
 	line-height: var(--type-title-2-line-height);
+	letter-spacing: -0.02em;
 }
 
 /* Text */

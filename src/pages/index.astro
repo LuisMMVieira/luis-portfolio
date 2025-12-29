@@ -22,18 +22,20 @@ const projects = (await getCollection('projects'))
 
   <hr class="division" />
 
-  <Section id="work" class="home-section-grid">
-    <div class="projects-list">
-      {projects.map((project) => (
-        <ProjectCard
-          slug={project.slug}
-          title={project.data.title}
-          description={project.data.description}
-          cover={project.data.cover}
-        />
-      ))}
+  <section id="work" class="section home-section-grid">
+    <div class="projects-list-wrapper">
+      <div class="projects-list">
+        {projects.map((project) => (
+          <ProjectCard
+            slug={project.slug}
+            title={project.data.title}
+            description={project.data.description}
+            cover={project.data.cover}
+          />
+        ))}
+      </div>
     </div>
-  </Section>
+  </section>
 
   <hr class="division" />
 

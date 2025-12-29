@@ -129,16 +129,33 @@
 	 Section: Work
 	 ───────────────────────────────────────── */
 
-.projects-list {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-xxl);
+.projects-list-wrapper {
 	grid-column: content;
 }
 
 @media (min-width: 75rem) {
-	.projects-list {
+	.projects-list-wrapper {
 		grid-column: content-start / full-end;
+		display: grid;
+		grid-template-columns: 
+			[content-start] minmax(0, var(--layout-content-half)) [content-middle]
+			minmax(0, var(--layout-content-half)) [content-end right-start]
+			var(--layout-fixed) [right-end];
+	}
+}
+
+.projects-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxl);
+}
+
+@media (min-width: 75rem) {
+	.projects-list {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+		gap: var(--spacing-xxl);
 	}
 }
 
