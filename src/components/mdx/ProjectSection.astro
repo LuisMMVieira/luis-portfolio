@@ -1,0 +1,122 @@
+---
+interface Props {
+  inverted?: boolean;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  inverted = false,
+  image = "/images/Placeholder.png",
+  imageAlt = "",
+} = Astro.props;
+const isInverted = inverted === true;
+---
+
+<section class={`project-section-default ${isInverted ? "is-inverted" : ""}`}>
+  <div class="project-section-text">
+    <slot />
+  </div>
+  <div class="project-section-image">
+    <img src={image} alt={imageAlt} class="project-image" />
+  </div>
+</section>
+
+<style>
+  .project-section-default {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: 640px;
+  }
+
+  .project-section-text {
+    padding: var(--spacing-xl);
+    padding-block-end: var(--spacing-xl);
+  }
+
+  .project-section-image {
+    flex: 1 0 0;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* md: side-by-side layout */
+  @media (min-width: 48rem) {
+    .project-section-default {
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .project-section-default:not(.is-inverted) .project-section-text {
+      order: 1;
+      width: 50%;
+      padding: var(--spacing-xl);
+      padding-block-end: var(--spacing-xl);
+    }
+
+    .project-section-default:not(.is-inverted) .project-section-image {
+      order: 2;
+      width: 50%;
+    }
+
+    .project-section-default.is-inverted .project-section-text {
+      order: 2;
+      width: 50%;
+      padding: var(--spacing-xl);
+      padding-block-end: var(--spacing-xl);
+    }
+
+    .project-section-default.is-inverted .project-section-image {
+      order: 1;
+      width: 50%;
+    }
+  }
+
+  /* xl: sticky text */
+  @media (min-width: 75rem) {
+    .project-section-default {
+      position: relative;
+    }
+
+    .project-section-text {
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      padding: var(--spacing-xl);
+      padding-block-end: var(--spacing-xl);
+      max-width: 400px;
+    }
+
+    .project-section-default:not(.is-inverted) .project-section-text {
+      order: 1;
+      width: auto;
+    }
+
+    .project-section-default:not(.is-inverted) .project-section-image {
+      order: 2;
+      width: auto;
+      flex: 1;
+    }
+
+    .project-section-default.is-inverted .project-section-text {
+      order: 2;
+      width: auto;
+    }
+
+    .project-section-default.is-inverted .project-section-image {
+      order: 1;
+      width: auto;
+      flex: 1;
+    }
+  }
+</style>

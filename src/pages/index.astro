@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import ProjectCard from "../components/ProjectCard.astro";
@@ -10,8 +10,8 @@ import ValuesContent from "../content/values.md";
 import BackgroundContent from "../content/background.md";
 
 // Get all projects, sorted by order
-const projects = (await getCollection('projects'))
-  .filter(project => !project.data.draft)
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -25,14 +25,16 @@ const projects = (await getCollection('projects'))
   <section id="work" class="section home-section-grid">
     <div class="projects-list-wrapper">
       <div class="projects-list">
-        {projects.map((project) => (
-          <ProjectCard
-            slug={project.slug}
-            title={project.data.title}
-            description={project.data.description}
-            cover={project.data.cover}
-          />
-        ))}
+        {
+          projects.map((project) => (
+            <ProjectCard
+              slug={project.slug}
+              title={project.data.title}
+              description={project.data.description}
+              cover={project.data.cover}
+            />
+          ))
+        }
       </div>
     </div>
   </section>

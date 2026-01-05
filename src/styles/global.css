@@ -81,3 +81,8 @@ small {
 	 hr.division {
 			color: var(--border-default);
 	 }
+
+/* Images - no rounded corners */
+img {
+	border-radius: 0;
+}

@@ -61,11 +61,25 @@
   }
 
   function closeModal() {
+    // Add closing class to trigger animation while keeping visibility
+    modal.classList.add("is-closing");
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
-    // Update URL to remove hash
-    history.pushState(null, "", window.location.pathname);
+
+    // Wait for animation to complete before hiding visibility
+    const container = modal.querySelector(".project-modal-container");
+    const handleTransitionEnd = (e) => {
+      // Only handle transform transition, ignore other transitions
+      if (e.target === container && e.propertyName === "transform") {
+        container.removeEventListener("transitionend", handleTransitionEnd);
+        modal.classList.remove("is-closing");
+        // Update URL to remove hash after animation
+        history.pushState(null, "", window.location.pathname);
+      }
+    };
+
+    container.addEventListener("transitionend", handleTransitionEnd);
   }
 
   async function loadContent(slug) {

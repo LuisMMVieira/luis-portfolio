@@ -1,28 +1,61 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from "astro:content";
+import ProjectSection from "../../../components/mdx/ProjectSection.astro";
+import ProjectCentered from "../../../components/mdx/ProjectCentered.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection("projects");
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
 }
 
-const { project } = Astro.props;
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props as Props;
 const { Content } = await project.render();
 ---
 
-<img 
-  src={project.data.cover} 
-  alt={project.data.title}
-  class="project-cover"
-/>
-
-<h1>{project.data.title}</h1>
-<p class="project-description">{project.data.description}</p>
-
-<div class="project-content">
-  <Content />
+<div class="project-header-wrapper">
+  <ProjectSection
+    image={project.data.cover}
+    imageAlt={project.data.title}
+    inverted={false}
+  >
+    <div class="project-header">
+      <div class="project-header-title">
+        <h1 class="project-title">{project.data.title}</h1>
+        <p class="project-subtitle">{project.data.description}</p>
+      </div>
+      <div class="project-header-meta">
+        <hr class="project-meta-divider" />
+        <div class="project-meta">
+          <div class="project-meta-item">
+            <span class="project-meta-label">Role:</span>
+            <span class="project-meta-value">{project.data.role}</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Scope:</span>
+            <span class="project-meta-value">{project.data.scope}</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Duration:</span>
+            <span class="project-meta-value">{project.data.duration}</span>
+          </div>
+          <div class="project-meta-item">
+            <span class="project-meta-label">Context:</span>
+            <span class="project-meta-value">{project.data.context}</span>
+          </div>
+        </div>
+        <hr class="project-meta-divider" />
+      </div>
+    </div>
+  </ProjectSection>
 </div>
 
+<div class="project-content">
+  <Content components={{ ProjectSection, ProjectCentered }} />
+</div>

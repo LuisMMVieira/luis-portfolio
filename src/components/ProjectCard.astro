@@ -31,7 +31,6 @@ const { slug, title, description, cover } = Astro.props;
   .project-card-image {
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    border-radius: var(--radius-sm);
     background: var(--bg-elevated);
   }
 
@@ -88,7 +87,6 @@ const { slug, title, description, cover } = Astro.props;
 
     .project-card-image {
       grid-column: content-start / content-end;
-      border-radius: 0;
     }
 
     .project-card-info {
@@ -97,4 +95,3 @@ const { slug, title, description, cover } = Astro.props;
     }
   }
 </style>
-
