@@ -28,7 +28,7 @@
 
   /* ─────────────────────────────────────────
 		Spacing (px → rem)
-		base: 16px
+		base: 14px
 		───────────────────────────────────────── */
 
   --spacing-none: 0;
@@ -147,8 +147,8 @@
   /* Nav / S */
   --type-nav-font-family: var(--font-family-sans);
   --type-nav-font-weight: var(--font-weight-regular);
-  --type-nav-font-size: var(--font-size-1); /* 12px */
-  --type-nav-line-height: var(--line-height-3); /* 120% */
+  --type-nav-font-size: var(--font-size-2); /* 12px */
+  --type-nav-line-height: var(--line-height-4); /* 120% */
 
   --type-nav-active-font-weight: var(--font-weight-semibold);
 

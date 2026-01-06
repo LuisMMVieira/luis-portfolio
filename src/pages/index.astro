@@ -11,7 +11,7 @@ import BackgroundContent from "../content/background.md";
 
 // Get all projects, sorted by order
 const projects = (await getCollection("projects"))
-  .filter((project) => !project.data.draft)
+  .filter((project) => !project.data.draft && project.slug !== "TEMPLATE")
   .sort((a, b) => a.data.order - b.data.order);
 ---
 

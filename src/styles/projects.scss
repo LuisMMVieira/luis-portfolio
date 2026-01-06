@@ -64,13 +64,14 @@
 
 .project-modal-close {
   position: absolute;
-  top: var(--spacing-modal);
-  right: var(--spacing-modal);
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs);
   border: none;
+  outline: none;
   background: transparent;
   cursor: pointer;
   opacity: 0;
