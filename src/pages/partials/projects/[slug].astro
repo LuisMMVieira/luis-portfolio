@@ -31,7 +31,6 @@ const { Content } = await project.render();
         <p class="project-subtitle">{project.data.description}</p>
       </div>
       <div class="project-header-meta">
-        <hr class="project-meta-divider" />
         <div class="project-meta">
           <div class="project-meta-item">
             <span class="project-meta-label">Role:</span>
@@ -50,12 +49,16 @@ const { Content } = await project.render();
             <span class="project-meta-value">{project.data.context}</span>
           </div>
         </div>
-        <hr class="project-meta-divider" />
       </div>
     </div>
   </ProjectSection>
 </div>
 
 <div class="project-content">
+  {project.data.intro && (
+    <ProjectCentered>
+      <p class="project-intro">{project.data.intro}</p>
+    </ProjectCentered>
+  )}
   <Content components={{ ProjectSection, ProjectCentered }} />
 </div>

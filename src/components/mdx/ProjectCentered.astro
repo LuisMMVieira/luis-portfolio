@@ -7,35 +7,3 @@
     <slot />
   </div>
 </section>
-
-<style>
-  .project-section-centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    padding: var(--spacing-xl);
-  }
-
-  .project-centered-content {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  @media (min-width: 48rem) {
-    .project-section-centered {
-      padding: var(--spacing-xl);
-    }
-
-    .project-centered-content {
-      max-width: 768px;
-    }
-  }
-
-  @media (min-width: 75rem) {
-    .project-centered-content {
-      max-width: 1200px;
-    }
-  }
-</style>

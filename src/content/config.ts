@@ -10,6 +10,7 @@ const projects = defineCollection({
     scope: z.string(),
     duration: z.string(),
     context: z.string(),
+    intro: z.string().optional(),
     order: z.number(),
     draft: z.boolean().optional().default(false),
   }),

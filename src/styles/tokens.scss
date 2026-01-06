@@ -1,186 +1,189 @@
 :root {
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 		 Base colors
 		 ───────────────────────────────────────── */
 
-	--color-darkest: #000000;
-	--color-superpastel-dark: #0C0C0C;
-	--color-dark: #242424;
-	--color-medium-dark: #464646;
-	--color-base: #808080;
-	--color-medium-light: #B9B9B9;
-	--color-light: #DCDCDC;
-	--color-superpastel-light: #F4F4F4;
-	--color-lightest: #FFFFFF;
+  --color-darkest: #000000;
+  --color-superpastel-dark: #0c0c0c;
+  --color-dark: #242424;
+  --color-medium-dark: #464646;
+  --color-base: #808080;
+  --color-medium-light: #b9b9b9;
+  --color-light: #dcdcdc;
+  --color-superpastel-light: #f4f4f4;
+  --color-lightest: #ffffff;
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 		 Semantic Colors
 		 ───────────────────────────────────────── */
 
-	--bg-default: var(--color-lightest);
-	--bg-elevated: var(--color-superpastel-light);
+  --bg-default: var(--color-lightest);
+  --bg-elevated: var(--color-superpastel-light);
 
-	--text-primary: var(--color-darkest);
-	--text-secondary: var(--color-dark);
+  --text-primary: var(--color-darkest);
+  --text-secondary: var(--color-dark);
 
-	--border-default: var(--color-light);
-	--border-strong: var(--color-medium-dark);
+  --border-default: var(--color-light);
+  --border-strong: var(--color-medium-dark);
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 		Spacing (px → rem)
 		base: 16px
 		───────────────────────────────────────── */
-	
-	--spacing-none: 0;
-	--spacing-xxxs: 0.125rem; /* 2 */
-	--spacing-xxs: 0.25rem;   /* 4 */
-	--spacing-xs: 0.5rem;     /* 8 */
-	--spacing-sm: 0.75rem;    /* 12 */
-	--spacing-md: 1.25rem;   /* 20 */
-	--spacing-lg: 1.75rem;   /* 28 */
-	--spacing-xl: 2.5rem;    /* 40 */
-	--spacing-modal: 2.5rem; /* 44 */
-	--spacing-xxl: 3.5rem;   /* 56 */
-	--spacing-modal-xl: 3rem; /* 48 */
-	--spacing-xxxl: 5rem;    /* 80 */
-	--spacing-huge: 7.5rem;  /* 120 */
-	--spacing-max: 12.5rem;  /* 200 */
 
-	/* ─────────────────────────────────────────
+  --spacing-none: 0;
+  --spacing-xxxs: 0.125rem; /* 2 */
+  --spacing-xxs: 0.25rem; /* 4 */
+  --spacing-xs: 0.5rem; /* 8 */
+  --spacing-sm: 0.75rem; /* 12 */
+  --spacing-md: 1.25rem; /* 20 */
+  --spacing-lg: 1.75rem; /* 28 */
+  --spacing-xl: 2.5rem; /* 40 */
+  --spacing-modal: 2.5rem; /* 44 */
+  --spacing-xxl: 3.5rem; /* 56 */
+  --spacing-modal-xl: 3rem; /* 48 */
+  --spacing-xxxl: 5rem; /* 80 */
+  --spacing-huge: 7.5rem; /* 120 */
+  --spacing-max: 12.5rem; /* 200 */
+
+  /* ─────────────────────────────────────────
+   Layout / Widths
+   ───────────────────────────────────────── */
+
+  --width-text-max: 28rem; /* 448px */
+  --width-section-text: 22.5rem; /* 360px */
+
+  /* ─────────────────────────────────────────
    Borders
    ───────────────────────────────────────── */
 
-	--border-width-hairline: 0.5px;
-	--border-width-default: 1px;
-	--border-width-thick: 2px;
+  --border-width-hairline: 0.5px;
+  --border-width-default: 1px;
+  --border-width-thick: 2px;
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 		Radius
 		───────────────────────────────────────── */
 
-	--radius-xs: 0.25rem;     /* 4 */
-	--radius-sm: 0.5rem;      /* 8 */
-	--radius-md: 1.25rem;    /* 20 */
-	--radius-lg: 2.5rem;     /* 40 */
-	--radius-infinite: 62.5rem; /* 1000 */
+  --radius-xs: 0.25rem; /* 4 */
+  --radius-sm: 0.5rem; /* 8 */
+  --radius-md: 1.25rem; /* 20 */
+  --radius-lg: 2.5rem; /* 40 */
+  --radius-infinite: 62.5rem; /* 1000 */
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 	 Type
 	 ───────────────────────────────────────── */
 
-	/* Families */
-	--font-family-display: "Dazzed", system-ui, sans-serif;
-	--font-family-sans: "Inter", system-ui, sans-serif;
+  /* Families */
+  --font-family-display: "Dazzed", system-ui, sans-serif;
+  --font-family-sans: "Inter", system-ui, sans-serif;
 
-	/* Weights */
-	--font-weight-regular: 400;
-	--font-weight-semibold: 600;
+  /* Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
 
-	/* Font sizes (scale) */
-	--font-size-1: 0.75rem;   /* 12 */
-	--font-size-2: 0.875rem;  /* 14 */
-	--font-size-3: 1rem;      /* 16 */
-	--font-size-4: 1.125rem;  /* 18 */
-	--font-size-5: 1.25rem;   /* 20 */
-	--font-size-6: 1.5rem;    /* 24 */
-	--font-size-7: 1.625rem;  /* 26 */
-	--font-size-8: 2.125rem;  /* 34 */
-	--font-size-9: 2.25rem;   /* 36 */
-	--font-size-10: 3.25rem;  /* 52 */
+  /* Font sizes (scale) */
+  --font-size-1: 0.75rem; /* 12 */
+  --font-size-2: 0.875rem; /* 14 */
+  --font-size-3: 1rem; /* 16 */
+  --font-size-4: 1.125rem; /* 18 */
+  --font-size-5: 1.25rem; /* 20 */
+  --font-size-6: 1.5rem; /* 24 */
+  --font-size-7: 1.625rem; /* 26 */
+  --font-size-8: 2.125rem; /* 34 */
+  --font-size-9: 2.25rem; /* 36 */
+  --font-size-10: 3.25rem; /* 52 */
 
-	/* Line heights (scale) */
-	--line-height-1: 1.04;  /* 104% */
-	--line-height-2: 1.10;  /* 110% */
-	--line-height-3: 1.20;  /* 120% */
-	--line-height-4: 1.25;  /* 125% */
-	--line-height-5: 1.40;  /* 140% */
+  /* Line heights (scale) */
+  --line-height-1: 1.04; /* 104% */
+  --line-height-2: 1.1; /* 110% */
+  --line-height-3: 1.2; /* 120% */
+  --line-height-4: 1.25; /* 125% */
+  --line-height-5: 1.4; /* 140% */
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
 	 Type roles (semantic)
 	 ───────────────────────────────────────── */
 
-	/* Hero */
-	--type-hero-font-family: var(--font-family-display);
-	--type-hero-font-size: var(--font-size-6); /* 24px */
-	--type-hero-line-height: var(--line-height-4); /* 125% */
+  /* Hero */
+  --type-hero-font-family: var(--font-family-display);
+  --type-hero-font-size: var(--font-size-6); /* 24px */
+  --type-hero-line-height: var(--line-height-4); /* 125% */
 
-	/* Title 1 */
-	--type-title-1-font-family: var(--font-family-display);
-	--type-title-1-font-size: var(--font-size-7); /* 26px */
-	--type-title-1-line-height: var(--line-height-4); /* 125% */
+  /* Title 1 */
+  --type-title-1-font-family: var(--font-family-display);
+  --type-title-1-font-size: var(--font-size-7); /* 26px */
+  --type-title-1-line-height: var(--line-height-4); /* 125% */
 
-	/* Title 2 */
-	--type-title-2-font-family: var(--font-family-display);
-	--type-title-2-font-size: var(--font-size-5); /* 20px */
-	--type-title-2-line-height: var(--line-height-4); /* 125% */
+  /* Title 2 */
+  --type-title-2-font-family: var(--font-family-display);
+  --type-title-2-font-size: var(--font-size-5); /* 20px */
+  --type-title-2-line-height: var(--line-height-4); /* 125% */
 
-	/* Title 3 */
-	--type-title-3-font-family: var(--font-family-display);
-	--type-title-3-font-size: var(--font-size-2); /* 14px */
-	--type-title-3-line-height: var(--line-height-4); /* 125% */
+  /* Title 3 */
+  --type-title-3-font-family: var(--font-family-display);
+  --type-title-3-font-size: var(--font-size-2); /* 14px */
+  --type-title-3-line-height: var(--line-height-4); /* 125% */
 
-	/* Paragraph L (default) */
-	--type-body-lg-font-family: var(--font-family-sans);
-	--type-body-lg-font-weight: var(--font-weight-regular);
-	--type-body-lg-font-size: var(--font-size-4); /* 18px */
-	--type-body-lg-line-height: var(--line-height-5); /* 140% */
+  /* Paragraph L (default) */
+  --type-body-lg-font-family: var(--font-family-sans);
+  --type-body-lg-font-weight: var(--font-weight-regular);
+  --type-body-lg-font-size: var(--font-size-4); /* 18px */
+  --type-body-lg-line-height: var(--line-height-5); /* 140% */
 
-	/* Paragraph M (default) */
-	--type-body-font-family: var(--font-family-sans);
-	--type-body-font-weight: var(--font-weight-regular);
-	--type-body-font-size: var(--font-size-4); /* 18px */
-	--type-body-line-height: var(--line-height-5); /* 140% */
+  /* Paragraph M (default) */
+  --type-body-font-family: var(--font-family-sans);
+  --type-body-font-weight: var(--font-weight-regular);
+  --type-body-font-size: var(--font-size-4); /* 18px */
+  --type-body-line-height: var(--line-height-5); /* 140% */
 
-	/* Paragraph S / Caption */
-	--type-caption-font-family: var(--font-family-sans);
-	--type-caption-font-weight: var(--font-weight-regular);
-	--type-caption-font-size: var(--font-size-1); /* 12px */
-	--type-caption-line-height: var(--line-height-5); /* 140% */
+  /* Paragraph S / Caption */
+  --type-caption-font-family: var(--font-family-sans);
+  --type-caption-font-weight: var(--font-weight-regular);
+  --type-caption-font-size: var(--font-size-1); /* 12px */
+  --type-caption-line-height: var(--line-height-5); /* 140% */
 
-	/* Nav */
-	--type-nav-font-family: var(--font-family-sans);
-	--type-nav-font-weight: var(--font-weight-regular);
-	--type-nav-font-size: var(--font-size-2); /* 14px */
-	--type-nav-line-height: var(--line-height-3); /* 120% */
+  /* Nav / S */
+  --type-nav-font-family: var(--font-family-sans);
+  --type-nav-font-weight: var(--font-weight-regular);
+  --type-nav-font-size: var(--font-size-1); /* 12px */
+  --type-nav-line-height: var(--line-height-3); /* 120% */
 
-	--type-nav-active-font-weight: var(--font-weight-semibold);
+  --type-nav-active-font-weight: var(--font-weight-semibold);
 
-	/* ─────────────────────────────────────────
+  /* ─────────────────────────────────────────
    Breakpoints (reference)
    ───────────────────────────────────────── */
 
-	--bp-md: 48rem;   /* 768px */
-	--bp-lg: 75rem;   /* 1200px */
+  --bp-md: 48rem; /* 768px */
+  --bp-lg: 75rem; /* 1200px */
 }
 
 @media (min-width: 48rem) {
-	:root {
-		/* Hero - Tablet */
-		--type-hero-font-size: var(--font-size-9); /* 36px */
-		--type-hero-line-height: var(--line-height-2); /* 110% */
-		
-		/* Title 1 - Tablet */
-		--type-title-1-font-size: var(--font-size-8); /* 34px */
-		--type-title-1-line-height: var(--line-height-3); /* 120% */
-		
-		/* Title 2 - Tablet */
-		--type-title-2-font-size: var(--font-size-7); /* 26px */
-		--type-title-2-line-height: var(--line-height-3); /* 120% */
-		
-		/* Title 3 - Tablet */
-		--type-title-3-font-size: var(--font-size-3); /* 16px */
-		--type-title-3-line-height: var(--line-height-4); /* 125% */
-	}
+  :root {
+    /* Hero - Tablet */
+    --type-hero-font-size: var(--font-size-9); /* 36px */
+    --type-hero-line-height: var(--line-height-2); /* 110% */
+
+    /* Title 1 - Tablet */
+    --type-title-1-font-size: var(--font-size-8); /* 34px */
+    --type-title-1-line-height: var(--line-height-3); /* 120% */
+
+    /* Title 2 - Tablet */
+    --type-title-2-font-size: var(--font-size-7); /* 26px */
+    --type-title-2-line-height: var(--line-height-3); /* 120% */
+
+    /* Title 3 - Tablet */
+    --type-title-3-font-size: var(--font-size-3); /* 16px */
+    --type-title-3-line-height: var(--line-height-4); /* 125% */
+  }
 }
 
 @media (min-width: 75rem) {
-	:root {
-		/* Hero - Desktop */
-		--type-hero-font-size: var(--font-size-10); /* 52px */
-		--type-hero-line-height: var(--line-height-1); /* 104% */
-		
-		/* Nav - Desktop */
-		--type-nav-font-size: var(--font-size-3); /* 16px */
-		--type-nav-line-height: var(--line-height-3); /* 120% */
-	}
+  :root {
+    /* Hero - Desktop */
+    --type-hero-font-size: var(--font-size-10); /* 52px */
+    --type-hero-line-height: var(--line-height-1); /* 104% */
+  }
 }

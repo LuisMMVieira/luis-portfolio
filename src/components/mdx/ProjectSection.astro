@@ -82,10 +82,11 @@ const isInverted = inverted === true;
     }
   }
 
-  /* xl: sticky text */
+  /* xl: sticky text - always text left, image right (like header layout) */
   @media (min-width: 75rem) {
     .project-section-default {
       position: relative;
+      flex-direction: row;
     }
 
     .project-section-text {
@@ -94,28 +95,11 @@ const isInverted = inverted === true;
       align-self: flex-start;
       padding: var(--spacing-xxl);
       padding-block-end: var(--spacing-xxl);
-      max-width: 400px;
-    }
-
-    .project-section-default:not(.is-inverted) .project-section-text {
       order: 1;
-      width: auto;
     }
 
-    .project-section-default:not(.is-inverted) .project-section-image {
+    .project-section-image {
       order: 2;
-      width: auto;
-      flex: 1;
-    }
-
-    .project-section-default.is-inverted .project-section-text {
-      order: 2;
-      width: auto;
-    }
-
-    .project-section-default.is-inverted .project-section-image {
-      order: 1;
-      width: auto;
       flex: 1;
     }
   }
