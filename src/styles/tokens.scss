@@ -1,22 +1,21 @@
 :root {
-/* ─────────────────────────────────────────
-	 Base colors
-	 ───────────────────────────────────────── */
+	/* ─────────────────────────────────────────
+		 Base colors
+		 ───────────────────────────────────────── */
 
-	 --color-darkest: #000000;
-	 --color-superpastel-dark: #0C0C0C;
-	 --color-dark: #242424;
-	 --color-medium-dark: #464646;
-	 --color-base: #808080;
-	 --color-medium-light: #B9B9B9;
-	 --color-light: #DCDCDC;
-	 --color-superpastel-light: #F4F4F4;
-	 --color-lightest: #FFFFFF;
+	--color-darkest: #000000;
+	--color-superpastel-dark: #0C0C0C;
+	--color-dark: #242424;
+	--color-medium-dark: #464646;
+	--color-base: #808080;
+	--color-medium-light: #B9B9B9;
+	--color-light: #DCDCDC;
+	--color-superpastel-light: #F4F4F4;
+	--color-lightest: #FFFFFF;
 
-
-/* ─────────────────────────────────────────
-	 Semantic Colors
-	 ───────────────────────────────────────── */
+	/* ─────────────────────────────────────────
+		 Semantic Colors
+		 ───────────────────────────────────────── */
 
 	--bg-default: var(--color-lightest);
 	--bg-elevated: var(--color-superpastel-light);
@@ -27,8 +26,7 @@
 	--border-default: var(--color-light);
 	--border-strong: var(--color-medium-dark);
 
-
-/* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
 		Spacing (px → rem)
 		base: 16px
 		───────────────────────────────────────── */
@@ -48,17 +46,15 @@
 	--spacing-huge: 7.5rem;  /* 120 */
 	--spacing-max: 12.5rem;  /* 200 */
 
-
 	/* ─────────────────────────────────────────
    Borders
    ───────────────────────────────────────── */
 
-	 --border-width-hairline: 0.5px;
-	 --border-width-default: 1px;
-	 --border-width-thick: 2px;
+	--border-width-hairline: 0.5px;
+	--border-width-default: 1px;
+	--border-width-thick: 2px;
 
-
-/* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
 		Radius
 		───────────────────────────────────────── */
 
@@ -68,7 +64,7 @@
 	--radius-lg: 2.5rem;     /* 40 */
 	--radius-infinite: 62.5rem; /* 1000 */
 
-/* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
 	 Type
 	 ───────────────────────────────────────── */
 
@@ -99,11 +95,11 @@
 	--line-height-4: 1.25;  /* 125% */
 	--line-height-5: 1.40;  /* 140% */
 
-/* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
 	 Type roles (semantic)
 	 ───────────────────────────────────────── */
 
-	 /* Hero */
+	/* Hero */
 	--type-hero-font-family: var(--font-family-display);
 	--type-hero-font-size: var(--font-size-6); /* 24px */
 	--type-hero-line-height: var(--line-height-4); /* 125% */
@@ -149,15 +145,13 @@
 
 	--type-nav-active-font-weight: var(--font-weight-semibold);
 
-/* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
    Breakpoints (reference)
    ───────────────────────────────────────── */
 
-	 --bp-md: 48rem;   /* 768px */
-	 --bp-lg: 75rem;   /* 1200px */
-
+	--bp-md: 48rem;   /* 768px */
+	--bp-lg: 75rem;   /* 1200px */
 }
-
 
 @media (min-width: 48rem) {
 	:root {

@@ -17,7 +17,7 @@ body {
 }
 
 .page {
-  min-height: 100vh;
+	min-height: 100vh;
 }
 
 /* Inline emphasis */
@@ -78,9 +78,9 @@ small {
 	 Other elements
 	 ───────────────────────────────────────── */
 
-	 hr.division {
-			color: var(--border-default);
-	 }
+hr.division {
+	color: var(--border-default);
+}
 
 /* Images - no rounded corners */
 img {

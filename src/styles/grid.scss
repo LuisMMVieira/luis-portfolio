@@ -22,32 +22,22 @@
 		[full-start] var(--spacing-md)
 		[content-start] 1fr [content-end]
 		var(--spacing-md) [full-end];
-}
 
-/* Place container in content area */
-.section > .container {
-	grid-column: content;
-}
+	/* Place container in content area */
+	> .container {
+		grid-column: content;
+	}
 
-/* md: wider outer padding */
-@media (min-width: 48rem) {
-	.section {
+	/* md: wider outer padding */
+	@media (min-width: 48rem) {
 		grid-template-columns:
 			[full-start] var(--spacing-xl)
 			[content-start] 1fr [content-end]
 			var(--spacing-xl) [full-end];
 	}
-}
 
-/* xl: symmetric grid per Figma specs */
-@media (min-width: 75rem) {
-	:root {
-		/* Layout values for xl grid */
-		--layout-fixed: 240px;
-		--layout-content-half: 320px;
-	}
-
-	.section {
+	/* xl: symmetric grid per Figma specs */
+	@media (min-width: 75rem) {
 		grid-template-columns:
 			[full-start] minmax(var(--spacing-xl), 1fr)
 			[left-start] var(--layout-fixed) [left-end content-start]
@@ -62,10 +52,17 @@
 			240px fixed |
 			outer (min 40px, grows)
 		*/
-	}
 
-	.section > .container {
-		grid-column: content-start / content-end;
+		> .container {
+			grid-column: content-start / content-end;
+		}
 	}
 }
 
+/* xl: Layout values for xl grid */
+@media (min-width: 75rem) {
+	:root {
+		--layout-fixed: 240px;
+		--layout-content-half: 320px;
+	}
+}
