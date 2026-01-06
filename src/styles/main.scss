@@ -306,12 +306,12 @@ hr.division {
 	.project-header-wrapper {
 		.project-section-default {
 			min-height: auto;
+			display: flex;
 			flex-direction: column;
 
-			.project-section-image {
-				aspect-ratio: 16 / 10;
-				min-height: 0;
-			}
+		.project-section-image {
+			min-height: 0;
+		}
 
 			/* xs/md: stacked layout - image first, content second */
 			&:not(.is-inverted) {
@@ -497,6 +497,10 @@ hr.division {
 		font-size: var(--type-body-font-size);
 		line-height: var(--type-body-line-height);
 		color: var(--text-primary);
+		display: flex;
+		flex-direction: column;
+		padding-inline: var(--spacing-md);
+		gap: var(--spacing-md);
 
 		h2 {
 			font-family: var(--type-title-2-font-family);
