@@ -108,8 +108,8 @@
 
   /* Hero */
   --type-hero-font-family: var(--font-family-display);
-  --type-hero-font-size: var(--font-size-6); /* 24px */
-  --type-hero-line-height: var(--line-height-4); /* 125% */
+  --type-hero-font-size: var(--font-size-8); /* 24px */
+  --type-hero-line-height: var(--line-height-2); /* 125% */
 
   /* Title 1 */
   --type-title-1-font-family: var(--font-family-display);
@@ -163,8 +163,8 @@
 @media (min-width: 48rem) {
   :root {
     /* Hero - Tablet */
-    --type-hero-font-size: var(--font-size-9); /* 36px */
-    --type-hero-line-height: var(--line-height-2); /* 110% */
+    --type-hero-font-size: var(--font-size-10); /* 36px */
+    --type-hero-line-height: var(--line-height-1); /* 110% */
 
     /* Title 1 - Tablet */
     --type-title-1-font-size: var(--font-size-8); /* 34px */
