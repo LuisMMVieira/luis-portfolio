@@ -19,10 +19,12 @@ const hasImageSlot = Astro.slots.has("image");
     <slot />
   </div>
   <div class="project-section-image">
-    {hasImageSlot ? (
-      <slot name="image" />
-    ) : (
-      <img src={image} alt={imageAlt} class="project-image" />
-    )}
+    {
+      hasImageSlot ? (
+        <slot name="image" />
+      ) : (
+        <img src={image} alt={imageAlt} class="project-image" />
+      )
+    }
   </div>
 </section>
