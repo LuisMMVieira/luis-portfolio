@@ -712,20 +712,22 @@
     }
 
     .project-header {
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
+      align-items: flex-start;
       gap: var(--spacing-xl);
-      padding-block-start: var(--spacing-huge);
-      height: 100%;
+      padding-block-start: 0;
+      height: auto;
     }
 
     .project-header-title {
-      flex: 0 0 auto;
+      flex: 1;
     }
 
     .project-header-meta {
       flex-direction: column;
-      width: 100%;
+      width: 280px;
+      flex: 0 0 auto;
     }
   }
 }
