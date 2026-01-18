@@ -2,31 +2,10 @@
 title: "About Me"
 ---
 
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
+I'm a Senior Digital Product Designer with 8+ years building digital products that work. Currently at Spaceship, where I was core to building the platform from zero over 6 years. Before that, I spent years in web and print design, learning how structure and clarity create meaning.
 
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
+I think in systems. I document obsessively. I bridge the gap between design intent and engineering reality through specs that teams can actually build from. My strength is making complex things buildable—not through cleverness, but through disciplined thinking and clear communication.
 
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
+I'm looking for my next role at an early-stage AI startup where design is a strategic advantage, not an afterthought. If you're building something hard and need someone who can think through the entire system—not just paint pixels—let's talk.
 
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
-I’m a Senior Digital Product Designer focused on creating clear, purposeful digital products. My work lives at the intersection of design, product and technology — balancing thoughtful systems, practical execution and meaningful experiences. My background began in the arts and evolved into design, shaped by a lifelong drive to create, learn and perform.
-
-I’m always open to new collaborations and conversations. If you would like to work together or simply say hello, feel free to reach out via email.
+**Email:** [hello@luisvieira.pt](mailto:hello@luisvieira.pt)
