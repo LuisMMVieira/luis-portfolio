@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import ProjectSection from "../../../components/mdx/ProjectSection.astro";
 import ProjectCentered from "../../../components/mdx/ProjectCentered.astro";
+import Figure from "../../../components/mdx/Figure.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -74,5 +75,5 @@ const introParagraphs = project.data.intro
       </ProjectCentered>
     )
   }
-  <Content components={{ ProjectSection, ProjectCentered }} />
+  <Content components={{ ProjectSection, ProjectCentered, Figure }} />
 </div>

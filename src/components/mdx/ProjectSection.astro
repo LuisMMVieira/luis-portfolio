@@ -11,6 +11,7 @@ const {
   imageAlt = "",
 } = Astro.props;
 const isInverted = inverted === true;
+const hasImageSlot = Astro.slots.has("image");
 ---
 
 <section class={`project-section-default ${isInverted ? "is-inverted" : ""}`}>
@@ -18,6 +19,10 @@ const isInverted = inverted === true;
     <slot />
   </div>
   <div class="project-section-image">
-    <img src={image} alt={imageAlt} class="project-image" />
+    {hasImageSlot ? (
+      <slot name="image" />
+    ) : (
+      <img src={image} alt={imageAlt} class="project-image" />
+    )}
   </div>
 </section>

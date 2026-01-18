@@ -439,8 +439,10 @@
     flex: 1 0 0;
     min-height: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--spacing-xl);
   }
 
   .project-image {
@@ -449,6 +451,45 @@
     object-fit: cover;
     display: block;
   }
+
+  // When figures are in the image area
+  .project-section-image .project-figure {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+/* ─────────────────────────────────────────
+	 Project Figure (with caption)
+	 ───────────────────────────────────────── */
+
+.project-figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin: 0;
+}
+
+.project-figure .project-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.project-figure video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-figure-caption {
+  font-family: var(--type-caption-font-family);
+  font-size: var(--type-caption-font-size);
+  line-height: var(--type-caption-line-height);
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* ─────────────────────────────────────────
@@ -616,7 +657,7 @@
     }
     .project-section-default {
       flex-direction: row;
-      height: 640px;
+      min-height: 640px;
 
       /* xl: two-column layout - text left, image right (normal order) */
       .project-section-text {
@@ -633,6 +674,7 @@
           order: 2;
           width: auto;
           flex: 1;
+          align-self: flex-start;
         }
       }
 
@@ -645,6 +687,7 @@
           order: 1;
           width: auto;
           flex: 1;
+          align-self: flex-start;
         }
       }
     }
