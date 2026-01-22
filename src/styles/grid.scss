@@ -14,38 +14,47 @@
 */
 
 .section {
-	display: grid;
-	padding-block: var(--spacing-max);
+  display: grid;
+  /* xs: simple 3-column grid */
+  grid-template-columns:
+    [full-start] var(--spacing-md)
+    [content-start] 1fr [content-end]
+    var(--spacing-md) [full-end];
+  padding-inline: var(--spacing-sm);
 
-	/* xs: simple 3-column grid */
-	grid-template-columns:
-		[full-start] var(--spacing-md)
-		[content-start] 1fr [content-end]
-		var(--spacing-md) [full-end];
+  /* Place container in content area */
+  > .container {
+    grid-column: content;
+  }
 
-	/* Place container in content area */
-	> .container {
-		grid-column: content;
-	}
+  .flow {
+    max-width: 100%;
 
-	/* md: wider outer padding */
-	@media (min-width: 48rem) {
-		grid-template-columns:
-			[full-start] var(--spacing-xl)
-			[content-start] 1fr [content-end]
-			var(--spacing-xl) [full-end];
-	}
+    p {
+      max-width: 100%;
+    }
+  }
 
-	/* xl: symmetric grid per Figma specs */
-	@media (min-width: 75rem) {
-		grid-template-columns:
-			[full-start] minmax(var(--spacing-xl), 1fr)
-			[left-start] var(--layout-fixed) [left-end content-start]
-			minmax(0, var(--layout-content-half)) [content-middle]
-			minmax(0, var(--layout-content-half)) [content-end right-start]
-			var(--layout-fixed) [right-end]
-			minmax(var(--spacing-xl), 1fr) [full-end];
-		/*
+  /* md: wider outer padding */
+  @media (min-width: 48rem) {
+    grid-template-columns:
+      [full-start] var(--spacing-xl)
+      [content-start] 1fr [content-end]
+      var(--spacing-xl) [full-end];
+    padding-inline: var(--spacing-md);
+    padding-block: var(--spacing-xl);
+  }
+
+  /* xl: symmetric grid per Figma specs */
+  @media (min-width: 75rem) {
+    grid-template-columns:
+      [full-start] minmax(var(--spacing-xl), 1fr)
+      [left-start] var(--layout-fixed) [left-end content-start]
+      minmax(0, var(--layout-content-half)) [content-middle]
+      minmax(0, var(--layout-content-half)) [content-end right-start]
+      var(--layout-fixed) [right-end]
+      minmax(var(--spacing-xl), 1fr) [full-end];
+    /*
 			outer (min 40px, grows) |
 			240px fixed |
 			content (max 640px split in 2) |
@@ -53,16 +62,16 @@
 			outer (min 40px, grows)
 		*/
 
-		> .container {
-			grid-column: content-start / content-end;
-		}
-	}
+    > .container {
+      grid-column: content-start / content-end;
+    }
+  }
 }
 
 /* xl: Layout values for xl grid */
 @media (min-width: 75rem) {
-	:root {
-		--layout-fixed: 240px;
-		--layout-content-half: 320px;
-	}
+  :root {
+    --layout-fixed: 240px;
+    --layout-content-half: 320px;
+  }
 }

@@ -3,6 +3,8 @@ html {
   background: var(--bg-default);
   color: var(--text-primary);
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -10,6 +12,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  width: 100%;
 
   font-family: var(--type-body-font-family);
   font-size: 1rem; /* Use root font size */
@@ -89,4 +92,23 @@ hr.division {
 /* Images - no rounded corners */
 img {
   border-radius: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+video, figure {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better text wrapping */
+h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Prevent horizontal scroll */
+* {
+  max-width: 100%;
 }
