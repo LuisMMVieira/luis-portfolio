@@ -381,7 +381,8 @@
 	 ───────────────────────────────────────── */
 
 .project-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-sm);
 }
 
@@ -391,12 +392,12 @@
   cursor: pointer;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
 
   img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    object-fit: contain;
   }
 }
 
@@ -474,14 +475,9 @@
     align-items: stretch;
     justify-content: flex-start;
     gap: var(--spacing-md);
-    padding: var(--spacing-md);
-    padding-top: 0;
   }
 
   /* Force header image to top on mobile */
-  &:first-child .project-section-image {
-    padding-top: var(--spacing-md);
-  }
 
   .project-image {
     width: 100%;
@@ -566,12 +562,6 @@
       width: 50%;
     }
   }
-
-  .project-section-text {
-    padding-inline: var(--spacing-xl);
-    padding-block: var(--spacing-xl);
-  }
-
   .project-modal-content {
     .project-header-wrapper {
       /* Header-specific: keep stacked layout on md */
@@ -664,23 +654,6 @@
 
 /* Desktop (xl) - 75rem / 1200px */
 @media (min-width: 75rem) {
-  .project-card {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    gap: 0;
-    align-items: start;
-  }
-
-  .project-card-image {
-    grid-column: content-start / content-end;
-  }
-
-  .project-card-info {
-    grid-column: right-start / right-end;
-    padding-block-start: var(--spacing-xs);
-  }
-
   .project-modal {
     padding-block-start: var(--spacing-modal-xl);
     padding-block-end: 0;
@@ -753,8 +726,6 @@
       .project-section-text {
         width: var(--width-section-text);
         padding-inline: var(--spacing-lg);
-        padding: var(--spacing-xxl);
-        padding-block-end: var(--spacing-xxl);
 
         h2 {
           font-size: var(--type-title-2-font-size);
@@ -814,12 +785,12 @@
     }
 
     .project-header {
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
       gap: var(--spacing-xl);
       padding-block-start: 0;
-      height: auto;
+      height: 100%;
     }
 
     .project-header-title {

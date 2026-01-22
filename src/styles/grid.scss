@@ -20,8 +20,6 @@
     [full-start] var(--spacing-md)
     [content-start] 1fr [content-end]
     var(--spacing-md) [full-end];
-  padding-inline: var(--spacing-sm);
-
   /* Place container in content area */
   > .container {
     grid-column: content;
@@ -29,6 +27,7 @@
 
   .flow {
     max-width: 100%;
+    padding-block: var(--spacing-huge); /* 120 */
 
     p {
       max-width: 100%;
@@ -41,29 +40,31 @@
       [full-start] var(--spacing-xl)
       [content-start] 1fr [content-end]
       var(--spacing-xl) [full-end];
-    padding-inline: var(--spacing-md);
-    padding-block: var(--spacing-xl);
   }
 
-  /* xl: symmetric grid per Figma specs */
+  /* xl: 3-column grid - centered, left (nav), content (640px), right */
   @media (min-width: 75rem) {
+    /* Center the 3-column grid: total width = 240 + 640 + 240 = 1120px */
     grid-template-columns:
-      [full-start] minmax(var(--spacing-xl), 1fr)
+      [full-start] minmax(0, 1fr)
       [left-start] var(--layout-fixed) [left-end content-start]
-      minmax(0, var(--layout-content-half)) [content-middle]
-      minmax(0, var(--layout-content-half)) [content-end right-start]
+      var(--layout-content-full) [content-end right-start]
       var(--layout-fixed) [right-end]
-      minmax(var(--spacing-xl), 1fr) [full-end];
+      minmax(0, 1fr) [full-end];
     /*
-			outer (min 40px, grows) |
-			240px fixed |
-			content (max 640px split in 2) |
-			240px fixed |
-			outer (min 40px, grows)
+			auto (centers grid) |
+			240px fixed (nav) |
+			640px fixed (content) |
+			240px fixed (right) |
+			auto (centers grid)
 		*/
 
     > .container {
       grid-column: content-start / content-end;
+    }
+
+    .flow {
+      padding-block: var(--spacing-max); /* 200 */
     }
   }
 }

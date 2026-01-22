@@ -8,4 +8,4 @@ I think in systems. I document obsessively. I bridge the gap between design inte
 
 I'm looking for my next role at an early-stage AI startup where design is a strategic advantage, not an afterthought. If you're building something hard and need someone who can think through the entire system—not just paint pixels—let's talk.
 
-**Email:** [hello@luisvieira.pt](mailto:hello@luisvieira.pt)
+**Email:** [lmmvieira@gmail.com](mailto:lmmvieira@gmail.com)

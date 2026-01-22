@@ -92,11 +92,20 @@
 }
 
 /* ─────────────────────────────────────────
+	 Section: About
+	 ───────────────────────────────────────── */
+
+.section#about {
+  min-height: 100vh;
+}
+
+/* ─────────────────────────────────────────
 	 Section: Work
 	 ───────────────────────────────────────── */
 
 .projects-list-wrapper {
-  grid-column: content;
+  display: flex;
+  flex-direction: column;
 }
 
 .projects-list {
@@ -185,7 +194,8 @@ hr.division {
 @media (min-width: 75rem) {
   .site-header {
     top: var(--spacing-max);
-    left: calc(50vw - var(--layout-fixed) - var(--layout-content-half));
+    /* Position in left column of centered 3-column grid */
+    left: calc(50vw - var(--layout-content-full) / 2 - var(--layout-fixed));
     right: auto;
     width: var(--layout-fixed);
     padding-inline: 0;
@@ -218,21 +228,6 @@ hr.division {
     gap: var(--spacing-xxs);
   }
 
-  .projects-list-wrapper {
-    grid-column: content-start / full-end;
-    display: grid;
-    grid-template-columns:
-      [content-start] minmax(0, var(--layout-content-half)) [content-middle]
-      minmax(0, var(--layout-content-half)) [content-end right-start]
-      var(--layout-fixed) [right-end];
-  }
-
-  .projects-list {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: subgrid;
-    gap: var(--spacing-xxl);
-  }
 
   .section#intro {
     h1 {
