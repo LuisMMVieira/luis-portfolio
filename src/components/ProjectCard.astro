@@ -21,3 +21,72 @@ const { slug, title, description, cover } = Astro.props;
     </a>
   </div>
 </article>
+
+<style lang="scss">
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .project-card-image {
+    overflow: hidden;
+    background: var(--bg-elevated);
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  .project-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .project-card-title {
+    font-family: var(--font-family-display);
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    line-height: var(--line-height-3);
+    margin: 0;
+  }
+
+  .project-card-description {
+    font-family: var(--type-body-font-family);
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    line-height: var(--type-body-line-height);
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .project-card-link {
+    font-family: var(--type-body-font-family);
+    font-size: var(--type-body-font-size);
+    line-height: var(--type-body-line-height);
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    margin-top: var(--spacing-xs);
+
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 75rem) {
+    .project-card-title {
+      font-size: var(--font-size-5);
+    }
+
+    .project-card-description {
+      font-size: var(--type-body-font-size);
+    }
+  }
+</style>

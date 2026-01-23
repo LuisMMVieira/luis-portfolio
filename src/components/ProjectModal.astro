@@ -26,8 +26,199 @@
   </div>
 </div>
 
-<style is:global>
+<style lang="scss">
+  .project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    visibility: hidden;
+    padding-block-start: 0;
+    pointer-events: none;
+    width: 100%;
+
+    &.is-open,
+    &.is-closing {
+      visibility: visible;
+    }
+
+    &.is-open {
+      pointer-events: auto;
+
+      .project-modal-close {
+        opacity: 1;
+      }
+    }
+
+    &.is-closing {
+      .project-modal-close {
+        opacity: 0;
+        transition-delay: 0s;
+      }
+    }
+  }
+
+  .project-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: oklch(0% 0 none / 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .project-modal.is-open .project-modal-backdrop {
+    opacity: 1;
+  }
+
+  .project-modal-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--bg-default);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .project-modal.is-open .project-modal-container {
+    transform: translateY(0);
+  }
+
+  .project-modal-close {
+    position: fixed;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    border: none;
+    outline: none;
+    background: var(--bg-default);
+    border-radius: var(--radius-infinite);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.4s;
+    z-index: 1001;
+
+    &:hover {
+      .project-modal-close-icon {
+        background: var(--bg-elevated);
+      }
+    }
+  }
+
+  .project-modal-close-text {
+    display: none;
+    font-family: var(--type-caption-font-family);
+    font-size: var(--type-caption-font-size);
+    line-height: var(--type-caption-line-height);
+    color: var(--color-medium-light);
+  }
+
+  .project-modal-close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-default);
+    color: var(--text-primary);
+    border-radius: var(--radius-infinite);
+    transition: background 0.2s ease;
+  }
+
+  /* Desktop */
+  @media (min-width: 75rem) {
+    .project-modal {
+      padding-block-start: var(--spacing-modal-xl);
+      padding-block-end: 0;
+    }
+
+    .project-modal-container {
+      width: 95vw;
+      max-width: var(--width-modal-max);
+    }
+
+    .project-modal-close {
+      position: absolute;
+      top: var(--spacing-xs);
+      right: var(--spacing-xs);
+      background: transparent;
+    }
+
+    .project-modal-close-text {
+      display: inline;
+    }
+  }
+</style>
+
+<style is:global lang="scss">
   body.modal-open {
     overflow: hidden;
+  }
+
+  /* Project Modal Content - Must be global because content is loaded dynamically */
+  .project-modal-content {
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Loading state */
+    &.is-loading {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid var(--border-default);
+        border-top-color: var(--text-primary);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+    }
+
+    /* General content styles */
+    ul,
+    ol {
+      margin: 0 0 var(--spacing-md);
+      padding-left: var(--spacing-lg);
+    }
+
+    li {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    strong {
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 75rem) {
+    .project-modal-content {
+      padding: 0;
+    }
   }
 </style>

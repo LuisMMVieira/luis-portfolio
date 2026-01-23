@@ -1,62 +1,9 @@
-@import "./reset.scss";
-@import "./fonts.scss";
-@import "./tokens.scss";
-@import "./grid.scss";
-@import "./global.scss";
-@import "./projects.scss";
-
-/* ─────────────────────────────────────────
-	 Header & Navigation
-	 ───────────────────────────────────────── */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding-inline: var(--spacing-sm);
-  background: var(--bg-default);
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  padding-block-start: var(--spacing-sm);
-  padding-block-end: var(--spacing-xs);
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
-
-  li {
-    display: contents;
-  }
-}
-
-.nav-link {
-  font-family: var(--type-nav-font-family);
-  font-size: var(--type-nav-font-size);
-  line-height: var(--type-nav-line-height);
-  font-weight: var(--type-nav-font-weight);
-  color: var(--text-primary);
-  opacity: 0.6;
-  text-decoration: none;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  /* Active state */
-  &.is-active {
-    font-weight: var(--type-nav-active-font-weight);
-    color: var(--text-primary);
-    opacity: 1;
-  }
-}
+@import './reset.scss';
+@import './fonts.scss';
+@import './tokens.scss';
+@import './grid.scss';
+@import './global.scss';
+@import './project-content.scss';
 
 /* ─────────────────────────────────────────
 	 Section: Intro
@@ -150,10 +97,6 @@ hr.division {
 
 /* Tablet (md) - 48rem / 768px */
 @media (min-width: 48rem) {
-  .site-header {
-    padding-inline: var(--spacing-md);
-  }
-
   .section#intro {
     padding-inline: var(--spacing-md);
 
@@ -165,74 +108,26 @@ hr.division {
       position: absolute;
       font-size: var(--font-size-6);
       line-height: var(--line-height-2);
-      top: calc(
-        -1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-md))
-      );
-    }
-  }
-}
-
-/* Tablet only (md) - 48rem to 74.99rem */
-@media (min-width: 48rem) and (max-width: 74.99rem) {
-  .section#intro {
-    padding-inline: var(--spacing-md);
-
-    h1 {
-      gap: var(--spacing-md);
-    }
-
-    .intro-greeting {
-      position: absolute;
-      top: calc(
-        -1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-md))
-      );
+      top: calc(-1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-md)));
     }
   }
 }
 
 /* Desktop (xl) - 75rem / 1200px */
 @media (min-width: 75rem) {
-  .site-header {
-    top: var(--spacing-max);
-    /* Position in left column of centered 3-column grid */
-    left: calc(50vw - var(--layout-content-full) / 2 - var(--layout-fixed));
-    right: auto;
-    width: var(--layout-fixed);
-    padding-inline: 0;
-    background: transparent;
-  }
-
   .section#intro {
     min-height: 100vh;
 
     h1 {
       gap: var(--spacing-lg);
+      grid-column: content-start / content-end;
+      max-width: none;
     }
 
     .intro-greeting {
       font-size: var(--font-size-6);
       line-height: var(--line-height-2);
-      top: calc(
-        -1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-lg))
-      );
-    }
-  }
-
-  .site-nav {
-    display: block;
-    padding-block: 0;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    gap: var(--spacing-xxs);
-  }
-
-
-  .section#intro {
-    h1 {
-      grid-column: content-start / content-end;
-      max-width: none;
+      top: calc(-1 * (var(--font-size-6) * var(--line-height-2) + var(--spacing-lg)));
     }
   }
 }

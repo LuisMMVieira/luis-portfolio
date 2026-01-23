@@ -1,166 +1,10 @@
 /* ─────────────────────────────────────────
-	 Project Modal
-	 ───────────────────────────────────────── */
+   Project Content (Global Styles)
+   These styles must be global because project
+   content is loaded dynamically via JavaScript
+   ───────────────────────────────────────── */
 
-.project-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  visibility: hidden;
-  padding-block-start: 0;
-  pointer-events: none;
-  width: 100%;
-
-  &.is-open,
-  &.is-closing {
-    visibility: visible;
-  }
-
-  &.is-open {
-    pointer-events: auto;
-
-    .project-modal-close {
-      opacity: 1;
-    }
-  }
-
-  &.is-closing {
-    .project-modal-close {
-      opacity: 0;
-      transition-delay: 0s;
-    }
-  }
-}
-
-.project-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.project-modal.is-open .project-modal-backdrop {
-  opacity: 1;
-}
-
-.project-modal-container {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  background: var(--bg-default);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.project-modal.is-open .project-modal-container {
-  transform: translateY(0);
-}
-
-.project-modal-close {
-  position: fixed;
-  top: var(--spacing-xs);
-  right: var(--spacing-xs);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs);
-  border: none;
-  outline: none;
-  background: var(--bg-default);
-  border-radius: var(--radius-infinite);
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease 0.4s;
-  z-index: 1001;
-
-  &:hover {
-    .project-modal-close-icon {
-      background: var(--bg-elevated);
-    }
-  }
-}
-
-.project-modal-close-text {
-  display: none;
-  font-family: var(--type-caption-font-family);
-  font-size: var(--type-caption-font-size);
-  line-height: var(--type-caption-line-height);
-  color: var(--color-medium-light);
-}
-
-.project-modal-close-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--bg-default);
-  color: var(--text-primary);
-  border-radius: var(--radius-infinite);
-  transition: background 0.2s ease;
-}
-
-/* ─────────────────────────────────────────
-	 Project Modal Content
-	 ───────────────────────────────────────── */
-
-.project-modal-content {
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Loading state */
-  &.is-loading {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &::after {
-      content: "";
-      width: 2rem;
-      height: 2rem;
-      border: 2px solid var(--border-default);
-      border-top-color: var(--text-primary);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-  }
-
-  /* General content styles */
-  ul,
-  ol {
-    margin: 0 0 var(--spacing-md);
-    padding-left: var(--spacing-lg);
-  }
-
-  li {
-    margin-bottom: var(--spacing-xs);
-  }
-
-  strong {
-    font-weight: var(--font-weight-semibold);
-  }
-}
-
-/* ─────────────────────────────────────────
-	 Project Section Text (General)
-	 ───────────────────────────────────────── */
-
+/* Project Section Text (General) */
 .project-section-text {
   font-family: var(--type-body-font-family);
   font-size: var(--type-body-font-size);
@@ -197,10 +41,7 @@
   }
 }
 
-/* ─────────────────────────────────────────
-	 Project Section Default
-	 ───────────────────────────────────────── */
-
+/* Project Section Default - Used in modal content */
 .project-modal-content {
   .project-section-default {
     margin: 0;
@@ -228,7 +69,7 @@
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
-    max-width: 1280px;
+    max-width: var(--width-container-max);
     margin: 0 auto;
     font-family: var(--type-body-font-family);
     font-size: var(--type-body-font-size);
@@ -278,13 +119,8 @@
       }
     }
   }
-}
 
-/* ─────────────────────────────────────────
-	 Project Header (Specific)
-	 ───────────────────────────────────────── */
-
-.project-modal-content {
+  /* Project Header */
   .project-header-wrapper {
     /* Header-specific: image first on xs/md */
     .project-section-default:not(.is-inverted) {
@@ -370,76 +206,7 @@
   }
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ─────────────────────────────────────────
-	 Project Card
-	 ───────────────────────────────────────── */
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.project-card-image {
-  overflow: hidden;
-  background: var(--bg-elevated);
-  cursor: pointer;
-  width: 100%;
-  height: auto;
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-}
-
-.project-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.project-card-title {
-  font-family: var(--font-family-display);
-  font-size: clamp(1.25rem, 5vw, 1.75rem);
-  line-height: var(--line-height-3);
-  margin: 0;
-}
-
-.project-card-description {
-  font-family: var(--type-body-font-family);
-  font-size: clamp(0.9rem, 3.5vw, 1rem);
-  line-height: var(--type-body-line-height);
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.project-card-link {
-  font-family: var(--type-body-font-family);
-  font-size: var(--type-body-font-size);
-  line-height: var(--type-body-line-height);
-  color: var(--text-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  margin-top: var(--spacing-xs);
-
-  &:hover {
-    text-decoration-thickness: 2px;
-  }
-}
-
-/* ─────────────────────────────────────────
-	 Project Section Default (Component)
-	 ───────────────────────────────────────── */
-
+/* Project Section Default (Component) */
 .project-section-default {
   display: flex;
   flex-direction: column;
@@ -477,8 +244,6 @@
     gap: var(--spacing-md);
   }
 
-  /* Force header image to top on mobile */
-
   .project-image {
     width: 100%;
     height: 100%;
@@ -486,17 +251,14 @@
     display: block;
   }
 
-  // When figures are in the image area
+  /* When figures are in the image area */
   .project-section-image .project-figure {
     flex: 0 0 auto;
     width: 100%;
   }
 }
 
-/* ─────────────────────────────────────────
-	 Project Figure (with caption)
-	 ───────────────────────────────────────── */
-
+/* Project Figure */
 .project-figure {
   display: flex;
   flex-direction: column;
@@ -529,8 +291,8 @@
 }
 
 /* ─────────────────────────────────────────
-	 Media Queries
-	 ───────────────────────────────────────── */
+   Responsive Styles
+   ───────────────────────────────────────── */
 
 /* Tablet (md) - 48rem / 768px */
 @media (min-width: 48rem) {
@@ -562,6 +324,7 @@
       width: 50%;
     }
   }
+
   .project-modal-content {
     .project-header-wrapper {
       /* Header-specific: keep stacked layout on md */
@@ -588,7 +351,7 @@
 
     .project-header-meta {
       flex: 0 0 auto;
-      width: 280px;
+      width: var(--width-thumbnail);
     }
 
     .project-section-centered {
@@ -654,30 +417,7 @@
 
 /* Desktop (xl) - 75rem / 1200px */
 @media (min-width: 75rem) {
-  .project-modal {
-    padding-block-start: var(--spacing-modal-xl);
-    padding-block-end: 0;
-  }
-
-  .project-modal-container {
-    width: 95vw;
-    max-width: 1360px;
-  }
-
-  .project-modal-close {
-    position: absolute;
-    top: var(--spacing-xs);
-    right: var(--spacing-xs);
-    background: transparent;
-  }
-
-  .project-modal-close-text {
-    display: inline;
-  }
-
   .project-modal-content {
-    padding: 0;
-
     .project-header {
       gap: var(--spacing-xl);
       padding-block-start: var(--spacing-huge);
@@ -701,7 +441,7 @@
     .project-section-centered {
       padding-inline: var(--spacing-md);
       padding-block: var(--spacing-xl);
-      min-height: 480px;
+      min-height: var(--height-image-min-md);
     }
 
     .project-centered-content {
@@ -720,7 +460,7 @@
 
     .project-section-default {
       flex-direction: row;
-      min-height: 640px;
+      min-height: var(--height-image-min-lg);
 
       /* xl: two-column layout - text left, image right (normal order) */
       .project-section-text {
@@ -799,7 +539,7 @@
 
     .project-header-meta {
       flex-direction: column;
-      width: 280px;
+      width: var(--width-thumbnail);
       flex: 0 0 auto;
     }
 
@@ -810,14 +550,6 @@
         font-size: var(--type-caption-font-size);
         padding-inline: 0;
       }
-    }
-
-    .project-card-title {
-      font-size: var(--font-size-5);
-    }
-
-    .project-card-description {
-      font-size: var(--type-body-font-size);
     }
   }
 }

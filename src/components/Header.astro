@@ -23,3 +23,84 @@ const navItems = [
     </ul>
   </nav>
 </header>
+
+<style lang="scss">
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding-inline: var(--spacing-sm);
+    background: var(--bg-default);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    padding-block-start: var(--spacing-sm);
+    padding-block-end: var(--spacing-xs);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+
+    li {
+      display: contents;
+    }
+  }
+
+  .nav-link {
+    font-family: var(--type-nav-font-family);
+    font-size: var(--type-nav-font-size);
+    line-height: var(--type-nav-line-height);
+    font-weight: var(--type-nav-font-weight);
+    color: var(--text-primary);
+    opacity: 0.6;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    /* Active state */
+    &.is-active {
+      font-weight: var(--type-nav-active-font-weight);
+      color: var(--text-primary);
+      opacity: 1;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 48rem) {
+    .site-header {
+      padding-inline: var(--spacing-md);
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 75rem) {
+    .site-header {
+      top: var(--spacing-max);
+      /* Position in left column of centered 3-column grid */
+      left: calc(50vw - var(--layout-content-full) / 2 - var(--layout-fixed));
+      right: auto;
+      width: var(--layout-fixed);
+      padding-inline: 0;
+      background: transparent;
+    }
+
+    .site-nav {
+      display: block;
+      padding-block: 0;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: var(--spacing-xxs);
+    }
+  }
+</style>
