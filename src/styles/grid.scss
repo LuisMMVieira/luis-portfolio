@@ -72,7 +72,7 @@
 /* xl: Layout values for xl grid */
 @media (min-width: 75rem) {
   :root {
-    --layout-fixed: 240px;
-    --layout-content-half: 320px;
+    --layout-fixed: 15rem; /* 240px */
+    --layout-content-half: 20rem; /* 320px */
   }
 }

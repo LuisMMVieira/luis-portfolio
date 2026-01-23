@@ -96,19 +96,20 @@ img {
   height: auto;
 }
 
-video, figure {
+video,
+figure {
   max-width: 100%;
   height: auto;
 }
 
 /* Better text wrapping */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-}
-
-/* Prevent horizontal scroll */
-* {
-  max-width: 100%;
 }

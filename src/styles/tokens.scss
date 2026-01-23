@@ -1,17 +1,17 @@
 :root {
   /* ─────────────────────────────────────────
-		 Base colors
+		 Base colors (OKLCH - perceptually uniform)
 		 ───────────────────────────────────────── */
 
-  --color-darkest: #000000;
-  --color-superpastel-dark: #0c0c0c;
-  --color-dark: #242424;
-  --color-medium-dark: #464646;
-  --color-base: #808080;
-  --color-medium-light: #b9b9b9;
-  --color-light: #dcdcdc;
-  --color-superpastel-light: #f4f4f4;
-  --color-lightest: #ffffff;
+  --color-darkest: oklch(0% 0 none);
+  --color-superpastel-dark: oklch(6% 0 none);
+  --color-dark: oklch(17% 0 none);
+  --color-medium-dark: oklch(33% 0 none);
+  --color-base: oklch(60% 0 none);
+  --color-medium-light: oklch(77% 0 none);
+  --color-light: oklch(89% 0 none);
+  --color-superpastel-light: oklch(96% 0 none);
+  --color-lightest: oklch(100% 0 none);
 
   /* ─────────────────────────────────────────
 		 Semantic Colors
@@ -53,6 +53,13 @@
   --width-text-max: 28rem; /* 448px */
   --width-section-text: 22.5rem; /* 360px */
   --layout-content-full: 40rem; /* 640px */
+  --width-container-max: 80rem; /* 1280px */
+  --width-modal-max: 85rem; /* 1360px */
+  --width-thumbnail: 17.5rem; /* 280px */
+
+  /* Heights */
+  --height-image-min-md: 30rem; /* 480px */
+  --height-image-min-lg: 40rem; /* 640px */
 
   /* ─────────────────────────────────────────
    Borders
@@ -77,8 +84,8 @@
 	 ───────────────────────────────────────── */
 
   /* Families */
-  --font-family-display: "Dazzed", system-ui, sans-serif;
-  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-display: 'Dazzed', system-ui, sans-serif;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
 
   /* Weights */
   --font-weight-regular: 400;
