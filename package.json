@@ -6,13 +6,25 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint": "eslint . --ext .js,.ts,.astro",
+    "lint:fix": "eslint . --ext .js,.ts,.astro --fix",
+    "format": "prettier --write \"**/*.{js,ts,astro,json,md,css,scss}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,astro,json,md,css,scss}\""
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
     "astro": "5.16.5"
   },
   "devDependencies": {
-    "sass": "^1.97.2"
+    "@astrojs/sitemap": "^3.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
+    "@typescript-eslint/parser": "^8.53.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.97.2",
+    "sharp": "^0.34.5"
   }
 }
