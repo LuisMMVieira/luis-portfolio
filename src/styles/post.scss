@@ -1,0 +1,220 @@
+/* ─────────────────────────────────────────
+   Post Template Styles (Mobile-First)
+   ───────────────────────────────────────── */
+
+/* ─────────────────────────────────────────
+   Post Section
+   ───────────────────────────────────────── */
+
+.post-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+/* Layout: Small (xs only - has padding) */
+.post-section--small {
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-md);
+}
+
+/* Layout: Big (has padding, default for md+) */
+.post-section--big {
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-md);
+}
+
+/* Layout: Full (edge-to-edge, no padding) */
+.post-section--full {
+  padding: 0;
+}
+
+/* Col2: 2-column grid for figures/text */
+.post-section--col2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+/* ─────────────────────────────────────────
+   Post Header
+   ───────────────────────────────────────── */
+
+.post-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-xl);
+}
+
+.post-header__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.post-header__title {
+  font-family: var(--type-title-1-font-family);
+  font-size: var(--type-title-1-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--type-title-1-line-height);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.post-header__subtitle {
+  font-family: var(--type-body-lg-font-family);
+  font-size: var(--type-body-lg-font-size);
+  font-weight: var(--type-body-lg-font-weight);
+  line-height: var(--type-body-lg-line-height);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.post-header__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.post-header__intro p {
+  font-family: var(--type-body-font-family);
+  font-size: var(--type-body-font-size);
+  font-weight: var(--type-body-font-weight);
+  line-height: var(--type-body-line-height);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   Post Figure
+   ───────────────────────────────────────── */
+
+.post-figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+  width: 100%;
+}
+
+.post-figure img,
+.post-figure video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-figure__caption {
+  font-family: var(--type-caption-font-family);
+  font-size: var(--type-caption-font-size);
+  font-weight: var(--type-caption-font-weight);
+  line-height: var(--type-caption-line-height);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Caption padding based on parent section */
+.post-section--full .post-figure__caption {
+  padding-inline: var(--spacing-md);
+}
+
+.post-section--small .post-figure__caption,
+.post-section--big .post-figure__caption {
+  padding-inline: 0;
+}
+
+/* ─────────────────────────────────────────
+   Post Text Block
+   ───────────────────────────────────────── */
+
+.post-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-width: var(--width-text-max);
+}
+
+.post-text__title {
+  font-family: var(--type-title-2-font-family);
+  font-size: var(--type-title-2-font-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--type-title-2-line-height);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.post-text p {
+  font-family: var(--type-body-font-family);
+  font-size: var(--type-body-font-size);
+  font-weight: var(--type-body-font-weight);
+  line-height: var(--type-body-line-height);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   Tablet (md) - 48rem / 768px
+   ───────────────────────────────────────── */
+
+@media (min-width: 48rem) {
+  .post-section--small,
+  .post-section--big {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-xl);
+  }
+
+  /* Col2 becomes actual 2 columns at md+ */
+  .post-section--col2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-xxl);
+  }
+
+  .post-header__title-group {
+    flex: 0 0 auto;
+    max-width: 50%;
+  }
+
+  .post-header__intro {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .post-section--full .post-figure__caption {
+    padding-inline: var(--spacing-xl);
+  }
+}
+
+/* ─────────────────────────────────────────
+   Desktop (lg) - 75rem / 1200px
+   ───────────────────────────────────────── */
+
+@media (min-width: 75rem) {
+  .post-section--big {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-xxl);
+  }
+
+  .post-header {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-huge);
+  }
+
+  .post-header__title-group {
+    max-width: var(--width-text-max);
+  }
+
+  .post-header__intro {
+    max-width: var(--width-text-max);
+  }
+}

@@ -1,37 +1,80 @@
 ---
-title: "Post Title"
-description: "Post Subtitle"
+title: "Template"
+subtitle: "Post Subtitle"
 cover: "/images/Placeholder.png"
-role: "Text here"
-duration: "Text here"
-context: "Text here"
-focus: "Text here"
-intro: "Paragraph goes here and continues continues like so. Paragraph goes here and continues continues like so."
-order: 1
-draft: true
+order: 99
+draft: false
 ---
 
-<ProjectCentered>
-## Centered Section Title
+import PostSection from '../../components/mdx/PostSection.astro';
+import PostHeader from '../../components/mdx/PostHeader.astro';
+import PostText from '../../components/mdx/PostText.astro';
+import Figure from '../../components/mdx/Figure.astro';
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+<PostSection layout="full">
+  <Figure 
+    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
+    alt="Cover figure"
+  />
+</PostSection>
 
-</ProjectCentered>
+<PostHeader title="Big title" subtitle="Post Subtitle">
 
-<ProjectSection image="/images/Placeholder.png" imageAlt="Description">
-## Section Title
+Paragraph goes here and continues continues like so.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Paragraph
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</PostHeader>
 
-</ProjectSection>
+<PostSection layout="big">
+  <Figure 
+    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
+    alt="Figure with caption"
+    caption="Caption goes here"
+  />
+</PostSection>
 
-<ProjectSection image="/images/Placeholder.png" imageAlt="Description">
-## Another Section Title
+<PostSection layout="big" col2>
+  <Figure 
+    src="https://placehold.co/600x200/FDF2F2/FDF2F2" 
+    alt="Left figure"
+  />
+  <Figure 
+    src="https://placehold.co/600x200/FDF2F2/FDF2F2" 
+    alt="Right figure"
+  />
+</PostSection>
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<PostSection layout="big">
+  <PostText title="Medium title">
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Paragraph goes here and continues continues like so.
 
-</ProjectSection>
+Paragraph
+
+  </PostText>
+</PostSection>
+
+<PostSection layout="big">
+  <Figure 
+    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
+    alt="Full width figure"
+  />
+</PostSection>
+
+<PostSection layout="big" col2>
+  <PostText>
+
+Paragraph goes here and continues continues like so.
+
+Paragraph
+
+  </PostText>
+  <PostText>
+
+Paragraph goes here and continues continues like so.
+
+Paragraph
+
+  </PostText>
+</PostSection>

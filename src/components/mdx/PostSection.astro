@@ -1,0 +1,18 @@
+---
+interface Props {
+  layout?: 'small' | 'big' | 'full';
+  col2?: boolean;
+}
+
+const { layout = 'big', col2 = false } = Astro.props;
+
+const classes = [
+  'post-section',
+  `post-section--${layout}`,
+  col2 ? 'post-section--col2' : ''
+].filter(Boolean).join(' ');
+---
+
+<section class={classes}>
+  <slot />
+</section>

@@ -1,7 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import ProjectSection from "../../../components/mdx/ProjectSection.astro";
-import ProjectCentered from "../../../components/mdx/ProjectCentered.astro";
+import PostSection from "../../../components/mdx/PostSection.astro";
+import PostHeader from "../../../components/mdx/PostHeader.astro";
+import PostText from "../../../components/mdx/PostText.astro";
 import Figure from "../../../components/mdx/Figure.astro";
 
 export async function getStaticPaths() {
@@ -18,62 +19,6 @@ interface Props {
 
 const { project } = Astro.props as Props;
 const { Content } = await project.render();
-
-// Process intro text to split into paragraphs
-const introParagraphs = project.data.intro
-  ? project.data.intro
-      .split(/\n\s*\n/)
-      .map((p) => p.trim())
-      .filter((p) => p.length > 0)
-  : [];
 ---
 
-<div class="project-header-wrapper">
-  <ProjectSection
-    image={project.data.cover}
-    imageAlt={project.data.title}
-    inverted={false}
-  >
-    <div class="project-header">
-      <div class="project-header-title">
-        <h1 class="project-title">{project.data.title}</h1>
-        <p class="project-subtitle">{project.data.description}</p>
-      </div>
-      <div class="project-header-meta">
-        <div class="project-meta">
-          <div class="project-meta-item">
-            <span class="project-meta-label">Role:</span>
-            <span class="project-meta-value">{project.data.role}</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="project-meta-label">Duration:</span>
-            <span class="project-meta-value">{project.data.duration}</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="project-meta-label">Context:</span>
-            <span class="project-meta-value">{project.data.context}</span>
-          </div>
-          <div class="project-meta-item">
-            <span class="project-meta-label">Focus:</span>
-            <span class="project-meta-value">{project.data.focus}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ProjectSection>
-</div>
-
-<div class="project-content">
-  {
-    introParagraphs.length > 0 && (
-      <ProjectCentered>
-        <div class="project-intro">
-          {introParagraphs.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
-        </div>
-      </ProjectCentered>
-    )
-  }
-  <Content components={{ ProjectSection, ProjectCentered, Figure }} />
-</div>
+<Content components={{ PostSection, PostHeader, PostText, Figure }} />
