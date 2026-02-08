@@ -30,11 +30,24 @@
   padding: 0;
 }
 
+/* Layout: Text (centered block, left-aligned text) */
+.post-section--text {
+  padding-inline: var(--spacing-md);
+  padding-block: var(--spacing-xl);
+  align-items: center;
+  text-align: left;
+
+  .post-text {
+    max-width: 30rem; /* 480px */
+    width: 100%;
+  }
+}
+
 /* Col2: 2-column grid for figures/text */
 .post-section--col2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-md);
 }
 
 /* ─────────────────────────────────────────
@@ -166,9 +179,15 @@
     padding-block: var(--spacing-xl);
   }
 
+  .post-section--text {
+    padding-inline: var(--spacing-xl);
+    padding-block: var(--spacing-xxl);
+  }
+
   /* Col2 becomes actual 2 columns at md+ */
   .post-section--col2 {
     grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
   }
 
   .post-header {
@@ -201,12 +220,25 @@
 
 @media (min-width: 75rem) {
   .post-section--big {
-    padding-inline: var(--spacing-xl);
+    padding-inline: var(--spacing-xxl);
     padding-block: var(--spacing-xxl);
   }
 
+  .post-section--text {
+    padding-inline: var(--spacing-xxl);
+    padding-block: var(--spacing-huge);
+
+    .post-text {
+      max-width: 30rem; /* 480px */
+    }
+  }
+
+  .post-section--col2 {
+    gap: var(--spacing-xxl);
+  }
+
   .post-header {
-    padding-inline: var(--spacing-xl);
+    padding-inline: var(--spacing-xxl);
     padding-block: var(--spacing-huge);
   }
 

@@ -1,12 +1,14 @@
 ---
 interface Props {
+  heading?: string;
   title?: string;
 }
 
-const { title } = Astro.props;
+const { heading, title } = Astro.props;
+const headingText = heading || title;
 ---
 
 <div class="post-text">
-  {title && <h2 class="post-text__title">{title}</h2>}
+  {headingText && <h2 class="post-text__title">{headingText}</h2>}
   <slot />
 </div>
