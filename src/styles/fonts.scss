@@ -11,37 +11,7 @@
 }
 
 /* ─────────────────────────────
-   Typography · Inter (Body)
+   Typography · IBM Plex Sans (Body)
    ───────────────────────────── */
 
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-SemiBoldItalic.woff2") format("woff2");
-  font-weight: 600;
-  font-style: italic;
-  font-display: fallback;
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
