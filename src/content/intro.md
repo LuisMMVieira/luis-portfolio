@@ -2,6 +2,7 @@
 ---
 
 <h1>
+<span class="intro-greeting">Hi there!</span>
 
 <span class="intro-headline">
 I’m Luís Vieira, a digital product designer, intimate with systems and aesthetics.
