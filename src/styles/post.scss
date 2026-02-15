@@ -1,35 +1,41 @@
 /* ─────────────────────────────────────────
    Post Template Styles (Mobile-First)
-   Same grid as .section — 12 cols, no column gap
+   Uses system grid from grid.scss — $grid-2 (xs), $grid-12 (md+)
    ───────────────────────────────────────── */
 
 /* Page: block layout, stacks sections */
 .post-page {
 	display: block;
-}
 
-/* Post Header: same grid as .section, no column gap */
-.post-header {
-	display: grid;
-	column-gap: 0;
-	grid-template-columns:
-		[margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
-	width: 100%;
-	row-gap: var(--spacing-md);
-	padding-block: var(--spacing-xl);
-
-	.post-header__title-group,
-	.post-header__intro {
-		grid-column: col1-start / col2-end;
+	/* First section gets top spacing on desktop to match side margins */
+	@media (min-width: 48rem) {
+		> :first-child {
+			padding-block-start: var(--grid-margin-md); /* 12px - matches side spacing */
+		}
 	}
 }
 
-/* Post Section: same grid as .section, no column gap */
+/* Post Header: wrapper spans cols 3-12, inside: two blocks side-by-side with gap */
+.post-header {
+	display: grid;
+	column-gap: 0;
+	grid-template-columns: $grid-2;
+	width: 100%;
+	padding-block: var(--spacing-xl);
+
+	.post-header__wrapper {
+		grid-column: col1-start / col2-end;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+	}
+}
+
+/* Post Section: system grid — same as .section */
 .post-section {
 	display: grid;
 	column-gap: 0;
-	grid-template-columns:
-		[margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
+	grid-template-columns: $grid-2;
 	width: 100%;
 	row-gap: var(--spacing-xl);
 
@@ -61,7 +67,20 @@
 	}
 }
 
-/* col2: at xs stacked (via > * rule), at md two children side by side */
+/* xs: col2 = 2 cols side by side (2-col grid) */
+.post-section--col2 > *:nth-child(1) {
+	grid-column: col1-start / col2-start;
+}
+
+.post-section--col2 > *:nth-child(2) {
+	grid-column: col2-start / col2-end;
+}
+
+.post-section--col2 > *:only-child {
+	grid-column: col1-start / col2-end;
+}
+
+/* col2/col3: at md+ use 12-col grid */
 
 /* ─────────────────────────────────────────
    Post Header (typography, etc. Grid defined above)
@@ -81,6 +100,15 @@
 	letter-spacing: var(--type-title-l-letter-spacing);
 	color: var(--text-primary);
 	margin: 0;
+}
+
+/* Match intro headline size above: Title XL at xl */
+@media (min-width: 75rem) {
+	.post-header__title {
+		font-size: var(--type-title-xl-font-size);
+		line-height: var(--type-title-xl-line-height);
+		letter-spacing: var(--type-title-xl-letter-spacing);
+	}
 }
 
 .post-header__subtitle {
@@ -184,50 +212,79 @@
 
 @media (min-width: 48rem) {
 
-	/* Post header: same 12-col grid, no gap */
+	/* Post header: wrapper cols 3-12, inside: flex row with two blocks + gap */
 	.post-header {
-		grid-template-columns:
-			[margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
+		grid-template-columns: $grid-12;
 		padding-block: var(--spacing-xxl);
-		row-gap: var(--spacing-xl);
+
+		.post-header__wrapper {
+			grid-column: 3 / 13;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: var(--spacing-xxxl); /* 80px */
+			align-items: flex-start;
+		}
+
+		.post-header__title-group {
+			grid-column: 1;
+		}
+
+		.post-header__intro {
+			grid-column: 2;
+		}
 	}
 
-	/* md: title cols 2-6, col 7 gap, intro cols 8-12 */
-	.post-header .post-header__title-group {
-		grid-column: 3 / 8;
-	}
-
-	.post-header .post-header__intro {
-		grid-column: 9 / 13;
-	}
-
-	/* Post section: same 12-col grid, no gap */
+	/* Post section: system 12-col grid */
 	.post-section {
-		grid-template-columns:
-			[margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
+		grid-template-columns: $grid-12;
 	}
 
-	/* Images span full grid */
+	/* Default: full width */
 	.post-section > * {
 		grid-column: col1-start / col12-end;
 	}
 
-	/* Text only: cols 2-12 (full content area) */
-	.post-section .post-text {
+	/* Hero/cover: cols 2-13 (skip padding cols 1 & 14) */
+	.post-section--full > * {
+		grid-column: 2 / 14;
+	}
+
+	/* Text: align with post header first column — 1fr width (same as title-group) */
+	.post-section--text .post-text {
+		grid-column: 3 / 13;
+		max-width: calc((100% - var(--spacing-xxxl)) / 2);
+	}
+
+	/* col2: left cols 3-6, right cols 9-12 (Figma) */
+	.post-section--col2 > .post-text:nth-child(1),
+	.post-section--col2 > .post-figure:nth-child(1) {
+		grid-column: 3 / 7;
+	}
+
+	.post-section--col2 > .post-text:nth-child(2),
+	.post-section--col2 > .post-figure:nth-child(2) {
+		grid-column: 9 / 13;
+	}
+
+	.post-section--col2 > *:only-child {
 		grid-column: 3 / 13;
 	}
 
-	/* col2: two figures side by side, full width */
-	.post-section--col2 > .post-figure:first-child {
-		grid-column: col1-start / 7;
+	/* col3: cols 3-4, 7-8, 11-12 (Figma) */
+	.post-section--col3 > *:nth-child(1) {
+		grid-column: 3 / 5;
 	}
 
-	.post-section--col2 > .post-figure:last-child {
-		grid-column: 7 / col12-end;
+	.post-section--col3 > *:nth-child(2) {
+		grid-column: 7 / 9;
 	}
 
-	.post-section--col2 > .post-figure:only-child {
-		grid-column: col1-start / col12-end;
+	.post-section--col3 > *:nth-child(3) {
+		grid-column: 11 / 13;
+	}
+
+	.post-section--col3 > *:only-child {
+		grid-column: 3 / 13;
 	}
 
 	.post-section--small,
@@ -242,9 +299,17 @@
 
 /* ─────────────────────────────────────────
    Desktop (xl) - 75rem / 1200px
+   Figma template: title cols 2-5, intro cols 3-10, text cols 3-12
    ───────────────────────────────────────── */
 
 @media (min-width: 75rem) {
+	/* Post header: wrapper cols 3-12, two blocks with gap (no grid alignment inside) */
+	.post-header {
+		padding-block: var(--spacing-huge);
+		max-width: var(--width-modal-max);
+		margin-inline: auto;
+	}
+
 	.post-section--big {
 		padding-block: var(--spacing-xxl);
 	}
@@ -252,8 +317,9 @@
 	.post-section--text {
 		padding-block: var(--spacing-huge);
 
+		/* Keep 1fr width — aligns with post header first column */
 		.post-text {
-			max-width: 30rem;
+			max-width: calc((100% - var(--spacing-xxxl)) / 2);
 		}
 	}
 
@@ -261,18 +327,39 @@
 		row-gap: var(--spacing-xxl);
 	}
 
-	/* xl: Title cols 2-6 (5 cols), col 7 gap, intro cols 8-12 (5 cols) */
-	.post-header {
-		padding-block: var(--spacing-huge);
+	/* Media variants (Figma) — single figure per section */
+	.post-section--media-full .post-figure {
+		grid-column: 1 / 13;
 	}
 
-	.post-header .post-header__title-group {
-		grid-column: 3 / 8;
-		max-width: none;
+	.post-section--media-center-wide .post-figure,
+	.post-section--media-center .post-figure {
+		grid-column: 3 / 11; /* cols 3-10 */
 	}
 
-	.post-header .post-header__intro {
-		grid-column: 9 / 13;
-		max-width: none;
+	.post-section--media-left-wide .post-figure {
+		grid-column: 1 / 11; /* cols 1-10 */
+	}
+
+	.post-section--media-left .post-figure,
+	.post-section--media-left-small .post-figure {
+		grid-column: 1 / 5; /* cols 1-4 */
+	}
+
+	.post-section--media-right-wide .post-figure {
+		grid-column: 5 / 13; /* cols 5-12 */
+	}
+
+	.post-section--media-right .post-figure {
+		grid-column: 7 / 13; /* cols 7-12 */
+	}
+
+	.post-section--media-right-small .post-figure {
+		grid-column: 9 / 13; /* cols 9-12 */
+	}
+
+	/* layout=full: hero cols 2-13 (14-col grid, padding on 1 & 14) */
+	.post-section--full > * {
+		grid-column: 2 / 14;
 	}
 }

@@ -1,6 +1,7 @@
 :root {
 	/* ─────────────────────────────────────────
-		 Base colors (Oklab - perceptually uniform)
+		 Base colors (OKlab — perceptually uniform)
+		 Zeplin equivalents: #000, #0c0c0c, #242424, #464646, #808080, #b9b9b9, #dcdcdc, #f4f4f4, #fff
 		 ───────────────────────────────────────── */
 
 	--color-darkest: oklab(0% 0 0);
@@ -14,7 +15,7 @@
 	--color-lightest: oklab(100% 0 0);
 
 	/* ─────────────────────────────────────────
-		 Semantic Colors
+		 Semantic Colors (Zeplin: semantic–colors-default-*)
 		 ───────────────────────────────────────── */
 
 	--bg-default: var(--color-lightest);
@@ -27,32 +28,21 @@
 	--border-strong: var(--color-medium-dark);
 
 	/* ─────────────────────────────────────────
-		 Spacing
+		 Spacing (Zeplin: spacing-*)
 		 ───────────────────────────────────────── */
 
 	--spacing-none: 0;
-	--spacing-xxxs: 0.125rem;
-	/* 2 */
-	--spacing-xxs: 0.25rem;
-	/* 4 */
-	--spacing-xs: 0.5rem;
-	/* 8 */
-	--spacing-sm: 0.75rem;
-	/* 12 */
-	--spacing-md: 1.25rem;
-	/* 20 */
-	--spacing-lg: 1.75rem;
-	/* 28 */
-	--spacing-xl: 2.5rem;
-	/* 40 */
-	--spacing-xxl: 3.5rem;
-	/* 56 */
-	--spacing-xxxl: 5rem;
-	/* 80 */
-	--spacing-huge: 7.5rem;
-	/* 120 */
-	--spacing-max: 12.5rem;
-	/* 200 */
+	--spacing-xxxs: 0.125rem;   /* 2px */
+	--spacing-xxs: 0.25rem;     /* 4px */
+	--spacing-xs: 0.5rem;       /* 8px */
+	--spacing-sm: 0.75rem;      /* 12px */
+	--spacing-md: 1.25rem;      /* 20px */
+	--spacing-lg: 1.75rem;      /* 28px */
+	--spacing-xl: 2.5rem;       /* 40px */
+	--spacing-xxl: 3.5rem;      /* 56px */
+	--spacing-xxxl: 5rem;       /* 80px */
+	--spacing-huge: 7.5rem;     /* 120px */
+	--spacing-max: 12.5rem;     /* 200px */
 
 	/* ─────────────────────────────────────────
 	 Layout / Widths
@@ -105,7 +95,7 @@
 	/* 1000 */
 
 	/* ─────────────────────────────────────────
-	 Type Primitives
+	 Type Primitives (Zeplin: DazzedTRIAL, IBMPlexSans)
 	 ───────────────────────────────────────── */
 
 	--font-family-display: 'Dazzed', system-ui, sans-serif;
@@ -114,40 +104,41 @@
 	--font-weight-regular: 400;
 	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
 
 	/* ─────────────────────────────────────────
-	 Type Roles — Title (Dazzed, SemiBold)
+	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
 	 ───────────────────────────────────────── */
 
-	/* Title XL — 62px / 106% / -2% */
+	/* Title XL — 62px / 106% / -1.24px (Zeplin: title-xl) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
 	--type-title-xl-font-size: 3.875rem;
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
-	/* Title L — 46px / 110% / -2% */
+	/* Title L — 46px / 110% / -0.92px (Zeplin: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
 	--type-title-l-font-size: 2.875rem;
 	--type-title-l-line-height: 1.1;
 	--type-title-l-letter-spacing: -0.02em;
 
-	/* Title M — 28px / 120% / -2% */
+	/* Title M — 28px / 120% / -0.56px (Zeplin: title-m) */
 	--type-title-m-font-family: var(--font-family-display);
 	--type-title-m-font-weight: var(--font-weight-semibold);
 	--type-title-m-font-size: 1.75rem;
 	--type-title-m-line-height: 1.2;
 	--type-title-m-letter-spacing: -0.02em;
 
-	/* Title S — 18px / 122% / -1.5% */
+	/* Title S — 18px / 122% / -0.27px (Zeplin: title-s) */
 	--type-title-s-font-family: var(--font-family-display);
 	--type-title-s-font-weight: var(--font-weight-semibold);
 	--type-title-s-font-size: 1.125rem;
 	--type-title-s-line-height: 1.22;
 	--type-title-s-letter-spacing: -0.015em;
 
-	/* Title XS — 16px / 125% / -0.5% */
+	/* Title XS — 16px / 125% / -0.08px (Zeplin: title-xs) */
 	--type-title-xs-font-family: var(--font-family-display);
 	--type-title-xs-font-weight: var(--font-weight-semibold);
 	--type-title-xs-font-size: 1rem;
@@ -155,24 +146,24 @@
 	--type-title-xs-letter-spacing: -0.005em;
 
 	/* ─────────────────────────────────────────
-	 Type Roles — Text (IBM Plex Sans, Regular)
+	 Type Roles — Text (Zeplin: text-*, IBMPlexSans 400)
 	 ───────────────────────────────────────── */
 
-	/* Text L — 18px / 140% / -0.5% */
+	/* Text L — 18px / 140% / -0.09px (Zeplin: text-l) */
 	--type-text-l-font-family: var(--font-family-sans);
 	--type-text-l-font-weight: var(--font-weight-regular);
 	--type-text-l-font-size: 1.125rem;
 	--type-text-l-line-height: 1.4;
 	--type-text-l-letter-spacing: -0.005em;
 
-	/* Text M — 14px / 185% / 0% */
+	/* Text M — 14px / 185% (Zeplin: text-m) */
 	--type-text-m-font-family: var(--font-family-sans);
 	--type-text-m-font-weight: var(--font-weight-regular);
 	--type-text-m-font-size: 0.875rem;
 	--type-text-m-line-height: 1.85;
 	--type-text-m-letter-spacing: 0em;
 
-	/* Text S — 12px / 160% / 0% */
+	/* Text S — 12px / 160% (Zeplin: text-s) */
 	--type-text-s-font-family: var(--font-family-sans);
 	--type-text-s-font-weight: var(--font-weight-regular);
 	--type-text-s-font-size: 0.75rem;

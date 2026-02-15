@@ -1,0 +1,17 @@
+{
+  "projects": ["699234f7b798fc79a1867673"],
+  "components": [
+    {
+      "path": "src/components/mdx/PostSection.astro",
+      "name": "PostSection (1 col, 2 col, 3 col, Full)",
+      "zeplinIds": [
+        "699234fd2fcb55f2a2218952",
+        "699234ffb6f286c6efa32a02"
+      ]
+    }
+  ],
+  "github": {
+    "repository": "LuisMMVieira/luis-portfolio",
+    "branch": "main"
+  }
+}
