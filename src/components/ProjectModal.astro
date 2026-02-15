@@ -63,7 +63,7 @@
   .project-modal-backdrop {
     position: absolute;
     inset: 0;
-    background: oklch(0% 0 none / 0.85);
+    background: oklab(0% 0 0 / 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     opacity: 0;
@@ -115,9 +115,10 @@
 
   .project-modal-close-text {
     display: none;
-    font-family: var(--type-caption-font-family);
-    font-size: var(--type-caption-font-size);
-    line-height: var(--type-caption-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--color-medium-light);
   }
 
@@ -133,16 +134,18 @@
     transition: background 0.2s ease;
   }
 
-  /* Desktop */
+  /* Desktop (xl) - matches site grid: min 1200px, max 1360px */
   @media (min-width: 75rem) {
     .project-modal {
-      padding-block-start: var(--spacing-modal-xl);
+      padding-block-start: var(--spacing-xl);
       padding-block-end: 0;
     }
 
     .project-modal-container {
-      width: 95vw;
+      width: 100%;
+      min-width: 75rem;
       max-width: var(--width-modal-max);
+      margin-inline: auto;
     }
 
     .project-modal-close {
@@ -164,10 +167,17 @@
   }
 
   /* Project Modal Content - Must be global because content is loaded dynamically */
+  /* Uses same 12-col grid and max-width (1360px) as main site */
   .project-modal-content {
     padding: 0;
     overflow-x: hidden;
     width: 100%;
+
+    /* .post-page stacks sections; each section has its own grid */
+    .post-page {
+      width: 100%;
+      max-width: 100%;
+    }
 
     img {
       max-width: 100%;

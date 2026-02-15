@@ -1,104 +1,112 @@
 /* ─────────────────────────────────────────
    Post Template Styles (Mobile-First)
+   Same grid as .section — 12 cols, no column gap
    ───────────────────────────────────────── */
 
-/* ─────────────────────────────────────────
-   Post Section
-   ───────────────────────────────────────── */
-
-.post-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  width: 100%;
+/* Page: block layout, stacks sections */
+.post-page {
+	display: block;
 }
 
-/* Layout: Small (xs only - has padding) */
-.post-section--small {
-  padding-inline: var(--spacing-md);
-  padding-block: var(--spacing-md);
-}
-
-/* Layout: Big (has padding, default for md+) */
-.post-section--big {
-  padding-inline: var(--spacing-md);
-  padding-block: var(--spacing-md);
-}
-
-/* Layout: Full (edge-to-edge, no padding) */
-.post-section--full {
-  padding: 0;
-}
-
-/* Layout: Text (centered block, left-aligned text) */
-.post-section--text {
-  padding-inline: var(--spacing-md);
-  padding-block: var(--spacing-xl);
-  align-items: center;
-  text-align: left;
-
-  .post-text {
-    max-width: 30rem; /* 480px */
-    width: 100%;
-  }
-}
-
-/* Col2: 2-column grid for figures/text */
-.post-section--col2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-}
-
-/* ─────────────────────────────────────────
-   Post Header
-   ───────────────────────────────────────── */
-
+/* Post Header: same grid as .section, no column gap */
 .post-header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  padding-inline: var(--spacing-md);
-  padding-block: var(--spacing-xl);
+	display: grid;
+	column-gap: 0;
+	grid-template-columns:
+		[margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
+	width: 100%;
+	row-gap: var(--spacing-md);
+	padding-block: var(--spacing-xl);
+
+	.post-header__title-group,
+	.post-header__intro {
+		grid-column: col1-start / col2-end;
+	}
 }
+
+/* Post Section: same grid as .section, no column gap */
+.post-section {
+	display: grid;
+	column-gap: 0;
+	grid-template-columns:
+		[margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
+	width: 100%;
+	row-gap: var(--spacing-xl);
+
+	> * {
+		grid-column: col1-start / col2-end;
+	}
+}
+
+.post-section--small {
+	padding-block: var(--spacing-md);
+}
+
+.post-section--big {
+	padding-block: var(--spacing-md);
+}
+
+.post-section--full {
+	padding: 0;
+}
+
+.post-section--text {
+	padding-block: var(--spacing-xl);
+	align-items: center;
+	text-align: left;
+
+	.post-text {
+		max-width: 30rem;
+		width: 100%;
+	}
+}
+
+/* col2: at xs stacked (via > * rule), at md two children side by side */
+
+/* ─────────────────────────────────────────
+   Post Header (typography, etc. Grid defined above)
+   ───────────────────────────────────────── */
 
 .post-header__title-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
 }
 
 .post-header__title {
-  font-family: var(--type-title-1-font-family);
-  font-size: var(--type-title-1-font-size);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--type-title-1-line-height);
-  color: var(--text-primary);
-  margin: 0;
+	font-family: var(--type-title-l-font-family);
+	font-size: var(--type-title-l-font-size);
+	font-weight: var(--type-title-l-font-weight);
+	line-height: var(--type-title-l-line-height);
+	letter-spacing: var(--type-title-l-letter-spacing);
+	color: var(--text-primary);
+	margin: 0;
 }
 
 .post-header__subtitle {
-  font-family: var(--type-body-lg-font-family);
-  font-size: var(--type-body-lg-font-size);
-  font-weight: var(--type-body-lg-font-weight);
-  line-height: var(--type-body-lg-line-height);
-  color: var(--text-secondary);
-  margin: 0;
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
+	margin: 0;
 }
 
 .post-header__intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
 }
 
 .post-header__intro p {
-  font-family: var(--type-body-font-family);
-  font-size: var(--type-body-font-size);
-  font-weight: var(--type-body-font-weight);
-  line-height: var(--type-body-line-height);
-  color: var(--text-secondary);
-  margin: 0;
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
+	margin: 0;
 }
 
 /* ─────────────────────────────────────────
@@ -106,37 +114,37 @@
    ───────────────────────────────────────── */
 
 .post-figure {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  margin: 0;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+	margin: 0;
+	width: 100%;
 }
 
 .post-figure img,
 .post-figure video {
-  width: 100%;
-  height: auto;
-  display: block;
+	width: 100%;
+	height: auto;
+	display: block;
 }
 
 .post-figure__caption {
-  font-family: var(--type-caption-font-family);
-  font-size: var(--type-caption-font-size);
-  font-weight: var(--type-caption-font-weight);
-  line-height: var(--type-caption-line-height);
-  color: var(--text-secondary);
-  margin: 0;
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
+	margin: 0;
 }
 
-/* Caption padding based on parent section */
 .post-section--full .post-figure__caption {
-  padding-inline: var(--spacing-md);
+	padding-inline: var(--grid-margin-md);
 }
 
 .post-section--small .post-figure__caption,
 .post-section--big .post-figure__caption {
-  padding-inline: 0;
+	padding-inline: 0;
 }
 
 /* ─────────────────────────────────────────
@@ -144,28 +152,30 @@
    ───────────────────────────────────────── */
 
 .post-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  max-width: var(--width-text-max);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+	max-width: var(--width-text-max);
 }
 
 .post-text__title {
-  font-family: var(--type-title-2-font-family);
-  font-size: var(--type-title-2-font-size);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--type-title-2-line-height);
-  color: var(--text-primary);
-  margin: 0;
+	font-family: var(--type-title-m-font-family);
+	font-size: var(--type-title-m-font-size);
+	font-weight: var(--type-title-m-font-weight);
+	line-height: var(--type-title-m-line-height);
+	letter-spacing: var(--type-title-m-letter-spacing);
+	color: var(--text-primary);
+	margin: 0;
 }
 
 .post-text p {
-  font-family: var(--type-body-font-family);
-  font-size: var(--type-body-font-size);
-  font-weight: var(--type-body-font-weight);
-  line-height: var(--type-body-line-height);
-  color: var(--text-secondary);
-  margin: 0;
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
+	margin: 0;
 }
 
 /* ─────────────────────────────────────────
@@ -173,80 +183,96 @@
    ───────────────────────────────────────── */
 
 @media (min-width: 48rem) {
-  .post-section--small,
-  .post-section--big {
-    padding-inline: var(--spacing-xl);
-    padding-block: var(--spacing-xl);
-  }
 
-  .post-section--text {
-    padding-inline: var(--spacing-xl);
-    padding-block: var(--spacing-xxl);
-  }
+	/* Post header: same 12-col grid, no gap */
+	.post-header {
+		grid-template-columns:
+			[margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
+		padding-block: var(--spacing-xxl);
+		row-gap: var(--spacing-xl);
+	}
 
-  /* Col2 becomes actual 2 columns at md+ */
-  .post-section--col2 {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-  }
+	/* md: title cols 2-6, col 7 gap, intro cols 8-12 */
+	.post-header .post-header__title-group {
+		grid-column: 3 / 8;
+	}
 
-  .post-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: var(--spacing-xl);
-    padding-inline: var(--spacing-xl);
-    padding-block: var(--spacing-xxl);
-  }
+	.post-header .post-header__intro {
+		grid-column: 9 / 13;
+	}
 
-  .post-header__title-group {
-    flex: 0 0 auto;
-    max-width: 50%;
-  }
+	/* Post section: same 12-col grid, no gap */
+	.post-section {
+		grid-template-columns:
+			[margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
+	}
 
-  .post-header__intro {
-    flex: 1;
-    max-width: 50%;
-  }
+	/* Images span full grid */
+	.post-section > * {
+		grid-column: col1-start / col12-end;
+	}
 
-  .post-section--full .post-figure__caption {
-    padding-inline: var(--spacing-xl);
-  }
+	/* Text only: cols 2-12 (full content area) */
+	.post-section .post-text {
+		grid-column: 3 / 13;
+	}
+
+	/* col2: two figures side by side, full width */
+	.post-section--col2 > .post-figure:first-child {
+		grid-column: col1-start / 7;
+	}
+
+	.post-section--col2 > .post-figure:last-child {
+		grid-column: 7 / col12-end;
+	}
+
+	.post-section--col2 > .post-figure:only-child {
+		grid-column: col1-start / col12-end;
+	}
+
+	.post-section--small,
+	.post-section--big {
+		padding-block: var(--spacing-xl);
+	}
+
+	.post-section--text {
+		padding-block: var(--spacing-xxl);
+	}
 }
 
 /* ─────────────────────────────────────────
-   Desktop (lg) - 75rem / 1200px
+   Desktop (xl) - 75rem / 1200px
    ───────────────────────────────────────── */
 
 @media (min-width: 75rem) {
-  .post-section--big {
-    padding-inline: var(--spacing-xxl);
-    padding-block: var(--spacing-xxl);
-  }
+	.post-section--big {
+		padding-block: var(--spacing-xxl);
+	}
 
-  .post-section--text {
-    padding-inline: var(--spacing-xxl);
-    padding-block: var(--spacing-huge);
+	.post-section--text {
+		padding-block: var(--spacing-huge);
 
-    .post-text {
-      max-width: 30rem; /* 480px */
-    }
-  }
+		.post-text {
+			max-width: 30rem;
+		}
+	}
 
-  .post-section--col2 {
-    gap: var(--spacing-xxl);
-  }
+	.post-section--col2 {
+		row-gap: var(--spacing-xxl);
+	}
 
-  .post-header {
-    padding-inline: var(--spacing-xxl);
-    padding-block: var(--spacing-huge);
-  }
+	/* xl: Title cols 2-6 (5 cols), col 7 gap, intro cols 8-12 (5 cols) */
+	.post-header {
+		padding-block: var(--spacing-huge);
+	}
 
-  .post-header__title-group {
-    max-width: var(--width-text-max);
-  }
+	.post-header .post-header__title-group {
+		grid-column: 3 / 8;
+		max-width: none;
+	}
 
-  .post-header__intro {
-    max-width: var(--width-text-max);
-  }
+	.post-header .post-header__intro {
+		grid-column: 9 / 13;
+		max-width: none;
+	}
 }

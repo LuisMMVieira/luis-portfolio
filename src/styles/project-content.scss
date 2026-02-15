@@ -6,9 +6,9 @@
 
 /* Project Section Text (General) */
 .project-section-text {
-  font-family: var(--type-body-font-family);
-  font-size: var(--type-body-font-size);
-  line-height: var(--type-body-line-height);
+  font-family: var(--type-text-m-font-family);
+  font-size: var(--type-text-m-font-size);
+  line-height: var(--type-text-m-line-height);
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
@@ -16,23 +16,23 @@
   padding-block: var(--spacing-md);
 
   h2 {
-    font-family: var(--type-title-2-font-family);
-    font-size: var(--type-title-2-font-size);
-    line-height: var(--type-title-2-line-height);
-    font-weight: var(--font-weight-semibold);
+    font-family: var(--type-title-m-font-family);
+    font-size: var(--type-title-m-font-size);
+    line-height: var(--type-title-m-line-height);
+    font-weight: var(--type-title-m-font-weight);
+    letter-spacing: var(--type-title-m-letter-spacing);
     color: var(--text-primary);
     margin: 0 0 var(--spacing-md);
-    letter-spacing: -0.005em;
     max-width: var(--width-text-max);
   }
 
   p {
-    font-family: var(--type-body-font-family);
-    font-size: var(--font-size-2);
-    line-height: var(--line-height-5);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0 0 var(--spacing-sm);
-    letter-spacing: -0.005em;
     max-width: var(--width-text-max);
 
     &:last-child {
@@ -71,30 +71,30 @@
     width: 100%;
     max-width: var(--width-container-max);
     margin: 0 auto;
-    font-family: var(--type-body-font-family);
-    font-size: var(--type-body-font-size);
-    line-height: var(--type-body-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
     color: var(--text-secondary);
     gap: var(--spacing-md);
 
     h2 {
-      font-family: var(--type-title-2-font-family);
-      font-size: var(--type-title-2-font-size);
-      line-height: var(--type-title-2-line-height);
-      font-weight: var(--font-weight-semibold);
+      font-family: var(--type-title-m-font-family);
+      font-size: var(--type-title-m-font-size);
+      line-height: var(--type-title-m-line-height);
+      font-weight: var(--type-title-m-font-weight);
+      letter-spacing: var(--type-title-m-letter-spacing);
       color: var(--text-primary);
       margin: 0 0 var(--spacing-md);
-      letter-spacing: -0.005em;
       max-width: var(--width-text-max);
     }
 
     p {
-      font-family: var(--type-body-font-family);
-      font-size: var(--font-size-2);
-      line-height: var(--line-height-5);
+      font-family: var(--type-text-m-font-family);
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
+      letter-spacing: var(--type-text-m-letter-spacing);
       color: var(--text-secondary);
       margin: 0 0 var(--spacing-sm);
-      letter-spacing: -0.005em;
       max-width: var(--width-text-max);
 
       &:last-child {
@@ -106,9 +106,10 @@
       grid-column: 1;
 
       p {
-        font-family: var(--type-body-font-family);
-        font-size: clamp(0.9rem, 3.5vw, 1rem);
-        line-height: var(--type-body-line-height);
+        font-family: var(--type-text-m-font-family);
+        font-size: var(--type-text-m-font-size);
+        line-height: var(--type-text-m-line-height);
+        letter-spacing: var(--type-text-m-letter-spacing);
         color: var(--text-primary);
         margin: 0;
         max-width: 100%;
@@ -149,10 +150,11 @@
   }
 
   .project-title {
-    font-family: var(--type-title-1-font-family);
+    font-family: var(--type-title-l-font-family);
     font-size: clamp(1.75rem, 6vw, 2.5rem);
-    line-height: var(--type-title-1-line-height);
-    font-weight: var(--font-weight-semibold);
+    line-height: var(--type-title-l-line-height);
+    font-weight: var(--type-title-l-font-weight);
+    letter-spacing: var(--type-title-l-letter-spacing);
     color: var(--text-primary);
     margin: 0;
     max-width: 100%;
@@ -160,13 +162,13 @@
   }
 
   .project-subtitle {
-    font-family: var(--type-body-lg-font-family);
-    font-size: clamp(1rem, 4vw, 1.25rem);
-    line-height: var(--type-body-lg-line-height);
-    font-weight: var(--type-body-lg-font-weight);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    font-weight: var(--type-text-m-font-weight);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0;
-    letter-spacing: -0.01em;
     max-width: 100%;
   }
 
@@ -190,9 +192,10 @@
   .project-meta-item {
     display: flex;
     gap: var(--spacing-xs);
-    font-family: var(--type-caption-font-family);
-    font-size: var(--type-caption-font-size);
-    line-height: var(--type-caption-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
   }
 
@@ -226,7 +229,7 @@
     }
 
     p {
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      font-size: var(--type-text-m-font-size);
       max-width: 100%;
       word-wrap: break-word;
     }
@@ -281,9 +284,10 @@
   }
 
   .project-figure-caption {
-    font-family: var(--type-caption-font-family);
-    font-size: 0.75rem;
-    line-height: var(--type-caption-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0;
     padding-inline: var(--spacing-xxs);
@@ -424,12 +428,12 @@
     }
 
     .project-title {
-      font-size: var(--type-title-1-font-size);
+      font-size: var(--type-title-l-font-size);
       max-width: var(--width-text-max);
     }
 
     .project-subtitle {
-      font-size: var(--type-body-lg-font-size);
+      font-size: var(--type-text-m-font-size);
       max-width: var(--width-text-max);
     }
 
@@ -452,7 +456,7 @@
         max-width: none;
 
         p {
-          font-size: var(--type-body-font-size);
+          font-size: var(--type-text-m-font-size);
           max-width: none;
         }
       }
@@ -468,12 +472,12 @@
         padding-inline: var(--spacing-lg);
 
         h2 {
-          font-size: var(--type-title-2-font-size);
+          font-size: var(--type-title-m-font-size);
           max-width: var(--width-text-max);
         }
 
         p {
-          font-size: var(--font-size-2);
+          font-size: var(--type-text-m-font-size);
           max-width: var(--width-text-max);
         }
       }
@@ -547,7 +551,7 @@
       gap: var(--spacing-sm);
 
       .project-figure-caption {
-        font-size: var(--type-caption-font-size);
+        font-size: var(--type-text-m-font-size);
         padding-inline: 0;
       }
     }

@@ -1,10 +1,10 @@
 ---
 const navItems = [
-  { href: "#intro", label: "Intro" },
-  { href: "#work", label: "Work" },
-  { href: "#values", label: "Values" },
-  { href: "#background", label: "Background" },
-  { href: "#about", label: "About" },
+  { href: '#intro', label: 'Intro' },
+  { href: '#work', label: 'Work' },
+  { href: '#values', label: 'Values' },
+  { href: '#background', label: 'Background' },
+  { href: '#about', label: 'About' },
 ];
 ---
 
@@ -31,7 +31,7 @@ const navItems = [
     left: 0;
     right: 0;
     z-index: 100;
-    padding-inline: var(--spacing-sm);
+    padding-inline: var(--grid-margin-xs);
     background: var(--bg-default);
   }
 
@@ -46,7 +46,7 @@ const navItems = [
     display: flex;
     flex-direction: row;
     gap: var(--spacing-sm);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     li {
       display: contents;
@@ -54,12 +54,14 @@ const navItems = [
   }
 
   .nav-link {
-    font-family: var(--type-nav-font-family);
-    font-size: var(--type-nav-font-size);
-    line-height: var(--type-nav-line-height);
-    font-weight: var(--type-nav-font-weight);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+
+    font-weight: var(--type-text-m-font-weight);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-primary);
-    opacity: 0.6;
+    opacity: 0.5;
     text-decoration: none;
 
     &:hover {
@@ -68,7 +70,6 @@ const navItems = [
 
     /* Active state */
     &.is-active {
-      font-weight: var(--type-nav-active-font-weight);
       color: var(--text-primary);
       opacity: 1;
     }
@@ -77,18 +78,18 @@ const navItems = [
   /* Tablet */
   @media (min-width: 48rem) {
     .site-header {
-      padding-inline: var(--spacing-md);
+      padding-inline: var(--grid-margin-md);
     }
   }
 
-  /* Desktop */
+  /* Desktop: nav aligned with section cols 2-3 via calc (grid is sections-only) */
   @media (min-width: 75rem) {
     .site-header {
+      position: fixed;
       top: var(--spacing-max);
-      /* Position in left column of centered 3-column grid */
-      left: calc(50vw - var(--layout-content-full) / 2 - var(--layout-fixed));
+      left: calc(var(--grid-margin-md) + (100vw - 2 * var(--grid-margin-md)) / 12);
+      width: calc(2 * (100vw - 2 * var(--grid-margin-md)) / 12);
       right: auto;
-      width: var(--layout-fixed);
       padding-inline: 0;
       background: transparent;
     }
@@ -100,7 +101,7 @@ const navItems = [
 
     .nav-list {
       flex-direction: column;
-      gap: var(--spacing-xxs);
+      gap: 0;
     }
   }
 </style>

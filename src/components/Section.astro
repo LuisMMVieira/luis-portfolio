@@ -3,7 +3,7 @@ const { as: Tag = "section", id, class: className = "" } = Astro.props;
 ---
 
 <Tag id={id} class={`section ${className}`.trim()}>
-  <div class="container flow">
+  <div class="container container--narrow flow">
     <slot />
   </div>
 </Tag>

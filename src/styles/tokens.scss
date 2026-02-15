@@ -1,197 +1,192 @@
 :root {
-  /* ─────────────────────────────────────────
-		 Base colors (OKLCH - perceptually uniform)
+	/* ─────────────────────────────────────────
+		 Base colors (Oklab - perceptually uniform)
 		 ───────────────────────────────────────── */
 
-  --color-darkest: oklch(0% 0 none);
-  --color-superpastel-dark: oklch(6% 0 none);
-  --color-dark: oklch(17% 0 none);
-  --color-medium-dark: oklch(33% 0 none);
-  --color-base: oklch(60% 0 none);
-  --color-medium-light: oklch(77% 0 none);
-  --color-light: oklch(89% 0 none);
-  --color-superpastel-light: oklch(96% 0 none);
-  --color-lightest: oklch(100% 0 none);
+	--color-darkest: oklab(0% 0 0);
+	--color-superpastel-dark: oklab(15.4% 0 0);
+	--color-dark: oklab(26% 0 0);
+	--color-medium-dark: oklab(39.4% 0 0);
+	--color-base: oklab(60% 0 0);
+	--color-medium-light: oklab(78.6% 0 0);
+	--color-light: oklab(89.4% 0 0);
+	--color-superpastel-light: oklab(96.7% 0 0);
+	--color-lightest: oklab(100% 0 0);
 
-  /* ─────────────────────────────────────────
+	/* ─────────────────────────────────────────
 		 Semantic Colors
 		 ───────────────────────────────────────── */
 
-  --bg-default: var(--color-lightest);
-  --bg-elevated: var(--color-superpastel-light);
+	--bg-default: var(--color-lightest);
+	--bg-elevated: var(--color-superpastel-light);
 
-  --text-primary: var(--color-darkest);
-  --text-secondary: var(--color-dark);
+	--text-primary: var(--color-darkest);
+	--text-secondary: var(--color-dark);
 
-  --border-default: var(--color-light);
-  --border-strong: var(--color-medium-dark);
+	--border-default: var(--color-light);
+	--border-strong: var(--color-medium-dark);
 
-  /* ─────────────────────────────────────────
-		Spacing (px → rem)
-		base: 14px
-		───────────────────────────────────────── */
+	/* ─────────────────────────────────────────
+		 Spacing
+		 ───────────────────────────────────────── */
 
-  --spacing-none: 0;
-  --spacing-xxxs: 0.125rem; /* 2 */
-  --spacing-xxs: 0.25rem; /* 4 */
-  --spacing-xs: 0.5rem; /* 8 */
-  --spacing-sm: 0.75rem; /* 12 */
-  --spacing-md: 1.25rem; /* 20 */
-  --spacing-lg: 1.75rem; /* 28 */
-  --spacing-xl: 2.5rem; /* 40 */
-  --spacing-modal: 2.5rem; /* 44 */
-  --spacing-xxl: 3.5rem; /* 56 */
-  --spacing-modal-xl: 3rem; /* 48 */
-  --spacing-xxxl: 5rem; /* 80 */
-  --spacing-huge: 7.5rem; /* 120 */
-  --spacing-max: 12.5rem; /* 200 */
+	--spacing-none: 0;
+	--spacing-xxxs: 0.125rem;
+	/* 2 */
+	--spacing-xxs: 0.25rem;
+	/* 4 */
+	--spacing-xs: 0.5rem;
+	/* 8 */
+	--spacing-sm: 0.75rem;
+	/* 12 */
+	--spacing-md: 1.25rem;
+	/* 20 */
+	--spacing-lg: 1.75rem;
+	/* 28 */
+	--spacing-xl: 2.5rem;
+	/* 40 */
+	--spacing-xxl: 3.5rem;
+	/* 56 */
+	--spacing-xxxl: 5rem;
+	/* 80 */
+	--spacing-huge: 7.5rem;
+	/* 120 */
+	--spacing-max: 12.5rem;
+	/* 200 */
 
-  /* ─────────────────────────────────────────
-   Layout / Widths
-   ───────────────────────────────────────── */
-
-  --width-text-max: 28rem; /* 448px */
-  --width-section-text: 22.5rem; /* 360px */
-  --layout-content-full: 40rem; /* 640px */
-  --width-container-max: 80rem; /* 1280px */
-  --width-modal-max: 85rem; /* 1360px */
-  --width-thumbnail: 17.5rem; /* 280px */
-
-  /* Heights */
-  --height-image-min-md: 30rem; /* 480px */
-  --height-image-min-lg: 40rem; /* 640px */
-
-  /* ─────────────────────────────────────────
-   Borders
-   ───────────────────────────────────────── */
-
-  --border-width-hairline: 0.5px;
-  --border-width-default: 1px;
-  --border-width-thick: 2px;
-
-  /* ─────────────────────────────────────────
-		Radius
-		───────────────────────────────────────── */
-
-  --radius-xs: 0.25rem; /* 4 */
-  --radius-sm: 0.5rem; /* 8 */
-  --radius-md: 1.25rem; /* 20 */
-  --radius-lg: 2.5rem; /* 40 */
-  --radius-infinite: 62.5rem; /* 1000 */
-
-  /* ─────────────────────────────────────────
-	 Type
+	/* ─────────────────────────────────────────
+	 Layout / Widths
 	 ───────────────────────────────────────── */
 
-  /* Families */
-  --font-family-display: 'Dazzed', system-ui, sans-serif;
-  --font-family-sans: 'IBM Plex Sans', system-ui, sans-serif;
+	/* Grid margins: xs 20px, md/xl 12px */
+	--grid-margin-xs: var(--spacing-md);
+	/* 20px */
+	--grid-margin-md: var(--spacing-sm);
+	/* 12px */
 
-  /* Weights */
-  --font-weight-regular: 400;
-  --font-weight-semibold: 600;
+	--width-text-max: 35rem;
+	/* 560px */
+	--width-section-text: 22.5rem;
+	/* 360px */
+	--width-container-max: 80rem;
+	/* 1280px */
+	--width-modal-max: 85rem;
+	/* 1360px */
+	--width-thumbnail: 17.5rem;
+	/* 280px */
 
-  /* Font sizes (scale) */
-  --font-size-1: 0.75rem; /* 12 */
-  --font-size-2: 0.875rem; /* 14 */
-  --font-size-3: 1rem; /* 16 */
-  --font-size-4: 1.125rem; /* 18 */
-  --font-size-5: 1.25rem; /* 20 */
-  --font-size-6: 1.5rem; /* 24 */
-  --font-size-7: 1.625rem; /* 26 */
-  --font-size-8: 2.125rem; /* 34 */
-  --font-size-9: 2.25rem; /* 36 */
-  --font-size-10: 3.25rem; /* 52 */
+	/* Heights */
+	--height-image-min-md: 30rem;
+	/* 480px */
+	--height-image-min-lg: 40rem;
+	/* 640px */
 
-  /* Line heights (scale) */
-  --line-height-1: 1.04; /* 104% */
-  --line-height-2: 1.1; /* 110% */
-  --line-height-3: 1.2; /* 120% */
-  --line-height-4: 1.25; /* 125% */
-  --line-height-5: 1.4; /* 140% */
-
-  /* ─────────────────────────────────────────
-	 Type roles (semantic)
+	/* ─────────────────────────────────────────
+	 Borders
 	 ───────────────────────────────────────── */
 
-  /* Hero */
-  --type-hero-font-family: var(--font-family-display);
-  --type-hero-font-size: var(--font-size-8); /* 24px */
-  --type-hero-line-height: var(--line-height-2); /* 125% */
+	--border-width-hairline: 0.66px;
+	--border-width-default: 1px;
+	--border-width-thick: 2px;
 
-  /* Title 1 */
-  --type-title-1-font-family: var(--font-family-display);
-  --type-title-1-font-size: var(--font-size-7); /* 26px */
-  --type-title-1-line-height: var(--line-height-4); /* 125% */
+	/* ─────────────────────────────────────────
+		 Radius
+		 ───────────────────────────────────────── */
 
-  /* Title 2 */
-  --type-title-2-font-family: var(--font-family-display);
-  --type-title-2-font-size: var(--font-size-5); /* 20px */
-  --type-title-2-line-height: var(--line-height-4); /* 125% */
+	--radius-xs: 0.25rem;
+	/* 4 */
+	--radius-sm: 0.5rem;
+	/* 8 */
+	--radius-md: 1.25rem;
+	/* 20 */
+	--radius-lg: 2.5rem;
+	/* 40 */
+	--radius-infinite: 62.5rem;
+	/* 1000 */
 
-  /* Title 3 */
-  --type-title-3-font-family: var(--font-family-display);
-  --type-title-3-font-size: var(--font-size-2); /* 14px */
-  --type-title-3-line-height: var(--line-height-4); /* 125% */
+	/* ─────────────────────────────────────────
+	 Type Primitives
+	 ───────────────────────────────────────── */
 
-  /* Paragraph L (default) */
-  --type-body-lg-font-family: var(--font-family-sans);
-  --type-body-lg-font-weight: var(--font-weight-regular);
-  --type-body-lg-font-size: var(--font-size-4); /* 18px */
-  --type-body-lg-line-height: var(--line-height-5); /* 140% */
+	--font-family-display: 'Dazzed', system-ui, sans-serif;
+	--font-family-sans: 'IBM Plex Sans', system-ui, sans-serif;
 
-  /* Paragraph M (default) */
-  --type-body-font-family: var(--font-family-sans);
-  --type-body-font-weight: var(--font-weight-regular);
-  --type-body-font-size: var(--font-size-4); /* 18px */
-  --type-body-line-height: var(--line-height-5); /* 140% */
+	--font-weight-regular: 400;
+	--font-weight-semibold: 600;
 
-  /* Paragraph S / Caption */
-  --type-caption-font-family: var(--font-family-sans);
-  --type-caption-font-weight: var(--font-weight-regular);
-  --type-caption-font-size: var(--font-size-1); /* 12px */
-  --type-caption-line-height: var(--line-height-5); /* 140% */
+	/* ─────────────────────────────────────────
+	 Type Roles — Title (Dazzed, SemiBold)
+	 ───────────────────────────────────────── */
 
-  /* Nav / S */
-  --type-nav-font-family: var(--font-family-sans);
-  --type-nav-font-weight: var(--font-weight-regular);
-  --type-nav-font-size: var(--font-size-2); /* 12px */
-  --type-nav-line-height: var(--line-height-4); /* 120% */
+	/* Title XL — 62px / 106% / -2% */
+	--type-title-xl-font-family: var(--font-family-display);
+	--type-title-xl-font-weight: var(--font-weight-semibold);
+	--type-title-xl-font-size: 3.875rem;
+	--type-title-xl-line-height: 1.06;
+	--type-title-xl-letter-spacing: -0.02em;
 
-  --type-nav-active-font-weight: var(--font-weight-semibold);
+	/* Title L — 46px / 110% / -2% */
+	--type-title-l-font-family: var(--font-family-display);
+	--type-title-l-font-weight: var(--font-weight-semibold);
+	--type-title-l-font-size: 2.875rem;
+	--type-title-l-line-height: 1.1;
+	--type-title-l-letter-spacing: -0.02em;
 
-  /* ─────────────────────────────────────────
-   Breakpoints (reference)
-   ───────────────────────────────────────── */
+	/* Title M — 28px / 120% / -2% */
+	--type-title-m-font-family: var(--font-family-display);
+	--type-title-m-font-weight: var(--font-weight-semibold);
+	--type-title-m-font-size: 1.75rem;
+	--type-title-m-line-height: 1.2;
+	--type-title-m-letter-spacing: -0.02em;
 
-  --bp-md: 48rem; /* 768px */
-  --bp-lg: 75rem; /* 1200px */
+	/* Title S — 18px / 122% / -1.5% */
+	--type-title-s-font-family: var(--font-family-display);
+	--type-title-s-font-weight: var(--font-weight-semibold);
+	--type-title-s-font-size: 1.125rem;
+	--type-title-s-line-height: 1.22;
+	--type-title-s-letter-spacing: -0.015em;
+
+	/* Title XS — 16px / 125% / -0.5% */
+	--type-title-xs-font-family: var(--font-family-display);
+	--type-title-xs-font-weight: var(--font-weight-semibold);
+	--type-title-xs-font-size: 1rem;
+	--type-title-xs-line-height: 1.25;
+	--type-title-xs-letter-spacing: -0.005em;
+
+	/* ─────────────────────────────────────────
+	 Type Roles — Text (IBM Plex Sans, Regular)
+	 ───────────────────────────────────────── */
+
+	/* Text L — 18px / 140% / -0.5% */
+	--type-text-l-font-family: var(--font-family-sans);
+	--type-text-l-font-weight: var(--font-weight-regular);
+	--type-text-l-font-size: 1.125rem;
+	--type-text-l-line-height: 1.4;
+	--type-text-l-letter-spacing: -0.005em;
+
+	/* Text M — 14px / 185% / 0% */
+	--type-text-m-font-family: var(--font-family-sans);
+	--type-text-m-font-weight: var(--font-weight-regular);
+	--type-text-m-font-size: 0.875rem;
+	--type-text-m-line-height: 1.85;
+	--type-text-m-letter-spacing: 0em;
+
+	/* Text S — 12px / 160% / 0% */
+	--type-text-s-font-family: var(--font-family-sans);
+	--type-text-s-font-weight: var(--font-weight-regular);
+	--type-text-s-font-size: 0.75rem;
+	--type-text-s-line-height: 1.6;
+	--type-text-s-letter-spacing: 0em;
 }
+
+/* ─────────────────────────────────────────
+	 Responsive Type — Tablet (md)
+	 ───────────────────────────────────────── */
 
 @media (min-width: 48rem) {
-  :root {
-    /* Hero - Tablet */
-    --type-hero-font-size: var(--font-size-10); /* 36px */
-    --type-hero-line-height: var(--line-height-1); /* 110% */
-
-    /* Title 1 - Tablet */
-    --type-title-1-font-size: var(--font-size-8); /* 34px */
-    --type-title-1-line-height: var(--line-height-3); /* 120% */
-
-    /* Title 2 - Tablet */
-    --type-title-2-font-size: var(--font-size-7); /* 26px */
-    --type-title-2-line-height: var(--line-height-3); /* 120% */
-
-    /* Title 3 - Tablet */
-    --type-title-3-font-size: var(--font-size-3); /* 16px */
-    --type-title-3-line-height: var(--line-height-4); /* 125% */
-  }
-}
-
-@media (min-width: 75rem) {
-  :root {
-    /* Hero - Desktop */
-    --type-hero-font-size: var(--font-size-10); /* 52px */
-    --type-hero-line-height: var(--line-height-1); /* 104% */
-  }
+	:root {
+		/* h1 scales from Title M → Title XL at md */
+		--type-title-xl-font-size: 3.875rem;
+		--type-title-xl-line-height: 1.06;
+	}
 }

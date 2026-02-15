@@ -1,78 +1,112 @@
 /* ─────────────────────────────────────────
-	 Grid System
-	 ───────────────────────────────────────── */
+   Grid System — Same grid everywhere, no column gap
+   xs: 2 cols | md/xl: 12 cols | side margins only
+   Grid only on sections. Post template has grid in each section. Nav uses calc to align.
+   ───────────────────────────────────────── */
 
 /*
-	Grid xs (mobile):
-	[outer] [middle] [outer]
-
-	Grid md (tablet):
-	[outer] [middle-left | gutter | middle-right] [outer]
-
-	Grid xl (desktop):
-	[outer] [left | gutter] [middle-left | gutter | middle-right] [right] [outer]
+   [margin] [cols, no gap] [margin]
+   xs:  [20px] [col1 col2] [20px]
+   md+: [12px] [col1..col12, no gap] [12px]
 */
 
-.section {
-  display: grid;
-  /* xs: simple 3-column grid */
-  grid-template-columns:
-    [full-start] var(--spacing-md)
-    [content-start] 1fr [content-end]
-    var(--spacing-md) [full-end];
-  /* Place container in content area */
-  > .container {
-    grid-column: content;
-  }
+/* Shared grid template - 12 cols, no gap between columns */
+$grid-12: [margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
+$grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
 
-  .flow {
-    max-width: 100%;
-    padding-block: var(--spacing-huge); /* 120 */
-
-    p {
-      max-width: 100%;
-    }
-  }
-
-  /* md: wider outer padding */
-  @media (min-width: 48rem) {
-    grid-template-columns:
-      [full-start] var(--spacing-xl)
-      [content-start] 1fr [content-end]
-      var(--spacing-xl) [full-end];
-  }
-
-  /* xl: 3-column grid - centered, left (nav), content (640px), right */
-  @media (min-width: 75rem) {
-    /* Center the 3-column grid: total width = 240 + 640 + 240 = 1120px */
-    grid-template-columns:
-      [full-start] minmax(0, 1fr)
-      [left-start] var(--layout-fixed) [left-end content-start]
-      var(--layout-content-full) [content-end right-start]
-      var(--layout-fixed) [right-end]
-      minmax(0, 1fr) [full-end];
-    /*
-			auto (centers grid) |
-			240px fixed (nav) |
-			640px fixed (content) |
-			240px fixed (right) |
-			auto (centers grid)
-		*/
-
-    > .container {
-      grid-column: content-start / content-end;
-    }
-
-    .flow {
-      padding-block: var(--spacing-max); /* 200 */
-    }
-  }
+/* Page layout: block, no grid */
+.page {
+	display: block;
+	min-height: 100vh;
 }
 
-/* xl: Layout values for xl grid */
+.page > .content {
+	padding-top: 0;
+}
+
 @media (min-width: 75rem) {
-  :root {
-    --layout-fixed: 15rem; /* 240px */
-    --layout-content-half: 20rem; /* 320px */
-  }
+	.page > .content {
+		padding-top: 0;
+	}
+}
+
+/* Grid: sections only. Column-gap: 0 — no gap between grid columns. */
+.section {
+	display: grid;
+	column-gap: 0;
+	grid-template-columns: $grid-2;
+
+	>.container {
+		grid-column: col1-start / col2-end;
+	}
+
+	.flow {
+		max-width: 100%;
+		padding-block: var(--spacing-huge);
+
+		p {
+			max-width: 100%;
+		}
+	}
+
+	@media (min-width: 48rem) {
+		grid-template-columns: $grid-12;
+
+		>.container {
+			grid-column: col1-start / col12-end;
+		}
+
+		>.container--narrow {
+			grid-column: 4 / 12;
+		}
+
+		.flow {
+			padding-block: var(--spacing-max);
+		}
+	}
+
+	@media (min-width: 75rem) {
+		>.container--narrow {
+			grid-column: 6 / 13;
+		}
+	}
+}
+
+/* ─────────────────────────────────────────
+   Grid span utilities (for md/xl 12-col)
+   Use on direct children of .section, .post-header, or .post-section
+   ───────────────────────────────────────── */
+
+.span-full {
+	grid-column: col1-start / col2-end;
+}
+
+@media (min-width: 48rem) {
+	.span-full {
+		grid-column: col1-start / col12-end;
+	}
+
+	.span-12 {
+		grid-column: col1-start / col12-end;
+	}
+
+	.span-10 {
+		grid-column: span 10;
+	}
+
+	.span-8 {
+		grid-column: span 8;
+	}
+
+	.span-6 {
+		grid-column: span 6;
+	}
+
+	.span-4 {
+		grid-column: span 4;
+	}
+
+	.span-3 {
+		grid-column: span 3;
+	}
 }

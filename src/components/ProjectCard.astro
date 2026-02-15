@@ -26,7 +26,7 @@ const { slug, title, description, cover } = Astro.props;
   .project-card {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
   }
 
   .project-card-image {
@@ -51,24 +51,27 @@ const { slug, title, description, cover } = Astro.props;
   }
 
   .project-card-title {
-    font-family: var(--font-family-display);
+    font-family: var(--type-title-m-font-family);
     font-size: clamp(1.25rem, 5vw, 1.75rem);
-    line-height: var(--line-height-3);
+    line-height: var(--type-title-m-line-height);
+    letter-spacing: var(--type-title-m-letter-spacing);
     margin: 0;
   }
 
   .project-card-description {
-    font-family: var(--type-body-font-family);
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
-    line-height: var(--type-body-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0;
   }
 
   .project-card-link {
-    font-family: var(--type-body-font-family);
-    font-size: var(--type-body-font-size);
-    line-height: var(--type-body-line-height);
+    font-family: var(--type-text-m-font-family);
+    font-size: var(--type-text-m-font-size);
+    line-height: var(--type-text-m-line-height);
+    letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-primary);
     text-decoration: underline;
     text-underline-offset: 0.2em;
@@ -82,11 +85,11 @@ const { slug, title, description, cover } = Astro.props;
   /* Desktop */
   @media (min-width: 75rem) {
     .project-card-title {
-      font-size: var(--font-size-5);
+      font-size: var(--type-title-s-font-size);
     }
 
     .project-card-description {
-      font-size: var(--type-body-font-size);
+      font-size: var(--type-text-m-font-size);
     }
   }
 </style>

@@ -21,4 +21,6 @@ const { project } = Astro.props as Props;
 const { Content } = await project.render();
 ---
 
-<Content components={{ PostSection, PostHeader, PostText, Figure }} />
+<div class="post-page">
+  <Content components={{ PostSection, PostHeader, PostText, Figure }} />
+</div>

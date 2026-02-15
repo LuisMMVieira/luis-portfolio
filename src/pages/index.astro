@@ -1,59 +1,54 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Section from "../components/Section.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 
-import IntroContent from "../content/intro.md";
-import AboutContent from "../content/about.md";
-import ValuesContent from "../content/values.md";
-import BackgroundContent from "../content/background.md";
+import IntroContent from '../content/intro.md';
+import AboutContent from '../content/about.md';
+import ValuesContent from '../content/values.md';
+import BackgroundContent from '../content/background.md';
 
 // Get all projects, sorted by order
-const projects = (await getCollection("projects"))
-  .filter((project) => !project.data.draft && project.slug !== "TEMPLATE")
+const projects = (await getCollection('projects'))
+  .filter((project) => !project.data.draft && project.slug !== 'TEMPLATE')
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout>
-  <Section id="intro" class="home-section-grid">
+  <Section id="intro">
     <IntroContent />
   </Section>
 
-  <hr class="division" />
-
-  <Section id="work" class="home-section-grid">
+  <Section id="work">
     <div class="projects-list-wrapper">
       <div class="projects-list">
         {
-          projects.map((project) => (
-            <ProjectCard
-              slug={project.slug}
-              title={project.data.title}
-              description={project.data.description}
-              cover={project.data.cover}
-            />
+          projects.map((project, index) => (
+            <>
+              {index > 0 && <hr class="division" />}
+              <ProjectCard
+                slug={project.slug}
+                title={project.data.title}
+                description={project.data.subtitle}
+                cover={project.data.cover}
+              />
+            </>
           ))
         }
       </div>
     </div>
   </Section>
 
-  <hr class="division" />
-
-  <Section id="values" class="home-section-grid">
+  <Section id="values">
     <ValuesContent />
   </Section>
 
-  <hr class="division" />
-
-  <Section id="background" class="home-section-grid">
+  <Section id="background">
     <BackgroundContent />
   </Section>
 
-  <hr class="division" />
-
-  <Section id="about" class="home-section-grid">
+  <Section id="about">
     <AboutContent />
   </Section>
 </BaseLayout>
