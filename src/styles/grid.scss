@@ -14,7 +14,7 @@
 $grid-12: [margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
 $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
 
-/* Page layout: block, no grid */
+/* Page layout: block, no grid. At xl: same max-width as modal (1360px) */
 .page {
 	display: block;
 	min-height: 100vh;
@@ -25,6 +25,11 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
 }
 
 @media (min-width: 75rem) {
+	.page {
+		max-width: var(--width-modal-max);
+		margin-inline: auto;
+	}
+
 	.page > .content {
 		padding-top: 0;
 	}

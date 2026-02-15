@@ -58,7 +58,7 @@ const navItems = [
     font-size: var(--type-text-m-font-size);
     line-height: var(--type-text-m-line-height);
 
-    font-weight: var(--type-text-m-font-weight);
+    font-weight: var(--font-weight-medium);
     letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-primary);
     opacity: 0.5;
@@ -75,20 +75,35 @@ const navItems = [
     }
   }
 
-  /* Tablet */
-  @media (min-width: 48rem) {
+  /* Tablet only: same 12-col grid as .section for perfect alignment */
+  @media (min-width: 48rem) and (max-width: 74.99rem) {
     .site-header {
-      padding-inline: var(--grid-margin-md);
+      display: grid;
+      column-gap: 0;
+      grid-template-columns:
+        [margin-start] var(--grid-margin-md)
+        [col1-start] repeat(12, 1fr)
+        [col12-end] var(--grid-margin-md) [margin-end];
+      padding-inline: 0;
+    }
+
+    .site-nav {
+      grid-column: 4 / 12;
     }
   }
 
-  /* Desktop: nav aligned with section cols 2-3 via calc (grid is sections-only) */
+  /* Desktop: sidebar on cols 2-3, aligned to page grid (max 1360px centered) */
   @media (min-width: 75rem) {
     .site-header {
+      --page-width: min(100vw, var(--width-modal-max));
+      --page-offset: calc((100vw - var(--page-width)) / 2);
+      --col-width: calc((var(--page-width) - 2 * var(--grid-margin-md)) / 12);
+
+      display: block;
       position: fixed;
       top: var(--spacing-max);
-      left: calc(var(--grid-margin-md) + (100vw - 2 * var(--grid-margin-md)) / 12);
-      width: calc(2 * (100vw - 2 * var(--grid-margin-md)) / 12);
+      left: calc(var(--page-offset) + var(--grid-margin-md) + var(--col-width));
+      width: calc(2 * var(--col-width));
       right: auto;
       padding-inline: 0;
       background: transparent;
