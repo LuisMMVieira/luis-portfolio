@@ -72,7 +72,7 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
 
 	@media (min-width: 75rem) {
 		>.container--narrow {
-			grid-column: 6 / 13;
+			grid-column: 5 / 11;
 		}
 	}
 }

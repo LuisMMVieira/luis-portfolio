@@ -4,13 +4,13 @@
 		 Zeplin equivalents: #000, #0c0c0c, #242424, #464646, #808080, #b9b9b9, #dcdcdc, #f4f4f4, #fff
 		 ───────────────────────────────────────── */
 
-	--color-darkest: oklab(0% 0 0);
+	--color-darkest: oklab(15.4% 0 0); /* temporarily = superpastel-dark */
 	--color-superpastel-dark: oklab(15.4% 0 0);
 	--color-dark: oklab(26% 0 0);
 	--color-medium-dark: oklab(39.4% 0 0);
 	--color-base: oklab(60% 0 0);
 	--color-medium-light: oklab(78.6% 0 0);
-	--color-light: oklab(89.4% 0 0);
+	--color-light: oklab(96.7% 0 0); /* temporarily = superpastel-light */
 	--color-superpastel-light: oklab(96.7% 0 0);
 	--color-lightest: oklab(100% 0 0);
 
@@ -18,7 +18,7 @@
 		 Semantic Colors (Zeplin: semantic–colors-default-*)
 		 ───────────────────────────────────────── */
 
-	--bg-default: var(--color-lightest);
+	--bg-default: var(--color-superpastel-light);
 	--bg-elevated: var(--color-superpastel-light);
 
 	--text-primary: var(--color-darkest);
@@ -32,17 +32,28 @@
 		 ───────────────────────────────────────── */
 
 	--spacing-none: 0;
-	--spacing-xxxs: 0.125rem;   /* 2px */
-	--spacing-xxs: 0.25rem;     /* 4px */
-	--spacing-xs: 0.5rem;       /* 8px */
-	--spacing-sm: 0.75rem;      /* 12px */
-	--spacing-md: 1.25rem;      /* 20px */
-	--spacing-lg: 1.75rem;      /* 28px */
-	--spacing-xl: 2.5rem;       /* 40px */
-	--spacing-xxl: 3.5rem;      /* 56px */
-	--spacing-xxxl: 5rem;       /* 80px */
-	--spacing-huge: 7.5rem;     /* 120px */
-	--spacing-max: 12.5rem;     /* 200px */
+	--spacing-xxxs: 0.125rem;
+	/* 2px */
+	--spacing-xxs: 0.25rem;
+	/* 4px */
+	--spacing-xs: 0.5rem;
+	/* 8px */
+	--spacing-sm: 0.75rem;
+	/* 12px */
+	--spacing-md: 1.25rem;
+	/* 20px */
+	--spacing-lg: 1.75rem;
+	/* 28px */
+	--spacing-xl: 2.5rem;
+	/* 40px */
+	--spacing-xxl: 3.5rem;
+	/* 56px */
+	--spacing-xxxl: 5rem;
+	/* 80px */
+	--spacing-huge: 7.5rem;
+	/* 120px */
+	--spacing-max: 12.5rem;
+	/* 200px */
 
 	/* ─────────────────────────────────────────
 	 Layout / Widths
@@ -110,31 +121,31 @@
 	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
 	 ───────────────────────────────────────── */
 
-	/* Title XL — 62px / 106% / -1.24px (Zeplin: title-xl) */
+	/* Title XL — 56px / 106% / -1.12px (Zeplin: title-xl) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
-	--type-title-xl-font-size: 3.875rem;
+	--type-title-xl-font-size: 3.7rem;
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
 	/* Title L — 46px / 110% / -0.92px (Zeplin: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 2.875rem;
-	--type-title-l-line-height: 1.1;
+	--type-title-l-font-size: 3.2rem;
+	--type-title-l-line-height: 1.05;
 	--type-title-l-letter-spacing: -0.02em;
 
-	/* Title M — 28px / 120% / -0.56px (Zeplin: title-m) */
+	/* Title M — 30px / 120% / -0.6px (Zeplin: title-m) */
 	--type-title-m-font-family: var(--font-family-display);
 	--type-title-m-font-weight: var(--font-weight-semibold);
-	--type-title-m-font-size: 1.75rem;
+	--type-title-m-font-size: 2rem;
 	--type-title-m-line-height: 1.2;
 	--type-title-m-letter-spacing: -0.02em;
 
-	/* Title S — 18px / 122% / -0.27px (Zeplin: title-s) */
+	/* Title S — 20px / 122% / -0.3px (Zeplin: title-s) */
 	--type-title-s-font-family: var(--font-family-display);
 	--type-title-s-font-weight: var(--font-weight-semibold);
-	--type-title-s-font-size: 1.125rem;
+	--type-title-s-font-size: 1.25rem;
 	--type-title-s-line-height: 1.22;
 	--type-title-s-letter-spacing: -0.015em;
 
@@ -172,13 +183,28 @@
 }
 
 /* ─────────────────────────────────────────
+	 Dark Mode — inverted semantic tokens
+	 ───────────────────────────────────────── */
+
+html.dark {
+	--bg-default: var(--color-superpastel-dark);
+	--bg-elevated: var(--color-superpastel-dark);
+
+	--text-primary: var(--color-lightest);
+	--text-secondary: var(--color-light);
+
+	--border-default: var(--color-dark);
+	--border-strong: var(--color-medium-light);
+}
+
+/* ─────────────────────────────────────────
 	 Responsive Type — Tablet (md)
 	 ───────────────────────────────────────── */
 
 @media (min-width: 48rem) {
 	:root {
 		/* h1 scales from Title M → Title XL at md */
-		--type-title-xl-font-size: 3.875rem;
+		--type-title-xl-font-size: 3.7rem;
 		--type-title-xl-line-height: 1.06;
 	}
 }

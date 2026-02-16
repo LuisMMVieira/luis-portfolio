@@ -26,7 +26,8 @@
 
 	.intro-headline {
 		text-wrap: balance;
-		hyphens: none; /* avoid "prod-uct" breaks on narrow viewports */
+		hyphens: none;
+		/* avoid "prod-uct" breaks on narrow viewports */
 		font-size: var(--type-title-m-font-size);
 		line-height: var(--type-title-m-line-height);
 		max-width: 100%;
@@ -35,7 +36,9 @@
 	.intro-greeting {
 		position: relative;
 		top: 0;
-		margin-bottom: var(--spacing-xs);
+		font-size: var(--type-title-s-font-size);
+		line-height: var(--type-title-s-line-height);
+		letter-spacing: var(--type-title-s-letter-spacing);
 	}
 }
 
@@ -128,6 +131,8 @@ hr.division {
 		}
 
 		.intro-headline {
+			position: relative;
+			top: -8px;
 			font-size: var(--type-title-xl-font-size);
 			line-height: var(--type-title-xl-line-height);
 		}
@@ -135,6 +140,7 @@ hr.division {
 		.intro-greeting {
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
+			letter-spacing: var(--type-title-m-letter-spacing);
 			top: calc(-1 * (var(--type-title-m-font-size) * var(--type-title-m-line-height) + var(--spacing-lg)));
 		}
 	}

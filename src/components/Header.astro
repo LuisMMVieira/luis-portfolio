@@ -22,6 +22,10 @@ const navItems = [
       }
     </ul>
   </nav>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    <span class="theme-toggle__label--light">dark</span>
+    <span class="theme-toggle__label--dark">light</span>
+  </button>
 </header>
 
 <style lang="scss">
@@ -61,7 +65,7 @@ const navItems = [
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-primary);
-    opacity: 0.5;
+    opacity: 0.4;
     text-decoration: none;
 
     &:hover {
@@ -73,6 +77,37 @@ const navItems = [
       color: var(--text-primary);
       opacity: 1;
     }
+  }
+
+  /* Theme toggle — fixed top-right */
+  .theme-toggle {
+    position: fixed;
+    top: var(--spacing-sm);
+    right: var(--grid-margin-xs);
+    z-index: 101;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+
+    font-family: var(--type-text-s-font-family);
+    font-size: var(--type-text-s-font-size);
+    line-height: var(--type-text-s-line-height);
+    letter-spacing: var(--type-text-s-letter-spacing);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-base);
+  }
+
+  .theme-toggle__label--dark {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle__label--light {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle__label--dark {
+    display: inline;
   }
 
   /* Tablet only: same 12-col grid as .section for perfect alignment */
@@ -92,7 +127,7 @@ const navItems = [
     }
   }
 
-  /* Desktop: sidebar on cols 2-3, aligned to page grid (max 1360px centered) */
+  /* Desktop: sidebar on col 3, aligned to page grid (max 1360px centered) */
   @media (min-width: 75rem) {
     .site-header {
       --page-width: min(100vw, var(--width-modal-max));
@@ -103,7 +138,7 @@ const navItems = [
       position: fixed;
       top: var(--spacing-max);
       left: calc(var(--page-offset) + var(--grid-margin-md) + var(--col-width));
-      width: calc(2 * var(--col-width));
+      width: var(--col-width);
       right: auto;
       padding-inline: 0;
       background: transparent;

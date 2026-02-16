@@ -1,12 +1,12 @@
 ---
-import "../styles/main.scss";
-import Header from "../components/Header.astro";
+import '../styles/main.scss';
+import Header from '../components/Header.astro';
 // import PasswordGate from "../components/PasswordGate.astro";
-import ProjectModal from "../components/ProjectModal.astro";
+import ProjectModal from '../components/ProjectModal.astro';
 
 const {
-  title = "Luis Vieira—Digital Product Designer",
-  description = "I design purposeful digital products—clear systems with human presence.",
+  title = 'Luis Vieira—Digital Product Designer',
+  description = 'I design purposeful digital products—clear systems with human presence.',
 } = Astro.props;
 ---
 
@@ -27,6 +27,11 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <slot name="head" />
+    <script is:inline>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body>
     <!-- <PasswordGate /> -->

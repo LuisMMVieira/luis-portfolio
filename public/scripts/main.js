@@ -1,3 +1,14 @@
+// Theme Toggle: dark / light
+(function () {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+
+  toggle.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+})();
+
 // Scroll Spy: Activate nav item when section reaches top of viewport
 (function () {
   const sections = document.querySelectorAll(".section[id]");
@@ -54,18 +65,17 @@
   const sectionIds = ["intro", "work", "values", "background", "about"];
 
   function openModal(slug) {
+    document.documentElement.classList.add("modal-open");
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
     loadContent(slug);
   }
 
   function closeModal() {
-    // Add closing class to trigger animation while keeping visibility
+    document.documentElement.classList.remove("modal-open");
     modal.classList.add("is-closing");
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
 
     // Wait for animation to complete before hiding visibility
     const container = modal.querySelector(".project-modal-container");

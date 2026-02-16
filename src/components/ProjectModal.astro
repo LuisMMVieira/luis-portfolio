@@ -12,10 +12,10 @@
         height="24"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
-        stroke-width="2"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M18 6L6 18M6 6l12 12"></path>
+        <path d="M2 2L22 22" stroke="currentColor" stroke-width="1.5" />
+        <path d="M22 2L2 22" stroke="currentColor" stroke-width="1.5" />
       </svg>
     </span>
   </button>
@@ -63,9 +63,7 @@
   .project-modal-backdrop {
     position: absolute;
     inset: 0;
-    background: oklab(0% 0 0 / 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: var(--bg-default);
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -81,6 +79,8 @@
     height: 100%;
     overflow-y: auto;
     background: var(--bg-default);
+    outline: var(--border-width-default) solid var(--border-default);
+    outline-offset: 0;
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -91,15 +91,16 @@
 
   .project-modal-close {
     position: fixed;
-    top: var(--spacing-xs);
+    top: var(--spacing-xxs); /* 4px */
     right: var(--spacing-xs);
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: var(--spacing-xs);
     padding: var(--spacing-xs);
     border: none;
     outline: none;
-    background: var(--bg-default);
+    background: transparent;
     border-radius: var(--radius-infinite);
     cursor: pointer;
     opacity: 0;
@@ -107,19 +108,18 @@
     z-index: 1001;
 
     &:hover {
-      .project-modal-close-icon {
-        background: var(--bg-elevated);
-      }
+      opacity: 0.7;
     }
   }
 
   .project-modal-close-text {
-    display: none;
-    font-family: var(--type-text-m-font-family);
-    font-size: var(--type-text-m-font-size);
-    line-height: var(--type-text-m-line-height);
-    letter-spacing: var(--type-text-m-letter-spacing);
-    color: var(--color-medium-light);
+    display: inline;
+    font-family: var(--type-text-s-font-family);
+    font-size: var(--type-text-s-font-size);
+    line-height: var(--type-text-s-line-height);
+    letter-spacing: var(--type-text-s-letter-spacing);
+    color: var(--color-base);
+    text-transform: uppercase;
   }
 
   .project-modal-close-icon {
@@ -128,16 +128,14 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    background: var(--bg-default);
+    background: transparent;
     color: var(--text-primary);
-    border-radius: var(--radius-infinite);
-    transition: background 0.2s ease;
   }
 
   /* Desktop (xl) - matches site grid: min 1200px, max 1360px */
   @media (min-width: 75rem) {
     .project-modal {
-      padding-block-start: var(--spacing-xl);
+      padding-block-start: 3rem; /* 48px: 4px + 40px button + 4px */
       padding-block-end: 0;
     }
 
@@ -150,19 +148,14 @@
 
     .project-modal-close {
       position: absolute;
-      top: var(--spacing-xs);
+      top: var(--spacing-xxs); /* 4px */
       right: var(--spacing-xs);
-      background: transparent;
-    }
-
-    .project-modal-close-text {
-      display: inline;
     }
   }
 </style>
 
 <style is:global lang="scss">
-  body.modal-open {
+  html.modal-open {
     overflow: hidden;
   }
 
