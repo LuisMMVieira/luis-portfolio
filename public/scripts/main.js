@@ -72,6 +72,26 @@ function initCarousels(root) {
   });
 }
 
+// Image Scroller: dark/light toggle (event delegation)
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest(".image-scroller-toggle");
+  if (!btn) return;
+  var section = btn.closest(".post-section") || btn.parentElement;
+  var scroller = section.querySelector(".image-scroller");
+  if (!scroller) return;
+  var mode = btn.getAttribute("data-mode");
+  var imgs = scroller.querySelectorAll("img");
+  if (mode === "dark") {
+    imgs.forEach(function (img) { img.src = img.src.replace("dark", "light"); });
+    btn.setAttribute("data-mode", "light");
+    btn.textContent = "See dark";
+  } else {
+    imgs.forEach(function (img) { img.src = img.src.replace("light", "dark"); });
+    btn.setAttribute("data-mode", "dark");
+    btn.textContent = "See light";
+  }
+});
+
 // Project Modal: Load project content dynamically
 (function () {
   const modal = document.getElementById("project-modal");

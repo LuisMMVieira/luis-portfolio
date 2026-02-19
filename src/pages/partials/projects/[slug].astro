@@ -5,7 +5,6 @@ import PostHeader from "../../../components/mdx/PostHeader.astro";
 import PostText from "../../../components/mdx/PostText.astro";
 import Figure from "../../../components/mdx/Figure.astro";
 import ImageCarousel from "../../../components/mdx/ImageCarousel.astro";
-
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
