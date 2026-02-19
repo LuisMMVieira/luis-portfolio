@@ -1,0 +1,32 @@
+---
+interface Props {
+  images: { src: string; alt: string }[];
+  interval?: number;
+  caption?: string;
+}
+
+const { images, interval = 2500, caption } = Astro.props;
+---
+
+<figure class="post-figure">
+  <div
+    class="image-carousel"
+    data-image-carousel
+    data-interval={interval}
+    style="position: relative; width: 100%; overflow: hidden;"
+  >
+    {images.map((img, i) => (
+      <img
+        src={img.src}
+        alt={img.alt}
+        loading={i === 0 ? 'eager' : 'lazy'}
+        data-carousel-slide
+        style={i === 0
+          ? 'display: block; width: 100%; height: auto; opacity: 1;'
+          : 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;'
+        }
+      />
+    ))}
+  </div>
+  {caption && <figcaption class="post-figure__caption">{caption}</figcaption>}
+</figure>

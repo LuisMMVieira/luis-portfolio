@@ -1,18 +1,17 @@
 /* ─────────────────────────────────────────
-   Grid System — Same grid everywhere, no column gap
-   xs: 2 cols | md/xl: 12 cols | side margins only
-   Grid only on sections. Post template has grid in each section. Nav uses calc to align.
+   Grid System — Clean columns + padding for margins
+   xs: 2 cols + 20px padding | md/xl: 12 cols + 12px padding
+   Grid only on sections. Post template has grid in each section.
    ───────────────────────────────────────── */
 
 /*
-   [margin] [cols, no gap] [margin]
-   xs:  [20px] [col1 col2] [20px]
-   md+: [12px] [col1..col12, no gap] [12px]
+   [padding] [cols, no gap] [padding]
+   xs:  20px padding | 2 × 1fr | 20px padding
+   md+: 12px padding | 12 × 1fr | 12px padding
 */
 
-/* Shared grid template - 12 cols, no gap between columns */
-$grid-12: [margin-start] var(--grid-margin-md) [col1-start] repeat(12, 1fr) [col12-end] var(--grid-margin-md) [margin-end];
-$grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr [col2-end] var(--grid-margin-xs) [margin-end];
+$grid-12: repeat(12, 1fr);
+$grid-2: 1fr 1fr;
 
 /* Page layout: block, no grid. At xl: same max-width as modal (1360px) */
 .page {
@@ -40,9 +39,10 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
 	display: grid;
 	column-gap: 0;
 	grid-template-columns: $grid-2;
+	padding-inline: var(--grid-margin-xs);
 
 	>.container {
-		grid-column: col1-start / col2-end;
+		grid-column: 1 / -1;
 	}
 
 	.flow {
@@ -56,13 +56,14 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
 
 	@media (min-width: 48rem) {
 		grid-template-columns: $grid-12;
+		padding-inline: var(--grid-margin-md);
 
 		>.container {
-			grid-column: col1-start / col12-end;
+			grid-column: 1 / -1;
 		}
 
 		>.container--narrow {
-			grid-column: 4 / 12;
+			grid-column: 3 / 11;
 		}
 
 		.flow {
@@ -72,7 +73,7 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
 
 	@media (min-width: 75rem) {
 		>.container--narrow {
-			grid-column: 5 / 11;
+			grid-column: 4 / 10;
 		}
 	}
 }
@@ -83,16 +84,16 @@ $grid-2: [margin-start] var(--grid-margin-xs) [col1-start] 1fr [col2-start] 1fr 
    ───────────────────────────────────────── */
 
 .span-full {
-	grid-column: col1-start / col2-end;
+	grid-column: 1 / -1;
 }
 
 @media (min-width: 48rem) {
 	.span-full {
-		grid-column: col1-start / col12-end;
+		grid-column: 1 / -1;
 	}
 
 	.span-12 {
-		grid-column: col1-start / col12-end;
+		grid-column: 1 / -1;
 	}
 
 	.span-10 {

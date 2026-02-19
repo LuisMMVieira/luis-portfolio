@@ -49,6 +49,29 @@
   }
 })();
 
+// Image Carousel: fade-loop through stacked images
+var _carouselTimers = [];
+function initCarousels(root) {
+  _carouselTimers.forEach(function (id) { clearInterval(id); });
+  _carouselTimers = [];
+
+  (root || document).querySelectorAll("[data-image-carousel]").forEach(function (carousel) {
+    var slides = carousel.querySelectorAll("[data-carousel-slide]");
+    if (slides.length < 2) return;
+
+    var ms = parseInt(carousel.getAttribute("data-interval") || "2500", 10);
+    var current = 0;
+
+    var id = setInterval(function () {
+      slides[current].style.opacity = "0";
+      current = (current + 1) % slides.length;
+      slides[current].style.opacity = "1";
+    }, ms);
+
+    _carouselTimers.push(id);
+  });
+}
+
 // Project Modal: Load project content dynamically
 (function () {
   const modal = document.getElementById("project-modal");
@@ -96,6 +119,7 @@
     // Check cache first
     if (contentCache.has(slug)) {
       modalContent.innerHTML = contentCache.get(slug);
+      initCarousels(modalContent);
       return;
     }
 
@@ -118,6 +142,7 @@
       contentCache.set(slug, content);
       modalContent.classList.remove("is-loading");
       modalContent.innerHTML = content;
+      initCarousels(modalContent);
     } catch (error) {
       console.error("Error loading project:", error);
       modalContent.classList.remove("is-loading");

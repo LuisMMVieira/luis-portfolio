@@ -2,10 +2,13 @@
 title: "About Me"
 ---
 
-I'm a Senior Digital Product Designer with 8+ years building digital products that work. Currently at Spaceship, where I was core to building the platform from zero over 6 years. Before that, I spent years in web and print design, learning how structure and clarity create meaning.
+### I'm Luís, thank you for stopping by.
 
-I think in systems. I document obsessively. I bridge the gap between design intent and engineering reality through specs that teams can actually build from. My strength is making complex things buildable—not through cleverness, but through disciplined thinking and clear communication.
+I live and work in Porto, the second largest city of Portugal. I have been designing digital products for 18 years now, so, I can I lived lived through some significant paradigm shifts — the blogging era, the social web, the internet in your pocket, and UX earning its place at the table. I truly believe these different experiences/vibes shape the designer i am today... and that makes me stronger.
 
-I'm looking for my next role at an early-stage AI startup where design is a strategic advantage, not an afterthought. If you're building something hard and need someone who can think through the entire system—not just paint pixels—let's talk.
+Cutting it short, I’m a designer who thrives in designing systems, user experiences, internal experiences, design documentation, cross-functional work, and high-level starting from zero, providing the 1, and decisive improvements fed from the first real-world feedbacks.
 
-**Email:** [lmmvieira@gmail.com](mailto:lmmvieira@gmail.com)
+With this website I aim to introduce myself to a bigger audience and, who knows, improve the chances of meeting great people.
+
+So, what are you waiting for?... [HIT ME UP](mailto:luis@luisvieira.design)
+

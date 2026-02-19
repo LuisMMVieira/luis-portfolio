@@ -10,6 +10,7 @@ import PostSection from '../../components/mdx/PostSection.astro';
 import PostHeader from '../../components/mdx/PostHeader.astro';
 import PostText from '../../components/mdx/PostText.astro';
 import Figure from '../../components/mdx/Figure.astro';
+import ImageCarousel from '../../components/mdx/ImageCarousel.astro';
 
 <PostSection layout="full">
   <Figure
@@ -26,26 +27,22 @@ I was one of the core product designers from day one. Over six years, I designed
 
 </PostHeader>
 
-<PostSection layout="big">
+<PostSection layout="big" media="center-wide">
   <Figure
-    src="/assets/projects/spaceship/images/sps domain search & transfer - transparent.png"
+    src="/assets/projects/spaceship/images/sps mobile.png"
     alt="Domain search and transfer flow — mobile screens showing search, results, and bulk transfer"
-    caption="Mobile-first search flow—progressive disclosure."
   />
 </PostSection>
 
 <PostSection layout="big">
-  <Figure
-    src="/assets/projects/spaceship/images/sps launchpad - transparent.png"
-    alt="Launchpad — the home screen after login with all product managers and connected services"
-  />
-</PostSection>
-
-<PostSection layout="big">
-  <Figure
-    src="/assets/projects/spaceship/images/sps managers - transparent.png"
-    alt="Connected product managers — domains, hosting, email, and content managers working as one system"
-    caption="App Managers as an integrated system"
+  <ImageCarousel
+    images={[
+      { src: "/assets/projects/spaceship/images/managers/manager 1 - domain.png", alt: "Domain Manager — domain list with info panel and connections" },
+      { src: "/assets/projects/spaceship/images/managers/manager 2 - hosting.png", alt: "Hosting Manager — shared hosting dashboard with domain details" },
+      { src: "/assets/projects/spaceship/images/managers/manager 3 - subscrtptions.png", alt: "Subscription Manager — product plans, expiration, and auto-renew" },
+      { src: "/assets/projects/spaceship/images/managers/manager 4 - connections.png", alt: "Connections Manager — domains with linked products overview" },
+    ]}
+    interval={2000}
   />
 </PostSection>
 
