@@ -59,11 +59,11 @@
 	 Layout / Widths
 	 ───────────────────────────────────────── */
 
-	/* Grid margins: side padding (Zeplin-style) */
-	--grid-margin-xs: 1.5rem;
-	/* 24px */
-	--grid-margin-md: 1.5rem;
-	/* 24px */
+	/* Grid margins: side padding — xs 20px, md/xl 12px */
+	--grid-margin-xs: var(--spacing-md);
+	/* 20px */
+	--grid-margin-md: var(--spacing-sm);
+	/* 12px */
 
 	--width-text-max: 35rem;
 	/* 560px */
