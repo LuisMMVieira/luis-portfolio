@@ -15,9 +15,16 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
-      rules: {
-        // Custom rules for Astro files
+      rules: {},
+    },
+    {
+      files: ['*.mdx'],
+      parser: 'astro-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.mdx'],
       },
+      rules: {},
     },
     {
       files: ['*.ts', '*.tsx'],

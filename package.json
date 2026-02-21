@@ -7,10 +7,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "eslint . --ext .js,.ts,.astro",
-    "lint:fix": "eslint . --ext .js,.ts,.astro --fix",
-    "format": "prettier --write \"**/*.{js,ts,astro,json,md,css,scss}\"",
-    "format:check": "prettier --check \"**/*.{js,ts,astro,json,md,css,scss}\""
+    "lint": "eslint . --ext .js,.ts,.astro,.mdx",
+    "lint:fix": "eslint . --ext .js,.ts,.astro,.mdx --fix",
+    "format": "prettier --write \"**/*.{js,ts,astro,mdx,json,md,css,scss}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,astro,mdx,json,md,css,scss}\""
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
