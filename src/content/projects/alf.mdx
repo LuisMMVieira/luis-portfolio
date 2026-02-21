@@ -7,23 +7,24 @@ draft: false
 ---
 
 import PostSection from '../../components/mdx/PostSection.astro';
-import PostHeader from '../../components/mdx/PostHeader.astro';
-import PostText from '../../components/mdx/PostText.astro';
 import Figure from '../../components/mdx/Figure.astro';
-
-<PostSection layout="full">
-  <Figure
-    src="/assets/projects/alf/images/cover/alf cover.png"
-    alt="Alf AI assistant — welcome screen with prompt suggestions"
-  />
-</PostSection>
-
-<PostHeader title="Alf" subtitle="Native AI assistant for domains, hosting, and account management.">
-</PostHeader>
+import Video from '../../components/mdx/Video.astro';
 
 <PostSection layout="full">
   <Figure
     src="/assets/projects/alf/images/sections/alf display.png"
     alt="Alf — mobile screens showing splash, welcome, conversation, and domain suggestions"
+  />
+</PostSection>
+
+<PostSection layout="big" col2>
+  <Video src="/assets/projects/alf/videos/alf onboarding.mp4" />
+  <Video src="/assets/projects/alf/videos/alf chat.mp4" />
+</PostSection>
+
+<PostSection layout="full">
+  <Figure
+    src="/assets/projects/alf/images/sections/alf mechanics sketch.png"
+    alt="Alf — mechanics sketch"
   />
 </PostSection>

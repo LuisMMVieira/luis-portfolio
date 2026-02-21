@@ -16,9 +16,6 @@ const { slug, title, description, cover } = Astro.props;
   <div class="project-card-info">
     <h3 class="project-card-title">{title}</h3>
     <p class="project-card-description">{description}</p>
-    <a href={`#${slug}`} class="project-card-link" data-project={slug}>
-      Read more
-    </a>
   </div>
 </article>
 
@@ -65,21 +62,6 @@ const { slug, title, description, cover } = Astro.props;
     letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0;
-  }
-
-  .project-card-link {
-    font-family: var(--type-text-m-font-family);
-    font-size: var(--type-text-m-font-size);
-    line-height: var(--type-text-m-line-height);
-    letter-spacing: var(--type-text-m-letter-spacing);
-    color: var(--text-primary);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    margin-top: var(--spacing-xs);
-
-    &:hover {
-      text-decoration-thickness: 2px;
-    }
   }
 
   /* Desktop */

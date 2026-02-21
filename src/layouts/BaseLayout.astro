@@ -28,9 +28,7 @@ const {
     <meta name="description" content={description} />
     <slot name="head" />
     <script is:inline>
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
+      document.documentElement.classList.add('dark');
     </script>
   </head>
   <body>

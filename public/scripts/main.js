@@ -1,14 +1,3 @@
-// Theme Toggle: dark / light
-(function () {
-  const toggle = document.getElementById("theme-toggle");
-  if (!toggle) return;
-
-  toggle.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-})();
-
 // Scroll Spy: Activate nav item when section reaches top of viewport
 (function () {
   const sections = document.querySelectorAll(".section[id]");
@@ -71,26 +60,6 @@ function initCarousels(root) {
     _carouselTimers.push(id);
   });
 }
-
-// Image Scroller: dark/light toggle (event delegation)
-document.addEventListener("click", function (e) {
-  var btn = e.target.closest(".image-scroller-toggle");
-  if (!btn) return;
-  var section = btn.closest(".post-section") || btn.parentElement;
-  var scroller = section.querySelector(".image-scroller");
-  if (!scroller) return;
-  var mode = btn.getAttribute("data-mode");
-  var imgs = scroller.querySelectorAll("img");
-  if (mode === "dark") {
-    imgs.forEach(function (img) { img.src = img.src.replace("dark", "light"); });
-    btn.setAttribute("data-mode", "light");
-    btn.textContent = "See dark";
-  } else {
-    imgs.forEach(function (img) { img.src = img.src.replace("light", "dark"); });
-    btn.setAttribute("data-mode", "dark");
-    btn.textContent = "See light";
-  }
-});
 
 // Project Modal: Load project content dynamically
 (function () {

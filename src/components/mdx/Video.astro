@@ -1,0 +1,13 @@
+---
+interface Props {
+  src: string;
+  caption?: string;
+}
+
+const { src, caption } = Astro.props;
+---
+
+<figure class="post-figure post-figure--video">
+  <video src={src} autoplay muted loop playsinline></video>
+  {caption && <figcaption class="post-figure__caption">{caption}</figcaption>}
+</figure>

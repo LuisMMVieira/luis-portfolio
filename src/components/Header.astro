@@ -22,10 +22,6 @@ const navItems = [
       }
     </ul>
   </nav>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-    <span class="theme-toggle__label--light">dark</span>
-    <span class="theme-toggle__label--dark">light</span>
-  </button>
 </header>
 
 <style lang="scss">
@@ -77,37 +73,6 @@ const navItems = [
       color: var(--text-primary);
       opacity: 1;
     }
-  }
-
-  /* Theme toggle — fixed top-right */
-  .theme-toggle {
-    position: fixed;
-    top: var(--spacing-sm);
-    right: var(--grid-margin-xs);
-    z-index: 101;
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-
-    font-family: var(--type-text-s-font-family);
-    font-size: var(--type-text-s-font-size);
-    line-height: var(--type-text-s-line-height);
-    letter-spacing: var(--type-text-s-letter-spacing);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-base);
-  }
-
-  .theme-toggle__label--dark {
-    display: none;
-  }
-
-  :global(html.dark) .theme-toggle__label--light {
-    display: none;
-  }
-
-  :global(html.dark) .theme-toggle__label--dark {
-    display: inline;
   }
 
   /* Tablet only: same 12-col grid as .section for perfect alignment */
