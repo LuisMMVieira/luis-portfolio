@@ -11,15 +11,26 @@ import Figure from '../../components/mdx/Figure.astro';
 import Video from '../../components/mdx/Video.astro';
 
 <PostSection layout="full">
+  <div
+    class="post-cover-hero"
+    style="--cover-bg: url('/assets/projects/alf/images/cover/sps cover background.png')"
+  >
+    <Video src="/assets/projects/alf/videos/alf onboarding.mp4" />
+  </div>
+</PostSection>
+
+<PostSection layout="big">
   <Figure
-    src="/assets/projects/alf/images/sections/alf display.png"
-    alt="Alf — mobile screens showing splash, welcome, conversation, and domain suggestions"
+    src="/assets/projects/alf/images/sections/alf display light.png"
+    alt=""
   />
 </PostSection>
 
-<PostSection layout="big" col2>
-  <Video src="/assets/projects/alf/videos/alf onboarding.mp4" />
-  <Video src="/assets/projects/alf/videos/alf chat.mp4" />
+<PostSection layout="big">
+  <Figure
+    src="/assets/projects/alf/images/sections/alf display dark.png"
+    alt=""
+  />
 </PostSection>
 
 <PostSection layout="full">

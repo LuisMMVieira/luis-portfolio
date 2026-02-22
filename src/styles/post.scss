@@ -60,6 +60,25 @@
 	/* padding-inline inherited from .post-section = --grid-margin-xs / --grid-margin-md */
 }
 
+/* Cover hero: background image with video on top */
+.post-cover-hero {
+	background-image: var(--cover-bg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 20rem;
+	padding: var(--spacing-xl);
+	width: 100%;
+	box-sizing: border-box;
+
+	.post-figure--video {
+		margin: 0;
+	}
+}
+
 .post-section--text {
 	padding-block: var(--spacing-xl);
 	align-items: center;
@@ -169,7 +188,7 @@
 	display: block;
 	border-radius: 44px;
 	overflow: hidden;
-	outline: 8px solid rgba(255, 255, 255, 0.2);
+	outline: 8px solid rgba(0, 0, 0, 0.1);
 	outline-offset: 0;
 }
 
