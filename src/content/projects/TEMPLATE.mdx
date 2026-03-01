@@ -1,86 +1,282 @@
 ---
 title: "Template"
-subtitle: "Post Subtitle"
-cover: "/images/Placeholder.png"
-order: 99
-draft: true
+subtitle: "All post components and layout variants."
+cover: "https://placehold.co/1280x800/111/222"
+order: 3
+draft: false
 ---
 
 import PostSection from '../../components/mdx/PostSection.astro';
 import PostHeader from '../../components/mdx/PostHeader.astro';
 import PostText from '../../components/mdx/PostText.astro';
 import Figure from '../../components/mdx/Figure.astro';
+import Video from '../../components/mdx/Video.astro';
+import ImageCarousel from '../../components/mdx/ImageCarousel.astro';
+import PostDivider from '../../components/mdx/PostDivider.astro';
+
+{/* ─────────────────────────────────────────
+    COVER HERO
+    Full-bleed with background image + video centered.
+    Use layout="full" so it bleeds edge-to-edge within grid padding.
+    ───────────────────────────────────────── */}
 
 <PostSection layout="full">
-  <Figure 
-    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
-    alt="Cover figure"
-  />
+  <div
+    class="post-cover-hero"
+    style="--cover-bg: url('/assets/projects/SLUG/images/cover/cover background.png')"
+  >
+    <Video src="/assets/projects/SLUG/videos/video.mp4" />
+  </div>
 </PostSection>
+
+{/* ─────────────────────────────────────────
+    POST HEADER
+    title + subtitle on the left, intro paragraphs on the right.
+    xs: stacked (flex-col, gap 40px between title-group and intro)
+    md: 2-col grid, gap 40px, padding-block 80px
+    xl: 2-col grid, gap 80px, padding-block 120px
+    ───────────────────────────────────────── */}
 
 <PostHeader title="Big title" subtitle="Post Subtitle">
 
-Paragraph goes here and continues continues like so.
+Intro paragraph goes here. Describe the context, problem, and your role.
 
-Paragraph
+Second paragraph with more detail.
 
 </PostHeader>
 
+{/* ─────────────────────────────────────────
+    DIVIDER
+    Hairline rule with optional section label.
+    Always full width inside the section grid.
+    ───────────────────────────────────────── */}
+
 <PostSection layout="big">
-  <Figure 
-    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
-    alt="Figure with caption"
-    caption="Caption goes here"
+  <PostDivider label="Section label" />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    FIGURES — FULL WIDTH (layout="big")
+    Image spans all 12 columns.
+    Add caption prop for optional caption below.
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big">
+  <Figure
+    src="https://placehold.co/1200x675/111/111"
+    alt="Full width 16:9 figure"
+    caption="Optional caption goes here"
   />
 </PostSection>
 
-<PostSection layout="big" col2>
-  <Figure 
-    src="https://placehold.co/600x200/FDF2F2/FDF2F2" 
-    alt="Left figure"
+<PostSection layout="big">
+  <Figure
+    src="https://placehold.co/1200x900/111/111"
+    alt="Full width 4:3 figure"
   />
-  <Figure 
-    src="https://placehold.co/600x200/FDF2F2/FDF2F2" 
+</PostSection>
+
+<PostSection layout="big">
+  <Figure
+    src="https://placehold.co/1200x1200/111/111"
+    alt="Full width 1:1 figure"
+  />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    FIGURES — MEDIA VARIANTS (layout="big" + media prop)
+    Single figure per section, positioned via grid-column at xl.
+    At xs/md: always full width.
+
+    media="full"           → cols 1–12 (flush edge-to-edge within padding)
+    media="center-wide"    → cols 3–11 at md, cols 3–11 at xl
+    media="center"         → same as center-wide (alias)
+    media="left-wide"      → cols 1–9 at xl
+    media="left"           → cols 1–4 at xl
+    media="left-small"     → cols 1–4 at xl (same as left)
+    media="right-wide"     → cols 5–12 at xl
+    media="right"          → cols 7–12 at xl
+    media="right-small"    → cols 9–12 at xl
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big" media="center-wide">
+  <Figure
+    src="https://placehold.co/1000x563/111/111"
+    alt="Center wide figure"
+  />
+</PostSection>
+
+<PostSection layout="big" media="left-wide">
+  <Figure
+    src="https://placehold.co/900x506/111/111"
+    alt="Left wide figure"
+  />
+</PostSection>
+
+<PostSection layout="big" media="right-wide">
+  <Figure
+    src="https://placehold.co/900x506/111/111"
+    alt="Right wide figure"
+  />
+</PostSection>
+
+<PostSection layout="big" media="left">
+  <Figure
+    src="https://placehold.co/400x400/111/111"
+    alt="Left small figure"
+  />
+</PostSection>
+
+<PostSection layout="big" media="right">
+  <Figure
+    src="https://placehold.co/600x400/111/111"
     alt="Right figure"
   />
 </PostSection>
 
-<PostSection layout="big">
-  <PostText title="Medium title">
-
-Paragraph goes here and continues continues like so.
-
-Paragraph
-
-  </PostText>
+<PostSection layout="big" media="right-small">
+  <Figure
+    src="https://placehold.co/400x400/111/111"
+    alt="Right small figure"
+  />
 </PostSection>
 
-<PostSection layout="big">
-  <Figure 
-    src="https://placehold.co/1200x200/FDF2F2/FDF2F2" 
-    alt="Full width figure"
+{/* ─────────────────────────────────────────
+    FIGURES — FULL BLEED (layout="full")
+    Spans entire viewport width including padding.
+    ───────────────────────────────────────── */}
+
+<PostSection layout="full">
+  <Figure
+    src="https://placehold.co/1440x810/111/111"
+    alt="Full bleed figure"
+  />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    2-COLUMN LAYOUT (col2)
+    xs: stacked (full width each)
+    md+: flex row, equal columns, 1-col inset each side, gap 40px
+    xl+: gap 80px
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big" col2>
+  <Figure
+    src="https://placehold.co/600x400/111/111"
+    alt="Left figure"
+  />
+  <Figure
+    src="https://placehold.co/600x400/111/111"
+    alt="Right figure"
   />
 </PostSection>
 
 <PostSection layout="big" col2>
-  <PostText>
+  <PostText title="Left title">
 
-Paragraph goes here and continues continues like so.
+Text on the left column.
 
-Paragraph
+More text here.
 
   </PostText>
   <PostText>
 
-Paragraph goes here and continues continues like so.
+Text on the right column with no title.
 
-Paragraph
+More text here.
 
   </PostText>
 </PostSection>
 
+<PostSection layout="big" col2>
+  <PostText title="Left title">
+
+Description of something on the left.
+
+  </PostText>
+  <Figure
+    src="https://placehold.co/600x400/111/111"
+    alt="Right figure"
+  />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    3-COLUMN LAYOUT (col3)
+    xs: stacked (full width each)
+    md+: flex row, equal columns, 1-col inset each side, gap 40px
+    xl+: gap 80px
+    ───────────────────────────────────────── */}
+
 <PostSection layout="big" col3>
-  <Figure src="https://placehold.co/400x200/FDF2F2/FDF2F2" alt="Col 1" />
-  <Figure src="https://placehold.co/400x200/FDF2F2/FDF2F2" alt="Col 2" />
-  <Figure src="https://placehold.co/400x200/FDF2F2/FDF2F2" alt="Col 3" />
+  <Figure src="https://placehold.co/400x400/111/111" alt="Col 1" />
+  <Figure src="https://placehold.co/400x400/111/111" alt="Col 2" />
+  <Figure src="https://placehold.co/400x400/111/111" alt="Col 3" />
+</PostSection>
+
+<PostSection layout="big" col3>
+  <PostText title="Title 1">
+
+Short description for column one.
+
+  </PostText>
+  <PostText title="Title 2">
+
+Short description for column two.
+
+  </PostText>
+  <PostText title="Title 3">
+
+Short description for column three.
+
+  </PostText>
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    TEXT BLOCK (layout="text")
+    xs: full width
+    md: grid-column 3/11 (8 cols, 2-col inset each side)
+    xl: grid-column 4/10 (6 cols, 3-col inset each side)
+    ───────────────────────────────────────── */}
+
+<PostSection layout="text">
+  <PostText title="Section title">
+
+Long-form paragraph content. Use this for written sections — process, decisions, learnings.
+
+Another paragraph of text here.
+
+  </PostText>
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    VIDEO (standalone)
+    Rendered as a phone-style video with rounded corners and outline.
+    Height 600px, auto width. Centered in section.
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big">
+  <Video src="/assets/projects/SLUG/videos/video.mp4" />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    IMAGE CAROUSEL
+    Horizontally scrollable strip of images.
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big">
+  <ImageCarousel
+    images={[
+      { src: "https://placehold.co/294x600/111/111", alt: "Screen 1" },
+      { src: "https://placehold.co/294x600/111/111", alt: "Screen 2" },
+      { src: "https://placehold.co/294x600/111/111", alt: "Screen 3" },
+    ]}
+  />
+</PostSection>
+
+{/* ─────────────────────────────────────────
+    DIVIDER — NO LABEL
+    ───────────────────────────────────────── */}
+
+<PostSection layout="big">
+  <PostDivider />
 </PostSection>

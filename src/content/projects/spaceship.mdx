@@ -8,87 +8,93 @@ draft: false
 
 import PostSection from '../../components/mdx/PostSection.astro';
 import PostHeader from '../../components/mdx/PostHeader.astro';
-import PostText from '../../components/mdx/PostText.astro';
+import PostDivider from '../../components/mdx/PostDivider.astro';
 import Figure from '../../components/mdx/Figure.astro';
-import ImageCarousel from '../../components/mdx/ImageCarousel.astro';
+import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
 
 <PostSection layout="full">
-  <Figure
-    src="/assets/projects/spaceship/images/sps cover.png"
-    alt="Spaceship domain platform — search interface with domain suggestions"
-  />
-</PostSection>
-
-<PostHeader title="Spaceship" subtitle="Building a domain platform from scratch. Six years and counting.">
-
-Spaceship is Namecheap's from-scratch platform: a full rebuild of how domains, hosting, email, and connected products work together. Not a reskin. A new product.
-
-I was one of the core product designers from day one. Over six years, I designed the search experience, the domain manager, the Unbox connection system, and the documentation that held it all together across teams. Pretty much everything users touch, I had a hand in.
-
-</PostHeader>
-
-<PostSection layout="big" media="center-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/sps mobile.png"
-    alt="Domain search and transfer flow — mobile screens showing search, results, and bulk transfer"
-  />
-</PostSection>
-
-<PostSection layout="big">
-  <ImageCarousel
-    images={[
-      { src: "/assets/projects/spaceship/images/managers/manager 1 - domain.png", alt: "Domain Manager — domain list with info panel and connections" },
-      { src: "/assets/projects/spaceship/images/managers/manager 2 - hosting.png", alt: "Hosting Manager — shared hosting dashboard with domain details" },
-      { src: "/assets/projects/spaceship/images/managers/manager 3 - subscrtptions.png", alt: "Subscription Manager — product plans, expiration, and auto-renew" },
-      { src: "/assets/projects/spaceship/images/managers/manager 4 - connections.png", alt: "Connections Manager — domains with linked products overview" },
-    ]}
-    interval={2000}
-  />
-</PostSection>
-
-<PostSection layout="full">
-  <div class="image-scroller" data-mode="light">
-    <img src="/assets/projects/spaceship/images/unbox/sps unbox light 1.png" alt="Unbox interface — screen 1" />
-    <img src="/assets/projects/spaceship/images/unbox/sps unbox light 2.png" alt="Unbox interface — screen 2" />
-    <img src="/assets/projects/spaceship/images/unbox/sps unbox light 3.png" alt="Unbox interface — screen 3" />
-    <img src="/assets/projects/spaceship/images/unbox/sps unbox light 4.png" alt="Unbox interface — screen 4" />
-    <img src="/assets/projects/spaceship/images/unbox/sps unbox light 5.png" alt="Unbox interface — screen 5" />
+  <div class="post-cover-image">
+    <img
+      src="/assets/projects/spaceship/images/sps featured.png"
+      alt="Spaceship — A domain odyssey"
+      loading="eager"
+    />
   </div>
 </PostSection>
 
-<PostSection layout="text">
-  <PostText heading="Building the system">
-    Complex products need clear infrastructure. I mapped connection flows across 12+ scenarios, built and evolved the design system for the platform foundations that scaled across web and mobile, and documented everything so engineering could build it. This is the work that turns ideas into shippable systems.
-  </PostText>
+<PostHeader title="Building a domain platform from scratch—Six years and counting.">
+
+Spaceship.com is a spin-off from Namecheap. They rhyme but they're essentially different. Spaceship's goal was to revolutionize the online presence experience through unparallel user experience, getting itself ahead in the industry.
+
+This journey started in 2019 and I, as a founding designer, had my contribution on almost every part of its design. Everything you see final here is work done by me and my team—Product Platform UX team.
+
+</PostHeader>
+
+<PostSection layout="big">
+  <PostDivider label="Homepage, Domain Search & Transfer" />
+</PostSection>
+
+<PostSection layout="full">
+  <div class="post-window-canvas">
+    <div class="post-window-canvas__frame">
+      <EntranceVideo src="/assets/projects/spaceship/videos/Entrance choreography.mp4" />
+    </div>
+    <p class="post-window-canvas__caption">Homepage entrance choreography.</p>
+  </div>
+</PostSection>
+
+<PostSection layout="big" media="left-wide">
+  <Figure
+    src="/assets/projects/spaceship/images/homepage/sps home handoff.png"
+    alt="Homepage design handoff"
+    caption="Homepage design handoff."
+  />
+</PostSection>
+
+<PostSection layout="full">
+  <div class="post-scroll-image">
+    <img src="/assets/projects/spaceship/images/homepage/sps home breakpoints.png" alt="Homepage responsive breakpoints" style="width: auto; height: 320px; max-width: none;" />
+  </div>
 </PostSection>
 
 <PostSection layout="big">
   <Figure
-    src="/assets/projects/spaceship/images/sps homepage sketch.png"
-    alt="Early sketches exploring homepage layouts and user flows"
+    src="/assets/projects/spaceship/images/homepage/sps search modes.png"
+    alt="Domain search and transfer mode-switching logic"
+    caption="Domain search and transfer mode-switching logic."
   />
 </PostSection>
 
 <PostSection layout="big">
-  <Figure
-    src="/assets/projects/spaceship/images/sps unbox flow chart.png"
-    alt="Unbox connection flow architecture diagram"
-    caption="Unbox flow architecture—12+ scenarios mapped"
-  />
+  <div class="post-image-centered">
+    <img src="/assets/projects/spaceship/images/homepage/sps mobile.png" alt="Homepage mobile experience" />
+  </div>
 </PostSection>
 
 <PostSection layout="big">
   <Figure
-    src="/assets/projects/spaceship/images/sps documentation 02 - Grids.png"
-    alt="Design system grid documentation showing responsive layouts"
-    caption="Launchpad layout system."
+    src="/assets/projects/spaceship/images/homepage/sps homepage sketch.png"
+    alt="Homepage early sketches"
+    caption="Homepage early sketches."
   />
 </PostSection>
 
-<PostSection layout="text">
-  <PostText>
-    Spaceship launched in 2021 and now serves users across 150+ countries. The platform handles thousands of domains daily, and the design system I built scaled across web, mobile, and multiple product lines.
+<PostSection layout="big">
+  <PostDivider label="Launchpad" />
+</PostSection>
 
-    Building a 0→1 product over 8 years taught me how to design for uncertainty, build systems that scale, and stay close to users through launch and beyond. The biggest lesson: the best interfaces are the ones users don't notice—they just get their work done.
-  </PostText>
+<PostSection layout="big">
+  <div class="post-canvas-carousel">
+    <div class="post-canvas-carousel__canvas">
+      <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 01.png" alt="Launchpad" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 02.png" alt="Launchpad" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 03.png" alt="Launchpad" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 04.png" alt="Launchpad" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 05.png" alt="Launchpad" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/sps launchpad 06.png" alt="Launchpad" />
+      </div>
+    </div>
+    <p class="post-figure__caption">The Launchpad allowed users to reach applications fast and customize their location.</p>
+  </div>
 </PostSection>

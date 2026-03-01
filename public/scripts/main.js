@@ -41,23 +41,73 @@
 // Image Carousel: fade-loop through stacked images
 var _carouselTimers = [];
 function initCarousels(root) {
-  _carouselTimers.forEach(function (id) { clearInterval(id); });
+  _carouselTimers.forEach(function (id) { clearTimeout(id); });
   _carouselTimers = [];
 
   (root || document).querySelectorAll("[data-image-carousel]").forEach(function (carousel) {
     var slides = carousel.querySelectorAll("[data-carousel-slide]");
     if (slides.length < 2) return;
 
-    var ms = parseInt(carousel.getAttribute("data-interval") || "2500", 10);
+    // Per-slide config: [delay, fade]. Parsed from data-slides JSON or defaults.
+    var defaultMs = parseInt(carousel.getAttribute("data-interval") || "2500", 10);
+    var config = [];
+    try { config = JSON.parse(carousel.getAttribute("data-slides")); } catch (e) {}
     var current = 0;
 
-    var id = setInterval(function () {
-      slides[current].style.opacity = "0";
-      current = (current + 1) % slides.length;
-      slides[current].style.opacity = "1";
-    }, ms);
+    // All slides at opacity 1 (stacked), slide 0 on top.
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.opacity = "1";
+      slides[i].style.zIndex = slides.length - i;
+      slides[i].style.transition = "opacity 0.5s ease";
+    }
 
-    _carouselTimers.push(id);
+    function getDelay(i) { return config[i] ? config[i][0] : defaultMs; }
+    function getFade(i) { return config[i] ? config[i][1] : true; }
+
+    function step() {
+      var delay = getDelay(current);
+      var fade = getFade(current);
+      var id = setTimeout(function () {
+        if (fade) {
+          slides[current].style.opacity = "0";
+        } else {
+          slides[current].style.transition = "none";
+          slides[current].style.opacity = "0";
+          void carousel.offsetHeight;
+          slides[current].style.transition = "opacity 0.5s ease";
+        }
+        current = (current + 1) % slides.length;
+        // On loop reset: snap all back instantly
+        if (current === 0) {
+          for (var i = 0; i < slides.length; i++) {
+            slides[i].style.transition = "none";
+            slides[i].style.opacity = "1";
+            slides[i].style.zIndex = slides.length - i;
+          }
+          void carousel.offsetHeight;
+          for (var i = 0; i < slides.length; i++) {
+            slides[i].style.transition = "opacity 0.5s ease";
+          }
+        }
+        step();
+      }, delay);
+      _carouselTimers.push(id);
+    }
+    step();
+  });
+}
+
+// Loop Video: replay after a 3-second pause
+function initLoopVideos(root) {
+  (root || document).querySelectorAll("[data-loop-video]").forEach(function (video) {
+    if (video._loopBound) return;
+    video._loopBound = true;
+    video.addEventListener("ended", function () {
+      setTimeout(function () {
+        video.currentTime = 0;
+        video.play().catch(function () {});
+      }, 3000);
+    });
   });
 }
 
@@ -109,6 +159,7 @@ function initCarousels(root) {
     if (contentCache.has(slug)) {
       modalContent.innerHTML = contentCache.get(slug);
       initCarousels(modalContent);
+      initLoopVideos(modalContent);
       return;
     }
 
@@ -132,6 +183,7 @@ function initCarousels(root) {
       modalContent.classList.remove("is-loading");
       modalContent.innerHTML = content;
       initCarousels(modalContent);
+      initLoopVideos(modalContent);
     } catch (error) {
       console.error("Error loading project:", error);
       modalContent.classList.remove("is-loading");

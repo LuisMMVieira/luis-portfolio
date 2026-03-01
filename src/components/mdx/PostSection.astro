@@ -21,5 +21,11 @@ const classes = [
 ---
 
 <section class={classes}>
-  <slot />
+  {(col2 || col3) ? (
+    <div class="post-section__cols">
+      <slot />
+    </div>
+  ) : (
+    <slot />
+  )}
 </section>
