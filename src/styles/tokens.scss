@@ -181,11 +181,11 @@
 	--type-text-m-line-height: 1.85;
 	--type-text-m-letter-spacing: 0em;
 
-	/* Text S — 12px / 160% (Zeplin: text-s) */
+	/* Text S — matches Text M (temporarily equalized) */
 	--type-text-s-font-family: var(--font-family-sans);
 	--type-text-s-font-weight: var(--font-weight-regular);
-	--type-text-s-font-size: 0.75rem;
-	--type-text-s-line-height: 1.6;
+	--type-text-s-font-size: 0.875rem;
+	--type-text-s-line-height: 1.85;
 	--type-text-s-letter-spacing: 0em;
 }
 

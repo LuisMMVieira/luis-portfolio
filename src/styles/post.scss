@@ -665,3 +665,114 @@
 		}
 	}
 }
+
+/* Launchpad density: two figures — stacked at xs/md, side-by-side at xl */
+.post-launchpad-density {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xl);
+	padding-block: var(--spacing-xl);
+
+	&__figure {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+	}
+
+	&__media {
+		width: 100%;
+		aspect-ratio: 496 / 412;
+		overflow: hidden;
+
+		img,
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	&__caption {
+		font-family: var(--type-text-s-font-family);
+		font-size: var(--type-text-s-font-size);
+		font-weight: var(--type-text-s-font-weight);
+		line-height: var(--type-text-s-line-height);
+		color: var(--text-secondary);
+		padding-block: var(--spacing-sm);
+		margin: 0;
+		max-width: var(--width-text-minimum-max);
+	}
+
+	@media (min-width: 48rem) {
+		width: 372px;
+		margin-inline: auto;
+		padding-block: var(--spacing-xxxl);
+	}
+
+	@media (min-width: 75rem) {
+		width: 1114px;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--spacing-xxxl);
+		padding-block: var(--spacing-huge);
+	}
+}
+
+/* Launchpad grids: wide image (cols 1–9) + phone mockup (cols 10–12) with vertical offset */
+.post-launchpad-grids {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	&__main {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+
+		img {
+			width: 100%;
+			aspect-ratio: 3840 / 2160;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	&__caption {
+		font-family: var(--type-text-s-font-family);
+		font-size: var(--type-text-s-font-size);
+		font-weight: var(--type-text-s-font-weight);
+		line-height: var(--type-text-s-line-height);
+		color: var(--text-secondary);
+		padding-block: var(--spacing-sm);
+		margin: 0;
+		max-width: var(--width-text-minimum-max);
+	}
+
+	&__secondary {
+		grid-column: 2 / 3;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: contain;
+		}
+	}
+
+	@media (min-width: 48rem) {
+		grid-template-columns: 9fr 3fr;
+		align-items: start;
+
+		&__main {
+			grid-column: 1 / 2;
+		}
+
+		&__secondary {
+			grid-column: 2 / 3;
+			padding-top: 13.35%;
+		}
+	}
+}

@@ -170,6 +170,8 @@
 	 ───────────────────────────────────────── */
 
 .section#about {
+	min-height: 100vh;
+
 	/* Text is primary (white) on purple bg */
 	p {
 		color: var(--text-primary);
@@ -410,8 +412,8 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, max;
 	.intro-statuses {
 		flex-direction: row;
 		gap: var(--spacing-md);
-		top: var(--spacing-md);
-		right: var(--spacing-md);
+		top: var(--spacing-sm);
+		right: var(--grid-margin-md);
 		left: auto;
 		bottom: auto;
 		transform: none;

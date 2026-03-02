@@ -14,8 +14,8 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M2 2L22 22" stroke="currentColor" stroke-width="1.5" />
-        <path d="M22 2L2 22" stroke="currentColor" stroke-width="1.5" />
+        <path d="M2 2L22 22" stroke="currentColor" stroke-width="1.5"></path>
+        <path d="M22 2L2 22" stroke="currentColor" stroke-width="1.5"></path>
       </svg>
     </span>
   </button>
@@ -79,8 +79,7 @@
     height: 100%;
     overflow-y: auto;
     background: var(--bg-default);
-    outline: var(--border-width-hairline) solid var(--border-default);
-    outline-offset: 0;
+
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -135,7 +134,7 @@
   /* Desktop (xl) - matches site grid: min 1200px, max 1360px */
   @media (min-width: 75rem) {
     .project-modal {
-      padding-block-start: 3rem; /* 48px: 4px + 40px button + 4px */
+      padding-block-start: 0;
       padding-block-end: 0;
     }
 
@@ -186,7 +185,7 @@
       justify-content: center;
 
       &::after {
-        content: "";
+        content: '';
         width: 2rem;
         height: 2rem;
         border: 2px solid var(--border-default);
