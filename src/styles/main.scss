@@ -158,6 +158,10 @@
 		max-width: 200px;
 	}
 
+	h3 + * {
+		margin-top: 0;
+	}
+
 	.bg-chapter + .bg-chapter {
 		margin-top: var(--spacing-xl);
 	}
