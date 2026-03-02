@@ -61,6 +61,7 @@ const { slug, title, description, cover } = Astro.props;
     letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0;
+    max-width: var(--width-text-minimum-max);
   }
 
   /* Tablet (md) */
@@ -89,7 +90,6 @@ const { slug, title, description, cover } = Astro.props;
     }
 
     .project-card-description {
-      max-width: var(--width-text-minimum-max);
       flex-shrink: 0;
     }
   }

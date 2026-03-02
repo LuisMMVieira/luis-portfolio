@@ -471,6 +471,11 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, max;
 		padding-block-end: var(--spacing-xl);
 	}
 
+	/* Work section: paragraph max-width (overrides .flow p { max-width: 100% }) */
+	.section#work .flow p {
+		max-width: var(--width-text-minimum-max);
+	}
+
 	/* Background: side-by-side layout at xl */
 	.bg-chapter {
 		flex-direction: row;
