@@ -1,18 +1,17 @@
 :root {
 	/* ─────────────────────────────────────────
-		 Base colors (OKlab — perceptually uniform)
-		 Zeplin equivalents: #000, #0c0c0c, #242424, #464646, #808080, #b9b9b9, #dcdcdc, #f4f4f4, #fff
+		 Base colors (design token table)
 		 ───────────────────────────────────────── */
 
-	--color-darkest: oklab(15.4% 0 0); /* temporarily = superpastel-dark */
-	--color-superpastel-dark: oklab(15.4% 0 0);
-	--color-dark: oklab(26% 0 0);
-	--color-medium-dark: oklab(39.4% 0 0);
-	--color-base: oklab(60% 0 0);
-	--color-medium-light: oklab(78.6% 0 0);
-	--color-light: oklab(96.7% 0 0); /* temporarily = superpastel-light */
-	--color-superpastel-light: oklab(96.7% 0 0);
-	--color-lightest: oklab(100% 0 0);
+	--color-darkest: #000000;
+	--color-superpastel-dark: #0d0d0d;
+	--color-dark: #2b2b2b;
+	--color-medium-dark: #464646;
+	--color-base: #808080;
+	--color-medium-light: #b9b9b9;
+	--color-light: #dcdcdc;
+	--color-superpastel-light: #f4f4f4;
+	--color-lightest: #ffffff;
 
 	/* Accent / emphasis */
 	--color-emphasis: #7026c9;
@@ -27,7 +26,7 @@
 	--text-primary: var(--color-superpastel-light);
 	--text-secondary: var(--color-medium-light);
 
-	--border-default: var(--color-medium-dark);
+	--border-default: var(--color-dark);
 	--border-strong: var(--color-base);
 
 	/* ─────────────────────────────────────────

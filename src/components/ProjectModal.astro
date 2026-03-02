@@ -38,6 +38,30 @@
     padding-block-start: 0;
     pointer-events: none;
     width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+
+    /* Keep scrollbar visible when content overflows (e.g. on macOS overlay scrollbars) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-default) transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-default);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--border-strong);
+    }
 
     &.is-open,
     &.is-closing {
@@ -61,7 +85,7 @@
   }
 
   .project-modal-backdrop {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: var(--bg-default);
     opacity: 0;
@@ -76,8 +100,8 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: 100%;
-    overflow-y: auto;
+    height: auto;
+    min-height: 100%;
     background: var(--bg-default);
 
     transform: translateY(100%);
@@ -143,12 +167,6 @@
       min-width: 75rem;
       max-width: var(--width-modal-max);
       margin-inline: auto;
-    }
-
-    .project-modal-close {
-      position: absolute;
-      top: var(--spacing-xxs); /* 4px */
-      right: var(--spacing-xs);
     }
   }
 </style>

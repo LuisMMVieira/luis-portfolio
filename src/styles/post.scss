@@ -122,12 +122,14 @@
 /* Window canvas: browser-frame video/image on dark background */
 .post-window-canvas {
 	width: 100%;
+	background-color: var(--color-darkest);
 
 	&__frame {
 		aspect-ratio: 784 / 434;
 		width: 100%;
 		overflow: hidden;
 		border-radius: var(--radius-sm);
+		background-color: var(--color-darkest);
 
 		video, img {
 			width: 100%;
@@ -148,7 +150,6 @@
 	}
 
 	@media (min-width: 48rem) {
-		background-color: var(--color-darkest);
 		padding-block: var(--spacing-xxl);
 		display: flex;
 		flex-direction: column;
@@ -533,7 +534,6 @@
 
 /* Scroll Image: single wide image with horizontal overflow scroll */
 .post-scroll-image {
-	background-color: var(--color-darkest);
 	overflow-x: auto;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
