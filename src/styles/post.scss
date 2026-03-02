@@ -498,33 +498,6 @@
 	}
 }
 
-/* ─────────────────────────────────────────
-   Post Divider
-   ───────────────────────────────────────── */
-
-.post-divider {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-xs);
-	padding-block: var(--spacing-xl);
-	width: 100%;
-}
-
-.post-divider__line {
-	width: 100%;
-	height: var(--border-width-hairline);
-	background-color: var(--border-default);
-}
-
-.post-divider__label {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	color: var(--text-primary);
-	margin: 0;
-}
-
 /* Image Centered: light bg container, full-width xs, fixed width at md/xl */
 .post-image-centered {
 	overflow: hidden;

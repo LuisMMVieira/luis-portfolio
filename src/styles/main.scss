@@ -13,6 +13,14 @@
 	min-height: 100svh;
 	position: relative;
 
+	.flow > * + * {
+		margin-top: var(--spacing-md);
+	}
+
+	.flow > .intro-statuses {
+		margin-top: 0;
+	}
+
 	h1 {
 		position: relative;
 		display: flex;
@@ -96,12 +104,24 @@
 }
 
 /* ─────────────────────────────────────────
-	 Section: Work
+	 Section: Work (Figma Home Section 1142:793)
 	 ───────────────────────────────────────── */
+
+.section#work .flow {
+	/* xs / md: 120px top, 56px bottom */
+	padding-block-start: var(--spacing-huge);
+	padding-block-end: var(--spacing-xxl);
+}
 
 .projects-list {
 	display: flex;
 	flex-direction: column;
+}
+
+/* Divider between projects: xs/md */
+.section#work .divider--work {
+	padding-block-start: var(--spacing-xxl);
+	padding-block-end: var(--spacing-lg);
 }
 
 /* ─────────────────────────────────────────
@@ -136,6 +156,10 @@
 .section#background {
 	h3 {
 		max-width: 200px;
+	}
+
+	.bg-chapter + .bg-chapter {
+		margin-top: var(--spacing-xl);
 	}
 }
 
@@ -198,6 +222,36 @@
 	opacity: 0.5;
 }
 
+.about-contact__email-wrap {
+	position: relative;
+}
+
+.about-contact__tooltip {
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + var(--spacing-xs));
+	transform: translateX(-50%);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-primary);
+	background: var(--bg-elevated);
+	border: var(--border-width-hairline) solid var(--border-default);
+	border-radius: var(--radius-xs);
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
+	pointer-events: none;
+	z-index: 1;
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 .about-contact__link {
 	color: var(--text-primary);
 	text-decoration: underline;
@@ -210,14 +264,10 @@
 }
 
 /* ─────────────────────────────────────────
-	 Flow (default)
+	 Flow (heading-adjacent spacing only; no global sibling margin)
 	 ───────────────────────────────────────── */
 
 .flow {
-	> * + * {
-		margin-top: var(--spacing-md);
-	}
-
 	h2 + * {
 		margin-top: var(--spacing-sm);
 	}
@@ -228,21 +278,41 @@
 }
 
 /* ─────────────────────────────────────────
-	 Dividers
+	 Divider (site-wide)
 	 ───────────────────────────────────────── */
 
-hr.division {
-	border: 0;
-	height: var(--border-width-hairline);
-	background: var(--border-default);
+.divider {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
 	width: 100%;
-	margin-block: var(--spacing-xxl) 0;
+	margin: 0;
 }
 
-/* Work + Background sections: space around dividers */
-.projects-list hr.division,
-.section#background hr.division {
-	margin-block: var(--spacing-xxl);
+/* Spacing modifiers (token-based, no inline styles) */
+$spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, max;
+@each $key in $spacing-keys {
+	.divider--above-#{$key} {
+		padding-block-start: var(--spacing-#{$key});
+	}
+	.divider--below-#{$key} {
+		padding-block-end: var(--spacing-#{$key});
+	}
+}
+
+.divider__line {
+	width: 100%;
+	height: var(--border-width-hairline);
+	background-color: var(--border-default);
+}
+
+.divider__label {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	color: var(--text-primary);
+	margin: 0;
 }
 
 /* ─────────────────────────────────────────
@@ -293,6 +363,11 @@ hr.division {
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
 		}
+	}
+
+	.section#work .divider--work {
+		padding-block-start: var(--spacing-xxl);
+		padding-block-end: var(--spacing-lg);
 	}
 
 	.section#about {
@@ -378,13 +453,18 @@ hr.division {
 		color: var(--text-secondary);
 	}
 
-	/* Section spacing: xl uses 200px top */
+	/* Section spacing: xl uses 200px top, 120px bottom (Figma Home Section) */
 	.section#work .flow,
 	.section#beliefs .flow,
 	.section#background .flow,
 	.section#about .flow {
 		padding-block-start: var(--spacing-max);
 		padding-block-end: var(--spacing-huge);
+	}
+
+	.section#work .divider--work {
+		padding-block-start: var(--spacing-huge);
+		padding-block-end: var(--spacing-xl);
 	}
 
 	/* Background: side-by-side layout at xl */

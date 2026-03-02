@@ -1,0 +1,29 @@
+---
+interface Props {
+  label?: string;
+  spaceAbove?: string;
+  spaceBelow?: string;
+  variant?: 'work';
+}
+
+const { label, spaceAbove, spaceBelow, variant } = Astro.props;
+
+const SPACING_TOKENS = new Set([
+  'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'huge', 'max',
+]);
+
+function spacingClass(token: string | undefined, side: 'above' | 'below', defaultToken: string): string {
+  const key = token?.toLowerCase();
+  const value = key && SPACING_TOKENS.has(key) ? key : defaultToken;
+  return `divider--${side}-${value}`;
+}
+
+const aboveClass = variant === 'work' ? '' : spacingClass(spaceAbove, 'above', 'xl');
+const belowClass = variant === 'work' ? '' : spacingClass(spaceBelow, 'below', 'xl');
+const classList = ['divider', variant === 'work' ? 'divider--work' : '', aboveClass, belowClass].filter(Boolean).join(' ');
+---
+
+<div class={classList}>
+  <div class="divider__line"></div>
+  {label && <p class="divider__label">{label}</p>}
+</div>

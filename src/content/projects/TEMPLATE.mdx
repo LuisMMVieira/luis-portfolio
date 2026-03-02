@@ -3,7 +3,7 @@ title: "Template"
 subtitle: "All post components and layout variants."
 cover: "https://placehold.co/1280x800/111/222"
 order: 3
-draft: false
+draft: true
 ---
 
 import PostSection from '../../components/mdx/PostSection.astro';
@@ -12,7 +12,7 @@ import PostText from '../../components/mdx/PostText.astro';
 import Figure from '../../components/mdx/Figure.astro';
 import Video from '../../components/mdx/Video.astro';
 import ImageCarousel from '../../components/mdx/ImageCarousel.astro';
-import PostDivider from '../../components/mdx/PostDivider.astro';
+import Divider from '../../components/Divider.astro';
 
 {/* ─────────────────────────────────────────
     COVER HERO
@@ -52,7 +52,7 @@ Second paragraph with more detail.
     ───────────────────────────────────────── */}
 
 <PostSection layout="big">
-  <PostDivider label="Section label" />
+  <Divider label="Section label" />
 </PostSection>
 
 {/* ─────────────────────────────────────────
@@ -278,5 +278,5 @@ Another paragraph of text here.
     ───────────────────────────────────────── */}
 
 <PostSection layout="big">
-  <PostDivider />
+  <Divider />
 </PostSection>

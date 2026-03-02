@@ -18,17 +18,17 @@
 	--color-emphasis: #7026c9;
 
 	/* ─────────────────────────────────────────
-		 Semantic Colors (Zeplin: semantic–colors-default-*)
+		 Semantic Colors (single theme — design token table)
 		 ───────────────────────────────────────── */
 
-	--bg-default: var(--color-superpastel-light);
-	--bg-elevated: var(--color-superpastel-light);
+	--bg-default: var(--color-superpastel-dark);
+	--bg-elevated: var(--color-dark);
 
-	--text-primary: var(--color-darkest);
-	--text-secondary: var(--color-dark);
+	--text-primary: var(--color-superpastel-light);
+	--text-secondary: var(--color-medium-light);
 
-	--border-default: var(--color-light);
-	--border-strong: var(--color-medium-dark);
+	--border-default: var(--color-medium-dark);
+	--border-strong: var(--color-base);
 
 	/* ─────────────────────────────────────────
 		 Spacing (Zeplin: spacing-*)
@@ -70,6 +70,10 @@
 
 	--width-text-max: 35rem;
 	/* 560px */
+	--width-text-max-wide: 41.75rem;
+	/* 668px */
+	--width-text-minimum-max: 12.5rem;
+	/* 200px */
 	--width-section-text: 22.5rem;
 	/* 360px */
 	--width-container-max: 80rem;
@@ -183,21 +187,6 @@
 	--type-text-s-font-size: 0.75rem;
 	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
-}
-
-/* ─────────────────────────────────────────
-	 Dark Mode — inverted semantic tokens
-	 ───────────────────────────────────────── */
-
-html.dark {
-	--bg-default: var(--color-superpastel-dark);
-	--bg-elevated: var(--color-superpastel-dark);
-
-	--text-primary: var(--color-lightest);
-	--text-secondary: var(--color-light);
-
-	--border-default: var(--color-dark);
-	--border-strong: var(--color-medium-light);
 }
 
 /* ─────────────────────────────────────────

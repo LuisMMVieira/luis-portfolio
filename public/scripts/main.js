@@ -250,3 +250,25 @@ function initLoopVideos(root) {
     }
   }, { passive: true });
 })();
+
+// About: copy email to clipboard and show tooltip (no mailto)
+(function () {
+  const link = document.querySelector(".about-contact__copy-email");
+  const tooltip = document.querySelector(".about-contact__tooltip");
+  if (!link || !tooltip) return;
+
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const email = link.getAttribute("data-email") || "";
+    if (!email) return;
+
+    navigator.clipboard.writeText(email).then(
+      function () {
+        tooltip.classList.add("is-visible");
+        setTimeout(function () {
+          tooltip.classList.remove("is-visible");
+        }, 2000);
+      }
+    );
+  });
+})();
