@@ -13,14 +13,6 @@
 	min-height: 100svh;
 	position: relative;
 
-	.flow > * + * {
-		margin-top: var(--spacing-md);
-	}
-
-	.flow > .intro-statuses {
-		margin-top: 0;
-	}
-
 	h1 {
 		position: relative;
 		display: flex;
@@ -432,7 +424,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, max;
 		justify-content: center;
 		gap: var(--spacing-sm);
 		position: absolute;
-		bottom: var(--spacing-xl);
+		bottom: var(--spacing-xxl);
 		left: 50%;
 		transform: translateX(-50%);
 		transition: opacity 0.3s ease;
