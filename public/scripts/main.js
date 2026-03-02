@@ -124,7 +124,7 @@ function initLoopVideos(root) {
   const contentCache = new Map();
 
   // List of section IDs to exclude from project modal
-  const sectionIds = ["intro", "work", "values", "background", "about"];
+  const sectionIds = ["intro", "work", "beliefs", "values", "background", "about"];
 
   function openModal(slug) {
     document.documentElement.classList.add("modal-open");
@@ -235,4 +235,18 @@ function initLoopVideos(root) {
       closeModal();
     }
   });
+})();
+
+// Scroll hint: hide when user starts scrolling
+(function () {
+  const scrollHint = document.querySelector(".intro-scroll-hint");
+  if (!scrollHint) return;
+
+  let hidden = false;
+  window.addEventListener("scroll", function () {
+    if (!hidden && window.scrollY > 10) {
+      scrollHint.classList.add("is-hidden");
+      hidden = true;
+    }
+  }, { passive: true });
 })();

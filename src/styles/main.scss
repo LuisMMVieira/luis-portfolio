@@ -11,6 +11,7 @@
 
 .section#intro {
 	min-height: 100svh;
+	position: relative;
 
 	h1 {
 		position: relative;
@@ -27,9 +28,9 @@
 	.intro-headline {
 		text-wrap: balance;
 		hyphens: none;
-		/* avoid "prod-uct" breaks on narrow viewports */
 		font-size: var(--type-title-m-font-size);
 		line-height: var(--type-title-m-line-height);
+		letter-spacing: var(--type-title-m-letter-spacing);
 		max-width: 100%;
 	}
 
@@ -43,42 +44,185 @@
 }
 
 /* ─────────────────────────────────────────
-	 Section: About
+	 Intro: Status indicators
 	 ───────────────────────────────────────── */
 
-.section#about {
-	min-height: 100vh;
+.intro-statuses {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxs);
+	position: absolute;
+	bottom: var(--spacing-xxxl);
+	left: var(--grid-margin-xs);
+}
+
+.intro-status {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+.intro-status__dot {
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: var(--text-secondary);
+	flex-shrink: 0;
+
+	&--green {
+		background: #34c759;
+		box-shadow: 0 0 4px #34c759;
+	}
+}
+
+.intro-status__text {
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-secondary);
+
+	a {
+		color: var(--text-secondary);
+		text-decoration: underline;
+	}
+}
+
+/* ─────────────────────────────────────────
+	 Intro: Scroll hint (xl only)
+	 ───────────────────────────────────────── */
+
+.intro-scroll-hint {
+	display: none;
 }
 
 /* ─────────────────────────────────────────
 	 Section: Work
 	 ───────────────────────────────────────── */
 
-.projects-list-wrapper {
-	display: flex;
-	flex-direction: column;
-}
-
 .projects-list {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xxl);
 }
 
 /* ─────────────────────────────────────────
-	 Flow
+	 Section: Beliefs
+	 ───────────────────────────────────────── */
+
+.section#beliefs {
+	.flow {
+		> * + * {
+			margin-top: var(--spacing-xxl);
+		}
+	}
+
+	p {
+		font-family: var(--type-title-m-font-family);
+		font-size: var(--type-title-m-font-size);
+		font-weight: var(--type-title-m-font-weight);
+		line-height: var(--type-title-m-line-height);
+		letter-spacing: var(--type-title-m-letter-spacing);
+		color: var(--text-primary);
+	}
+
+	.emphasis {
+		color: var(--color-emphasis);
+	}
+}
+
+/* ─────────────────────────────────────────
+	 Section: Background
+	 ───────────────────────────────────────── */
+
+.section#background {
+	h3 {
+		max-width: 200px;
+	}
+}
+
+.bg-chapter {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+}
+
+/* ─────────────────────────────────────────
+	 Section: About
+	 ───────────────────────────────────────── */
+
+.section#about {
+	/* Text is primary (white) on purple bg */
+	p {
+		color: var(--text-primary);
+	}
+
+	h3 {
+		font-size: var(--type-title-m-font-size);
+		line-height: var(--type-title-m-line-height);
+		letter-spacing: var(--type-title-m-letter-spacing);
+	}
+
+	.flow {
+		> * + * {
+			margin-top: var(--spacing-xl);
+		}
+	}
+}
+
+.about-photo {
+	width: 100%;
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+.about-contact {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 12px;
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+}
+
+.about-contact__label {
+	color: var(--text-primary);
+	opacity: 0.5;
+}
+
+.about-contact__separator {
+	color: var(--text-primary);
+	opacity: 0.5;
+}
+
+.about-contact__link {
+	color: var(--text-primary);
+	text-decoration: underline;
+	text-decoration-thickness: var(--border-width-hairline);
+	text-underline-offset: 0.15em;
+
+	&--dotted {
+		text-decoration-style: dotted;
+	}
+}
+
+/* ─────────────────────────────────────────
+	 Flow (default)
 	 ───────────────────────────────────────── */
 
 .flow {
-	>*+* {
+	> * + * {
 		margin-top: var(--spacing-md);
 	}
 
-	h2+* {
+	h2 + * {
 		margin-top: var(--spacing-sm);
 	}
 
-	h3+* {
+	h3 + * {
 		margin-top: var(--spacing-xs);
 	}
 }
@@ -92,14 +236,19 @@ hr.division {
 	height: var(--border-width-hairline);
 	background: var(--border-default);
 	width: 100%;
-	margin: 0;
+	margin-block: var(--spacing-xxl) 0;
+}
+
+/* Work + Background sections: space around dividers */
+.projects-list hr.division,
+.section#background hr.division {
+	margin-block: var(--spacing-xxl);
 }
 
 /* ─────────────────────────────────────────
-	 Media Queries
+	 Media Queries — Tablet (md) 48rem / 768px
 	 ───────────────────────────────────────── */
 
-/* Tablet (md) - 48rem / 768px */
 @media (min-width: 48rem) {
 	.section#intro {
 		h1 {
@@ -109,19 +258,58 @@ hr.division {
 		.intro-headline {
 			font-size: var(--type-title-l-font-size);
 			line-height: var(--type-title-l-line-height);
+			letter-spacing: var(--type-title-l-letter-spacing);
 		}
 
 		.intro-greeting {
 			position: absolute;
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
-			top: calc(-1 * (var(--type-title-m-font-size) * var(--type-title-m-line-height) + var(--spacing-md)));
+			top: calc(
+				-1 * (var(--type-title-m-font-size) * var(--type-title-m-line-height) + var(--spacing-md))
+			);
+		}
+	}
+
+	.intro-statuses {
+		flex-direction: row;
+		gap: var(--spacing-md);
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: var(--spacing-xl);
+	}
+
+	.section#beliefs {
+		p {
+			font-size: var(--type-title-l-font-size);
+			line-height: var(--type-title-l-line-height);
+			letter-spacing: var(--type-title-l-letter-spacing);
+		}
+	}
+
+	.section#background {
+		h3 {
+			font-size: var(--type-title-m-font-size);
+			line-height: var(--type-title-m-line-height);
+			letter-spacing: var(--type-title-m-letter-spacing);
+		}
+	}
+
+	.section#about {
+		h3 {
+			font-size: var(--type-title-l-font-size);
+			line-height: var(--type-title-l-line-height);
+			letter-spacing: var(--type-title-l-letter-spacing);
 		}
 	}
 }
 
-/* Desktop (xl) - 75rem / 1200px */
+/* ─────────────────────────────────────────
+	 Media Queries — Desktop (xl) 75rem / 1200px
+	 ───────────────────────────────────────── */
+
 @media (min-width: 75rem) {
+	/* Intro */
 	.section#intro {
 		min-height: 100vh;
 
@@ -135,13 +323,81 @@ hr.division {
 			top: -8px;
 			font-size: var(--type-title-xl-font-size);
 			line-height: var(--type-title-xl-line-height);
+			letter-spacing: var(--type-title-xl-letter-spacing);
 		}
 
 		.intro-greeting {
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
-			top: calc(-1 * (var(--type-title-m-font-size) * var(--type-title-m-line-height) + var(--spacing-lg)));
+			top: calc(
+				-1 * (var(--type-title-m-font-size) * var(--type-title-m-line-height) + var(--spacing-lg))
+			);
+		}
+	}
+
+	.intro-statuses {
+		flex-direction: row;
+		gap: var(--spacing-md);
+		top: var(--spacing-md);
+		right: var(--spacing-md);
+		left: auto;
+		bottom: auto;
+		transform: none;
+		margin: 0;
+	}
+
+	.intro-scroll-hint {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--spacing-sm);
+		position: absolute;
+		bottom: var(--spacing-xl);
+		left: 50%;
+		transform: translateX(-50%);
+		transition: opacity 0.3s ease;
+
+		&.is-hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	.intro-scroll-hint__brace {
+		font-family: var(--type-text-m-font-family);
+		font-size: var(--type-text-m-font-size);
+		line-height: var(--type-text-m-line-height);
+		color: var(--color-emphasis);
+	}
+
+	.intro-scroll-hint__text {
+		font-family: var(--type-text-s-font-family);
+		font-size: var(--type-text-s-font-size);
+		line-height: var(--type-text-s-line-height);
+		color: var(--text-secondary);
+	}
+
+	/* Section spacing: xl uses 200px top */
+	.section#work .flow,
+	.section#beliefs .flow,
+	.section#background .flow,
+	.section#about .flow {
+		padding-block-start: var(--spacing-max);
+		padding-block-end: var(--spacing-huge);
+	}
+
+	/* Background: side-by-side layout at xl */
+	.bg-chapter {
+		flex-direction: row;
+		gap: var(--spacing-xxl);
+
+		h3 {
+			flex: 1;
+		}
+
+		p {
+			flex: 1;
 		}
 	}
 }

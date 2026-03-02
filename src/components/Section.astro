@@ -1,8 +1,9 @@
 ---
-const { as: Tag = "section", id, class: className = "" } = Astro.props;
+const { as: Tag = "section", id, class: className = "", bg } = Astro.props;
+const style = bg ? `background-color: var(${bg})` : undefined;
 ---
 
-<Tag id={id} class={`section ${className}`.trim()}>
+<Tag id={id} class={`section ${className}`.trim()} style={style}>
   <div class="container container--narrow flow">
     <slot />
   </div>

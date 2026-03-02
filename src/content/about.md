@@ -1,14 +1,7 @@
 ---
-title: "About Me"
+title: "About"
 ---
 
-### I'm Luís, thank you for stopping by.
+### I'm Luís, thank you for stopping by
 
-I live and work in Porto, the second largest city of Portugal. I have been designing digital products for 18 years now, so, I can I lived lived through some significant paradigm shifts — the blogging era, the social web, the internet in your pocket, and UX earning its place at the table. I truly believe these different experiences/vibes shape the designer i am today... and that makes me stronger.
-
-Cutting it short, I’m a designer who thrives in designing systems, user experiences, internal experiences, design documentation, cross-functional work, and high-level starting from zero, providing the 1, and decisive improvements fed from the first real-world feedbacks.
-
-With this website I aim to introduce myself to a bigger audience and, who knows, improve the chances of meeting great people.
-
-So, what are you waiting for?... [HIT ME UP](mailto:luis@luisvieira.design)
-
+I'm from Porto, Portugal. I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts — the web, mobile, social, and now AI. I think carefully about the things I make. I care about craft the way some people care about music — not just whether it works, but whether it feels right. Just reach out if you feel we should.

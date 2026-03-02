@@ -23,12 +23,11 @@ const { slug, title, description, cover } = Astro.props;
   .project-card {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
   .project-card-image {
     overflow: hidden;
-    background: var(--bg-elevated);
     cursor: pointer;
     width: 100%;
     height: auto;
@@ -48,10 +47,10 @@ const { slug, title, description, cover } = Astro.props;
   }
 
   .project-card-title {
-    font-family: var(--type-title-m-font-family);
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
-    line-height: var(--type-title-m-line-height);
-    letter-spacing: var(--type-title-m-letter-spacing);
+    font-family: var(--type-title-s-font-family);
+    font-size: var(--type-title-s-font-size);
+    line-height: var(--type-title-s-line-height);
+    letter-spacing: var(--type-title-s-letter-spacing);
     margin: 0;
   }
 
@@ -64,14 +63,34 @@ const { slug, title, description, cover } = Astro.props;
     margin: 0;
   }
 
-  /* Desktop */
-  @media (min-width: 75rem) {
+  /* Tablet (md) */
+  @media (min-width: 48rem) {
+    .project-card {
+      gap: var(--spacing-xl);
+    }
+
     .project-card-title {
-      font-size: var(--type-title-s-font-size);
+      font-size: var(--type-title-m-font-size);
+      line-height: var(--type-title-m-line-height);
+      letter-spacing: var(--type-title-m-letter-spacing);
+    }
+  }
+
+  /* Desktop (xl) */
+  @media (min-width: 75rem) {
+    .project-card-info {
+      flex-direction: row;
+      align-items: flex-end;
+      gap: var(--spacing-xxl);
+    }
+
+    .project-card-title {
+      flex: 1;
     }
 
     .project-card-description {
-      font-size: var(--type-text-m-font-size);
+      width: 237px;
+      flex-shrink: 0;
     }
   }
 </style>

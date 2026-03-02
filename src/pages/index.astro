@@ -5,9 +5,7 @@ import Section from '../components/Section.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
 import IntroContent from '../content/intro.md';
-import AboutContent from '../content/about.md';
-import ValuesContent from '../content/values.md';
-import BackgroundContent from '../content/background.md';
+import BeliefsContent from '../content/beliefs.md';
 
 // Get all projects, sorted by order
 const projects = (await getCollection('projects'))
@@ -18,37 +16,77 @@ const projects = (await getCollection('projects'))
 <BaseLayout>
   <Section id="intro">
     <IntroContent />
-  </Section>
-
-  <Section id="work">
-    <div class="projects-list-wrapper">
-      <div class="projects-list">
-        {
-          projects.map((project, index) => (
-            <>
-              {index > 0 && <hr class="division" />}
-              <ProjectCard
-                slug={project.slug}
-                title={project.data.title}
-                description={project.data.subtitle}
-                cover={project.data.cover}
-              />
-            </>
-          ))
-        }
+    <div class="intro-statuses">
+      <div class="intro-status">
+        <span class="intro-status__dot"></span>
+        <span class="intro-status__text">Currently building a <a href="#work">Spaceship</a></span>
       </div>
+      <div class="intro-status">
+        <span class="intro-status__dot intro-status__dot--green"></span>
+        <span class="intro-status__text">Open to the right opportunity</span>
+      </div>
+    </div>
+    <div class="intro-scroll-hint">
+      <span class="intro-scroll-hint__brace">{`{`}</span>
+      <span class="intro-scroll-hint__text">Start scrolling</span>
+      <span class="intro-scroll-hint__brace">{`}`}</span>
     </div>
   </Section>
 
-  <!-- <Section id="values">
-    <ValuesContent />
-  </Section> -->
-
-  <Section id="background">
-    <BackgroundContent />
+  <Section id="work">
+    <div class="projects-list">
+      {
+        projects.map((project, index) => (
+          <>
+            {index > 0 && <hr class="division" />}
+            <ProjectCard
+              slug={project.slug}
+              title={project.data.title}
+              description={project.data.subtitle || ''}
+              cover={project.data.cover}
+            />
+          </>
+        ))
+      }
+    </div>
   </Section>
 
-  <Section id="about">
-    <AboutContent />
+  <Section id="beliefs">
+    <BeliefsContent />
+  </Section>
+
+  <Section id="background">
+    <div class="bg-chapter">
+      <h3>The early years</h3>
+      <p>My formal education was at ESAD. A theoretical introduction to design. The real education came after. My first job was at a small graphic shop. Logos, visual identities, print for local businesses. Small clients, real pressure. I took the work seriously from day one — probably more seriously than the context required. Typography mattered. Grids mattered. Production details mattered. Then came magazines. Low budgets, limited resources, same standard. I treated them as if they were cultural artifacts.</p>
+    </div>
+    <hr class="division" />
+    <div class="bg-chapter">
+      <h3>Going digital</h3>
+      <p>In 2008 I made the first real shift. Left print. Moved fully into digital. I spent nine years at Portugalmail — Portugal's first email provider — designing email platforms and blogging products. The work was dense, functional, content-heavy. That's where I developed a real respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as a handoff. As a shared surface.</p>
+    </div>
+    <hr class="division" />
+    <div class="bg-chapter">
+      <h3>Building from zero</h3>
+      <p>I joined Namecheap as a founding designer when the product was still an idea. For six years I helped build Spaceship from the ground up. Design systems, cross-functional alignment, documentation that translates intent into buildable reality. The highest-leverage work of my career. The stakes were real. So were the outcomes.</p>
+    </div>
+  </Section>
+
+  <Section id="about" bg="--color-emphasis">
+    <h3>I'm Luís, thank you for stopping by</h3>
+    <div class="about-photo">
+      <img src="/assets/images/pro me 2.png" alt="Luís Vieira" />
+    </div>
+    <p>I'm from Porto, Portugal. I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts — the web, mobile, social, and now AI. I think carefully about the things I make. I care about craft the way some people care about music — not just whether it works, but whether it feels right. Just reach out if you feel we should.</p>
+    <div class="about-contact">
+      <span class="about-contact__label">Contact:</span>
+      <a href="mailto:luis@luisvieira.design" class="about-contact__link about-contact__link--dotted">luis@luisvieira.design</a>
+      <span class="about-contact__separator">/</span>
+      <a href="/cv" class="about-contact__link">Get CV</a>
+      <span class="about-contact__separator">/</span>
+      <span class="about-contact__label">Social:</span>
+      <a href="https://x.com" class="about-contact__link">X</a>
+      <a href="https://linkedin.com" class="about-contact__link">LinkedIn</a>
+    </div>
   </Section>
 </BaseLayout>

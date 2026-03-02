@@ -14,6 +14,9 @@
 	--color-superpastel-light: oklab(96.7% 0 0);
 	--color-lightest: oklab(100% 0 0);
 
+	/* Accent / emphasis */
+	--color-emphasis: #7026c9;
+
 	/* ─────────────────────────────────────────
 		 Semantic Colors (Zeplin: semantic–colors-default-*)
 		 ───────────────────────────────────────── */
@@ -121,18 +124,18 @@
 	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
 	 ───────────────────────────────────────── */
 
-	/* Title XL — 56px / 106% / -1.12px (Zeplin: title-xl) */
+	/* Title XL — 56px / 106% / -1.12px (Figma: title-xl) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
-	--type-title-xl-font-size: 3.7rem;
+	--type-title-xl-font-size: 3.733rem;
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
-	/* Title L — 46px / 110% / -0.92px (Zeplin: title-l) */
+	/* Title L — 42px / 110% / -0.84px (Figma: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 3.2rem;
-	--type-title-l-line-height: 1.05;
+	--type-title-l-font-size: 2.8rem;
+	--type-title-l-line-height: 1.1;
 	--type-title-l-letter-spacing: -0.02em;
 
 	/* Title M — 30px / 120% / -0.6px (Zeplin: title-m) */
@@ -142,10 +145,10 @@
 	--type-title-m-line-height: 1.2;
 	--type-title-m-letter-spacing: -0.02em;
 
-	/* Title S — 20px / 122% / -0.3px (Zeplin: title-s) */
+	/* Title S — 22px / 122% / -0.33px (Figma: title-s) */
 	--type-title-s-font-family: var(--font-family-display);
 	--type-title-s-font-weight: var(--font-weight-semibold);
-	--type-title-s-font-size: 1.25rem;
+	--type-title-s-font-size: 1.467rem;
 	--type-title-s-line-height: 1.22;
 	--type-title-s-letter-spacing: -0.015em;
 
