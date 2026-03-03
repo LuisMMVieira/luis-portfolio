@@ -54,6 +54,8 @@ const projects = (await getCollection('projects'))
               title={project.data.title}
               description={project.data.subtitle || ''}
               cover={project.data.cover}
+              openable={project.slug !== 'spacesecure'}
+              descriptionItalic={project.slug === 'spacesecure'}
             />
           </>
         ))

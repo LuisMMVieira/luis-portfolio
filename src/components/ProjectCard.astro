@@ -4,18 +4,22 @@ interface Props {
   title: string;
   description: string;
   cover: string;
+  openable?: boolean;
+  descriptionItalic?: boolean;
 }
 
-const { slug, title, description, cover } = Astro.props;
+const { slug, title, description, cover, openable = true, descriptionItalic = false } = Astro.props;
 ---
 
-<article class="project-card">
-  <div class="project-card-image" data-project={slug}>
+<article class:list={["project-card", !openable && "project-card--no-action"]}>
+  <div class="project-card-image" {...(openable ? { "data-project": slug } : {})}>
     <img src={cover} alt={title} loading="lazy" />
   </div>
   <div class="project-card-info">
     <h3 class="project-card-title">{title}</h3>
-    <p class="project-card-description">{description}</p>
+    <p class:list={["project-card-description", descriptionItalic && "project-card-description--italic"]}>
+      {descriptionItalic ? <em>{description}</em> : description}
+    </p>
   </div>
 </article>
 
@@ -30,6 +34,10 @@ const { slug, title, description, cover } = Astro.props;
     overflow: hidden;
     cursor: pointer;
     width: 100%;
+
+    .project-card--no-action & {
+      cursor: default;
+    }
     height: auto;
 
     img {
@@ -62,6 +70,11 @@ const { slug, title, description, cover } = Astro.props;
     color: var(--text-secondary);
     margin: 0;
     max-width: var(--width-text-minimum-max);
+
+    &--italic,
+    em {
+      font-style: italic;
+    }
   }
 
   /* Tablet (md) */
