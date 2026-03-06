@@ -129,10 +129,10 @@
 	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
 	 ───────────────────────────────────────── */
 
-	/* Title XL — 56px / 106% / -1.12px (Figma: title-xl) */
+	/* Title XL — 56px / 106% (Ag XL) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
-	--type-title-xl-font-size: 3.733rem;
+	--type-title-xl-font-size: 3.5rem;
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
@@ -182,22 +182,14 @@
 	--type-text-m-line-height: 1.85;
 	--type-text-m-letter-spacing: 0em;
 
-	/* Text S — matches Text M (temporarily equalized) */
+	/* Text S — 12px / 160% (Ag S) */
 	--type-text-s-font-family: var(--font-family-sans);
 	--type-text-s-font-weight: var(--font-weight-regular);
-	--type-text-s-font-size: 0.875rem;
-	--type-text-s-line-height: 1.85;
+	--type-text-s-font-size: 0.75rem;
+	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
 }
 
 /* ─────────────────────────────────────────
 	 Responsive Type — Tablet (md)
 	 ───────────────────────────────────────── */
-
-@media (min-width: 48rem) {
-	:root {
-		/* h1 scales from Title M → Title XL at md */
-		--type-title-xl-font-size: 3.7rem;
-		--type-title-xl-line-height: 1.06;
-	}
-}

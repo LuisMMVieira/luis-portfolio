@@ -6,6 +6,58 @@
 @import './post.scss';
 
 /* ─────────────────────────────────────────
+	 Site header & nav
+	 ───────────────────────────────────────── */
+
+.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	padding-inline: var(--grid-margin-xs);
+	background: var(--bg-default);
+}
+
+.site-nav {
+	display: flex;
+	align-items: center;
+	padding-block-start: var(--spacing-md);
+	padding-block-end: var(--spacing-md);
+}
+
+.nav-list {
+	display: flex;
+	flex-direction: row;
+	gap: var(--spacing-sm);
+	flex-wrap: nowrap;
+
+	li {
+		display: contents;
+	}
+}
+
+.nav-link {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+	font-weight: var(--font-weight-medium);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-primary);
+	opacity: 0.35;
+	text-decoration: none;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&.is-active {
+		color: var(--text-primary);
+		opacity: 1;
+	}
+}
+
+/* ─────────────────────────────────────────
 	 Section: Intro
 	 ───────────────────────────────────────── */
 
@@ -17,7 +69,7 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100%;
-		padding-block-start: var(--spacing-xxxl);
+		padding-block-start: var(--spacing-huge);
 		padding-block-end: 0;
 		gap: var(--spacing-lg);
 	}
@@ -394,9 +446,21 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	 ───────────────────────────────────────── */
 
 @media (min-width: 48rem) {
+	/* Tablet: 12-col grid alignment */
+	.site-header {
+		display: grid;
+		column-gap: 0;
+		grid-template-columns: repeat(12, 1fr);
+		padding-inline: var(--grid-margin-md);
+	}
+
+	.site-nav {
+		grid-column: 3 / 11;
+	}
+
 	.section#intro {
 		h1 {
-			gap: var(--spacing-md);
+			gap: var(--spacing-sm);
 		}
 
 		.intro-headline {
@@ -406,11 +470,11 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 
 		.intro-greeting {
-			position: absolute;
+			position: relative;
+			top: 0;
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
-			top: -60px;
 		}
 	}
 
@@ -490,6 +554,32 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	 ───────────────────────────────────────── */
 
 @media (min-width: 75rem) {
+	/* Desktop: sidebar nav on col 2 */
+	.site-header {
+		--page-width: min(100vw, var(--width-modal-max));
+		--page-offset: calc((100vw - var(--page-width)) / 2);
+		--col-width: calc((var(--page-width) - 2 * var(--grid-margin-md)) / 12);
+
+		display: block;
+		position: fixed;
+		top: var(--spacing-max);
+		left: calc(var(--page-offset) + var(--grid-margin-md) + var(--col-width));
+		width: var(--col-width);
+		right: auto;
+		padding-inline: 0;
+		background: transparent;
+	}
+
+	.site-nav {
+		display: block;
+		padding-block: 0;
+	}
+
+	.nav-list {
+		flex-direction: column;
+		gap: 0;
+	}
+
 	/* Intro */
 	.section#intro {
 		min-height: 100vh;
@@ -513,6 +603,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 
 		.intro-greeting {
+			position: absolute;
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
