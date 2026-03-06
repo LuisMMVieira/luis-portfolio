@@ -2,10 +2,10 @@
 title: "Beliefs"
 ---
 
-<span class="emphasis">Flow & Taste.</span> The difference between good and the ones you remember.
+<span class="emphasis">Flow & Taste</span>—the difference between good and the ones you remember
 
-How a product is built resonates in its usage. <span class="emphasis">Product performance</span> is essential to good UX.
+How a product is built resonates in its usage. <span class="emphasis">Performance is essential</span> to good UX
 
-You can follow the UX playbook and make good products. But to make <span class="emphasis">outstanding ones</span>, you need to be an actual user.
+You can follow the UX playbook and make good products. But to make <span class="emphasis">outstanding ones</span>, you need to be an actual user
 
-<span class="emphasis">Just enough research</span> is a real skill.
+A design is only <span class="emphasis">done when shipped</span>

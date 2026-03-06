@@ -44,18 +44,20 @@
 	/* 12px */
 	--spacing-md: 1.25rem;
 	/* 20px */
-	--spacing-lg: 1.75rem;
-	/* 28px */
-	--spacing-xl: 2.5rem;
+	--spacing-lg: 2.5rem;
 	/* 40px */
-	--spacing-xxl: 3.5rem;
+	--spacing-xl: 3.5rem;
 	/* 56px */
-	--spacing-xxxl: 5rem;
+	--spacing-xxl: 5rem;
 	/* 80px */
+	--spacing-xxxl: 5rem;
+	/* 80px (alias) */
 	--spacing-huge: 7.5rem;
 	/* 120px */
-	--spacing-max: 12.5rem;
-	/* 200px */
+	--spacing-biggest: 11.25rem;
+	/* 180px */
+	--spacing-max: 11.25rem;
+	/* 180px */
 
 	/* ─────────────────────────────────────────
 	 Layout / Widths
@@ -134,11 +136,11 @@
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
-	/* Title L — 42px / 110% / -0.84px (Figma: title-l) */
+	/* Title L — 44px / 115% / -0.88px (Figma: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 2.8rem;
-	--type-title-l-line-height: 1.1;
+	--type-title-l-font-size: 2.75rem;
+	--type-title-l-line-height: 1.15;
 	--type-title-l-letter-spacing: -0.02em;
 
 	/* Title M — 30px / 120% / -0.6px (Zeplin: title-m) */

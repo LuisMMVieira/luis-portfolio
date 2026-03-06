@@ -17,29 +17,22 @@ const projects = (await getCollection('projects'))
 ---
 
 <BaseLayout>
-  <div class="intro-statuses">
-    <div class="intro-status">
-      <span class="intro-status__dot"></span>
-      <span class="intro-status__text"
-        >Currently building a <a
-          href="https://spaceship.com"
-          target="_blank"
-          rel="noopener noreferrer">Spaceship</a
-        ></span
-      >
-    </div>
-    <div class="intro-status">
-      <span class="intro-status__dot intro-status__dot--green"></span>
-      <span class="intro-status__text">Open to the right opportunity</span>
-    </div>
-  </div>
-
   <Section id="intro">
     <IntroContent />
-    <div class="intro-scroll-hint">
-      <span class="intro-scroll-hint__brace">{`{`}</span>
-      <span class="intro-scroll-hint__text">Start scrolling</span>
-      <span class="intro-scroll-hint__brace">{`}`}</span>
+    <div class="intro-bottom">
+      <div class="intro-sub-content">
+        <p class="intro-sub-content__paragraph">
+          I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts: <strong>the web</strong>, <strong>mobile</strong>, <strong>social</strong>, and now <strong>AI</strong>.
+        </p>
+        <p class="intro-sub-content__paragraph intro-sub-content__paragraph--italic">
+          Currently building a <a href="https://spaceship.com" target="_blank" rel="noopener noreferrer">Spaceship</a>
+        </p>
+      </div>
+      <div class="intro-scroll-hint" aria-hidden="true">
+        <span class="intro-scroll-hint__brace">{`{`}</span>
+        <span class="intro-scroll-hint__text">Start scrolling</span>
+        <span class="intro-scroll-hint__brace">{`}`}</span>
+      </div>
     </div>
   </Section>
 
@@ -54,6 +47,7 @@ const projects = (await getCollection('projects'))
               title={project.data.title}
               description={project.data.subtitle || ''}
               cover={project.data.cover}
+              period={project.data.period}
               openable={project.slug !== 'spacesecure'}
               descriptionItalic={project.slug === 'spacesecure'}
             />

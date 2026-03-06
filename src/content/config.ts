@@ -7,6 +7,7 @@ const projects = defineCollection({
     subtitle: z.string().optional(),
     cover: z.string(),
     order: z.number(),
+    period: z.string().optional(),
     draft: z.boolean().optional().default(false),
   }),
 });
