@@ -34,7 +34,6 @@ const projects = (await getCollection('projects'))
               cover={project.data.cover}
               period={project.data.period}
               openable={project.slug !== 'spacesecure'}
-              descriptionItalic={project.slug === 'spacesecure'}
             />
           </>
         ))

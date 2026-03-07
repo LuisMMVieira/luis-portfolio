@@ -294,7 +294,7 @@
    ───────────────────────────────────────── */
 
 /* Tablet (md) - 48rem / 768px */
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .project-section-default {
     flex-direction: row;
     align-items: stretch;
@@ -369,7 +369,7 @@
 }
 
 /* Tablet only (md) - 48rem to 74.99rem */
-@media (min-width: 48rem) and (max-width: 74.99rem) {
+@media (min-width: 768px) and (max-width: 74.99rem) {
   .project-modal-content {
     .project-header-wrapper {
       /* Header-specific: keep stacked layout on tablet */
@@ -415,7 +415,7 @@
 }
 
 /* Desktop (xl) - 75rem / 1200px */
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
   .project-modal-content {
     .project-header {
       gap: var(--spacing-xl);

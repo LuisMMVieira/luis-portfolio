@@ -58,7 +58,7 @@
 }
 
 /* ─────────────────────────────────────────
-	 Section: Intro (CSS Grid — matches main grid)
+	 Section: Intro
 	 ───────────────────────────────────────── */
 
 .section#intro {
@@ -66,19 +66,15 @@
 	position: relative;
 
 	.flow {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto auto 1fr auto;
+		display: flex;
+		flex-direction: column;
 		min-height: 100vh;
 		padding-block-start: var(--spacing-huge);
 		padding-block-end: var(--spacing-xxl);
-		row-gap: var(--spacing-lg);
-		column-gap: 0;
+		gap: var(--spacing-lg);
 	}
 
 	h1 {
-		grid-column: 1 / -1;
-		grid-row: 1;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -86,15 +82,8 @@
 		max-width: none;
 	}
 
-	.intro-sub-content {
-		grid-column: 1 / -1;
-		grid-row: 2;
-	}
-
 	.intro-scroll-hint {
-		grid-column: 1 / -1;
-		grid-row: 4;
-		align-self: end;
+		margin-top: auto;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -152,6 +141,7 @@
 }
 
 .intro-sub-content__paragraph {
+	max-width: 432px;
 	font-family: var(--type-text-m-font-family);
 	font-size: var(--type-text-m-font-size);
 	line-height: var(--type-text-m-line-height);
@@ -180,9 +170,21 @@
 	 ───────────────────────────────────────── */
 
 .section#work .flow {
-	/* xs / md: 120px top, 56px bottom */
+	/* xs / md: pt-120 pb-80 */
 	padding-block-start: var(--spacing-huge);
 	padding-block-end: var(--spacing-xxl);
+}
+
+.section#beliefs .flow,
+.section#about .flow {
+	/* xs / md: pt-120 pb-80 */
+	padding-block-start: var(--spacing-huge);
+	padding-block-end: var(--spacing-xxl);
+}
+
+.section#background .flow {
+	/* xs / md: py-120 */
+	padding-block: var(--spacing-huge);
 }
 
 .projects-list {
@@ -201,7 +203,6 @@
 	overflow: hidden;
 	cursor: pointer;
 	width: 100%;
-	height: auto;
 
 	.project-card--no-action & {
 		cursor: default;
@@ -211,28 +212,32 @@
 		width: 100%;
 		height: auto;
 		display: block;
-		object-fit: contain;
+		object-fit: cover;
 	}
 }
 
 .project-card-info {
 	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-xs);
+	flex-direction: row;
+	align-items: flex-start;
+	gap: var(--spacing-md);
 }
 
 .project-card-info__main {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md);
+	flex: 1;
+	min-width: 0;
+	gap: var(--spacing-xs);
 }
 
 .project-card-period {
 	font-family: var(--type-text-m-font-family);
 	font-size: var(--type-text-m-font-size);
 	line-height: var(--type-text-m-line-height);
-	color: var(--text-secondary);
-	margin-top: var(--spacing-xs);
+	color: var(--text-shy);
+	flex: 0 0 80px;
+	text-align: right;
 }
 
 .project-card-title {
@@ -275,11 +280,11 @@
 	}
 
 	p {
-		font-family: var(--type-title-l-font-family);
-		font-size: var(--type-title-l-font-size);
-		font-weight: var(--type-title-l-font-weight);
-		line-height: var(--type-title-l-line-height);
-		letter-spacing: var(--type-title-l-letter-spacing);
+		font-family: var(--type-title-m-font-family);
+		font-size: var(--type-title-m-font-size);
+		font-weight: var(--type-title-m-font-weight);
+		line-height: var(--type-title-m-line-height);
+		letter-spacing: var(--type-title-m-letter-spacing);
 		color: var(--text-primary);
 	}
 
@@ -304,7 +309,9 @@
 	}
 
 	.bg-chapter + .bg-chapter {
-		margin-top: var(--spacing-xl);
+		margin-top: var(--spacing-xxl);
+		border-top: var(--border-width-hairline) solid var(--border-default);
+		padding-block-start: var(--spacing-lg);
 	}
 }
 
@@ -346,6 +353,22 @@
 		width: 100%;
 		height: auto;
 		display: block;
+	}
+}
+
+.about-paragraphs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-md);
+
+	p {
+		font-family: var(--type-text-m-font-family);
+		font-size: var(--type-text-m-font-size);
+		line-height: var(--type-text-m-line-height);
+		letter-spacing: var(--type-text-m-letter-spacing);
+		color: var(--text-primary);
+		margin: 0;
 	}
 }
 
@@ -461,10 +484,10 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 }
 
 /* ─────────────────────────────────────────
-	 Media Queries — Tablet (md) 48rem / 768px
+	 Media Queries — Tablet (md) 768px
 	 ───────────────────────────────────────── */
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 	/* Tablet: 12-col grid alignment */
 	.site-header {
 		display: grid;
@@ -478,10 +501,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	}
 
 	.section#intro {
-		.flow {
-			grid-template-columns: repeat(8, 1fr);
-		}
-
 		h1 {
 			gap: var(--spacing-sm);
 		}
@@ -501,34 +520,19 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 	}
 
-	.section#beliefs {
-		p {
-			font-size: var(--type-title-l-font-size);
-			line-height: var(--type-title-l-line-height);
-			letter-spacing: var(--type-title-l-letter-spacing);
-		}
-	}
-
 	.section#background {
-		h3 {
-			font-size: var(--type-title-m-font-size);
-			line-height: var(--type-title-m-line-height);
-			letter-spacing: var(--type-title-m-letter-spacing);
-		}
-
 		.bg-chapter {
-			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			column-gap: 0;
-			align-items: start;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			gap: var(--spacing-lg);
 
 			h3 {
-				grid-column: 1 / 3;
-				margin-right: var(--spacing-sm);
+				flex: 0 0 8.857rem;
 			}
 
 			p {
-				grid-column: 3 / 7;
+				flex: 1;
 				min-width: 0;
 			}
 		}
@@ -539,21 +543,13 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	}
 
 	.project-card-info {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		column-gap: 0;
-		align-items: start;
+		display: flex;
+		align-items: flex-start;
+		gap: var(--spacing-lg);
 	}
 
 	.project-card-info__main {
-		grid-column: 1 / 5;
-		min-width: 0;
-	}
-
-	.project-card-period {
-		grid-column: 5 / 7;
-		margin-top: 0;
-		text-align: right;
+		gap: var(--spacing-xs);
 	}
 
 	.project-card-title {
@@ -572,10 +568,10 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 }
 
 /* ─────────────────────────────────────────
-	 Media Queries — Desktop (xl) 75rem / 1200px
+	 Media Queries — Desktop (xl) 1200px
 	 ───────────────────────────────────────── */
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
 	/* Desktop: sidebar nav on col 2 */
 	.site-header {
 		--page-width: min(100vw, var(--width-modal-max));
@@ -602,12 +598,16 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		gap: 0;
 	}
 
+	/* Project card */
+	.project-card-info {
+		gap: var(--spacing-xl);
+	}
+
 	/* Intro */
 	.section#intro {
 		min-height: 100vh;
 
 		.flow {
-			grid-template-columns: repeat(6, 1fr);
 			padding-block-start: var(--spacing-biggest);
 			padding-block-end: var(--spacing-xxl);
 		}
@@ -630,12 +630,8 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
-			top: -48px;
+			top: -60px;
 			left: 0;
-		}
-
-		.intro-sub-content {
-			grid-column: 1 / 5;
 		}
 
 		.intro-scroll-hint {
@@ -646,17 +642,39 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 	}
 
-	/* Section spacing: xl uses 200px top, 120px bottom (Figma Home Section) */
+	/* Section spacing xl (Figma Home Section) */
 	.section#work .flow,
-	.section#beliefs .flow,
-	.section#background .flow {
+	.section#beliefs .flow {
 		padding-block-start: var(--spacing-max);
-		padding-block-end: var(--spacing-huge);
+		padding-block-end: var(--spacing-xxl);
+	}
+
+	.section#background .flow {
+		padding-block: var(--spacing-max);
 	}
 
 	.section#about .flow {
 		padding-block-start: var(--spacing-max);
-		padding-block-end: var(--spacing-xl);
+		padding-block-end: var(--spacing-huge);
+	}
+
+	/* Beliefs: xl → Title/L */
+	.section#beliefs p {
+		font-size: var(--type-title-l-font-size);
+		line-height: var(--type-title-l-line-height);
+		letter-spacing: var(--type-title-l-letter-spacing);
+	}
+
+	/* Background: xl → flex-row layout with larger h3 col */
+	.section#background .bg-chapter {
+		gap: var(--spacing-xl);
+
+		h3 {
+			flex: 0 0 10rem;
+			font-size: var(--type-title-m-font-size);
+			line-height: var(--type-title-m-line-height);
+			letter-spacing: var(--type-title-m-letter-spacing);
+		}
 	}
 
 }

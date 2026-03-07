@@ -21,10 +21,12 @@
 - **md+:** 12-col (`$grid-12`), `12px` padding-inline (`--grid-margin-md`)
 - Column-gap: `0`. Margins come from `padding-inline`, not margin columns.
 - Max page width: `--width-modal-max` (85rem / 1360px) at xl.
+- `container`: md = `grid-column: 1/-1` (full 12 cols), xl = `grid-column: 1/-1`
+- `container--narrow`: md = `grid-column: 3/11` (8 cols = 496px at 768px), xl = `grid-column: 4/10` (6 cols = 588px at 1200px)
 
 ## Design Tokens (src/styles/tokens.scss)
 - Colors: `--text-primary`, `--text-secondary`, `--bg-default`, `--border-default`, `--border-strong`
-- Spacing: `--spacing-xs` (8px) → `--spacing-xl` (40px) → `--spacing-huge` (120px)
+- Spacing: `--spacing-xs`(8px) · `--spacing-sm`(12px) · `--spacing-md`(20px) · `--spacing-lg`(40px) · `--spacing-xl`(56px) · `--spacing-xxl`(80px) · `--spacing-huge`(120px) · `--spacing-biggest`(180px)
 - Border: `--border-width-hairline` (0.66px), `--border-width-default` (1px)
 - Type roles: `--type-title-{xl,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`
 - Fonts: `--font-family-display` (Dazzed), `--font-family-sans` (IBM Plex Sans)
@@ -55,9 +57,10 @@ PostSection media props: `full` | `center-wide` | `left` | `left-wide` | `right`
 ## Figma MCP Workflow
 1. User provides Figma URL → extract `fileKey` and `nodeId` (convert `-` to `:`)
 2. Call `get_design_context` with `clientLanguages: typescript,css`, `clientFrameworks: astro`
-3. Adapt output to SCSS + BEM — never use Tailwind or inline styles
-4. Map Figma tokens to project tokens in `tokens.scss`
-5. Add component styles to the relevant SCSS file (usually `post.scss`)
+3. Map Figma elements to grid columns: Figma homepage sections use flexbox — translate by `Figma px ÷ page col width = col span`. At xl, page col = 98px (1200px frame ÷ 12). Always assign explicit `grid-column` spans; do not use `margin: auto` centering shortcuts.
+4. Adapt output to SCSS + BEM — never use Tailwind or inline styles
+5. Map Figma tokens to project tokens in `tokens.scss`
+6. Add component styles to the relevant SCSS file (usually `post.scss`)
 
 ## Rules
 - Never approximate. If unsure, pull the Figma node.

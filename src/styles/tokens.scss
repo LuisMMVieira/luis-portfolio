@@ -3,18 +3,18 @@
 		 Base colors (design token table)
 		 ───────────────────────────────────────── */
 
-	--color-darkest: #000000;
-	--color-superpastel-dark: #0d0d0d;
-	--color-dark: #2b2b2b;
-	--color-medium-dark: #464646;
-	--color-base: #808080;
-	--color-medium-light: #b9b9b9;
-	--color-light: #dcdcdc;
-	--color-superpastel-light: #f4f4f4;
-	--color-lightest: #ffffff;
+	--color-darkest: oklab(0% 0 0);
+	--color-superpastel-dark: oklab(15.9% 0 0);
+	--color-dark: oklab(28.9% 0 0);
+	--color-medium-dark: oklab(39.4% 0 0);
+	--color-base: oklab(60% 0 0);
+	--color-medium-light: oklab(78.6% 0 0);
+	--color-light: oklab(89.4% 0 0);
+	--color-superpastel-light: oklab(96.7% 0 0);
+	--color-lightest: oklab(100% 0 0);
 
 	/* Accent / emphasis */
-	--color-emphasis: #7026c9;
+	--color-emphasis: oklab(47.8% 0.104 -0.202);
 
 	/* ─────────────────────────────────────────
 		 Semantic Colors (single theme — design token table)
@@ -25,6 +25,7 @@
 
 	--text-primary: var(--color-superpastel-light);
 	--text-secondary: var(--color-medium-light);
+	--text-shy: var(--color-medium-dark);
 
 	--border-default: var(--color-dark);
 	--border-strong: var(--color-base);
@@ -34,29 +35,29 @@
 		 ───────────────────────────────────────── */
 
 	--spacing-none: 0;
-	--spacing-xxxs: 0.125rem;
+	--spacing-xxxs: 0.143rem;
 	/* 2px */
-	--spacing-xxs: 0.25rem;
+	--spacing-xxs: 0.286rem;
 	/* 4px */
-	--spacing-xs: 0.5rem;
+	--spacing-xs: 0.571rem;
 	/* 8px */
-	--spacing-sm: 0.75rem;
+	--spacing-sm: 0.857rem;
 	/* 12px */
-	--spacing-md: 1.25rem;
+	--spacing-md: 1.429rem;
 	/* 20px */
-	--spacing-lg: 2.5rem;
+	--spacing-lg: 2.857rem;
 	/* 40px */
-	--spacing-xl: 3.5rem;
+	--spacing-xl: 4rem;
 	/* 56px */
-	--spacing-xxl: 5rem;
+	--spacing-xxl: 5.714rem;
 	/* 80px */
-	--spacing-xxxl: 5rem;
+	--spacing-xxxl: 5.714rem;
 	/* 80px (alias) */
-	--spacing-huge: 7.5rem;
+	--spacing-huge: 8.571rem;
 	/* 120px */
-	--spacing-biggest: 11.25rem;
+	--spacing-biggest: 12.857rem;
 	/* 180px */
-	--spacing-max: 11.25rem;
+	--spacing-max: 12.857rem;
 	/* 180px */
 
 	/* ─────────────────────────────────────────
@@ -69,25 +70,25 @@
 	--grid-margin-md: var(--spacing-sm);
 	/* 12px */
 
-	--width-text-max: 35rem;
+	--width-text-max: 40rem;
 	/* 560px */
-	--width-text-max-wide: 41.75rem;
+	--width-text-max-wide: 47.714rem;
 	/* 668px */
-	--width-text-minimum-max: 12.5rem;
+	--width-text-minimum-max: 14.286rem;
 	/* 200px */
-	--width-section-text: 22.5rem;
+	--width-section-text: 25.714rem;
 	/* 360px */
-	--width-container-max: 80rem;
+	--width-container-max: 91.429rem;
 	/* 1280px */
-	--width-modal-max: 85rem;
+	--width-modal-max: 97.143rem;
 	/* 1360px */
-	--width-thumbnail: 17.5rem;
+	--width-thumbnail: 20rem;
 	/* 280px */
 
 	/* Heights */
-	--height-image-min-md: 30rem;
+	--height-image-min-md: 34.286rem;
 	/* 480px */
-	--height-image-min-lg: 40rem;
+	--height-image-min-lg: 45.714rem;
 	/* 640px */
 
 	/* ─────────────────────────────────────────
@@ -102,16 +103,16 @@
 		 Radius
 		 ───────────────────────────────────────── */
 
-	--radius-xs: 0.1875rem;
-	/* 3 */
-	--radius-sm: 0.375rem;
-	/* 6 */
-	--radius-md: 0.75rem;
-	/* 12 */
-	--radius-lg: 2.75rem;
-	/* 44 */
-	--radius-infinite: 62.5rem;
-	/* 1000 */
+	--radius-xs: 0.214rem;
+	/* 3px */
+	--radius-sm: 0.429rem;
+	/* 6px */
+	--radius-md: 0.857rem;
+	/* 12px */
+	--radius-lg: 3.143rem;
+	/* 44px */
+	--radius-infinite: 71.429rem;
+	/* 1000px */
 
 	/* ─────────────────────────────────────────
 	 Type Primitives (Zeplin: DazzedTRIAL, IBMPlexSans)
@@ -132,35 +133,35 @@
 	/* Title XL — 56px / 106% (Ag XL) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
-	--type-title-xl-font-size: 3.5rem;
+	--type-title-xl-font-size: 4rem;
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
 	/* Title L — 44px / 115% / -0.88px (Figma: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 2.75rem;
+	--type-title-l-font-size: 3.143rem;
 	--type-title-l-line-height: 1.15;
 	--type-title-l-letter-spacing: -0.02em;
 
-	/* Title M — 30px / 120% / -0.6px (Zeplin: title-m) */
+	/* Title M — 30px / 115% / -0.6px (Figma: title-m) */
 	--type-title-m-font-family: var(--font-family-display);
 	--type-title-m-font-weight: var(--font-weight-semibold);
-	--type-title-m-font-size: 2rem;
-	--type-title-m-line-height: 1.2;
+	--type-title-m-font-size: 2.143rem;
+	--type-title-m-line-height: 1.15;
 	--type-title-m-letter-spacing: -0.02em;
 
-	/* Title S — 22px / 122% / -0.33px (Figma: title-s) */
+	/* Title S — 22px / 125% / -0.33px (Figma: title-s) */
 	--type-title-s-font-family: var(--font-family-display);
 	--type-title-s-font-weight: var(--font-weight-semibold);
-	--type-title-s-font-size: 1.467rem;
-	--type-title-s-line-height: 1.22;
+	--type-title-s-font-size: 1.571rem;
+	--type-title-s-line-height: 1.25;
 	--type-title-s-letter-spacing: -0.015em;
 
 	/* Title XS — 16px / 125% / -0.08px (Zeplin: title-xs) */
 	--type-title-xs-font-family: var(--font-family-display);
 	--type-title-xs-font-weight: var(--font-weight-semibold);
-	--type-title-xs-font-size: 1rem;
+	--type-title-xs-font-size: 1.143rem;
 	--type-title-xs-line-height: 1.25;
 	--type-title-xs-letter-spacing: -0.005em;
 
@@ -171,21 +172,21 @@
 	/* Text L — 18px / 140% / -0.09px (Zeplin: text-l) */
 	--type-text-l-font-family: var(--font-family-sans);
 	--type-text-l-font-weight: var(--font-weight-regular);
-	--type-text-l-font-size: 1.125rem;
+	--type-text-l-font-size: 1.286rem;
 	--type-text-l-line-height: 1.4;
 	--type-text-l-letter-spacing: -0.005em;
 
 	/* Text M — 14px / 185% (Zeplin: text-m) */
 	--type-text-m-font-family: var(--font-family-sans);
 	--type-text-m-font-weight: var(--font-weight-regular);
-	--type-text-m-font-size: 0.875rem;
+	--type-text-m-font-size: 1rem;
 	--type-text-m-line-height: 1.85;
 	--type-text-m-letter-spacing: 0em;
 
 	/* Text S — 12px / 160% (Ag S) */
 	--type-text-s-font-family: var(--font-family-sans);
 	--type-text-s-font-weight: var(--font-weight-regular);
-	--type-text-s-font-size: 0.75rem;
+	--type-text-s-font-size: 0.857rem;
 	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
 }

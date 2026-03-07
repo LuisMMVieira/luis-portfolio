@@ -23,7 +23,7 @@ $grid-2: 1fr 1fr;
 	padding-top: 0;
 }
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
 	.page {
 		max-width: var(--width-modal-max);
 		margin-inline: auto;
@@ -49,7 +49,7 @@ $grid-2: 1fr 1fr;
 		padding-block: var(--spacing-max);
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		grid-template-columns: $grid-12;
 		padding-inline: var(--grid-margin-md);
 
@@ -66,7 +66,7 @@ $grid-2: 1fr 1fr;
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		>.container--narrow {
 			grid-column: 4 / 10;
 		}
@@ -82,7 +82,7 @@ $grid-2: 1fr 1fr;
 	grid-column: 1 / -1;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 	.span-full {
 		grid-column: 1 / -1;
 	}

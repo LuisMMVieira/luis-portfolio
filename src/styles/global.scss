@@ -1,5 +1,5 @@
 html {
-	font-size: 15px;
+	font-size: 14px;
 	/* Base font size */
 	background: var(--bg-default);
 	color: var(--text-primary);
@@ -122,7 +122,7 @@ h6 {
 	 ───────────────────────────────────────── */
 
 /* Tablet (md) — scale headings up */
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 	h1 {
 		font-size: var(--type-title-xl-font-size);
 		line-height: var(--type-title-xl-line-height);

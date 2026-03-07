@@ -12,7 +12,7 @@
 		padding-block-start: var(--grid-margin-xs);
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		> :first-child {
 			padding-block-start: var(--grid-margin-md);
 		}
@@ -94,7 +94,7 @@
 		display: block;
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		background-color: var(--color-dark);
 		height: 520px;
 		display: flex;
@@ -109,7 +109,7 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		aspect-ratio: 1336 / 751.5;
 		height: auto;
 
@@ -149,7 +149,7 @@
 		margin: 0;
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		padding-block: var(--spacing-xxl);
 		display: flex;
 		flex-direction: column;
@@ -164,7 +164,7 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		padding-block: var(--spacing-xxxl);
 
 		&__frame {
@@ -216,7 +216,7 @@
 	margin: 0;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 	.post-header__title {
 		font-size: var(--type-title-l-font-size);
 		line-height: var(--type-title-l-line-height);
@@ -224,7 +224,7 @@
 	}
 }
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
 	.post-header__title {
 		font-size: var(--type-title-xl-font-size);
 		line-height: var(--type-title-xl-line-height);
@@ -342,7 +342,7 @@
    Tablet (md) - 48rem / 768px
    ───────────────────────────────────────── */
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 
 	.post-header {
 		grid-template-columns: $grid-12;
@@ -427,7 +427,7 @@
    Desktop (xl) - 75rem / 1200px
    ───────────────────────────────────────── */
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
 	.post-header {
 		padding-block-start: var(--spacing-huge);
 		padding-block-end: var(--spacing-xl);
@@ -513,7 +513,7 @@
 		display: block;
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		background-color: var(--color-medium-light);
 		padding-block: var(--spacing-xl);
 
@@ -522,7 +522,7 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		padding-block: var(--spacing-xxl);
 
 		img {
@@ -552,7 +552,7 @@
 		display: block;
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		padding-block: var(--spacing-xxxl);
 		padding-inline-start: 125px;
 
@@ -561,7 +561,7 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		padding-block: var(--spacing-huge);
 		padding-inline-start: 334px;
 
@@ -598,7 +598,7 @@
 		}
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		&__canvas {
 			background-color: var(--color-dark);
 			padding-block: var(--spacing-xxl);
@@ -609,7 +609,7 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		&__frame {
 			width: 890px;
 		}
@@ -640,7 +640,7 @@
 	}
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
 	.image-scroller {
 		gap: 3.5rem;
 		padding-block: 2rem;
@@ -653,7 +653,7 @@
 	}
 }
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
 	.image-scroller {
 		gap: 8.75rem;
 		padding-block: 2.5rem;
@@ -703,13 +703,13 @@
 		margin: 0;
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		width: 372px;
 		margin-inline: auto;
 		padding-block: var(--spacing-xxxl);
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 1200px) {
 		width: 1114px;
 		flex-direction: row;
 		align-items: flex-start;
@@ -759,7 +759,7 @@
 		}
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 768px) {
 		grid-template-columns: 9fr 3fr;
 		align-items: start;
 
