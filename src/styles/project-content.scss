@@ -23,7 +23,6 @@
     letter-spacing: var(--type-title-m-letter-spacing);
     color: var(--text-primary);
     margin: 0 0 var(--spacing-md);
-    max-width: var(--width-text-max);
   }
 
   p {
@@ -33,7 +32,6 @@
     letter-spacing: var(--type-text-m-letter-spacing);
     color: var(--text-secondary);
     margin: 0 0 var(--spacing-sm);
-    max-width: var(--width-text-max);
 
     &:last-child {
       margin-bottom: 0;
@@ -85,7 +83,6 @@
       letter-spacing: var(--type-title-m-letter-spacing);
       color: var(--text-primary);
       margin: 0 0 var(--spacing-md);
-      max-width: var(--width-text-max);
     }
 
     p {
@@ -95,7 +92,6 @@
       letter-spacing: var(--type-text-m-letter-spacing);
       color: var(--text-secondary);
       margin: 0 0 var(--spacing-sm);
-      max-width: var(--width-text-max);
 
       &:last-child {
         margin-bottom: 0;
@@ -112,7 +108,6 @@
         letter-spacing: var(--type-text-m-letter-spacing);
         color: var(--text-primary);
         margin: 0;
-        max-width: 100%;
 
         + p {
           margin-top: var(--spacing-md);
@@ -429,17 +424,14 @@
 
     .project-title {
       font-size: var(--type-title-l-font-size);
-      max-width: var(--width-text-max);
     }
 
     .project-subtitle {
       font-size: var(--type-text-m-font-size);
-      max-width: var(--width-text-max);
     }
 
     .project-header-meta {
       gap: var(--spacing-lg);
-      max-width: var(--width-text-max);
     }
 
     .project-section-centered {
@@ -453,11 +445,9 @@
 
       .project-intro {
         grid-column: 2 / 4;
-        max-width: none;
 
         p {
           font-size: var(--type-text-m-font-size);
-          max-width: none;
         }
       }
     }
@@ -468,17 +458,14 @@
 
       /* xl: two-column layout - text left, image right (normal order) */
       .project-section-text {
-        width: var(--width-section-text);
         padding-inline: var(--spacing-lg);
 
         h2 {
           font-size: var(--type-title-m-font-size);
-          max-width: var(--width-text-max);
         }
 
         p {
           font-size: var(--type-text-m-font-size);
-          max-width: var(--width-text-max);
         }
       }
 
@@ -514,7 +501,6 @@
       .project-section-default:not(.is-inverted) {
         .project-section-text {
           order: 1;
-          max-width: var(--width-section-text);
         }
 
         .project-section-image {

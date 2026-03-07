@@ -46,12 +46,7 @@ $grid-2: 1fr 1fr;
 	}
 
 	.flow {
-		max-width: 100%;
 		padding-block: var(--spacing-max);
-
-		p {
-			max-width: 100%;
-		}
 	}
 
 	@media (min-width: 48rem) {
