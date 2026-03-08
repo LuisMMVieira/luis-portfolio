@@ -26,14 +26,14 @@
 	grid-template-columns: $grid-2;
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
-	padding-block-start: var(--spacing-xxl);
-	padding-block-end: var(--spacing-xl);
+	padding-block-start: var(--spacing-md);
+	padding-block-end: var(--spacing-md);
 
 	.post-header__wrapper {
 		grid-column: 1 / -1;
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-xl);
+		gap: var(--spacing-lg);
 	}
 }
 
@@ -122,13 +122,12 @@
 /* Window canvas: browser-frame video/image on dark background */
 .post-window-canvas {
 	width: 100%;
-	background-color: var(--color-darkest);
 
 	&__frame {
 		aspect-ratio: 784 / 434;
 		width: 100%;
 		overflow: hidden;
-		border-radius: var(--radius-sm);
+		border-radius: var(--radius-xs);
 		background-color: var(--color-darkest);
 
 		video, img {
@@ -150,6 +149,7 @@
 	}
 
 	@media (min-width: 768px) {
+		background-color: var(--color-darkest);
 		padding-block: var(--spacing-xxl);
 		display: flex;
 		flex-direction: column;
@@ -157,6 +157,7 @@
 
 		&__frame {
 			width: 620px;
+			border-radius: var(--radius-sm);
 		}
 
 		&__caption {
@@ -203,7 +204,7 @@
 .post-header__title-group {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md);
+	gap: var(--spacing-xxs);
 }
 
 .post-header__title {
@@ -294,10 +295,10 @@
 }
 
 .post-figure__caption {
-	font-family: var(--type-text-s-font-family);
-	font-size: var(--type-text-s-font-size);
-	font-weight: var(--type-text-s-font-weight);
-	line-height: var(--type-text-s-line-height);
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
 	color: var(--text-secondary);
 	padding-block: var(--spacing-sm);
 	margin: 0;
@@ -347,12 +348,16 @@
 	.post-header {
 		grid-template-columns: $grid-12;
 		padding-inline: var(--grid-margin-md);
-		padding-block-start: var(--spacing-xxl);
-		padding-block-end: var(--spacing-xl);
+		padding-block-start: var(--spacing-xl);
+		padding-block-end: var(--spacing-lg);
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
 		}
+	}
+
+	.post-header__title-group {
+		gap: var(--spacing-xs);
 	}
 
 	.post-section {
@@ -415,7 +420,7 @@
 
 	.post-section--small,
 	.post-section--big {
-		padding-block: var(--spacing-xl);
+		padding-block: var(--spacing-md);
 	}
 
 	.post-section--text {
@@ -429,8 +434,8 @@
 
 @media (min-width: 1200px) {
 	.post-header {
-		padding-block-start: var(--spacing-huge);
-		padding-block-end: var(--spacing-xl);
+		padding-block-start: var(--spacing-xxl);
+		padding-block-end: var(--spacing-lg);
 		max-width: var(--width-modal-max);
 		margin-inline: auto;
 
@@ -440,7 +445,7 @@
 	}
 
 	.post-section--big {
-		padding-block: var(--spacing-xl);
+		padding-block: var(--spacing-md);
 	}
 
 	.post-section--text {
@@ -616,6 +621,29 @@
 	}
 }
 
+/* Managers carousel: color-darkest bg, 16:9 images, equal-interval fade */
+/* Figma: full-width image, 12px padding all sides at all breakpoints */
+.post-managers-carousel {
+	width: 100%;
+	background-color: var(--color-darkest);
+	padding: var(--spacing-sm); /* ~12px all sides */
+
+	&__frame {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1440 / 810;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
 /* Image Scroller */
 .image-scroller {
 	display: flex;
@@ -715,6 +743,15 @@
 		align-items: flex-start;
 		gap: var(--spacing-xxxl);
 		padding-block: var(--spacing-huge);
+
+		&__figure {
+			flex: 1 1 0;
+		}
+
+		&__media {
+			height: 412px;
+			aspect-ratio: unset;
+		}
 	}
 }
 
@@ -771,5 +808,26 @@
 			grid-column: 2 / 3;
 			padding-top: 13.35%;
 		}
+	}
+}
+
+/* ─────────────────────────────────────────
+   Divider in post context — responsive spacing
+   ───────────────────────────────────────── */
+
+.post-page .divider {
+	padding-block-start: var(--spacing-xl);  /* xs: 56px */
+	padding-block-end: var(--spacing-md);    /* xs: 20px */
+}
+
+@media (min-width: 768px) {
+	.post-page .divider {
+		padding-block-start: var(--spacing-xxl); /* md: 80px */
+	}
+}
+
+@media (min-width: 1200px) {
+	.post-page .divider {
+		padding-block-start: var(--spacing-huge); /* xl: 120px */
 	}
 }

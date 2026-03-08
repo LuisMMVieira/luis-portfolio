@@ -641,6 +641,18 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 			transform: translateX(-50%);
 		}
 	}
+}
+
+/* Touch devices (iPhone / iPad) — lift scroll hint above browser chrome */
+@media (hover: none) and (pointer: coarse) {
+	.section#intro {
+		.intro-scroll-hint {
+			margin-bottom: var(--spacing-xl); /* 56px — clears iOS bottom nav */
+		}
+	}
+}
+
+@media (min-width: 1200px) {
 
 	/* Section spacing xl (Figma Home Section) */
 	.section#work .flow,

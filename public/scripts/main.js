@@ -51,7 +51,7 @@ function initCarousels(root) {
     // Per-slide config: [delay, fade]. Parsed from data-slides JSON or defaults.
     var defaultMs = parseInt(carousel.getAttribute("data-interval") || "2500", 10);
     var config = [];
-    try { config = JSON.parse(carousel.getAttribute("data-slides")); } catch (e) {}
+    try { config = JSON.parse(carousel.getAttribute("data-slides")) || []; } catch (e) {}
     var current = 0;
 
     // All slides at opacity 1 (stacked), slide 0 on top.
@@ -237,16 +237,16 @@ function initLoopVideos(root) {
   });
 })();
 
-// Scroll hint: hide when user starts scrolling
+// Scroll hint: show when at top, hide when scrolled, reappear when back at top
 (function () {
   const scrollHint = document.querySelector(".intro-scroll-hint");
   if (!scrollHint) return;
 
-  let hidden = false;
   window.addEventListener("scroll", function () {
-    if (!hidden && window.scrollY > 10) {
+    if (window.scrollY < 10) {
+      scrollHint.classList.remove("is-hidden");
+    } else {
       scrollHint.classList.add("is-hidden");
-      hidden = true;
     }
   }, { passive: true });
 })();

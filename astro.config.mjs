@@ -13,5 +13,17 @@ export default defineConfig({
     enabled: false,
   },
 
+  server: {
+    host: "0.0.0.0",
+  },
+
   integrations: [mdx(), sitemap()],
+
+  vite: {
+    server: {
+      headers: {
+        "X-Frame-Options": "ALLOWALL",
+      },
+    },
+  },
 });

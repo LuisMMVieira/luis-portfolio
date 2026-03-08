@@ -5,18 +5,18 @@ title: "Background"
 <div class="bg-chapter">
 
 ### Early years
-My formal education was at ESAD. A theoretical introduction to design. The real education came after. My first job was at a small graphic shop. Logos, visual identities, print for local businesses. Small clients, real pressure. I took the work seriously from day one — probably more seriously than the context required. Typography mattered. Grids mattered. Production details mattered. Then came magazines. Low budgets, limited resources, same standard. I treated them as if they were cultural artifacts.
+I went through formal design education. Then came the work. My first job was at a small graphic shop. Logos, visual identities, print for local businesses. Small clients, real pressure. Typography mattered. Grids mattered. Production details mattered. Then came magazines. Low budgets, limited resources, same standard. I treated them as if they were cultural artifacts.
 
 </div>
 <div class="bg-chapter">
 
 ### Web design <br />deepdive
-In 2008 I made the first real shift. Left print. Moved fully into digital. I spent nine years at Portugalmail — Portugal's first email provider — designing email platforms and blogging products. The work was dense, functional, content-heavy. That's where I developed a real respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as a handoff. As a shared surface.
+In 2008 I made the first real shift to area which i fell in love with. Left print, moved fully into digital. Spent nine years at *Portugalmail* (Portugal's first email provider) designing email platforms and blogging products. Dense, functional, content-heavy work. That's where I developed a deep respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as handoff, buts a shared surface.
 
 </div>
 <div class="bg-chapter">
 
 ### UX as <br />discipline
-I joined Namecheap as a founding designer for Spaceship when the product was still an idea. For six years I helped build Spaceship from the ground up. Design systems, cross-functional alignment, documentation that translates intent into buildable reality. The highest-leverage work of my career. The stakes were real. So were the outcomes.
+In 2017, UX had matured as a discipline — formal methodologies, agile workflows, design systems at scale. I was ready for it. Joined *Namecheap* as a founding designer to build Spaceship, a new online presence platform. Six years building it from the ground up. Design systems, cross-functional alignment, documentation that translates intent into buildable reality. The highest-leverage work of my career. The stakes were real. So were the outcomes.
 
 </div>
