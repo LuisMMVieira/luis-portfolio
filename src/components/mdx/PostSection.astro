@@ -5,18 +5,21 @@ interface Props {
   col2?: boolean;
   /** 3-column layout (Zeplin: 3 col) */
   col3?: boolean;
-  /** Media position at xl: full | center-wide | left | left-wide | right | right-wide | right-small */
-  media?: 'full' | 'center-wide' | 'left' | 'left-wide' | 'right' | 'right-wide' | 'right-small';
+  /** Media position: full | center-wide | center | left | left-wide | right | right-wide | right-small */
+  media?: 'full' | 'center-wide' | 'center' | 'left' | 'left-wide' | 'right' | 'right-wide' | 'right-small';
+  /** col2 size ratio: equal (default) | big-small (7:3) | small-big (3:7) */
+  col2Sizes?: 'equal' | 'big-small' | 'small-big';
 }
 
-const { layout = 'big', col2 = false, col3 = false, media } = Astro.props;
+const { layout = 'big', col2 = false, col3 = false, media, col2Sizes } = Astro.props;
 
 const classes = [
   'post-section',
   `post-section--${layout}`,
   col2 ? 'post-section--col2' : '',
   col3 ? 'post-section--col3' : '',
-  media ? `post-section--media-${media}` : ''
+  media ? `post-section--media-${media}` : '',
+  col2Sizes ? `post-section--col2-${col2Sizes}` : ''
 ].filter(Boolean).join(' ');
 ---
 

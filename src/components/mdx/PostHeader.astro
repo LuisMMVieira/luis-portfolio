@@ -13,8 +13,10 @@ const { title, subtitle } = Astro.props;
       <h1 class="post-header__title">{title}</h1>
       {subtitle && <p class="post-header__subtitle">{subtitle}</p>}
     </div>
-    <div class="post-header__intro">
-      <slot />
-    </div>
+    {Astro.slots.has('default') && (
+      <div class="post-header__intro">
+        <slot />
+      </div>
+    )}
   </div>
 </header>
