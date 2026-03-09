@@ -83,10 +83,7 @@ $grid-2: 1fr 1fr;
 }
 
 @media (min-width: 768px) {
-	.span-full {
-		grid-column: 1 / -1;
-	}
-
+	.span-full,
 	.span-12 {
 		grid-column: 1 / -1;
 	}

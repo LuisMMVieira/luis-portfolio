@@ -376,7 +376,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 4px 12px;
+	gap: var(--spacing-xxs) var(--spacing-sm);
 	font-family: var(--type-text-m-font-family);
 	font-size: var(--type-text-m-font-size);
 	line-height: var(--type-text-m-line-height);
@@ -512,8 +512,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 
 		.intro-greeting {
-			position: relative;
-			top: 0;
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
@@ -539,7 +537,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	}
 
 	.project-card {
-		gap: var(--spacing-md);
+		gap: var(--spacing-lg);
 	}
 
 	.project-card-info {
@@ -619,7 +617,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 
 		.intro-headline {
 			position: relative;
-			top: -8px;
+			top: calc(-1 * var(--spacing-xs));
 			font-size: var(--type-title-xl-font-size);
 			line-height: var(--type-title-xl-line-height);
 			letter-spacing: var(--type-title-xl-letter-spacing);
@@ -627,34 +625,22 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 
 		.intro-greeting {
 			position: absolute;
+			top: -60px; /* design-specific offset above headline */
+			left: 0;
 			font-size: var(--type-title-m-font-size);
 			line-height: var(--type-title-m-line-height);
 			letter-spacing: var(--type-title-m-letter-spacing);
-			top: -60px;
-			left: 0;
 		}
 
 		.intro-scroll-hint {
 			position: absolute;
-			bottom: var(--spacing-xxl);
+			bottom: var(--spacing-xl);
 			left: 50%;
 			transform: translateX(-50%);
 		}
 	}
-}
 
-/* Touch devices (iPhone / iPad) — lift scroll hint above browser chrome */
-@media (hover: none) and (pointer: coarse) {
-	.section#intro {
-		.intro-scroll-hint {
-			margin-bottom: var(--spacing-xl); /* 56px — clears iOS bottom nav */
-		}
-	}
-}
-
-@media (min-width: 1200px) {
-
-	/* Section spacing xl (Figma Home Section) */
+	/* Section spacing (Figma Home Section) */
 	.section#work .flow,
 	.section#beliefs .flow {
 		padding-block-start: var(--spacing-max);
@@ -688,6 +674,14 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 			letter-spacing: var(--type-title-m-letter-spacing);
 		}
 	}
+}
 
+/* Touch devices (iPhone / iPad) — lift scroll hint above browser chrome */
+@media (hover: none) and (pointer: coarse) {
+	.section#intro {
+		.intro-scroll-hint {
+			margin-bottom: var(--spacing-xl); /* 56px — clears iOS bottom nav */
+		}
+	}
 }
 
