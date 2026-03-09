@@ -59,6 +59,11 @@
 	padding-block: var(--spacing-md);
 }
 
+/* Canvas: full-bleed bg section — no padding-block (child handles all internal spacing) */
+.post-section--canvas {
+	padding-block: 0;
+}
+
 /* Full: keeps lateral padding (grid padding-inline). Hero images stay inside grid. */
 .post-section--full {
 	padding-block: 0;
@@ -116,7 +121,6 @@
 	}
 
 	@media (min-width: 768px) {
-		background-color: var(--color-darkest);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -337,10 +341,9 @@
 	}
 }
 
-/* Elevated variant: dark bg for Unbox scroll (Figma: img h=360px at xl) */
-.post-page .post-scroll-right-wide--elevated {
-	background-color: var(--bg-elevated);
-}
+/* Elevated variant: different img height for Unbox scroll (Figma: img h=360px at xl) */
+/* Background is on the parent PostSection (bg="bg-elevated"), not here */
+.post-page .post-scroll-right-wide--elevated {}
 
 /* ─────────────────────────────────────────
    Tablet (md) - 48rem / 768px
@@ -574,7 +577,6 @@
 
 	@media (min-width: 768px) {
 		&__canvas {
-			background-color: var(--bg-elevated);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -615,7 +617,6 @@
 	}
 
 	@media (min-width: 768px) {
-		background-color: var(--color-base);
 		display: flex;
 		flex-direction: column;
 		align-items: center;

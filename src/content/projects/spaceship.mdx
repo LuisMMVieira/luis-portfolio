@@ -33,8 +33,8 @@ import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
   <Divider label="Homepage, Domain Search & Transfer" />
 </PostSection>
 
-{/* Entrance choreography — center-wide (3/11), grid-column via CSS */}
-<PostSection layout="big">
+{/* Entrance choreography — full-bleed canvas, bg on section */}
+<PostSection layout="canvas" bg="color-darkest">
   <div id="entrance-choreography" class="post-window-canvas">
     <div class="post-window-canvas__frame">
       <EntranceVideo src="/assets/projects/spaceship/videos/entrance-choreography.mp4" />
@@ -91,8 +91,8 @@ import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
   <Divider label="Launchpad" />
 </PostSection>
 
-{/* Launchpad carousel — center-wide (3/11) via CSS grid-column */}
-<PostSection layout="big" media="center-wide">
+{/* Launchpad carousel — full-bleed canvas, bg on section */}
+<PostSection layout="canvas" bg="bg-elevated">
   <div class="post-canvas-carousel">
     <div class="post-canvas-carousel__canvas">
       <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
@@ -142,8 +142,8 @@ import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
   <Divider label="Managers" />
 </PostSection>
 
-{/* Managers carousel — center-wide (3/11) via CSS grid-column */}
-<PostSection layout="big" media="center-wide">
+{/* Managers carousel — full-bleed canvas, bg on section */}
+<PostSection layout="canvas" bg="color-base">
   <div class="post-managers-carousel">
     <div class="post-managers-carousel__frame" data-image-carousel data-interval="3000">
       <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-1.png" alt="Domain Manager" />
@@ -181,8 +181,8 @@ import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
   <Divider label="Unbox™️" />
 </PostSection>
 
-{/* Unbox light screens — right-wide (4/13) horizontal scroll strip */}
-<PostSection layout="big">
+{/* Unbox light screens — full-bleed canvas, bg on section */}
+<PostSection layout="canvas" bg="bg-elevated">
   <div class="post-scroll-right-wide post-scroll-right-wide--elevated">
     <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-1.png" alt="Unbox onboarding step 1" />
     <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-2.png" alt="Unbox onboarding step 2" />
@@ -236,8 +236,8 @@ import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
   />
 </PostSection>
 
-{/* Knowledgebase flows video — center-wide, compact padding (pt=80, pb=56) */}
-<PostSection layout="big">
+{/* Knowledgebase flows video — full-bleed canvas, compact padding (pt=80, pb=56) */}
+<PostSection layout="canvas" bg="color-darkest">
   <div class="post-window-canvas post-window-canvas--compact">
     <div class="post-window-canvas__frame">
       <EntranceVideo src="/assets/projects/spaceship/videos/knowledgebase-flows.mp4" />

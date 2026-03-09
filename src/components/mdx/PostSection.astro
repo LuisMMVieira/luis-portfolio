@@ -1,6 +1,8 @@
 ---
 interface Props {
-  layout?: 'small' | 'big' | 'full' | 'text';
+  layout?: 'small' | 'big' | 'canvas' | 'full' | 'text';
+  /** Background color token (e.g. "color-darkest", "bg-elevated", "color-base") — applied to section for full-bleed canvas bg */
+  bg?: string;
   /** 2-column layout (Zeplin: 2 col) */
   col2?: boolean;
   /** 3-column layout (Zeplin: 3 col) */
@@ -11,7 +13,7 @@ interface Props {
   col2Sizes?: 'equal' | 'big-small' | 'small-big';
 }
 
-const { layout = 'big', col2 = false, col3 = false, media, col2Sizes } = Astro.props;
+const { layout = 'big', bg, col2 = false, col3 = false, media, col2Sizes } = Astro.props;
 
 const classes = [
   'post-section',
@@ -23,7 +25,7 @@ const classes = [
 ].filter(Boolean).join(' ');
 ---
 
-<section class={classes}>
+<section class={classes} style={bg ? `background-color: var(--${bg})` : undefined}>
   {(col2 || col3) ? (
     <div class="post-section__cols">
       <slot />
