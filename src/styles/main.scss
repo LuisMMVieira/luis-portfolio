@@ -78,7 +78,7 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-sm);
+		gap: var(--spacing-xs);
 		max-width: none;
 	}
 
@@ -683,7 +683,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 @media (hover: none) and (pointer: coarse) {
 	.section#intro {
 		.intro-scroll-hint {
-			margin-bottom: var(--spacing-xl); /* 56px — clears iOS bottom nav */
+			margin-bottom: var(--spacing-md); /* 20px — clears iOS bottom nav */
 		}
 	}
 }
