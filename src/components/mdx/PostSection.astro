@@ -25,12 +25,14 @@ const classes = [
 ].filter(Boolean).join(' ');
 ---
 
-<section class={classes} style={bg ? `background-color: var(--${bg})` : undefined}>
-  {(col2 || col3) ? (
-    <div class="post-section__cols">
+<section class={classes}>
+  <div class="post-canvas" style={bg ? `background-color: var(--${bg})` : undefined}>
+    {(col2 || col3) ? (
+      <div class="post-section__cols">
+        <slot />
+      </div>
+    ) : (
       <slot />
-    </div>
-  ) : (
-    <slot />
-  )}
+    )}
+  </div>
 </section>

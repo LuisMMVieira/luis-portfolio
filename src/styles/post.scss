@@ -21,9 +21,6 @@
 
 /* Post Header */
 .post-header {
-	display: grid;
-	column-gap: 0;
-	grid-template-columns: $grid-2;
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
 	padding-block-start: var(--spacing-md);
@@ -37,16 +34,26 @@
 	}
 }
 
-/* Post Section: system grid */
+/* Post Section: padding wrapper */
 .post-section {
+	padding-inline: var(--grid-margin-xs);
+	width: 100%;
+}
+
+/* Canvas: no block padding (bg lives on .post-canvas child) */
+.post-section--canvas {
+	padding-block: 0;
+}
+
+/* Canvas: CSS Grid container (child of section or header) */
+.post-canvas {
 	display: grid;
 	column-gap: 0;
 	grid-template-columns: $grid-2;
-	padding-inline: var(--grid-margin-xs);
 	width: 100%;
 	row-gap: var(--spacing-xl);
 
-	>* {
+	> * {
 		grid-column: 1 / -1;
 	}
 }
@@ -57,11 +64,6 @@
 
 .post-section--big {
 	padding-block: var(--spacing-md);
-}
-
-/* Canvas: full-bleed bg section — no padding-block (child handles all internal spacing) */
-.post-section--canvas {
-	padding-block: 0;
 }
 
 /* Full: keeps lateral padding (grid padding-inline). Hero images stay inside grid. */
@@ -158,7 +160,6 @@
 
 .post-section--text {
 	padding-block: var(--spacing-xl);
-	align-items: center;
 	text-align: left;
 }
 
@@ -315,6 +316,48 @@
 	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-secondary);
 	margin: 0;
+
+}
+
+/* ─────────────────────────────────────────
+   Post Meta (key-value list — last section)
+   ───────────────────────────────────────── */
+
+.post-meta {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	border-top: var(--border-width-hairline) solid var(--border-default);
+	list-style: none;
+}
+
+.post-meta__row {
+	display: flex;
+	gap: var(--spacing-md);
+	padding-block: var(--spacing-sm);
+	border-bottom: var(--border-width-hairline) solid var(--border-default);
+}
+
+.post-meta__label {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-primary);
+	min-width: 5.714rem; /* 80px — aligns values across rows */
+	margin: 0;
+}
+
+.post-meta__value {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
+	margin: 0;
 }
 
 /* Scroll right-wide strip — right-wide grid (cols 4/13 at md+), full-width at xs */
@@ -352,7 +395,6 @@
 @media (min-width: 768px) {
 
 	.post-header {
-		grid-template-columns: $grid-12;
 		padding-inline: var(--grid-margin-md);
 		padding-block-start: var(--spacing-xl);
 		padding-block-end: var(--spacing-lg);
@@ -367,22 +409,15 @@
 	}
 
 	.post-section {
-		grid-template-columns: $grid-12;
 		padding-inline: var(--grid-margin-md);
 	}
 
-	/* Default: all 12 columns */
-	.post-section>* {
-		grid-column: 1 / -1;
-	}
-
-	/* Full: edge-to-edge, no padding */
-	.post-section--full > * {
-		grid-column: 1 / -1;
+	.post-canvas {
+		grid-template-columns: $grid-12;
 	}
 
 	/* Text: 1 col centered — 2-col inset each side (cols 3–10, 8 cols) */
-	.post-section--text > * {
+	.post-section--text .post-canvas > * {
 		grid-column: 3 / 11;
 	}
 
@@ -472,10 +507,10 @@
 
 	.post-section--text {
 		padding-block: var(--spacing-huge);
+	}
 
-		> * {
-			grid-column: 4 / 10;
-		}
+	.post-section--text .post-canvas > * {
+		grid-column: 4 / 10;
 	}
 
 	/* Media variants (Figma) — single figure per section */
@@ -517,11 +552,6 @@
 	.post-section--media-right-small .post-figure {
 		grid-column: 9 / 13;
 		/* cols 9-12 */
-	}
-
-	/* Full: spans all columns (stays within padding) */
-	.post-section--full>* {
-		grid-column: 1 / -1;
 	}
 
 	/* Text col2: wider wrapper at xl (x=98, w=980 → cols 2/12) */

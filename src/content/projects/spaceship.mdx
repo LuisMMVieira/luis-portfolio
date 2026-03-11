@@ -7,264 +7,343 @@ period: "2019–Today"
 draft: false
 ---
 
-import PostSection from '../../components/mdx/PostSection.astro';
-import PostHeader from '../../components/mdx/PostHeader.astro';
-import PostText from '../../components/mdx/PostText.astro';
-import Figure from '../../components/mdx/Figure.astro';
-import Divider from '../../components/Divider.astro';
-import EntranceVideo from '../../components/mdx/EntranceVideo.astro';
-
 {/* ── COVER ─────────────────────────────────────────────────────── */}
 
-<PostSection layout="big" media="center-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/cover/sps-cover.png"
-    alt="Spaceship — A domain odyssey"
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-center-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/cover/sps-cover.png" alt="Spaceship — A domain odyssey" loading="lazy" />
+    </figure>
+  </div>
+</section>
 
 {/* ── HEADER ────────────────────────────────────────────────────── */}
 
-<PostHeader title="Building a domain platform from scratch—Six years and counting" />
+<header class="post-header">
+  <div class="post-canvas">
+    <div class="post-header__wrapper">
+      <div class="post-header__title-group">
+        <h1 class="post-header__title">Building a domain platform from scratch—Six years and counting</h1>
+      </div>
+    </div>
+  </div>
+</header>
 
 {/* ── CHAPTER 1: HOMEPAGE, DOMAIN SEARCH & TRANSFER ────────────── */}
 
-<PostSection layout="big">
-  <Divider label="Homepage, Domain Search & Transfer" />
-</PostSection>
-
-{/* Entrance choreography — full-bleed canvas, bg on section */}
-<PostSection layout="canvas" bg="color-darkest">
-  <div id="entrance-choreography" class="post-window-canvas">
-    <div class="post-window-canvas__frame">
-      <EntranceVideo src="/assets/projects/spaceship/videos/entrance-choreography.mp4" />
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+      <p class="divider__label">Homepage, Domain Search & Transfer</p>
     </div>
-    <p class="post-window-canvas__caption">Homepage entrance choreography.</p>
   </div>
-</PostSection>
+</section>
+
+{/* Entrance choreography — full-bleed canvas, bg on canvas */}
+<section class="post-section post-section--canvas">
+  <div class="post-canvas" style="background-color: var(--color-darkest)">
+    <div id="entrance-choreography" class="post-window-canvas">
+      <div class="post-window-canvas__frame">
+        <video data-loop-video src="/assets/projects/spaceship/videos/entrance-choreography.mp4" autoplay muted playsinline></video>
+      </div>
+      <p class="post-window-canvas__caption">Homepage entrance choreography.</p>
+    </div>
+  </div>
+</section>
 
 {/* Homepage handoff — left-wide (1/10) */}
-<PostSection layout="big" media="left-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/homepage/sps-home-handoff.png"
-    alt="Homepage design handoff"
-    caption="Homepage handoff."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-left-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/homepage/sps-home-handoff.png" alt="Homepage design handoff" loading="lazy" />
+      <figcaption class="post-figure__caption">Homepage handoff.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Breakpoints — right-wide (4/13) horizontal scroll strip */}
-<PostSection layout="big">
-  <div class="post-scroll-right-wide">
-    <img src="/assets/projects/spaceship/images/homepage/sps-home-breakpoints.png" alt="Homepage responsive breakpoints" />
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="post-scroll-right-wide">
+      <img src="/assets/projects/spaceship/images/homepage/sps-home-breakpoints.png" alt="Homepage responsive breakpoints" />
+    </div>
   </div>
-</PostSection>
+</section>
 
 {/* Search modes — full (1/-1) */}
-<PostSection layout="big" media="full">
-  <Figure
-    src="/assets/projects/spaceship/images/homepage/sps-search-modes.png"
-    alt="Domain search and transfer mode-switching logic"
-    caption="Domain search and transfer mode-switching logic."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-full">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="Domain search and transfer mode-switching logic" loading="lazy" />
+      <figcaption class="post-figure__caption">Domain search and transfer mode-switching logic.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Home mobile — center-wide (3/11) */}
-<PostSection layout="big" media="center-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/homepage/sps-home-mobile.png"
-    alt="Homepage mobile experience"
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-center-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/homepage/sps-home-mobile.png" alt="Homepage mobile experience" loading="lazy" />
+    </figure>
+  </div>
+</section>
 
 {/* Homepage sketch — full (1/-1) */}
-<PostSection layout="big" media="full">
-  <Figure
-    src="/assets/projects/spaceship/images/homepage/sps-homepage-sketch.png"
-    alt="Homepage early sketches"
-    caption="Homepage early sketches."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-full">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/homepage/sps-homepage-sketch.png" alt="Homepage early sketches" loading="lazy" />
+      <figcaption class="post-figure__caption">Homepage early sketches.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* ── CHAPTER 2: LAUNCHPAD ──────────────────────────────────────── */}
 
-<PostSection layout="big">
-  <Divider label="Launchpad" />
-</PostSection>
-
-{/* Launchpad carousel — full-bleed canvas, bg on section */}
-<PostSection layout="canvas" bg="bg-elevated">
-  <div class="post-canvas-carousel">
-    <div class="post-canvas-carousel__canvas">
-      <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 01.png" alt="Launchpad" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 02.png" alt="Launchpad" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 03.png" alt="Launchpad" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 04.png" alt="Launchpad" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 05.png" alt="Launchpad" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 06.png" alt="Launchpad" />
-      </div>
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+      <p class="divider__label">Launchpad</p>
     </div>
-    <p class="post-figure__caption">The Launchpad allowed users to reach applications fast and where customization was possible.</p>
   </div>
-</PostSection>
+</section>
+
+{/* Launchpad carousel — full-bleed canvas, bg on canvas */}
+<section class="post-section post-section--canvas">
+  <div class="post-canvas" style="background-color: var(--bg-elevated)">
+    <div class="post-canvas-carousel">
+      <div class="post-canvas-carousel__canvas">
+        <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 01.png" alt="Launchpad" />
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 02.png" alt="Launchpad" />
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 03.png" alt="Launchpad" />
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 04.png" alt="Launchpad" />
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 05.png" alt="Launchpad" />
+          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 06.png" alt="Launchpad" />
+        </div>
+      </div>
+      <p class="post-figure__caption">The Launchpad allowed users to reach applications fast and where customization was possible.</p>
+    </div>
+  </div>
+</section>
 
 {/* Launchpad grids + specs — big-small col2 (7:3) */}
-<PostSection layout="big" col2 col2Sizes="big-small">
-  <Figure
-    src="/assets/projects/spaceship/images/launchpad/sps-launchpad-grids.png"
-    alt="Launchpad 2-grid system"
-    caption="Launchpad 2-grid system."
-  />
-  <Figure
-    src="/assets/projects/spaceship/images/launchpad/sps-launchpad-specs.png"
-    alt="Launchpad grid specifications"
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--col2 post-section--col2-big-small">
+  <div class="post-canvas">
+    <div class="post-section__cols">
+      <figure class="post-figure">
+        <img src="/assets/projects/spaceship/images/launchpad/sps-launchpad-grids.png" alt="Launchpad 2-grid system" loading="lazy" />
+        <figcaption class="post-figure__caption">Launchpad 2-grid system.</figcaption>
+      </figure>
+      <figure class="post-figure">
+        <img src="/assets/projects/spaceship/images/launchpad/sps-launchpad-specs.png" alt="Launchpad grid specifications" loading="lazy" />
+      </figure>
+    </div>
+  </div>
+</section>
 
 {/* Layout density + animation — equal col2 (1:1) */}
-<PostSection layout="big" col2>
-  <Figure
-    src="/assets/projects/spaceship/images/launchpad/sps-layout-density.png"
-    alt="Applications layout logic—tackling density"
-    caption="Applications layout logic—tackling density."
-  />
-  <figure class="post-figure">
-    <video autoplay muted loop playsinline style="width: 100%; height: auto; display: block;">
-      <source src="/assets/projects/spaceship/videos/launchpad-anim.mp4" type="video/mp4" />
-    </video>
-    <figcaption class="post-figure__caption">Redesign proposal to bring apps closer to the user.</figcaption>
-  </figure>
-</PostSection>
+<section class="post-section post-section--big post-section--col2">
+  <div class="post-canvas">
+    <div class="post-section__cols">
+      <figure class="post-figure">
+        <img src="/assets/projects/spaceship/images/launchpad/sps-layout-density.png" alt="Applications layout logic—tackling density" loading="lazy" />
+        <figcaption class="post-figure__caption">Applications layout logic—tackling density.</figcaption>
+      </figure>
+      <figure class="post-figure">
+        <video autoplay muted loop playsinline style="width: 100%; height: auto; display: block;">
+          <source src="/assets/projects/spaceship/videos/launchpad-anim.mp4" type="video/mp4" />
+        </video>
+        <figcaption class="post-figure__caption">Redesign proposal to bring apps closer to the user.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 {/* ── CHAPTER 3: MANAGERS ───────────────────────────────────────── */}
 
-<PostSection layout="big">
-  <Divider label="Managers" />
-</PostSection>
-
-{/* Managers carousel — full-bleed canvas, bg on section */}
-<PostSection layout="canvas" bg="color-base">
-  <div class="post-managers-carousel">
-    <div class="post-managers-carousel__frame" data-image-carousel data-interval="3000">
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-1.png" alt="Domain Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-2.png" alt="Domain Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-3.png" alt="Domain Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-1.png" alt="Hosting Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-2.png" alt="Hosting Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-subscription-manager.png" alt="Subscription Manager" />
-      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-connection-manager.png" alt="Connection Manager" />
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+      <p class="divider__label">Managers</p>
     </div>
   </div>
-</PostSection>
+</section>
+
+{/* Managers carousel — full-bleed canvas, bg on canvas */}
+<section class="post-section post-section--canvas">
+  <div class="post-canvas" style="background-color: var(--color-base)">
+    <div class="post-managers-carousel">
+      <div class="post-managers-carousel__frame" data-image-carousel data-interval="3000">
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-1.png" alt="Domain Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-2.png" alt="Domain Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-3.png" alt="Domain Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-1.png" alt="Hosting Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-2.png" alt="Hosting Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-subscription-manager.png" alt="Subscription Manager" />
+        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-connection-manager.png" alt="Connection Manager" />
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* Managers header POCs — left-wide (1/10) */}
-<PostSection layout="big" media="left-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/managers/sps-managers-header-pocs.png"
-    alt="Managers header points of contact"
-    caption="Examples of the header system applied to different products."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-left-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/managers/sps-managers-header-pocs.png" alt="Managers header points of contact" loading="lazy" />
+      <figcaption class="post-figure__caption">Examples of the header system applied to different products.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Managers header behaviours — right-wide (4/13) */}
-<PostSection layout="big" media="right-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/managers/sps-managers-header-behaviours.png"
-    alt="Managers header behaviours"
-    caption="Scrolling behaviour patterns for big and small screens."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-right-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/managers/sps-managers-header-behaviours.png" alt="Managers header behaviours" loading="lazy" />
+      <figcaption class="post-figure__caption">Scrolling behaviour patterns for big and small screens.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* ── CHAPTER 4: UNBOX™️ ────────────────────────────────────────── */}
 
-<PostSection layout="big">
-  <Divider label="Unbox™️" />
-</PostSection>
-
-{/* Unbox light screens — full-bleed canvas, bg on section */}
-<PostSection layout="canvas" bg="bg-elevated">
-  <div class="post-scroll-right-wide post-scroll-right-wide--elevated">
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-1.png" alt="Unbox onboarding step 1" />
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-2.png" alt="Unbox onboarding step 2" />
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-3.png" alt="Unbox onboarding step 3" />
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-4.png" alt="Unbox onboarding step 4" />
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-5.png" alt="Unbox onboarding step 5" />
-    <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-6.png" alt="Unbox onboarding step 6" />
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+      <p class="divider__label">Unbox™️</p>
+    </div>
   </div>
-</PostSection>
+</section>
+
+{/* Unbox light screens — full-bleed canvas, bg on canvas */}
+<section class="post-section post-section--canvas">
+  <div class="post-canvas" style="background-color: var(--bg-elevated)">
+    <div class="post-scroll-right-wide post-scroll-right-wide--elevated">
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-1.png" alt="Unbox onboarding step 1" />
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-2.png" alt="Unbox onboarding step 2" />
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-3.png" alt="Unbox onboarding step 3" />
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-4.png" alt="Unbox onboarding step 4" />
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-5.png" alt="Unbox onboarding step 5" />
+      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-6.png" alt="Unbox onboarding step 6" />
+    </div>
+  </div>
+</section>
 
 {/* Unbox intro text — text layout (4/10 centered) */}
-<PostSection layout="text">
-  <PostText>
-    {/* TODO: Unbox description goes here. */}
-    Unbox description goes here.
-  </PostText>
-</PostSection>
+<section class="post-section post-section--text">
+  <div class="post-canvas">
+    <div class="post-text">
+      <p>Unbox description goes here.</p>
+    </div>
+  </div>
+</section>
 
 {/* Unbox flow chart — full (1/-1) */}
-<PostSection layout="big" media="full">
-  <Figure
-    src="/assets/projects/spaceship/images/unbox/Version=sps-unbox-flow-chart.png"
-    alt="Unbox onboarding flow chart"
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-full">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/unbox/Version=sps-unbox-flow-chart.png" alt="Unbox onboarding flow chart" loading="lazy" />
+      <figcaption class="post-figure__caption">Mapping 12+ scenarios.<br/>Swipe to reveal more</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Unbox guidelines — right-wide (4/13) */}
-<PostSection layout="big" media="right-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/unbox/sps-unbox-guidelines.png"
-    alt="Unbox design guidelines"
-    caption="Patterns and suggestions for platform integration."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-right-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/unbox/sps-unbox-guidelines.png" alt="Unbox design guidelines" loading="lazy" />
+      <figcaption class="post-figure__caption">Patterns and suggestions for platform integration.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Unbox step tracker — center (4/10) */}
-<PostSection layout="big" media="center">
-  <Figure
-    src="/assets/projects/spaceship/images/unbox/sps-unbox-step-tracker.png"
-    alt="Unbox step tracker"
-    caption="Step-tracker states and stages."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-center">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/unbox/sps-unbox-step-tracker.png" alt="Unbox step tracker" loading="lazy" />
+      <figcaption class="post-figure__caption">Step-tracker states and stages.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Unbox brand guides — left-wide (1/10) */}
-<PostSection layout="big" media="left-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/unbox/sps-unbox-brand-guides.png"
-    alt="Unbox brand guides"
-    caption="Brand assets approach to be applied on specific moments in the flow."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-left-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/unbox/sps-unbox-brand-guides.png" alt="Unbox brand guides" loading="lazy" />
+      <figcaption class="post-figure__caption">Brand assets approach to be applied on specific moments in the flow.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* Knowledgebase flows video — full-bleed canvas, compact padding (pt=80, pb=56) */}
-<PostSection layout="canvas" bg="color-darkest">
-  <div class="post-window-canvas post-window-canvas--compact">
-    <div class="post-window-canvas__frame">
-      <EntranceVideo src="/assets/projects/spaceship/videos/knowledgebase-flows.mp4" />
+<section class="post-section post-section--canvas">
+  <div class="post-canvas" style="background-color: var(--color-darkest)">
+    <div class="post-window-canvas post-window-canvas--compact">
+      <div class="post-window-canvas__frame">
+        <video data-loop-video src="/assets/projects/spaceship/videos/knowledgebase-flows.mp4" autoplay muted playsinline></video>
+      </div>
+      <p class="post-window-canvas__caption">4 different entry points for contextual guides.</p>
     </div>
-    <p class="post-window-canvas__caption">4 different entry points for contextual guides.</p>
   </div>
-</PostSection>
+</section>
 
 {/* Guides entry flow chart — center-wide (3/11) */}
-<PostSection layout="big" media="center-wide">
-  <Figure
-    src="/assets/projects/spaceship/images/guides/sps-guides-entry-points-flow-chart.png"
-    alt="Guides entry points flow chart"
-    caption="Guides UX logic flow chart."
-  />
-</PostSection>
+<section class="post-section post-section--big post-section--media-center-wide">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/spaceship/images/guides/sps-guides-entry-points-flow-chart.png" alt="Guides entry points flow chart" loading="lazy" />
+      <figcaption class="post-figure__caption">Guides UX logic flow chart.</figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* ── END ───────────────────────────────────────────────────────── */}
 
-<PostSection layout="big">
-  <Divider />
-</PostSection>
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+    </div>
+  </div>
+</section>
 
-<PostSection layout="text">
-  <PostText>
-    Spaceship.com is a spin-off from Namecheap. They rhyme but they're essentially different. Spaceship's goal was to revolutionize the online presence experience through unparallel user experience, getting itself ahead in the industry.
-
-    This journey started in 2019 and I, as a founding designer, had my contribution on almost every part of its design. Everything you see final here is work done by me and my team—Product Platform UX team.
-  </PostText>
-</PostSection>
+<section class="post-section post-section--text">
+  <div class="post-canvas">
+    <div class="post-text">
+      <h2 class="post-text__title">About</h2>
+      <p><a href="https://www.spaceship.com">Spaceship</a> is a Namecheap spin-off built to reimagine the online presence industry from scratch. I joined before there was a product. Just a vision and a blank slate. Over six years, that turned into a fully integrated platform covering domains, hosting, email, DNS, security, and more. Everything shown here—the homepage, the search component, the manager applications, Unbox—is work I contributed to as part of the Product Platform UX team, from the first concepts to production.</p>
+    </div>
+    <div class="post-text">
+      <h2 class="post-text__title">Impact</h2>
+      <p>The platform reached <strong>5 million domains under management</strong>, 86% of which are new registrations — people choosing Spaceship, not just migrating to it. It holds a <strong>4.4★ rating on Trustpilot</strong> across 4,000+ reviews, with the interface and ease of use consistently highlighted as what sets it apart.</p>
+    </div>
+    <dl class="post-meta">
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Role</dt>
+        <dd class="post-meta__value">Founding UX Designer, Product Platform</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Focus</dt>
+        <dd class="post-meta__value">End-to-end product design—from UX and prototyping to design systems, brand, and documentation</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Team</dt>
+        <dd class="post-meta__value">Product Platform UX team</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Period</dt>
+        <dd class="post-meta__value">2019–Present</dd>
+      </div>
+    </dl>
+  </div>
+</section>

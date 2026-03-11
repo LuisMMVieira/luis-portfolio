@@ -301,6 +301,9 @@
 	hyphens: none;
 
 	h3 {
+		font-size: var(--type-title-s-font-size);
+		line-height: var(--type-title-s-line-height);
+		letter-spacing: var(--type-title-s-letter-spacing);
 		text-wrap: balance;
 	}
 
@@ -329,9 +332,9 @@
 	min-height: 100vh;
 
 	.flow {
-		> * + * {
-			margin-top: var(--spacing-xl);
-		}
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-lg);
 	}
 
 	/* Text is primary (white) on purple bg */
