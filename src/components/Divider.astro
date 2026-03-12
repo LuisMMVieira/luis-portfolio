@@ -9,7 +9,7 @@ interface Props {
 const { label, spaceAbove, spaceBelow, variant } = Astro.props;
 
 const SPACING_TOKENS = new Set([
-  'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'huge', 'max',
+  'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'ml', 'lg', 'xl', 'xxl', 'huge', 'max',
 ]);
 
 function spacingClass(token: string | undefined, side: 'above' | 'below', defaultToken: string): string {

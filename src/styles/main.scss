@@ -1128,3 +1128,16 @@ body:has(.components-page) {
 	flex-shrink: 0;
 }
 
+.andamento__section {
+	margin-block-start: var(--spacing-xl);
+}
+
+.andamento__section-title {
+	font-family: var(--font-family-display);
+	font-weight: var(--font-weight-semibold);
+	font-size: var(--type-title-s-font-size);
+	line-height: var(--type-title-s-line-height);
+	color: var(--text-primary);
+	margin-block-end: var(--spacing-sm);
+}
+
