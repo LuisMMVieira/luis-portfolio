@@ -701,6 +701,11 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 	 Post-template layout with black bg + card surfaces
 	 ───────────────────────────────────────── */
 
+/* Make the full viewport black when components page is active */
+body:has(.components-page) {
+	background: var(--color-darkest);
+}
+
 .components-page {
 	background: var(--color-darkest);
 	max-width: var(--width-modal-max);
@@ -727,11 +732,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		}
 	}
 
-	/* Reduce divider spacing to keep titles close to content */
-	.divider {
-		padding-block-start: var(--spacing-xl);
-		padding-block-end: var(--spacing-sm);
-	}
 }
 
 /* Floating home button */
@@ -839,7 +839,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 
 .cp-card {
 	background: var(--color-superpastel-dark);
-	border-radius: var(--radius-md);
+	border-radius: var(--radius-sm);
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
@@ -1049,18 +1049,11 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		grid-template-columns: repeat(4, 1fr);
 	}
 
-	.components-page .divider {
-		padding-block-start: var(--spacing-xxl);
-	}
 }
 
 @media (min-width: 1200px) {
 	.cp-swatches {
 		grid-template-columns: repeat(5, 1fr);
-	}
-
-	.components-page .divider {
-		padding-block-start: var(--spacing-huge);
 	}
 }
 
