@@ -40,6 +40,7 @@
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-behavior: auto;
     scrollbar-gutter: stable;
 
     /* Keep scrollbar visible when content overflows (e.g. on macOS overlay scrollbars) */
@@ -63,23 +64,12 @@
       background: var(--border-strong);
     }
 
-    &.is-open,
-    &.is-closing {
-      visibility: visible;
-    }
-
     &.is-open {
+      visibility: visible;
       pointer-events: auto;
 
       .project-modal-close {
         opacity: 1;
-      }
-    }
-
-    &.is-closing {
-      .project-modal-close {
-        opacity: 0;
-        transition-delay: 0s;
       }
     }
   }
@@ -89,7 +79,6 @@
     inset: 0;
     background: var(--bg-default);
     opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .project-modal.is-open .project-modal-backdrop {
@@ -104,12 +93,6 @@
     min-height: 100%;
     background: var(--bg-default);
 
-    transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .project-modal.is-open .project-modal-container {
-    transform: translateY(0);
   }
 
   .project-modal-close {
@@ -127,7 +110,6 @@
     border-radius: var(--radius-infinite);
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s ease 0.4s;
     z-index: 1001;
 
     &:hover {

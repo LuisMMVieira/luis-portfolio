@@ -130,28 +130,15 @@ function initLoopVideos(root) {
     document.documentElement.classList.add("modal-open");
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    modal.scrollTop = 0;
     loadContent(slug);
   }
 
   function closeModal() {
     document.documentElement.classList.remove("modal-open");
-    modal.classList.add("is-closing");
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-
-    // Wait for animation to complete before hiding visibility
-    const container = modal.querySelector(".project-modal-container");
-    const handleTransitionEnd = (e) => {
-      // Only handle transform transition, ignore other transitions
-      if (e.target === container && e.propertyName === "transform") {
-        container.removeEventListener("transitionend", handleTransitionEnd);
-        modal.classList.remove("is-closing");
-        // Update URL to remove hash after animation
-        history.pushState(null, "", window.location.pathname);
-      }
-    };
-
-    container.addEventListener("transitionend", handleTransitionEnd);
+    history.pushState(null, "", window.location.pathname);
   }
 
   async function loadContent(slug) {
