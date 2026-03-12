@@ -1,0 +1,11 @@
+---
+interface Props {
+  cols?: number;
+}
+
+const { cols = 3 } = Astro.props;
+---
+
+<div class={`report-kpi-grid report-kpi-grid--cols-${cols}`}>
+  <slot />
+</div>

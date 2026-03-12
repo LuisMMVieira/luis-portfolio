@@ -1,0 +1,42 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Figure from "../../components/mdx/Figure.astro";
+import Divider from "../../components/Divider.astro";
+import ArticleHeader from "../../components/mdx/ArticleHeader.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles
+    .filter((a) => !a.data.draft)
+    .map((article) => ({
+      params: { slug: article.slug },
+      props: { article },
+    }));
+}
+
+interface Props {
+  article: CollectionEntry<"articles">;
+}
+
+const { article } = Astro.props as Props;
+const { Content } = await article.render();
+---
+
+<BaseLayout title={`${article.data.title} — Luis Vieira`} hideHeader={true}>
+  <div class="article-page">
+    <ArticleHeader
+      title={article.data.title}
+      subtitle={article.data.subtitle}
+      date={article.data.date}
+    />
+    {article.data.cover && (
+      <figure class="article-cover">
+        <img src={article.data.cover} alt="" />
+      </figure>
+    )}
+    <div class="article-body">
+      <Content components={{ Figure, Divider }} />
+    </div>
+  </div>
+</BaseLayout>

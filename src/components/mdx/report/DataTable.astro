@@ -1,0 +1,14 @@
+---
+interface Props {
+  caption?: string;
+}
+
+const { caption } = Astro.props;
+---
+
+<div class="report-data-table">
+  {caption && <p class="report-data-table__caption">{caption}</p>}
+  <div class="report-data-table__scroll">
+    <slot />
+  </div>
+</div>

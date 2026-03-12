@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  chartId: string;
+  chartConfig: string;
+}
+
+const { title, subtitle, chartId, chartConfig } = Astro.props;
+---
+
+<div class="report-chart-card">
+  <div class="report-chart-card__header">
+    <h3 class="report-chart-card__title">{title}</h3>
+    {subtitle && <p class="report-chart-card__subtitle">{subtitle}</p>}
+  </div>
+  <div class="report-chart-card__canvas-wrap">
+    <canvas id={chartId} data-chart-config={chartConfig}></canvas>
+  </div>
+</div>

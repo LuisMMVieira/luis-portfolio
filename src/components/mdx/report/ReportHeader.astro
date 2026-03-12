@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  date: Date;
+}
+
+const { title, subtitle, date } = Astro.props;
+const formatted = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<header class="report-header">
+  <h1 class="report-header__title">{title}</h1>
+  {subtitle && <p class="report-header__subtitle">{subtitle}</p>}
+  <div class="report-header__meta">
+    <time class="report-header__badge" datetime={date.toISOString()}>
+      {formatted}
+    </time>
+  </div>
+</header>

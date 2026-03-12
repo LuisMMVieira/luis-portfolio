@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  sub?: string;
+}
+
+const { label, value, sub } = Astro.props;
+---
+
+<div class="report-kpi-card">
+  <span class="report-kpi-card__label">{label}</span>
+  <span class="report-kpi-card__value">{value}</span>
+  {sub && <span class="report-kpi-card__sub">{sub}</span>}
+</div>

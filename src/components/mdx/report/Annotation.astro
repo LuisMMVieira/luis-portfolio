@@ -1,0 +1,16 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  text: string;
+}
+
+const { number, title, text } = Astro.props;
+---
+
+<div class="report-annotation">
+  <span class="report-annotation__marker">{number}</span>
+  <div class="report-annotation__text">
+    <strong>{title}</strong> {text}
+  </div>
+</div>
