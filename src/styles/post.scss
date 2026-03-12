@@ -384,10 +384,6 @@
 	}
 }
 
-/* Elevated variant: different img height for Unbox scroll (Figma: img h=360px at xl) */
-/* Background is on the parent PostSection (bg="bg-elevated"), not here */
-.post-page .post-scroll-right-wide--elevated {}
-
 /* ─────────────────────────────────────────
    Tablet (md) - 48rem / 768px
    ───────────────────────────────────────── */
@@ -929,7 +925,7 @@
 		color: var(--text-primary);
 		text-decoration: underline;
 		text-underline-offset: 3px;
-		text-decoration-thickness: 1px;
+		text-decoration-thickness: var(--border-width-default);
 
 		&:hover {
 			opacity: 0.7;
@@ -973,7 +969,7 @@
 	code {
 		font-size: 0.9em;
 		background: var(--bg-elevated);
-		padding: 2px 6px;
+		padding: var(--spacing-xxxs) var(--spacing-xs);
 		border-radius: var(--radius-xs);
 	}
 

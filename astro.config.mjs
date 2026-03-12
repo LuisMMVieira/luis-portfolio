@@ -7,7 +7,7 @@ export default defineConfig({
   // Output a fully static site.
   output: "static",
 
-  site: "https://your-site-url.com",
+  site: "https://luisvieira.design",
 
   devToolbar: {
     enabled: false,

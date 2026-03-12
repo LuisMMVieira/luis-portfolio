@@ -469,7 +469,7 @@
 }
 
 /* Spacing modifiers (token-based, no inline styles) */
-$spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, max;
+$spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 @each $key in $spacing-keys {
 	.divider--above-#{$key} {
 		padding-block-start: var(--spacing-#{$key});
@@ -1055,5 +1055,76 @@ body:has(.components-page) {
 	.cp-swatches {
 		grid-template-columns: repeat(5, 1fr);
 	}
+}
+
+/* ─────────────────────────────────────────
+	 Andamento — Private Index
+	 ───────────────────────────────────────── */
+
+.andamento {
+	max-width: 36rem;
+	margin-inline: auto;
+	padding-inline: var(--grid-margin-xs);
+	padding-block: var(--spacing-huge) var(--spacing-xxl);
+}
+
+.andamento__header {
+	margin-block-end: var(--spacing-xl);
+}
+
+.andamento__title {
+	font-family: var(--font-family-display);
+	font-weight: var(--font-weight-semibold);
+	font-size: var(--type-title-l-font-size);
+	line-height: var(--type-title-l-line-height);
+	color: var(--text-primary);
+	margin-block-end: var(--spacing-xs);
+}
+
+.andamento__desc {
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+	color: var(--text-secondary);
+}
+
+.andamento__nav {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.andamento__link {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--spacing-md);
+	padding-block: var(--spacing-md);
+	border-block-end: var(--border-width-hairline) solid var(--border-default);
+	text-decoration: none;
+	transition: background-color 0.15s ease;
+
+	&:first-child {
+		border-block-start: var(--border-width-hairline) solid var(--border-default);
+	}
+
+	&:hover {
+		background-color: var(--color-emphasis-transparency-high);
+	}
+}
+
+.andamento__link-label {
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-l-font-size);
+	line-height: var(--type-text-l-line-height);
+	font-weight: var(--font-weight-medium);
+	color: var(--text-primary);
+}
+
+.andamento__link-path {
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-s-font-size);
+	color: var(--text-shy);
+	flex-shrink: 0;
 }
 
