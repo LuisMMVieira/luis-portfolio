@@ -1,0 +1,26 @@
+---
+interface Props {
+  text: string;
+  variant?: 'active' | 'passive';
+  href?: string;
+}
+
+const { text, variant = 'active', href } = Astro.props;
+const classes = `cta cta--${variant}`;
+const openChevron = variant === 'active' ? '\u00AB' : '\u2039';
+const closeChevron = variant === 'active' ? '\u00BB' : '\u203A';
+---
+
+{href ? (
+  <a class={classes} href={href}>
+    <span class="cta__chevron">{openChevron}</span>
+    <span class="cta__label">{text}</span>
+    <span class="cta__chevron">{closeChevron}</span>
+  </a>
+) : (
+  <span class={classes}>
+    <span class="cta__chevron">{openChevron}</span>
+    <span class="cta__label">{text}</span>
+    <span class="cta__chevron">{closeChevron}</span>
+  </span>
+)}

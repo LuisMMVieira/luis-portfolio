@@ -89,6 +89,140 @@ small {
 }
 
 /* ─────────────────────────────────────────
+	 Button
+	 ───────────────────────────────────────── */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xs) var(--spacing-md);
+	border-radius: var(--radius-infinite);
+	border: none;
+	cursor: pointer;
+	font-family: var(--type-cta-font-family);
+	font-size: var(--type-cta-font-size);
+	font-weight: var(--type-cta-font-weight);
+	line-height: var(--type-cta-line-height);
+	letter-spacing: var(--type-cta-letter-spacing);
+	color: var(--text-primary);
+	text-decoration: none;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.btn--primary {
+	background-color: var(--button-primary-idle);
+
+	&:hover {
+		background-color: var(--button-primary-hover);
+	}
+}
+
+.btn--secondary {
+	background-color: var(--button-secondary-idle);
+
+	&:hover {
+		background-color: var(--button-secondary-hover);
+	}
+}
+
+/* ─────────────────────────────────────────
+	 CTA (inline call-to-action)
+	 ───────────────────────────────────────── */
+
+.cta {
+	display: inline-flex;
+	align-items: baseline;
+	gap: var(--spacing-xxs);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.cta__chevron {
+	font-family: var(--type-text-l-font-family);
+	font-size: var(--type-text-l-font-size);
+	font-weight: var(--type-text-l-font-weight);
+	line-height: var(--type-text-l-line-height);
+	letter-spacing: var(--type-text-l-letter-spacing);
+}
+
+.cta__label {
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	font-weight: var(--type-text-s-font-weight);
+	line-height: var(--type-text-s-line-height);
+	letter-spacing: var(--type-text-s-letter-spacing);
+}
+
+.cta--active .cta__chevron {
+	color: var(--color-emphasis);
+}
+
+.cta--active .cta__label {
+	color: var(--text-primary);
+}
+
+.cta--passive .cta__chevron {
+	color: var(--text-secondary);
+}
+
+.cta--passive .cta__label {
+	color: var(--text-secondary);
+}
+
+/* ─────────────────────────────────────────
+	 Switch
+	 ───────────────────────────────────────── */
+
+.switch {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.switch__input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.switch__track {
+	position: relative;
+	width: 3.143rem; /* 44px */
+	height: 0.571rem; /* 8px */
+	border-radius: var(--radius-infinite);
+	border: var(--border-width-thick) solid var(--border-default);
+	background: linear-gradient(to right, var(--color-light) 50%, var(--color-darkest) 50%);
+}
+
+.switch__thumb {
+	position: absolute;
+	top: 50%;
+	width: 1.143rem; /* 16px */
+	height: 1.143rem; /* 16px */
+	border-radius: 50%;
+	background-color: var(--color-emphasis);
+	transform: translateY(-50%);
+	transition: left 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark (checked = default) → thumb on right */
+.switch__input:checked ~ .switch__track .switch__thumb {
+	left: calc(100% - 1.143rem - 2px); /* track width minus thumb minus inset */
+}
+
+/* Light (unchecked) → thumb on left */
+.switch__input:not(:checked) ~ .switch__track .switch__thumb {
+	left: 2px;
+}
+
+/* ─────────────────────────────────────────
 	 Other elements
 	 ───────────────────────────────────────── */
 

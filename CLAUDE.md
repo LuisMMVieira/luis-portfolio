@@ -26,9 +26,10 @@
 
 ## Design Tokens (src/styles/tokens.scss)
 - Colors: `--text-primary`, `--text-secondary`, `--bg-default`, `--border-default`, `--border-strong`
-- Spacing: `--spacing-xs`(8px) · `--spacing-sm`(12px) · `--spacing-md`(20px) · `--spacing-lg`(40px) · `--spacing-xl`(56px) · `--spacing-xxl`(80px) · `--spacing-huge`(120px) · `--spacing-biggest`(180px)
-- Border: `--border-width-hairline` (0.66px), `--border-width-default` (1px)
-- Type roles: `--type-title-{xl,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`
+- Button semantics: `--button-primary-idle`, `--button-primary-hover`, `--button-secondary-idle`, `--button-secondary-hover`
+- Spacing: `--spacing-xs`(8px) · `--spacing-sm`(12px) · `--spacing-md`(20px) · `--spacing-ml`(30px) · `--spacing-lg`(40px) · `--spacing-xl`(56px) · `--spacing-xxl`(80px) · `--spacing-huge`(120px) · `--spacing-max`(180px)
+- Border: `--border-width-hairline` (0.66px), `--border-width-default` (1px), `--border-width-thick` (1.5px)
+- Type roles: `--type-title-{xl,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`, `--type-cta-*`
 - Fonts: `--font-family-display` (Dazzed), `--font-family-sans` (IBM Plex Sans)
 - Single theme (no light/dark toggle); semantic tokens match the design token table
 

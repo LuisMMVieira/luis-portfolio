@@ -15,6 +15,12 @@
 
 	/* Accent / emphasis */
 	--color-emphasis: oklab(47.8% 0.104 -0.202);
+	--color-emphasis-transparency-high: oklab(47.8% 0.104 -0.202 / 0.2);
+	--color-emphasis-transparency-mid: oklab(47.8% 0.104 -0.202 / 0.4);
+
+	/* Neutral transparency */
+	--color-neutral-transparency-high: oklab(100% 0 0 / 0.07);
+	--color-neutral-transparency-mid: oklab(100% 0 0 / 0.2);
 
 	/* ─────────────────────────────────────────
 		 Semantic Colors (single theme — design token table)
@@ -27,8 +33,13 @@
 	--text-secondary: var(--color-medium-light);
 	--text-shy: var(--color-medium-dark);
 
-	--border-default: var(--color-dark);
+	--border-default: var(--color-medium-dark);
 	--border-strong: var(--color-base);
+
+	--button-primary-idle: var(--color-emphasis-transparency-high);
+	--button-primary-hover: var(--color-emphasis-transparency-mid);
+	--button-secondary-idle: var(--color-neutral-transparency-high);
+	--button-secondary-hover: var(--color-neutral-transparency-mid);
 
 	/* ─────────────────────────────────────────
 		 Spacing (Zeplin: spacing-*)
@@ -45,18 +56,16 @@
 	/* 12px */
 	--spacing-md: 1.429rem;
 	/* 20px */
+	--spacing-ml: 2.143rem;
+	/* 30px */
 	--spacing-lg: 2.857rem;
 	/* 40px */
 	--spacing-xl: 4rem;
 	/* 56px */
 	--spacing-xxl: 5.714rem;
 	/* 80px */
-	--spacing-xxxl: 5.714rem;
-	/* 80px (alias) */
 	--spacing-huge: 8.571rem;
 	/* 120px */
-	--spacing-biggest: 12.857rem;
-	/* 180px */
 	--spacing-max: 12.857rem;
 	/* 180px */
 
@@ -74,8 +83,8 @@
 	/* 560px */
 	--width-text-max-wide: 47.714rem;
 	/* 668px */
-	--width-text-minimum-max: 14.286rem;
-	/* 200px */
+	--width-text-minimum-max: 22.857rem;
+	/* 320px */
 	--width-section-text: 25.714rem;
 	/* 360px */
 	--width-container-max: 91.429rem;
@@ -97,7 +106,7 @@
 
 	--border-width-hairline: 0.66px;
 	--border-width-default: 1px;
-	--border-width-thick: 2px;
+	--border-width-thick: 1.5px;
 
 	/* ─────────────────────────────────────────
 		 Radius
@@ -189,6 +198,13 @@
 	--type-text-s-font-size: 0.857rem;
 	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
+
+	/* CTA — 14px / 120% (Buttons, CTAs) */
+	--type-cta-font-family: var(--font-family-sans);
+	--type-cta-font-weight: var(--font-weight-regular);
+	--type-cta-font-size: 1rem;
+	--type-cta-line-height: 1.2;
+	--type-cta-letter-spacing: 0em;
 }
 
 /* ─────────────────────────────────────────

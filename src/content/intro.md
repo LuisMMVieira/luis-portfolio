@@ -10,7 +10,7 @@
 
 <div class="intro-sub-content">
   <p class="intro-sub-content__paragraph">
-    I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts: <strong>the web</strong>, <strong>mobile</strong>, <strong>social</strong>, <em>and now <strong>AI</strong></em>.
+    I've been designing digital products for over 18 years, long enough to have lived through most of the paradigm shifts: <strong>the web</strong>, <strong>mobile</strong>, <strong>social</strong>, <em>and now <strong>AI</strong></em>.
   </p>
 </div>
 

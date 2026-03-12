@@ -11,7 +11,7 @@ I went through formal design education. Then came the work. My first job was at 
 <div class="bg-chapter">
 
 ### Web design <br />deepdive
-In 2008 I made the first real shift to area which i fell in love with. Left print, moved fully into digital. Spent nine years at *Portugalmail* (Portugal's first email provider) designing email platforms and blogging products. Dense, functional, content-heavy work. That's where I developed a deep respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as handoff, buts a shared surface.
+In 2008 I made the first real shift to area which i fell in love with. Left print, moved fully into digital. Spent nine years at *Portugalmail* (Portugal's first email provider) designing email platforms and blogging products. Dense, functional, content-heavy work. That's where I developed a deep respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as handoff, but a shared surface.
 
 </div>
 <div class="bg-chapter">

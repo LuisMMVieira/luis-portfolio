@@ -262,6 +262,14 @@
 	}
 }
 
+/* Project entry (card + "See project" button) */
+.project-entry {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-lg);
+}
+
 /* Divider between projects */
 .section#work .divider--work {
 	padding-block-start: var(--spacing-xxl);
@@ -609,7 +617,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 		min-height: 100vh;
 
 		.flow {
-			padding-block-start: var(--spacing-biggest);
+			padding-block-start: var(--spacing-max);
 			padding-block-end: var(--spacing-xxl);
 		}
 
@@ -683,8 +691,377 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl, huge, biggest, ma
 @media (hover: none) and (pointer: coarse) {
 	.section#intro {
 		.intro-scroll-hint {
-			margin-bottom: var(--spacing-md); /* 20px — clears iOS bottom nav */
+			margin-bottom: var(--spacing-sm); /* 12px — clears iOS bottom nav */
 		}
+	}
+}
+
+/* ─────────────────────────────────────────
+	 Components Page (private style guide)
+	 ───────────────────────────────────────── */
+
+.components-page {
+	padding-block-start: var(--spacing-xxl);
+	padding-block-end: var(--spacing-xxl);
+
+	> .section + .section {
+		margin-block-start: var(--spacing-xl);
+	}
+
+	/* Ensure hidden attribute wins over display rules */
+	[hidden] {
+		display: none !important;
+	}
+}
+
+/* Floating home button */
+.cp-home-btn {
+	position: fixed;
+	top: var(--spacing-md);
+	left: var(--spacing-md);
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.857rem;
+	height: 2.857rem;
+	border-radius: 50%;
+	background-color: var(--button-secondary-idle);
+	border: var(--border-width-hairline) solid var(--border-default);
+	text-decoration: none;
+	color: var(--text-primary);
+	transition: background-color 180ms ease;
+
+	&:hover {
+		background-color: var(--button-secondary-hover);
+	}
+
+	svg {
+		width: 1.143rem;
+		height: 1.143rem;
+	}
+}
+
+/* ── Typography: Section & Component titles ── */
+
+.cp-title {
+	font-family: var(--type-title-s-font-family);
+	font-size: var(--type-title-s-font-size);
+	line-height: var(--type-title-s-line-height);
+	letter-spacing: var(--type-title-s-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+	margin: 0;
+}
+
+.cp-label {
+	font-family: var(--type-title-xs-font-family);
+	font-size: var(--type-title-xs-font-size);
+	line-height: var(--type-title-xs-line-height);
+	letter-spacing: var(--type-title-xs-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+	margin: 0;
+}
+
+.cp-desc {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+	color: var(--text-secondary);
+	margin: 0;
+	margin-block-start: var(--spacing-xxs);
+}
+
+/* ── Typography display classes ── */
+
+.cp-type-xl {
+	font-family: var(--type-title-xl-font-family);
+	font-size: var(--type-title-xl-font-size);
+	line-height: var(--type-title-xl-line-height);
+	letter-spacing: var(--type-title-xl-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+}
+
+.cp-type-l {
+	font-family: var(--type-title-l-font-family);
+	font-size: var(--type-title-l-font-size);
+	line-height: var(--type-title-l-line-height);
+	letter-spacing: var(--type-title-l-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+}
+
+.cp-type-m {
+	font-family: var(--type-title-m-font-family);
+	font-size: var(--type-title-m-font-size);
+	line-height: var(--type-title-m-line-height);
+	letter-spacing: var(--type-title-m-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+}
+
+.cp-type-s {
+	font-family: var(--type-title-s-font-family);
+	font-size: var(--type-title-s-font-size);
+	line-height: var(--type-title-s-line-height);
+	letter-spacing: var(--type-title-s-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+}
+
+.cp-type-xs {
+	font-family: var(--type-title-xs-font-family);
+	font-size: var(--type-title-xs-font-size);
+	line-height: var(--type-title-xs-line-height);
+	letter-spacing: var(--type-title-xs-letter-spacing);
+	font-weight: var(--font-weight-semibold);
+	color: var(--text-primary);
+}
+
+/* ── Card (playground container) ── */
+
+.cp-card {
+	background: var(--bg-elevated);
+	border: var(--border-width-hairline) solid var(--border-default);
+	border-radius: var(--radius-sm);
+	overflow: hidden;
+	margin-block-start: var(--spacing-sm);
+}
+
+.cp-card__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-xs);
+	align-items: center;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-bottom: var(--border-width-hairline) solid var(--border-default);
+}
+
+.cp-card__preview {
+	padding: var(--spacing-lg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 8rem;
+}
+
+.cp-card__preview--flush {
+	padding: 0;
+	display: block;
+}
+
+/* ── Control pills ── */
+
+.cp-control-group {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-xxs);
+}
+
+.cp-control-label {
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-shy);
+	margin-right: var(--spacing-xxs);
+}
+
+.cp-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-xxs);
+}
+
+.cp-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px var(--spacing-xxs);
+	border-radius: var(--radius-infinite);
+	border: var(--border-width-hairline) solid var(--border-default);
+	background: transparent;
+	cursor: pointer;
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-secondary);
+	transition: all 180ms ease;
+
+	&:hover {
+		border-color: var(--border-strong);
+		color: var(--text-primary);
+	}
+
+	&.is-active {
+		background-color: var(--color-emphasis-transparency-high);
+		border-color: var(--color-emphasis);
+		color: var(--text-primary);
+	}
+}
+
+/* ── Two-column grid children ── */
+
+.cp-half {
+	grid-column: 1 / -1;
+}
+
+/* ── Static example areas ── */
+
+.cp-static {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	margin-block-start: var(--spacing-sm);
+}
+
+/* ── Grid showcase ── */
+
+.cp-grid-showcase {
+	gap: var(--spacing-xxs);
+}
+
+.cp-grid-col {
+	background: var(--color-neutral-transparency-high);
+	border-radius: var(--radius-xs);
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	color: var(--text-shy);
+}
+
+/* ── Color swatches ── */
+
+.cp-swatches {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--spacing-md);
+	margin-block-start: var(--spacing-sm);
+}
+
+.cp-swatch__preview {
+	width: 100%;
+	height: 3.5rem;
+	border-radius: var(--radius-sm);
+	border: var(--border-width-hairline) solid var(--border-default);
+}
+
+.cp-swatch__label {
+	display: block;
+	margin-block-start: var(--spacing-xxs);
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-secondary);
+}
+
+/* Per-token swatch backgrounds */
+.cp-swatch--bg-default .cp-swatch__preview { background-color: var(--bg-default); }
+.cp-swatch--bg-elevated .cp-swatch__preview { background-color: var(--bg-elevated); }
+.cp-swatch--text-primary .cp-swatch__preview { background-color: var(--text-primary); }
+.cp-swatch--text-secondary .cp-swatch__preview { background-color: var(--text-secondary); }
+.cp-swatch--text-shy .cp-swatch__preview { background-color: var(--text-shy); }
+.cp-swatch--border-default .cp-swatch__preview { background-color: var(--border-default); }
+.cp-swatch--border-strong .cp-swatch__preview { background-color: var(--border-strong); }
+.cp-swatch--color-emphasis .cp-swatch__preview { background-color: var(--color-emphasis); }
+.cp-swatch--button-primary-idle .cp-swatch__preview { background-color: var(--button-primary-idle); }
+.cp-swatch--button-secondary-idle .cp-swatch__preview { background-color: var(--button-secondary-idle); }
+
+/* ── Switch inline demo ── */
+
+.cp-inline-demo {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.cp-inline-demo__label {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+	color: var(--text-secondary);
+}
+
+/* ── Content placeholders ── */
+
+.cp-placeholder {
+	width: 100%;
+	aspect-ratio: 300 / 124;
+	background-color: oklab(28.9% -0.02 -0.04);
+	border-radius: var(--radius-xs);
+}
+
+.cp-placeholder--media {
+	aspect-ratio: 750 / 500;
+	background-color: var(--bg-elevated);
+	border: var(--border-width-hairline) solid var(--border-default);
+}
+
+/* ── Post context wrapper ── */
+
+.cp-post-context {
+	margin-block: 0;
+}
+
+/* ── Documentation list ── */
+
+.cp-doc-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	margin-block-start: var(--spacing-sm);
+
+	dt {
+		font-family: var(--type-title-xs-font-family);
+		font-size: var(--type-title-xs-font-size);
+		line-height: var(--type-title-xs-line-height);
+		letter-spacing: var(--type-title-xs-letter-spacing);
+		font-weight: var(--font-weight-semibold);
+		color: var(--text-primary);
+	}
+
+	dd {
+		font-family: var(--type-text-m-font-family);
+		font-size: var(--type-text-m-font-size);
+		line-height: var(--type-text-m-line-height);
+		color: var(--text-secondary);
+		margin: 0;
+		margin-block-start: var(--spacing-xxs);
+	}
+}
+
+/* ── Hover simulation for button playground ── */
+
+.btn.is-hovered.btn--primary {
+	background-color: var(--button-primary-hover);
+}
+
+.btn.is-hovered.btn--secondary {
+	background-color: var(--button-secondary-hover);
+}
+
+/* ── Components Page Responsive ── */
+
+@media (min-width: 768px) {
+	.cp-half:nth-child(odd) {
+		grid-column: 1 / 7;
+	}
+	.cp-half:nth-child(even) {
+		grid-column: 7 / 13;
+	}
+
+	.cp-swatches {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (min-width: 1200px) {
+	.cp-swatches {
+		grid-template-columns: repeat(5, 1fr);
 	}
 }
 

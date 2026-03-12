@@ -7,6 +7,7 @@ import ProjectModal from '../components/ProjectModal.astro';
 const {
   title = 'Luis Vieira—Digital Product Designer',
   description = 'I design purposeful digital products—clear systems with human presence.',
+  hideHeader = false,
 } = Astro.props;
 ---
 
@@ -34,7 +35,7 @@ const {
   <body>
     <!-- <PasswordGate /> -->
     <div class="page">
-      <Header />
+      {!hideHeader && <Header />}
       <main class="content">
         <slot />
       </main>
