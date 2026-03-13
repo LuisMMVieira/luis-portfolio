@@ -101,6 +101,17 @@ Used inside MDX project posts. All follow BEM + SCSS pattern. Styles in `post.sc
 | xs/md      | `--spacing-lg` (40px) | `--spacing-sm` (12px) |
 | xl         | `--spacing-xl` (56px) | `--spacing-sm` (12px) |
 
+### PostHeader spacing
+| Breakpoint | padding-top | padding-bottom | title-subtitle gap |
+|------------|------------|---------------|-------------------|
+| xs         | `--spacing-md` (20px) | `--spacing-md` (20px) | `--spacing-xs` (8px) |
+| md         | `--spacing-ml` (30px) | `--spacing-ml` (30px) | `--spacing-xs` (8px) |
+| xl         | `--spacing-lg` (40px) | `--spacing-lg` (40px) | `--spacing-md` (20px) |
+
+- Title scales: `type-title-m` (xs) → `type-title-l` (md) → `type-title-xl` (xl)
+- Subtitle: `type-text-m` at all breakpoints
+- Wrapper grid-column: `1/-1` (xs) → `3/11` (md) → `4/10` (xl)
+
 - **Horizontal image strip** (e.g. Unbox): `<div class="image-scroller">` with `<img>` children; styled in `post.scss`.
 - **Cover hero** (e.g. Alf): `<div class="post-cover-hero" style="--cover-bg: url(...)">` with a Video inside.
 - **Project modal:** homepage project cards open content in `ProjectModal`; post content is rendered from `src/content/projects/*.mdx` via partials.

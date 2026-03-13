@@ -211,7 +211,7 @@
 .post-header__title-group {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xxs);
+	gap: var(--spacing-xs);
 }
 
 .post-header__title {
@@ -435,8 +435,8 @@
 
 	.post-header {
 		padding-inline: var(--grid-margin-md);
-		padding-block-start: var(--spacing-xl);
-		padding-block-end: var(--spacing-lg);
+		padding-block-start: var(--spacing-ml);
+		padding-block-end: var(--spacing-ml);
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
@@ -522,7 +522,7 @@
 	}
 
 	.post-header {
-		padding-block-start: var(--spacing-xxl);
+		padding-block-start: var(--spacing-lg);
 		padding-block-end: var(--spacing-lg);
 		max-width: var(--width-modal-max);
 		margin-inline: auto;
@@ -530,6 +530,10 @@
 		.post-header__wrapper {
 			grid-column: 4 / 10;
 		}
+	}
+
+	.post-header__title-group {
+		gap: var(--spacing-md);
 	}
 
 	.post-section--big,
