@@ -6,10 +6,12 @@ order: 3
 draft: true
 ---
 
+import PostSectionGroup from '../../components/mdx/PostSectionGroup.astro';
+
 {/* ── HEADER ───────────────────────────────────────────────────── */}
 {/* Cover: full-bleed image. PostHeader: title + subtitle only, no intro. */}
 
-<section class="post-section post-section--full">
+<section class="post-cover post-section post-section--canvas post-section--media-center-wide">
   <div class="post-canvas">
     <figure class="post-figure">
       <img src="https://placehold.co/1440x810/111/111" alt="Cover image" loading="lazy" />
@@ -28,199 +30,188 @@ draft: true
   </div>
 </header>
 
-{/* ── SECTION DIVIDER ──────────────────────────────────────────── */}
+{/* ── SECTION 1 — Single-figure media variants ────────────────── */}
+{/* PostSectionGroup wraps a divider + body with subsections. */}
+{/* Each subsection is a .post-section (the old PostSection). */}
 
-<section class="post-section post-section--big">
-  <div class="post-canvas">
-    <div class="divider divider--above-xl divider--below-xl">
-      <div class="divider__line"></div>
-      <p class="divider__label">Section label</p>
-    </div>
-  </div>
-</section>
+<PostSectionGroup title="Section label">
 
-{/* ── SINGLE-FIGURE MEDIA VARIANTS ─────────────────────────────── */}
-{/* xs: always full-width. md/xl: grid-column per class. */}
-
-{/* full → all 12 cols */}
-<section class="post-section post-section--big post-section--media-full">
-  <div class="post-canvas">
-    <figure class="post-figure">
-      <img src="https://placehold.co/1200x675/111/111" alt="Full" loading="lazy" />
-      <figcaption class="post-figure__caption">Optional caption</figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* left-wide → 9 cols flush left (md+xl: 1/10) */}
-<section class="post-section post-section--big post-section--media-left-wide">
-  <div class="post-canvas">
-    <figure class="post-figure">
-      <img src="https://placehold.co/900x506/111/111" alt="Left wide" loading="lazy" />
-      <figcaption class="post-figure__caption">Optional caption</figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* right-wide → 9 cols flush right (md+xl: 4/13) */}
-<section class="post-section post-section--big post-section--media-right-wide">
-  <div class="post-canvas">
-    <figure class="post-figure">
-      <img src="https://placehold.co/900x506/111/111" alt="Right wide" loading="lazy" />
-      <figcaption class="post-figure__caption">Optional caption</figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* center-wide → 8 cols centered (md+xl: 3/11) */}
-<section class="post-section post-section--big post-section--media-center-wide">
-  <div class="post-canvas">
-    <figure class="post-figure">
-      <img src="https://placehold.co/800x450/111/111" alt="Center wide" loading="lazy" />
-      <figcaption class="post-figure__caption">Optional caption</figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* center → 6 cols centered (md+xl: 4/10) */}
-<section class="post-section post-section--big post-section--media-center">
-  <div class="post-canvas">
-    <figure class="post-figure">
-      <img src="https://placehold.co/600x338/111/111" alt="Center" loading="lazy" />
-      <figcaption class="post-figure__caption">Optional caption</figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* ── TWO-FIGURE col2 VARIANTS ─────────────────────────────────── */}
-{/* xs: stacked full-width. md+: flex-row, full canvas width, gap --spacing-xl. */}
-
-{/* equal (flex 1:1) */}
-<section class="post-section post-section--big post-section--col2">
-  <div class="post-canvas">
-    <div class="post-section__cols">
+  {/* full → all 12 cols */}
+  <section class="post-section post-section--big post-section--media-full">
+    <div class="post-canvas">
       <figure class="post-figure">
-        <img src="https://placehold.co/600x400/111/111" alt="Left" loading="lazy" />
-        <figcaption class="post-figure__caption">Optional caption</figcaption>
-      </figure>
-      <figure class="post-figure">
-        <img src="https://placehold.co/600x400/111/111" alt="Right" loading="lazy" />
+        <img src="https://placehold.co/1200x675/111/111" alt="Full" loading="lazy" />
         <figcaption class="post-figure__caption">Optional caption</figcaption>
       </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-{/* big left + small right (flex 7:3) */}
-<section class="post-section post-section--big post-section--col2 post-section--col2-big-small">
-  <div class="post-canvas">
-    <div class="post-section__cols">
+  {/* center-wide → 8 cols centered (md+xl: 3/11) */}
+  <section class="post-section post-section--big post-section--media-center-wide">
+    <div class="post-canvas">
       <figure class="post-figure">
-        <img src="https://placehold.co/800x450/111/111" alt="Big left" loading="lazy" />
-        <figcaption class="post-figure__caption">Optional caption</figcaption>
-      </figure>
-      <figure class="post-figure">
-        <img src="https://placehold.co/400x338/111/111" alt="Small right" loading="lazy" />
+        <img src="https://placehold.co/800x450/111/111" alt="Center wide" loading="lazy" />
         <figcaption class="post-figure__caption">Optional caption</figcaption>
       </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-{/* small left + big right (flex 3:7) */}
-<section class="post-section post-section--big post-section--col2 post-section--col2-small-big">
-  <div class="post-canvas">
-    <div class="post-section__cols">
+  {/* 2-col: left figure (8 cols) + right figure (flex) */}
+  <section class="post-section post-section--big post-section--col2 post-section--col2-big-small">
+    <div class="post-canvas">
+      <div class="post-section__cols">
+        <figure class="post-figure">
+          <img src="https://placehold.co/800x450/111/111" alt="Big left" loading="lazy" />
+        </figure>
+        <figure class="post-figure">
+          <img src="https://placehold.co/400x338/111/111" alt="Small right" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</PostSectionGroup>
+
+{/* ── SECTION 2 — More layout variants ────────────────────────── */}
+
+<PostSectionGroup title="Section label">
+
+  {/* left-wide → 9 cols flush left (md+xl: 1/10) */}
+  <section class="post-section post-section--big post-section--media-left-wide">
+    <div class="post-canvas">
       <figure class="post-figure">
-        <img src="https://placehold.co/400x338/111/111" alt="Small left" loading="lazy" />
+        <img src="https://placehold.co/900x506/111/111" alt="Left wide" loading="lazy" />
         <figcaption class="post-figure__caption">Optional caption</figcaption>
       </figure>
+    </div>
+  </section>
+
+  {/* right-wide → 9 cols flush right (md+xl: 4/13) */}
+  <section class="post-section post-section--big post-section--media-right-wide">
+    <div class="post-canvas">
       <figure class="post-figure">
-        <img src="https://placehold.co/800x450/111/111" alt="Big right" loading="lazy" />
+        <img src="https://placehold.co/900x506/111/111" alt="Right wide" loading="lazy" />
         <figcaption class="post-figure__caption">Optional caption</figcaption>
       </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-{/* ── SECTION DIVIDER (no label) ───────────────────────────────── */}
-
-<section class="post-section post-section--big">
-  <div class="post-canvas">
-    <div class="divider divider--above-xl divider--below-xl">
-      <div class="divider__line"></div>
+  {/* center → 6 cols centered (md+xl: 4/10) */}
+  <section class="post-section post-section--big post-section--media-center">
+    <div class="post-canvas">
+      <figure class="post-figure">
+        <img src="https://placehold.co/600x338/111/111" alt="Center" loading="lazy" />
+        <figcaption class="post-figure__caption">Optional caption</figcaption>
+      </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-{/* ── TEXT VARIANTS ────────────────────────────────────────────── */}
-{/* layout="text": xs full-width, md 3/11, xl 4/10 */}
+</PostSectionGroup>
 
-<section class="post-section post-section--text">
-  <div class="post-canvas">
-    <div class="post-text">
-      <h2 class="post-text__title">Section title</h2>
-      <p>Long-form paragraph content. Use for process, decisions, learnings.</p>
-      <p>Another paragraph here.</p>
-    </div>
-  </div>
-</section>
+{/* ── SECTION 3 — Text + col2 + canvas ────────────────────────── */}
 
-{/* 2-col text: xs stacked, md 3/11 wrapper (2×col), xl 2/12 wrapper (2×col) */}
-<section class="post-section post-section--text post-section--col2">
-  <div class="post-canvas">
-    <div class="post-section__cols">
+<PostSectionGroup title="Section label">
+
+  {/* Text content */}
+  <section class="post-section post-section--big">
+    <div class="post-canvas">
       <div class="post-text">
-        <h2 class="post-text__title">Left title</h2>
-        <p>Left column content.</p>
+        <h2 class="post-text__title">Section title</h2>
+        <p>Long-form paragraph content. Use for process, decisions, learnings.</p>
+        <p>Another paragraph here.</p>
       </div>
+    </div>
+  </section>
+
+  {/* 2-col text */}
+  <section class="post-section post-section--big post-section--col2">
+    <div class="post-canvas">
+      <div class="post-section__cols">
+        <div class="post-text">
+          <h2 class="post-text__title">Left title</h2>
+          <p>Left column content.</p>
+        </div>
+        <div class="post-text">
+          <h2 class="post-text__title">Right title</h2>
+          <p>Right column content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* equal col2 figures */}
+  <section class="post-section post-section--big post-section--col2">
+    <div class="post-canvas">
+      <div class="post-section__cols">
+        <figure class="post-figure">
+          <img src="https://placehold.co/600x400/111/111" alt="Left" loading="lazy" />
+          <figcaption class="post-figure__caption">Optional caption</figcaption>
+        </figure>
+        <figure class="post-figure">
+          <img src="https://placehold.co/600x400/111/111" alt="Right" loading="lazy" />
+          <figcaption class="post-figure__caption">Optional caption</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {/* small-big col2 */}
+  <section class="post-section post-section--big post-section--col2 post-section--col2-small-big">
+    <div class="post-canvas">
+      <div class="post-section__cols">
+        <figure class="post-figure">
+          <img src="https://placehold.co/400x338/111/111" alt="Small left" loading="lazy" />
+        </figure>
+        <figure class="post-figure">
+          <img src="https://placehold.co/800x450/111/111" alt="Big right" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</PostSectionGroup>
+
+{/* ── SECTION 4 — Canvas + Meta ───────────────────────────────── */}
+
+<PostSectionGroup>
+
+  {/* Canvas section (full-bleed background) */}
+  <section class="post-section post-section--canvas">
+    <div class="post-canvas" style="background-color: var(--color-darkest)">
+      <div class="post-window-canvas">
+        <div class="post-window-canvas__frame">
+          <video data-loop-video src="https://placehold.co/784x434/111/111.mp4" autoplay muted playsinline></video>
+        </div>
+        <p class="post-window-canvas__caption">Canvas caption text.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Post Meta (key-value list) */}
+  <section class="post-section post-section--big">
+    <div class="post-canvas">
       <div class="post-text">
-        <h2 class="post-text__title">Right title</h2>
-        <p>Right column content.</p>
+        <p>Closing paragraph about the project.</p>
       </div>
+      <dl class="post-meta">
+        <div class="post-meta__row">
+          <dt class="post-meta__label">Role</dt>
+          <dd class="post-meta__value">Text</dd>
+        </div>
+        <div class="post-meta__row">
+          <dt class="post-meta__label">Focus</dt>
+          <dd class="post-meta__value">Text</dd>
+        </div>
+        <div class="post-meta__row">
+          <dt class="post-meta__label">Team</dt>
+          <dd class="post-meta__value">Text</dd>
+        </div>
+        <div class="post-meta__row">
+          <dt class="post-meta__label">Period</dt>
+          <dd class="post-meta__value">Text</dd>
+        </div>
+      </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-{/* ── CANVAS SECTION (full-bleed background) ───────────────────── */}
-{/* Section has padding-inline: 0. Canvas gets the bg color. */}
-
-<section class="post-section post-section--canvas">
-  <div class="post-canvas" style="background-color: var(--color-darkest)">
-    <div class="post-window-canvas">
-      <div class="post-window-canvas__frame">
-        <video data-loop-video src="https://placehold.co/784x434/111/111.mp4" autoplay muted playsinline></video>
-      </div>
-      <p class="post-window-canvas__caption">Canvas caption text.</p>
-    </div>
-  </div>
-</section>
-
-{/* ── POST META (key-value list — last section) ──────────────── */}
-{/* Place inside a text section. Each row: label + value with hairline borders. */}
-
-<section class="post-section post-section--text">
-  <div class="post-canvas">
-    <div class="post-text">
-      <p>Closing paragraph about the project.</p>
-    </div>
-    <dl class="post-meta">
-      <div class="post-meta__row">
-        <dt class="post-meta__label">Role</dt>
-        <dd class="post-meta__value">Text</dd>
-      </div>
-      <div class="post-meta__row">
-        <dt class="post-meta__label">Focus</dt>
-        <dd class="post-meta__value">Text</dd>
-      </div>
-      <div class="post-meta__row">
-        <dt class="post-meta__label">Team</dt>
-        <dd class="post-meta__value">Text</dd>
-      </div>
-      <div class="post-meta__row">
-        <dt class="post-meta__label">Period</dt>
-        <dd class="post-meta__value">Text</dd>
-      </div>
-    </dl>
-  </div>
-</section>
+</PostSectionGroup>

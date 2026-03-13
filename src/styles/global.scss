@@ -5,14 +5,14 @@ html {
 	color: var(--text-primary);
 	scroll-behavior: smooth;
 	-webkit-text-size-adjust: 100%;
-	overflow-x: hidden;
+	overflow-x: clip;
 }
 
 body {
 	margin: 0;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
+	overflow-x: clip;
 	width: 100%;
 
 	font-family: var(--type-text-m-font-family);

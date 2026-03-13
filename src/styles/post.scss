@@ -8,12 +8,12 @@
 .post-page {
 	display: block;
 
-	> :first-child {
+	> .post-cover {
 		padding-block-start: var(--grid-margin-xs);
 	}
 
 	@media (min-width: 768px) {
-		> :first-child {
+		> .post-cover {
 			padding-block-start: var(--grid-margin-md);
 		}
 	}
@@ -34,15 +34,33 @@
 	}
 }
 
-/* Post Section: padding wrapper */
+/* ── Section Group: wraps divider + multiple subsections ── */
+
+.post-section-group {
+	width: 100%;
+}
+
+.post-section-group__divider {
+	padding-block-start: var(--spacing-xxl); /* 80px */
+	padding-inline: var(--grid-margin-xs);
+}
+
+.post-section-group__body {
+	display: flex;
+	flex-direction: column;
+}
+
+/* ── Post Section (subsection): padding wrapper ── */
+
 .post-section {
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
 }
 
-/* Canvas: no block padding (bg lives on .post-canvas child) */
+/* Canvas: section owns the padding (same as --big at xs) */
 .post-section--canvas {
-	padding-block: 0;
+	padding-block-start: var(--spacing-lg);
+	padding-block-end: var(--spacing-sm);
 }
 
 /* Canvas: CSS Grid container (child of section or header) */
@@ -58,12 +76,24 @@
 	}
 }
 
+/* Dev: canvas outline + image placeholders for project template */
+.post-page .post-canvas {
+	outline: var(--border-width-hairline) dashed var(--border-default);
+}
+
+.post-page .post-figure img,
+.post-page .post-figure video {
+	background-color: var(--color-emphasis-transparency-high);
+}
+
 .post-section--small {
-	padding-block: var(--spacing-md);
+	padding-block-start: var(--spacing-lg);  /* 40px */
+	padding-block-end: var(--spacing-sm);    /* 12px */
 }
 
 .post-section--big {
-	padding-block: var(--spacing-md);
+	padding-block-start: var(--spacing-lg);  /* 40px */
+	padding-block-end: var(--spacing-sm);    /* 12px */
 }
 
 /* Full: keeps lateral padding (grid padding-inline). Hero images stay inside grid. */
@@ -156,11 +186,6 @@
 		padding-top: var(--spacing-xxl);   /* 80px */
 		padding-bottom: var(--spacing-xl); /* 56px */
 	}
-}
-
-.post-section--text {
-	padding-block: var(--spacing-xl);
-	text-align: left;
 }
 
 /* col2/col3 inner wrapper: stacked at xs, flex row at md+ */
@@ -288,6 +313,17 @@
 	padding-inline: 0;
 }
 
+.post-section__caption {
+	font-family: var(--type-text-m-font-family);
+	font-size: var(--type-text-m-font-size);
+	font-weight: var(--type-text-m-font-weight);
+	line-height: var(--type-text-m-line-height);
+	color: var(--text-secondary);
+	padding-block: var(--spacing-sm);
+	max-width: 320px;
+	margin: 0;
+}
+
 /* ─────────────────────────────────────────
    Post Text Block
    ───────────────────────────────────────── */
@@ -390,6 +426,10 @@
 
 @media (min-width: 768px) {
 
+	.post-section-group__divider {
+		padding-inline: var(--grid-margin-md);
+	}
+
 	.post-header {
 		padding-inline: var(--grid-margin-md);
 		padding-block-start: var(--spacing-xl);
@@ -412,8 +452,9 @@
 		grid-template-columns: $grid-12;
 	}
 
-	/* Text: 1 col centered — 2-col inset each side (cols 3–10, 8 cols) */
-	.post-section--text .post-canvas > * {
+	/* Text content: narrow column inset */
+	.post-text,
+	.post-meta {
 		grid-column: 3 / 11;
 	}
 
@@ -458,11 +499,6 @@
 		grid-column: 9 / 13;
 	}
 
-	/* Text col2: wrapper stays at 3/11 at md (same as single text) */
-	.post-section--text.post-section--col2 .post-section__cols {
-		grid-column: 3 / 11;
-	}
-
 	.post-page .post-scroll-right-wide {
 		grid-column: 4 / 13;
 
@@ -471,14 +507,6 @@
 		}
 	}
 
-	.post-section--small,
-	.post-section--big {
-		padding-block: var(--spacing-md);
-	}
-
-	.post-section--text {
-		padding-block: var(--spacing-xxl);
-	}
 }
 
 /* ─────────────────────────────────────────
@@ -486,6 +514,10 @@
    ───────────────────────────────────────── */
 
 @media (min-width: 1200px) {
+	.post-section-group__divider {
+		padding-block-start: var(--spacing-huge); /* 120px */
+	}
+
 	.post-header {
 		padding-block-start: var(--spacing-xxl);
 		padding-block-end: var(--spacing-lg);
@@ -497,15 +529,15 @@
 		}
 	}
 
-	.post-section--big {
-		padding-block: var(--spacing-md);
+	.post-section--big,
+	.post-section--canvas {
+		padding-block-start: var(--spacing-xl);  /* 56px */
+		padding-block-end: var(--spacing-sm);    /* 12px */
 	}
 
-	.post-section--text {
-		padding-block: var(--spacing-huge);
-	}
-
-	.post-section--text .post-canvas > * {
+	/* Text content: narrow column inset */
+	.post-text,
+	.post-meta {
 		grid-column: 4 / 10;
 	}
 
@@ -548,11 +580,6 @@
 	.post-section--media-right-small .post-figure {
 		grid-column: 9 / 13;
 		/* cols 9-12 */
-	}
-
-	/* Text col2: wider wrapper at xl (x=98, w=980 → cols 2/12) */
-	.post-section--text.post-section--col2 .post-section__cols {
-		grid-column: 2 / 12;
 	}
 
 	.post-page .post-scroll-right-wide {
@@ -715,14 +742,8 @@
    ───────────────────────────────────────── */
 
 .post-page .divider {
-	padding-block-start: var(--spacing-xl);  /* xs: 56px */
-	padding-block-end: var(--spacing-md);    /* xs: 20px */
-}
-
-@media (min-width: 768px) {
-	.post-page .divider {
-		padding-block-start: var(--spacing-xxl); /* md: 80px */
-	}
+	padding-block-start: var(--spacing-xxl);  /* xs/md: 80px */
+	padding-block-end: var(--spacing-none);   /* 0 */
 }
 
 @media (min-width: 1200px) {

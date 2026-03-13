@@ -1,0 +1,27 @@
+---
+/**
+ * PostSectionGroup — wraps multiple PostSection "subsections" under a labelled divider.
+ *
+ * Figma: "Post Template: Section"
+ *   Section Divider (spacing-xxl xs → spacing-huge xl, contains Divider)
+ *   Section Body    (slot — one or more PostSection children)
+ */
+interface Props {
+  /** Divider label text (e.g. "Research", "Design"). Omit for unlabelled divider. */
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="post-section-group">
+  <div class="post-section-group__divider">
+    <div class="divider">
+      <div class="divider__line"></div>
+      {title && <p class="divider__label">{title}</p>}
+    </div>
+  </div>
+  <div class="post-section-group__body">
+    <slot />
+  </div>
+</div>

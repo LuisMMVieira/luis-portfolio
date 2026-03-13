@@ -1,6 +1,6 @@
 ---
 interface Props {
-  layout?: 'small' | 'big' | 'canvas' | 'full' | 'text';
+  layout?: 'small' | 'big' | 'canvas' | 'full';
   /** Background color token (e.g. "color-darkest", "bg-elevated", "color-base") — applied to section for full-bleed canvas bg */
   bg?: string;
   /** 2-column layout (Zeplin: 2 col) */
@@ -11,9 +11,11 @@ interface Props {
   media?: 'full' | 'center-wide' | 'center' | 'left' | 'left-wide' | 'right' | 'right-wide' | 'right-small';
   /** col2 size ratio: equal (default) | big-small (7:3) | small-big (3:7) */
   col2Sizes?: 'equal' | 'big-small' | 'small-big';
+  /** Optional caption displayed below the canvas */
+  caption?: string;
 }
 
-const { layout = 'big', bg, col2 = false, col3 = false, media, col2Sizes } = Astro.props;
+const { layout = 'big', bg, col2 = false, col3 = false, media, col2Sizes, caption } = Astro.props;
 
 const classes = [
   'post-section',
@@ -35,4 +37,5 @@ const classes = [
       <slot />
     )}
   </div>
+  {caption && <p class="post-section__caption">{caption}</p>}
 </section>

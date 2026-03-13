@@ -25,503 +25,644 @@ import Figure from '../components/mdx/Figure.astro';
     </svg>
   </a>
 
-  <div class="post-page components-page">
+  <div class="components-page">
 
     {/* ── Header ──────────────────────────────── */}
 
-    <PostHeader title="Components" subtitle="Design system reference. All components with agnostic placeholder content." />
+    <header class="cp-page-header">
+      <h1 class="cp-page-header__title">Components</h1>
+      <p class="cp-page-header__subtitle">Design system reference. All components with agnostic placeholder content.</p>
+    </header>
 
-    {/* ── Grid Showcase ───────────────────────── */}
+    {/* ── Layout: Sidebar + Content ─────────── */}
 
-    <section class="section cp-grid-showcase">
-      <div class="cp-grid-col"><span>1</span></div>
-      <div class="cp-grid-col"><span>2</span></div>
-      <div class="cp-grid-col"><span>3</span></div>
-      <div class="cp-grid-col"><span>4</span></div>
-      <div class="cp-grid-col"><span>5</span></div>
-      <div class="cp-grid-col"><span>6</span></div>
-      <div class="cp-grid-col"><span>7</span></div>
-      <div class="cp-grid-col"><span>8</span></div>
-      <div class="cp-grid-col"><span>9</span></div>
-      <div class="cp-grid-col"><span>10</span></div>
-      <div class="cp-grid-col"><span>11</span></div>
-      <div class="cp-grid-col"><span>12</span></div>
-    </section>
+    <div class="cp-layout">
 
-    {/* ── Typography ──────────────────────────── */}
+      {/* ── Sidebar Navigation ────────────────── */}
 
-    <PostSection layout="big">
-      <div class="cp-header">
-        <h2 class="cp-header__title">Typography</h2>
-        <p class="cp-header__desc">Title sizes (Dazzed SemiBold) and body text (IBM Plex Sans Regular).</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
-        <p class="cp-type-xl">Title Extra Large</p>
-        <p class="cp-type-l">Title Large</p>
-        <p class="cp-type-m">Title Medium</p>
-        <p class="cp-type-s">Title Small</p>
-        <p class="cp-type-xs">Title Extra Small</p>
-        <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs); margin-top: var(--spacing-md);">
-          <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style — secondary color, regular weight.</p>
-          <p><strong>Bold text renders in semibold weight with primary color.</strong> This demonstrates the inline emphasis treatment.</p>
-        </div>
-      </div>
-    </PostSection>
+      <nav class="cp-sidebar" aria-label="Components navigation">
+        <div class="cp-sidebar__inner">
 
-    {/* ── Colors ──────────────────────────────── */}
+          <div class="cp-sidebar__group">
+            <span class="cp-sidebar__group-title">Foundations</span>
+            <ul class="cp-sidebar__list">
+              <li><a href="#grid" class="cp-sidebar__link" data-spy-target="grid">Grid</a></li>
+              <li><a href="#typography" class="cp-sidebar__link" data-spy-target="typography">Typography</a></li>
+              <li><a href="#colors" class="cp-sidebar__link" data-spy-target="colors">Colors</a></li>
+            </ul>
+          </div>
 
-    <PostSection layout="big">
-      <div class="cp-header">
-        <h2 class="cp-header__title">Colors</h2>
-        <p class="cp-header__desc">Semantic color tokens. All values use oklab color space.</p>
-      </div>
-      <div class="cp-swatches">
-        <div class="cp-swatch cp-swatch--bg-default">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--bg-default</span>
-        </div>
-        <div class="cp-swatch cp-swatch--bg-elevated">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--bg-elevated</span>
-        </div>
-        <div class="cp-swatch cp-swatch--text-primary">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--text-primary</span>
-        </div>
-        <div class="cp-swatch cp-swatch--text-secondary">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--text-secondary</span>
-        </div>
-        <div class="cp-swatch cp-swatch--text-shy">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--text-shy</span>
-        </div>
-        <div class="cp-swatch cp-swatch--border-default">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--border-default</span>
-        </div>
-        <div class="cp-swatch cp-swatch--border-strong">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--border-strong</span>
-        </div>
-        <div class="cp-swatch cp-swatch--color-emphasis">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--color-emphasis</span>
-        </div>
-        <div class="cp-swatch cp-swatch--button-primary-idle">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--button-primary-idle</span>
-        </div>
-        <div class="cp-swatch cp-swatch--button-secondary-idle">
-          <div class="cp-swatch__preview"></div>
-          <span class="cp-swatch__label">--button-secondary-idle</span>
-        </div>
-      </div>
-    </PostSection>
+          <div class="cp-sidebar__group">
+            <span class="cp-sidebar__group-title">Primitives</span>
+            <ul class="cp-sidebar__list">
+              <li><a href="#button-cta" class="cp-sidebar__link" data-spy-target="button-cta">Button & CTA</a></li>
+              <li><a href="#switch-divider" class="cp-sidebar__link" data-spy-target="switch-divider">Switch & Divider</a></li>
+            </ul>
+          </div>
 
-    {/* ── Button + CTA (two-column) ──────────── */}
+          <div class="cp-sidebar__group">
+            <span class="cp-sidebar__group-title">Components</span>
+            <ul class="cp-sidebar__list">
+              <li><a href="#post-header" class="cp-sidebar__link" data-spy-target="post-header">PostHeader</a></li>
+              <li><a href="#post-text-meta" class="cp-sidebar__link" data-spy-target="post-text-meta">PostText & PostMeta</a></li>
+              <li><a href="#figure" class="cp-sidebar__link" data-spy-target="figure">Figure</a></li>
+              <li><a href="#post-section-layouts" class="cp-sidebar__link" data-spy-target="post-section-layouts">PostSection Layouts</a></li>
+              <li><a href="#project-card" class="cp-sidebar__link" data-spy-target="project-card">ProjectCard</a></li>
+              <li><a href="#additional" class="cp-sidebar__link" data-spy-target="additional">Additional</a></li>
+            </ul>
+          </div>
 
-    <section class="post-section post-section--big">
-      <div class="post-canvas">
-        <div class="cp-header">
-          <h2 class="cp-header__title">Button & CTA</h2>
-          <p class="cp-header__desc">Primary interactive elements. Pill-shaped buttons and inline calls-to-action.</p>
         </div>
-        <div class="post-section__cols">
-          <div class="cp-card" data-playground>
-            <div class="cp-card__controls">
-              <div class="cp-control-group">
-                <span class="cp-control-label">variant</span>
-                <div class="cp-pills" data-control="variant">
-                  <button class="cp-pill is-active" data-value="primary">primary</button>
-                  <button class="cp-pill" data-value="secondary">secondary</button>
+      </nav>
+
+      {/* ── Content ───────────────────────────── */}
+
+      <div class="cp-content">
+
+        {/* ── Grid Showcase ───────────────────── */}
+
+        <section id="grid" class="section cp-grid-showcase">
+          <div class="cp-grid-col"><span>1</span></div>
+          <div class="cp-grid-col"><span>2</span></div>
+          <div class="cp-grid-col"><span>3</span></div>
+          <div class="cp-grid-col"><span>4</span></div>
+          <div class="cp-grid-col"><span>5</span></div>
+          <div class="cp-grid-col"><span>6</span></div>
+          <div class="cp-grid-col"><span>7</span></div>
+          <div class="cp-grid-col"><span>8</span></div>
+          <div class="cp-grid-col"><span>9</span></div>
+          <div class="cp-grid-col"><span>10</span></div>
+          <div class="cp-grid-col"><span>11</span></div>
+          <div class="cp-grid-col"><span>12</span></div>
+        </section>
+
+        {/* ── Typography ──────────────────────── */}
+
+        <div id="typography">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Typography</h2>
+              <p class="cp-header__desc">Title sizes (Dazzed SemiBold) and body text (IBM Plex Sans Regular).</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+              <p class="cp-type-xl">Title Extra Large</p>
+              <p class="cp-type-l">Title Large</p>
+              <p class="cp-type-m">Title Medium</p>
+              <p class="cp-type-s">Title Small</p>
+              <p class="cp-type-xs">Title Extra Small</p>
+              <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs); margin-top: var(--spacing-md);">
+                <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style — secondary color, regular weight.</p>
+                <p><strong>Bold text renders in semibold weight with primary color.</strong> This demonstrates the inline emphasis treatment.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Colors ──────────────────────────── */}
+
+        <div id="colors">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Colors</h2>
+              <p class="cp-header__desc">Semantic color tokens. All values use oklab color space.</p>
+            </div>
+            <div class="cp-swatches">
+              <div class="cp-swatch cp-swatch--bg-default">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--bg-default</span>
+              </div>
+              <div class="cp-swatch cp-swatch--bg-elevated">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--bg-elevated</span>
+              </div>
+              <div class="cp-swatch cp-swatch--text-primary">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--text-primary</span>
+              </div>
+              <div class="cp-swatch cp-swatch--text-secondary">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--text-secondary</span>
+              </div>
+              <div class="cp-swatch cp-swatch--text-shy">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--text-shy</span>
+              </div>
+              <div class="cp-swatch cp-swatch--border-default">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--border-default</span>
+              </div>
+              <div class="cp-swatch cp-swatch--border-strong">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--border-strong</span>
+              </div>
+              <div class="cp-swatch cp-swatch--color-emphasis">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--color-emphasis</span>
+              </div>
+              <div class="cp-swatch cp-swatch--button-primary-idle">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--button-primary-idle</span>
+              </div>
+              <div class="cp-swatch cp-swatch--button-secondary-idle">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--button-secondary-idle</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Button + CTA (two-column) ──────── */}
+
+        <div id="button-cta">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Button & CTA</h2>
+              <p class="cp-header__desc">Primary interactive elements. Pill-shaped buttons and inline calls-to-action.</p>
+            </div>
+            <div class="cp-cols">
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">variant</span>
+                  <div class="cp-pills" data-control="variant">
+                    <button class="cp-pill is-active" data-value="primary">primary</button>
+                    <button class="cp-pill" data-value="secondary">secondary</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">state</span>
+                  <div class="cp-pills" data-control="state">
+                    <button class="cp-pill is-active" data-value="idle">idle</button>
+                    <button class="cp-pill" data-value="hover">hover</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">element</span>
+                  <div class="cp-pills" data-control="element">
+                    <button class="cp-pill is-active" data-value="button">button</button>
+                    <button class="cp-pill" data-value="link">link</button>
+                  </div>
                 </div>
               </div>
-              <div class="cp-control-group">
-                <span class="cp-control-label">state</span>
-                <div class="cp-pills" data-control="state">
-                  <button class="cp-pill is-active" data-value="idle">idle</button>
-                  <button class="cp-pill" data-value="hover">hover</button>
+              <div class="cp-card__preview">
+                <div data-variant-key="element:button">
+                  <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}'>Button Label</button>
                 </div>
-              </div>
-              <div class="cp-control-group">
-                <span class="cp-control-label">element</span>
-                <div class="cp-pills" data-control="element">
-                  <button class="cp-pill is-active" data-value="button">button</button>
-                  <button class="cp-pill" data-value="link">link</button>
+                <div data-variant-key="element:link" hidden>
+                  <a href="#" class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}'>Link Label</a>
                 </div>
               </div>
             </div>
-            <div class="cp-card__preview">
-              <div data-variant-key="element:button">
-                <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}'>Button Label</button>
-              </div>
-              <div data-variant-key="element:link" hidden>
-                <a href="#" class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}'>Link Label</a>
+            <div class="cp-card">
+              <div class="cp-card__preview" style="flex-direction: column; gap: var(--spacing-lg); align-items: flex-start;">
+                <Cta text="Active CTA" variant="active" />
+                <Cta text="Passive CTA" variant="passive" />
               </div>
             </div>
-          </div>
-          <div class="cp-card">
-            <div class="cp-card__preview" style="flex-direction: column; gap: var(--spacing-lg); align-items: flex-start;">
-              <Cta text="Active CTA" variant="active" />
-              <Cta text="Passive CTA" variant="passive" />
             </div>
-          </div>
+          </section>
         </div>
-      </div>
-    </section>
 
-    {/* ── Switch + Divider (two-column) ──────── */}
+        {/* ── Switch + Divider (two-column) ──── */}
 
-    <section class="post-section post-section--big">
-      <div class="post-canvas">
-        <div class="cp-header">
-          <h2 class="cp-header__title">Switch & Divider</h2>
-          <p class="cp-header__desc">Toggle control and section separator.</p>
-        </div>
-        <div class="post-section__cols">
-          <div class="cp-card">
-            <div class="cp-card__preview">
-              <div class="cp-inline-demo">
-                <span class="cp-inline-demo__label">Theme toggle</span>
-                <Switch id="demo-switch" />
-              </div>
+        <div id="switch-divider">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Switch & Divider</h2>
+              <p class="cp-header__desc">Toggle control and section separator.</p>
             </div>
-          </div>
-          <div class="cp-card" data-playground>
-            <div class="cp-card__controls">
-              <div class="cp-control-group">
-                <span class="cp-control-label">label</span>
-                <div class="cp-pills" data-control="label">
-                  <button class="cp-pill is-active" data-value="with">with label</button>
-                  <button class="cp-pill" data-value="none">none</button>
+            <div class="cp-cols">
+              <div class="cp-card">
+                <div class="cp-card__preview">
+                  <div class="cp-inline-demo">
+                    <span class="cp-inline-demo__label">Theme toggle</span>
+                    <Switch id="demo-switch" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="cp-card__preview" style="display: block; padding: var(--spacing-lg);">
-              <div data-variant-key="label:with">
-                <Divider label="Section Title" spaceAbove="none" spaceBelow="none" />
-              </div>
-              <div data-variant-key="label:none" hidden>
-                <Divider spaceAbove="none" spaceBelow="none" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── Post Components ─────────────────────── */}
-
-    <PostSection layout="text">
-      <div class="cp-header">
-        <h2 class="cp-header__title">Post Components</h2>
-        <p class="cp-header__desc">Components used inside MDX project posts. Rendered in their native .post-page grid context.</p>
-      </div>
-    </PostSection>
-
-    {/* ── PostHeader ──────────────────────────── */}
-
-    <PostSection layout="big">
-      <div class="cp-header">
-        <h2 class="cp-header__title">PostHeader</h2>
-        <p class="cp-header__desc">Title group with optional subtitle and intro paragraph.</p>
-      </div>
-      <div class="cp-card" data-playground>
-        <div class="cp-card__controls">
-          <div class="cp-control-group">
-            <span class="cp-control-label">subtitle</span>
-            <div class="cp-pills" data-control="subtitle">
-              <button class="cp-pill is-active" data-value="with">with</button>
-              <button class="cp-pill" data-value="without">without</button>
-            </div>
-          </div>
-          <div class="cp-control-group">
-            <span class="cp-control-label">intro</span>
-            <div class="cp-pills" data-control="intro">
-              <button class="cp-pill is-active" data-value="with">with</button>
-              <button class="cp-pill" data-value="without">without</button>
-            </div>
-          </div>
-        </div>
-        <div class="cp-card__preview cp-card__preview--flush">
-          <div class="post-page cp-post-context" data-variant-key="subtitle:with|intro:with">
-            <PostHeader title="Post title" subtitle="Post Subtitle">
-              <p>The intro paragraph lives in the default slot. It supports rich content and multiple paragraphs of introductory text for a project post.</p>
-            </PostHeader>
-          </div>
-          <div class="post-page cp-post-context" data-variant-key="subtitle:with|intro:without" hidden>
-            <PostHeader title="Post title" subtitle="Post Subtitle" />
-          </div>
-          <div class="post-page cp-post-context" data-variant-key="subtitle:without|intro:with" hidden>
-            <PostHeader title="Post title">
-              <p>The intro paragraph lives in the default slot. It supports rich content and multiple paragraphs of introductory text for a project post.</p>
-            </PostHeader>
-          </div>
-          <div class="post-page cp-post-context" data-variant-key="subtitle:without|intro:without" hidden>
-            <PostHeader title="Post title" />
-          </div>
-        </div>
-      </div>
-    </PostSection>
-
-    {/* ── PostText + PostMeta (two-column) ────── */}
-
-    <section class="post-section post-section--big">
-      <div class="post-canvas">
-        <div class="cp-header">
-          <h2 class="cp-header__title">PostText & PostMeta</h2>
-          <p class="cp-header__desc">Content heading with paragraph, and key-value metadata grid.</p>
-        </div>
-        <div class="post-section__cols">
-          <div class="cp-card">
-            <div class="cp-card__preview cp-card__preview--flush">
-              <div class="post-page cp-post-context">
-                <PostSection layout="text">
-                  <PostText heading="Section Title">
-                    <p>Paragraph text below the section title. This demonstrates how running text pairs with headings inside the narrow reading column.</p>
-                  </PostText>
-                </PostSection>
-              </div>
-            </div>
-          </div>
-          <div class="cp-card">
-            <div class="cp-card__preview cp-card__preview--flush">
-              <div class="post-page cp-post-context">
-                <PostSection layout="text">
-                  <dl class="post-meta">
-                    <div class="post-meta__row">
-                      <dt class="post-meta__label">Role</dt>
-                      <dd class="post-meta__value">Value placeholder</dd>
+              <div class="cp-card" data-playground>
+                <div class="cp-card__controls">
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">label</span>
+                    <div class="cp-pills" data-control="label">
+                      <button class="cp-pill is-active" data-value="with">with label</button>
+                      <button class="cp-pill" data-value="none">none</button>
                     </div>
-                    <div class="post-meta__row">
-                      <dt class="post-meta__label">Focus</dt>
-                      <dd class="post-meta__value">Value placeholder</dd>
-                    </div>
-                    <div class="post-meta__row">
-                      <dt class="post-meta__label">Team</dt>
-                      <dd class="post-meta__value">Value placeholder</dd>
-                    </div>
-                    <div class="post-meta__row">
-                      <dt class="post-meta__label">Period</dt>
-                      <dd class="post-meta__value">Value placeholder</dd>
-                    </div>
-                  </dl>
-                </PostSection>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── Figure ──────────────────────────────── */}
-
-    <PostSection layout="big">
-      <div class="cp-header">
-        <h2 class="cp-header__title">Figure</h2>
-        <p class="cp-header__desc">Image with optional caption.</p>
-      </div>
-      <div class="cp-card" data-playground>
-        <div class="cp-card__controls">
-          <div class="cp-control-group">
-            <span class="cp-control-label">caption</span>
-            <div class="cp-pills" data-control="caption">
-              <button class="cp-pill is-active" data-value="with">with caption</button>
-              <button class="cp-pill" data-value="without">without</button>
-            </div>
-          </div>
-        </div>
-        <div class="cp-card__preview cp-card__preview--flush" style="padding: var(--spacing-md);">
-          <div data-variant-key="caption:with">
-            <Figure src="/images/Placeholder.png" alt="Placeholder image" caption="Caption goes here (optional)" />
-          </div>
-          <div data-variant-key="caption:without" hidden>
-            <Figure src="/images/Placeholder.png" alt="Placeholder image" />
-          </div>
-        </div>
-      </div>
-    </PostSection>
-
-    {/* ── PostSection Layouts ─────────────────── */}
-
-    <PostSection layout="big">
-      <div class="cp-header">
-        <h2 class="cp-header__title">PostSection Layouts</h2>
-        <p class="cp-header__desc">Grid wrapper for post content. Layout and media variants control positioning.</p>
-      </div>
-      <div class="cp-card" data-playground>
-        <div class="cp-card__controls">
-          <div class="cp-control-group">
-            <span class="cp-control-label">layout</span>
-            <div class="cp-pills" data-control="layout">
-              <button class="cp-pill is-active" data-value="big">big</button>
-              <button class="cp-pill" data-value="small">small</button>
-              <button class="cp-pill" data-value="full">full</button>
-              <button class="cp-pill" data-value="text">text</button>
-            </div>
-          </div>
-          <div class="cp-control-group">
-            <span class="cp-control-label">media</span>
-            <div class="cp-pills" data-control="media">
-              <button class="cp-pill is-active" data-value="full">full</button>
-              <button class="cp-pill" data-value="center-wide">center-wide</button>
-              <button class="cp-pill" data-value="center">center</button>
-              <button class="cp-pill" data-value="left">left</button>
-              <button class="cp-pill" data-value="left-wide">left-wide</button>
-              <button class="cp-pill" data-value="right">right</button>
-              <button class="cp-pill" data-value="right-wide">right-wide</button>
-            </div>
-          </div>
-          <div class="cp-control-group">
-            <span class="cp-control-label">columns</span>
-            <div class="cp-pills" data-control="columns">
-              <button class="cp-pill is-active" data-value="single">single</button>
-              <button class="cp-pill" data-value="col2">col2</button>
-            </div>
-          </div>
-        </div>
-        <div class="cp-card__preview cp-card__preview--flush">
-          {/* Single column variants */}
-          <div class="post-page cp-post-context" data-variant-key="columns:single">
-            <section class="post-section post-section--big post-section--media-full" data-class-target data-class-config='{"layout":{"p":"post-section--","v":["small","big","canvas","full","text"]},"media":{"p":"post-section--media-","v":["full","center-wide","center","left","left-wide","right","right-wide","right-small"]}}'>
-              <div class="post-canvas">
-                <figure class="post-figure">
-                  <div class="cp-placeholder--media" style="aspect-ratio: 3/2;"></div>
-                  <figcaption class="post-figure__caption">Caption goes here (optional)</figcaption>
-                </figure>
-              </div>
-            </section>
-          </div>
-          {/* Col2 variant */}
-          <div class="post-page cp-post-context" data-variant-key="columns:col2" hidden>
-            <section class="post-section post-section--big post-section--col2 post-section--media-full" data-class-target data-class-config='{"layout":{"p":"post-section--","v":["small","big","canvas","full","text"]},"media":{"p":"post-section--media-","v":["full","center-wide","center","left","left-wide","right","right-wide","right-small"]}}'>
-              <div class="post-canvas">
-                <div class="post-section__cols">
-                  <figure class="post-figure">
-                    <div class="cp-placeholder--media" style="aspect-ratio: 4/3;"></div>
-                    <figcaption class="post-figure__caption">Column 1 caption</figcaption>
-                  </figure>
-                  <figure class="post-figure">
-                    <div class="cp-placeholder--media" style="aspect-ratio: 4/3;"></div>
-                    <figcaption class="post-figure__caption">Column 2 caption</figcaption>
-                  </figure>
+                  </div>
                 </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </PostSection>
-
-    {/* ── ProjectCard + Placeholders (two-column) ── */}
-
-    <section class="post-section post-section--big">
-      <div class="post-canvas">
-        <div class="cp-header">
-          <h2 class="cp-header__title">ProjectCard & Placeholders</h2>
-          <p class="cp-header__desc">Clickable project card with cover image, and content placeholder blocks.</p>
-        </div>
-        <div class="post-section__cols">
-          <div class="cp-card" data-playground>
-            <div class="cp-card__controls">
-              <div class="cp-control-group">
-                <span class="cp-control-label">style</span>
-                <div class="cp-pills" data-control="style">
-                  <button class="cp-pill is-active" data-value="default">default</button>
-                  <button class="cp-pill" data-value="italic">italic</button>
-                </div>
-              </div>
-              <div class="cp-control-group">
-                <span class="cp-control-label">period</span>
-                <div class="cp-pills" data-control="period">
-                  <button class="cp-pill is-active" data-value="with">with</button>
-                  <button class="cp-pill" data-value="without">without</button>
+                <div class="cp-card__preview" style="display: block; padding: var(--spacing-lg);">
+                  <div data-variant-key="label:with">
+                    <Divider label="Section Title" spaceAbove="none" spaceBelow="none" />
+                  </div>
+                  <div data-variant-key="label:none" hidden>
+                    <Divider spaceAbove="none" spaceBelow="none" />
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="cp-card__preview" style="display: block; padding: var(--spacing-md);">
-              <div data-variant-key="style:default|period:with">
-                <ProjectCard
-                  slug="demo"
-                  title="Project Title"
-                  description="Project description placeholder text."
-                  cover="/images/Placeholder.png"
-                  period="2024–Today"
-                  openable={false}
-                />
-              </div>
-              <div data-variant-key="style:default|period:without" hidden>
-                <ProjectCard
-                  slug="demo"
-                  title="Project Title"
-                  description="Project description placeholder text."
-                  cover="/images/Placeholder.png"
-                  openable={false}
-                />
-              </div>
-              <div data-variant-key="style:italic|period:with" hidden>
-                <ProjectCard
-                  slug="demo"
-                  title="Project Title"
-                  description="Project description in italic style."
-                  cover="/images/Placeholder.png"
-                  period="2024–Today"
-                  descriptionItalic={true}
-                  openable={false}
-                />
-              </div>
-              <div data-variant-key="style:italic|period:without" hidden>
-                <ProjectCard
-                  slug="demo"
-                  title="Project Title"
-                  description="Project description in italic style."
-                  cover="/images/Placeholder.png"
-                  descriptionItalic={true}
-                  openable={false}
-                />
-              </div>
-            </div>
-          </div>
-          <div class="cp-card">
-            <div class="cp-card__preview" style="flex-direction: column; gap: var(--spacing-md); align-items: stretch;">
-              <div>
-                <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Text</p>
-                <div class="cp-placeholder"></div>
-              </div>
-              <div>
-                <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Media</p>
-                <div class="cp-placeholder--media"></div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
+
+        {/* ── PostHeader ──────────────────────── */}
+
+        <div id="post-header">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">PostHeader</h2>
+              <p class="cp-header__desc">Title group with optional subtitle and intro paragraph.</p>
+            </div>
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">subtitle</span>
+                  <div class="cp-pills" data-control="subtitle">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">intro</span>
+                  <div class="cp-pills" data-control="intro">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview cp-card__preview--flush">
+                <div class="post-page cp-post-context" data-variant-key="subtitle:with|intro:with">
+                  <PostHeader title="Post title" subtitle="Post Subtitle">
+                    <p>The intro paragraph lives in the default slot. It supports rich content and multiple paragraphs of introductory text for a project post.</p>
+                  </PostHeader>
+                </div>
+                <div class="post-page cp-post-context" data-variant-key="subtitle:with|intro:without" hidden>
+                  <PostHeader title="Post title" subtitle="Post Subtitle" />
+                </div>
+                <div class="post-page cp-post-context" data-variant-key="subtitle:without|intro:with" hidden>
+                  <PostHeader title="Post title">
+                    <p>The intro paragraph lives in the default slot. It supports rich content and multiple paragraphs of introductory text for a project post.</p>
+                  </PostHeader>
+                </div>
+                <div class="post-page cp-post-context" data-variant-key="subtitle:without|intro:without" hidden>
+                  <PostHeader title="Post title" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── PostText + PostMeta (two-column) ── */}
+
+        <div id="post-text-meta">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">PostText & PostMeta</h2>
+              <p class="cp-header__desc">Content heading with paragraph, and key-value metadata grid.</p>
+            </div>
+            <div class="cp-cols">
+              <div class="cp-card">
+                <div class="cp-card__preview cp-card__preview--flush">
+                  <div class="post-page cp-post-context">
+                    <PostSection layout="big">
+                      <PostText heading="Section Title">
+                        <p>Paragraph text below the section title. This demonstrates how running text pairs with headings inside the narrow reading column.</p>
+                      </PostText>
+                    </PostSection>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card">
+                <div class="cp-card__preview cp-card__preview--flush">
+                  <div class="post-page cp-post-context">
+                    <PostSection layout="big">
+                      <dl class="post-meta">
+                        <div class="post-meta__row">
+                          <dt class="post-meta__label">Role</dt>
+                          <dd class="post-meta__value">Value placeholder</dd>
+                        </div>
+                        <div class="post-meta__row">
+                          <dt class="post-meta__label">Focus</dt>
+                          <dd class="post-meta__value">Value placeholder</dd>
+                        </div>
+                        <div class="post-meta__row">
+                          <dt class="post-meta__label">Team</dt>
+                          <dd class="post-meta__value">Value placeholder</dd>
+                        </div>
+                        <div class="post-meta__row">
+                          <dt class="post-meta__label">Period</dt>
+                          <dd class="post-meta__value">Value placeholder</dd>
+                        </div>
+                      </dl>
+                    </PostSection>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Figure ──────────────────────────── */}
+
+        <div id="figure">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Figure</h2>
+              <p class="cp-header__desc">Image with optional caption.</p>
+            </div>
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">caption</span>
+                  <div class="cp-pills" data-control="caption">
+                    <button class="cp-pill is-active" data-value="with">with caption</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview cp-card__preview--flush" style="padding: var(--spacing-md);">
+                <div data-variant-key="caption:with">
+                  <Figure src="/images/Placeholder.png" alt="Placeholder image" caption="Caption goes here (optional)" />
+                </div>
+                <div data-variant-key="caption:without" hidden>
+                  <Figure src="/images/Placeholder.png" alt="Placeholder image" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── PostSection Layouts ─────────────── */}
+
+        <div id="post-section-layouts">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">PostSection Layouts</h2>
+              <p class="cp-header__desc">Canvas wrapper for post content. Items can be figures or text blocks, positioned across breakpoints.</p>
+            </div>
+            <div class="cp-card" data-playground="layout-playground">
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">Breakpoint</span>
+                  <div class="cp-pills" data-control="breakpoint">
+                    <button class="cp-pill" data-value="xs">xs</button>
+                    <button class="cp-pill" data-value="md">md</button>
+                    <button class="cp-pill is-active" data-value="xl">xl</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">Caption</span>
+                  <div class="cp-pills" data-control="caption">
+                    <button class="cp-pill is-active" data-value="off">off</button>
+                    <button class="cp-pill" data-value="on">on</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">Items</span>
+                  <div class="cp-pills" data-control="items">
+                    <button class="cp-pill is-active" data-value="1">1</button>
+                    <button class="cp-pill" data-value="2">2</button>
+                  </div>
+                </div>
+                <div class="cp-control-group" data-show-when="items:1">
+                  <span class="cp-control-label">Position</span>
+                  <div class="cp-pills" data-control="position">
+                    <button class="cp-pill is-active" data-value="full">full</button>
+                    <button class="cp-pill" data-value="center-wide">center-wide</button>
+                    <button class="cp-pill" data-value="center">center</button>
+                    <button class="cp-pill" data-value="left">left</button>
+                    <button class="cp-pill" data-value="left-wide">left-wide</button>
+                    <button class="cp-pill" data-value="right">right</button>
+                    <button class="cp-pill" data-value="right-wide">right-wide</button>
+                    <button class="cp-pill" data-value="right-small">right-small</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">Item 1</span>
+                  <div class="cp-pills" data-control="item1">
+                    <button class="cp-pill is-active" data-value="figure">figure</button>
+                    <button class="cp-pill" data-value="figure-caption">figure + caption</button>
+                    <button class="cp-pill" data-value="text">text</button>
+                  </div>
+                </div>
+                <div class="cp-control-group" data-show-when="items:2">
+                  <span class="cp-control-label">Item 2</span>
+                  <div class="cp-pills" data-control="item2">
+                    <button class="cp-pill is-active" data-value="figure">figure</button>
+                    <button class="cp-pill" data-value="figure-caption">figure + caption</button>
+                    <button class="cp-pill" data-value="text">text</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview cp-card__preview--flush cp-card__preview--scroll">
+                <div class="cp-bp-frame cp-bp-frame--xl" data-bp-frame>
+                  <span class="cp-bp-frame__label" data-bp-label>1200px</span>
+                  <div class="post-page cp-post-context" data-layout-preview></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── ProjectCard + Placeholders ──────── */}
+
+        <div id="project-card">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">ProjectCard & Placeholders</h2>
+              <p class="cp-header__desc">Clickable project card with cover image, and content placeholder blocks.</p>
+            </div>
+            <div class="cp-cols">
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">style</span>
+                  <div class="cp-pills" data-control="style">
+                    <button class="cp-pill is-active" data-value="default">default</button>
+                    <button class="cp-pill" data-value="italic">italic</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">period</span>
+                  <div class="cp-pills" data-control="period">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview" style="display: block; padding: var(--spacing-md);">
+                <div data-variant-key="style:default|period:with">
+                  <ProjectCard
+                    slug="demo"
+                    title="Project Title"
+                    description="Project description placeholder text."
+                    cover="/images/Placeholder.png"
+                    period="2024–Today"
+                    openable={false}
+                  />
+                </div>
+                <div data-variant-key="style:default|period:without" hidden>
+                  <ProjectCard
+                    slug="demo"
+                    title="Project Title"
+                    description="Project description placeholder text."
+                    cover="/images/Placeholder.png"
+                    openable={false}
+                  />
+                </div>
+                <div data-variant-key="style:italic|period:with" hidden>
+                  <ProjectCard
+                    slug="demo"
+                    title="Project Title"
+                    description="Project description in italic style."
+                    cover="/images/Placeholder.png"
+                    period="2024–Today"
+                    descriptionItalic={true}
+                    openable={false}
+                  />
+                </div>
+                <div data-variant-key="style:italic|period:without" hidden>
+                  <ProjectCard
+                    slug="demo"
+                    title="Project Title"
+                    description="Project description in italic style."
+                    cover="/images/Placeholder.png"
+                    descriptionItalic={true}
+                    openable={false}
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="cp-card">
+              <div class="cp-card__preview" style="flex-direction: column; gap: var(--spacing-md); align-items: stretch;">
+                <div>
+                  <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Text</p>
+                  <div class="cp-placeholder"></div>
+                </div>
+                <div>
+                  <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Media</p>
+                  <div class="cp-placeholder--media"></div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Additional Components ──────────── */}
+
+        <div id="additional">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Additional Components</h2>
+              <p class="cp-header__desc">Components not shown live due to asset requirements or runtime complexity.</p>
+            </div>
+            <dl class="cp-doc-list">
+              <dt>Video</dt>
+              <dd>.post-figure--video — Autoplaying video in a figure element with outline border and optional caption.</dd>
+
+              <dt>ImageCarousel</dt>
+              <dd>.image-carousel — Auto-rotating image carousel with crossfade transition.</dd>
+
+              <dt>ProjectModal</dt>
+              <dd>.project-modal — Full-screen overlay loading project content dynamically.</dd>
+
+              <dt>PostSection</dt>
+              <dd>.post-section — Grid layout wrapper. Layout variants, column splits, media positioning.</dd>
+            </dl>
+          </section>
+        </div>
+
       </div>
-    </section>
-
-    {/* ── Additional Components ────────────────── */}
-
-    <PostSection layout="text">
-      <div class="cp-header">
-        <h2 class="cp-header__title">Additional Components</h2>
-        <p class="cp-header__desc">Components not shown live due to asset requirements or runtime complexity.</p>
-      </div>
-      <dl class="cp-doc-list">
-        <dt>Video</dt>
-        <dd>.post-figure--video — Autoplaying video in a figure element with outline border and optional caption.</dd>
-
-        <dt>ImageCarousel</dt>
-        <dd>.image-carousel — Auto-rotating image carousel with crossfade transition.</dd>
-
-        <dt>ProjectModal</dt>
-        <dd>.project-modal — Full-screen overlay loading project content dynamically.</dd>
-
-        <dt>PostSection</dt>
-        <dd>.post-section — Grid layout wrapper. Layout variants, column splits, media positioning.</dd>
-      </dl>
-    </PostSection>
+    </div>
 
   </div>
+
+  {/* ── Layout Playground Script ─────────────── */}
+
+  <script is:inline>
+  (function () {
+    var lp = document.querySelector('[data-playground="layout-playground"]');
+    if (!lp) return;
+
+    var LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
+    function val(name) {
+      var g = lp.querySelector('[data-control="' + name + '"]');
+      if (!g) return null;
+      var a = g.querySelector('.is-active');
+      return a ? a.getAttribute('data-value') : null;
+    }
+
+    function itemHTML(type, ratio) {
+      if (type === 'figure') {
+        return '<figure class="post-figure"><div class="cp-layout-item" style="aspect-ratio:' + ratio + ';"></div></figure>';
+      }
+      if (type === 'figure-caption') {
+        return '<figure class="post-figure"><div class="cp-layout-item" style="aspect-ratio:' + ratio + ';"></div><figcaption class="post-figure__caption">Optional caption text</figcaption></figure>';
+      }
+      return '<div class="post-text"><p>' + LOREM + '</p></div>';
+    }
+
+    function render() {
+      var bp = val('breakpoint') || 'xl';
+      var caption = val('caption') || 'off';
+      var items = val('items') || '1';
+      var position = val('position') || 'full';
+      var item1 = val('item1') || 'figure';
+      var item2 = val('item2') || 'figure';
+
+      // Breakpoint frame
+      var frame = lp.querySelector('[data-bp-frame]');
+      var label = lp.querySelector('[data-bp-label]');
+      if (frame) {
+        frame.classList.remove('cp-bp-frame--xs', 'cp-bp-frame--md', 'cp-bp-frame--xl');
+        frame.classList.add('cp-bp-frame--' + bp);
+      }
+      if (label) {
+        label.textContent = ({ xs: '375px', md: '768px', xl: '1200px' })[bp] || '';
+      }
+
+      // Conditional control visibility
+      lp.querySelectorAll('[data-show-when]').forEach(function (el) {
+        var parts = el.getAttribute('data-show-when').split(':');
+        el.style.display = val(parts[0]) === parts[1] ? '' : 'none';
+      });
+
+      // Section classes
+      var cls = ['post-section', 'post-section--canvas'];
+      if (items === '1') cls.push('post-section--media-' + position);
+      if (items === '2') cls.push('post-section--col2');
+
+      // Inner content
+      var inner;
+      if (items === '2') {
+        inner = '<div class="cp-cols">' + itemHTML(item1, '4/3') + itemHTML(item2, '4/3') + '</div>';
+      } else {
+        inner = itemHTML(item1, '3/2');
+      }
+
+      // Canvas + optional section caption
+      var html = '<section class="' + cls.join(' ') + '">'
+        + '<div class="post-canvas">' + inner + '</div>'
+        + (caption === 'on' ? '<p class="post-section__caption">Section caption text</p>' : '')
+        + '</section>';
+
+      var preview = lp.querySelector('[data-layout-preview]');
+      if (preview) preview.innerHTML = html;
+    }
+
+    render();
+
+    lp.addEventListener('click', function (e) {
+      var pill = e.target.closest('.cp-pill');
+      if (!pill) return;
+      e.stopPropagation();
+      var group = pill.closest('.cp-pills');
+      group.querySelectorAll('.cp-pill').forEach(function (p) { p.classList.remove('is-active'); });
+      pill.classList.add('is-active');
+      render();
+    });
+  })();
+  </script>
 
   {/* ── Playground Script ─────────────────────── */}
 
@@ -612,7 +753,81 @@ import Figure from '../components/mdx/Figure.astro';
           }
         });
       }
+
+      // --- Breakpoint frame width ---
+      if (controls.breakpoint) {
+        var frame = playground.querySelector('[data-bp-frame]');
+        var label = playground.querySelector('[data-bp-label]');
+        if (frame) {
+          frame.classList.remove('cp-bp-frame--xs', 'cp-bp-frame--md', 'cp-bp-frame--xl');
+          frame.classList.add('cp-bp-frame--' + controls.breakpoint);
+        }
+        if (label) {
+          var widths = { xs: '375px', md: '768px', xl: '1200px' };
+          label.textContent = widths[controls.breakpoint] || '';
+        }
+      }
     });
+  })();
+  </script>
+
+  {/* ── Scroll Spy Script ─────────────────────── */}
+
+  <script is:inline>
+  (function () {
+    var sections = document.querySelectorAll('.cp-content > [id]');
+    var links = document.querySelectorAll('.cp-sidebar__link');
+
+    if (!sections.length || !links.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            links.forEach(function (link) {
+              link.classList.remove('is-active');
+            });
+
+            var targetId = entry.target.id;
+            var activeLink = document.querySelector(
+              '.cp-sidebar__link[data-spy-target="' + targetId + '"]'
+            );
+            if (activeLink) {
+              activeLink.classList.add('is-active');
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '0px 0px -85% 0px',
+        threshold: 0
+      }
+    );
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+
+    // Set first link active on load
+    if (links.length > 0) {
+      links[0].classList.add('is-active');
+    }
+
+    // Smooth scroll on link click
+    var sidebar = document.querySelector('.cp-sidebar');
+    if (sidebar) {
+      sidebar.addEventListener('click', function (e) {
+        var link = e.target.closest('.cp-sidebar__link');
+        if (!link) return;
+        e.preventDefault();
+        var targetId = link.getAttribute('data-spy-target');
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + targetId);
+        }
+      });
+    }
   })();
   </script>
 

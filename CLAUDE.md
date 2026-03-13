@@ -29,9 +29,9 @@
 
 ### Colors
 - Text: `--text-primary`, `--text-secondary`, `--text-shy`
-- Backgrounds: `--bg-default`, `--bg-elevated`
+- Backgrounds: `--bg-default`, `--bg-elevated`, `--bg-sunken`
 - Borders: `--border-default`, `--border-strong`
-- Emphasis (purple): `--color-emphasis` · `--color-emphasis-transparency-mid` (40%) · `--color-emphasis-transparency-high` (20%)
+- Emphasis (purple): `--color-emphasis` · `--color-emphasis-transparency-mid` (50%) · `--color-emphasis-transparency-high` (30%)
 - Neutral transparency: `--color-neutral-transparency-mid` · `--color-neutral-transparency-high`
 - Buttons: `--button-primary-idle`, `--button-primary-hover`, `--button-secondary-idle`, `--button-secondary-hover`
 
@@ -73,22 +73,42 @@
 ## Post Components (src/components/mdx/)
 Used inside MDX project posts. All follow BEM + SCSS pattern. Styles in `post.scss`.
 
-| Component     | Class prefix          | Notes                          |
-|---------------|-----------------------|--------------------------------|
-| PostHeader    | `.post-header`        | title + subtitle + intro slot  |
-| PostSection   | `.post-section`       | grid wrapper, layout props     |
-| PostText      | `.post-text`          | heading + slot                 |
-| Figure        | `.post-figure`        | img + optional caption         |
-| Video         | `.post-figure--video` | video with outline             |
-| ImageCarousel | `.image-carousel`     | fading carousel (data-image-carousel) |
+### Hierarchy: Section → Sub Section → Canvas
+- **PostSectionGroup** (Section): wrapper with divider + body slot for sub sections
+- **PostSection** (Sub Section): grid wrapper with layout/media props — lives inside PostSectionGroup
+- **Canvas**: the grid container inside each PostSection (`.post-canvas`)
+
+| Component          | Class prefix              | Notes                                 |
+|--------------------|---------------------------|---------------------------------------|
+| PostSectionGroup   | `.post-section-group`     | section wrapper: divider + body slot  |
+| PostHeader         | `.post-header`            | title + subtitle + intro slot         |
+| PostSection        | `.post-section`           | sub section grid wrapper, layout props|
+| PostText           | `.post-text`              | heading + slot                        |
+| Figure             | `.post-figure`            | img + optional caption                |
+| Video              | `.post-figure--video`     | video with outline                    |
+| ImageCarousel      | `.image-carousel`         | fading carousel (data-image-carousel) |
+
+### PostSectionGroup spacing
+| Breakpoint | Divider padding-top | Divider padding-inline |
+|------------|--------------------|-----------------------|
+| xs         | `--spacing-xxl` (80px) | `--grid-margin-xs` (20px) |
+| md         | `--spacing-xxl` (80px) | `--grid-margin-md` (12px) |
+| xl         | `--spacing-huge` (120px) | `--grid-margin-md` (12px) |
+
+### PostSection (sub section) spacing
+| Breakpoint | padding-top | padding-bottom |
+|------------|------------|---------------|
+| xs/md      | `--spacing-lg` (40px) | `--spacing-sm` (12px) |
+| xl         | `--spacing-xl` (56px) | `--spacing-sm` (12px) |
 
 - **Horizontal image strip** (e.g. Unbox): `<div class="image-scroller">` with `<img>` children; styled in `post.scss`.
 - **Cover hero** (e.g. Alf): `<div class="post-cover-hero" style="--cover-bg: url(...)">` with a Video inside.
 - **Project modal:** homepage project cards open content in `ProjectModal`; post content is rendered from `src/content/projects/*.mdx` via partials.
 
-PostSection layout prop values: `small` | `big` (default) | `full` | `text`
+PostSection layout prop values: `small` | `big` (default) | `canvas` | `full`
+- `canvas` has the same section padding as `big` (section owns padding, canvas child has zero padding). Use `bg` prop for background color on canvas.
 PostSection col props: `col2`, `col3`
-PostSection media props: `full` | `center-wide` | `left` | `left-wide` | `right` | `right-wide` | `right-small`
+PostSection media props: `full` | `center-wide` | `center` | `left` | `left-wide` | `right` | `right-wide` | `right-small`
 
 ## Report Components (src/components/mdx/report/)
 Used inside MDX report posts. All follow BEM + SCSS pattern. Styles in `post.scss`.
@@ -114,7 +134,7 @@ Site-wide separator, styled in `main.scss`.
 - **Valid tokens:** `none`, `xxxs`, `xxs`, `xs`, `sm`, `md`, `ml`, `lg`, `xl`, `xxl`, `huge`, `max`
 
 ## Template Files
-Reference templates for each content type. All set to `draft: false` — pages build but have no public links.
+Reference templates for each content type. All set to `draft: true` — pages build but are excluded from listings.
 
 | Template | File | URL |
 |----------|------|-----|
@@ -131,6 +151,19 @@ No public links point to these. Accessible only by direct URL.
 | Components | `/components` | Design system reference with interactive playground |
 
 All dev pages use `hideHeader={true}` and a floating icon button linking back to `/andamento`.
+
+### Components Page Layout (`src/pages/components.astro`)
+Uses its own `cp-*` classes for page layout — **never** use post classes (`PostSection`, `.post-page`, `.post-section__cols`) for the page structure itself. Post classes are only used inside `.cp-post-context` preview wrappers where actual post components are being demonstrated.
+
+| Class | Purpose |
+|-------|---------|
+| `.components-page` | Page wrapper (max-width, padding) |
+| `.cp-page-header` | Page title + subtitle |
+| `.cp-section` | Showcase section (padding, flex column, gap) |
+| `.cp-cols` | Two-column card layout (stacks at xs, row at md+) |
+| `.cp-card` | Card with controls + preview |
+| `.cp-post-context` | Wrapper for post component previews (provides `.post-page` context) |
+| `.cp-bp-frame` | Breakpoint simulation frame (container queries) |
 
 ## Figma MCP Workflow
 **Default:** Always use the `figma-design-weaver` skill when a Figma URL is shared. It's the principal workflow for any design-to-code task — trigger it first, then adapt the output to this project's patterns.
