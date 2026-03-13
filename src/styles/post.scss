@@ -76,13 +76,16 @@
 	}
 }
 
-/* Dev: canvas outline + image placeholders for project template */
-.post-page .post-canvas {
+/* Dev: canvas outline + image placeholders — only on draft templates & components page */
+.post-page--draft .post-canvas,
+.cp-post-context .post-canvas {
 	outline: var(--border-width-hairline) dashed var(--border-default);
 }
 
-.post-page .post-figure img,
-.post-page .post-figure video {
+.post-page--draft .post-figure img,
+.post-page--draft .post-figure video,
+.cp-post-context .post-figure img,
+.cp-post-context .post-figure video {
 	background-color: var(--color-emphasis-transparency-high);
 }
 
