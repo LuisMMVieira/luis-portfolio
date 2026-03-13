@@ -39,7 +39,7 @@
 `--spacing-none`(0) · `--spacing-xxxs`(2px) · `--spacing-xxs`(4px) · `--spacing-xs`(8px) · `--spacing-sm`(12px) · `--spacing-md`(20px) · `--spacing-ml`(30px) · `--spacing-lg`(40px) · `--spacing-xl`(56px) · `--spacing-xxl`(80px) · `--spacing-huge`(120px) · `--spacing-max`(180px)
 
 ### Border widths
-`--border-width-hairline` (0.66px) · `--border-width-default` (1px) · `--border-width-thick` (1.5px)
+`--border-width-hairline` (0.5px) · `--border-width-default` (1px) · `--border-width-thick` (1.5px)
 
 ### Typography
 - Type roles: `--type-title-{xl,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`, `--type-cta-*`
