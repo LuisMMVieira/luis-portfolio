@@ -7,8 +7,17 @@
 - **Framework:** Astro (static output)
 - **Styling:** SCSS (no Tailwind). BEM class names.
 - **Components:** `.astro` files in `src/components/` and `src/components/mdx/`
-- **Styles:** `src/styles/` — `tokens.scss`, `post.scss`, `grid.scss`, `main.scss`
+- **Styles:** `src/styles/` — `tokens.scss`, `post.scss`, `grid.scss`, `main.scss`, `global.scss`, `project-content.scss`
 - **Site URL:** `https://luisvieira.design`
+
+## Commands
+```bash
+npm run dev        # Astro dev server
+npm run build      # Static build
+npm run preview    # Preview production build
+npm run lint       # ESLint (.js,.ts,.astro,.mdx)
+npm run format     # Prettier (all files)
+```
 
 ## Breakpoints
 | Name | Value     |
@@ -51,9 +60,9 @@
 
 ### Projects
 - **Schema:** `title`, `subtitle?`, `cover`, `order`, `period?`, `draft?`
-- **Route:** `src/pages/partials/projects/[slug].astro` — renders inside `ProjectModal` on homepage
+- **Route:** `src/pages/projects/[slug].astro` — standalone project page with close button (ESC / X → `history.back()`)
 - **Content:** `src/content/projects/*.mdx`
-- **Modal routing:** hash-based (`/#slug`). JS in `public/scripts/main.js` fetches `/partials/projects/{slug}/`
+- **Navigation:** `<a href="/projects/{slug}">` links from homepage `ProjectCard` component. CSS fade-in on entry, browser-native back.
 
 ### Articles
 - **Schema:** `title`, `subtitle?`, `date`, `cover?`, `draft?`
@@ -88,6 +97,16 @@ Used inside MDX project posts. All follow BEM + SCSS pattern. Styles in `post.sc
 | Video              | `.post-figure--video`     | video with outline                    |
 | ImageCarousel      | `.image-carousel`         | fading carousel (data-image-carousel) |
 
+## CTA Component (src/components/Cta.astro)
+Inline call-to-action link/button. Styled in `global.scss`.
+
+- **Props:** `text`, `variant?` (`'active'` | `'passive'`), `href?`, plus any HTML attributes via `...attrs`
+- **Active:** `[ text ]` — purple brackets (`--color-emphasis`), label in `--text-primary`, `line-height: 1`
+- **Passive:** italic text only, no brackets, `--text-secondary` color
+- **Element:** `<a>` when `href` provided, `<button>` otherwise
+- **Spacing:** `gap: var(--spacing-xs)` (8px), `align-items: center`
+- **Typography:** brackets use `--type-text-l-*` (18px), label uses `--type-cta-*` (14px)
+
 ### PostSectionGroup spacing
 | Breakpoint | Divider padding-top | Divider padding-inline |
 |------------|--------------------|-----------------------|
@@ -104,9 +123,9 @@ Used inside MDX project posts. All follow BEM + SCSS pattern. Styles in `post.sc
 ### PostHeader spacing
 | Breakpoint | padding-top | padding-bottom | title-subtitle gap |
 |------------|------------|---------------|-------------------|
-| xs         | `--spacing-md` (20px) | `--spacing-md` (20px) | `--spacing-xs` (8px) |
-| md         | `--spacing-ml` (30px) | `--spacing-ml` (30px) | `--spacing-xs` (8px) |
-| xl         | `--spacing-lg` (40px) | `--spacing-lg` (40px) | `--spacing-md` (20px) |
+| xs         | `--spacing-md` (20px) | `--spacing-sm` (12px) | `--spacing-sm` (12px) |
+| md         | `--spacing-xl` (56px) | `--spacing-sm` (12px) | `--spacing-sm` (12px) |
+| xl         | `--spacing-xxl` (80px) | `--spacing-sm` (12px) | `--spacing-md` (20px) |
 
 - Title scales: `type-title-m` (xs) → `type-title-l` (md) → `type-title-xl` (xl)
 - Subtitle: `type-text-m` at all breakpoints
@@ -114,7 +133,6 @@ Used inside MDX project posts. All follow BEM + SCSS pattern. Styles in `post.sc
 
 - **Horizontal image strip** (e.g. Unbox): `<div class="image-scroller">` with `<img>` children; styled in `post.scss`.
 - **Cover hero** (e.g. Alf): `<div class="post-cover-hero" style="--cover-bg: url(...)">` with a Video inside.
-- **Project modal:** homepage project cards open content in `ProjectModal`; post content is rendered from `src/content/projects/*.mdx` via partials.
 
 PostSection layout prop values: `small` | `big` (default) | `canvas` | `full`
 - `canvas` has the same section padding as `big` (section owns padding, canvas child has zero padding). Use `bg` prop for background color on canvas.
@@ -149,7 +167,7 @@ Reference templates for each content type. All set to `draft: true` — pages bu
 
 | Template | File | URL |
 |----------|------|-----|
-| Project  | `src/content/projects/project-template.mdx` | `/#project-template` (modal) |
+| Project  | `src/content/projects/project-template.mdx` | `/projects/project-template` |
 | Article  | `src/content/articles/article-template.mdx` | `/articles/article-template` |
 | Report   | `src/content/reports/report-template.mdx`   | `/reports/report-template`   |
 
@@ -179,13 +197,15 @@ Uses its own `cp-*` classes for page layout — **never** use post classes (`Pos
 ## Figma MCP Workflow
 **Default:** Always use the `figma-design-weaver` skill when a Figma URL is shared. It's the principal workflow for any design-to-code task — trigger it first, then adapt the output to this project's patterns.
 
-1. User provides Figma URL → extract `fileKey` and `nodeId` (convert `-` to `:`)
-2. Call `get_design_context` with `clientLanguages: typescript,css`, `clientFrameworks: astro`
+1. User provides Figma URL → invoke `figma-design-weaver` skill
+2. Skill runs: `get_metadata` first (layer tree), then `get_design_context` (visual properties + screenshot), then `get_variable_defs` (token values)
 3. Map Figma elements to grid columns: at xl, page col = 98px (1200px frame ÷ 12). Always assign explicit `grid-column` spans; do not use `margin: auto` centering shortcuts.
 4. Adapt output to SCSS + BEM — never use Tailwind or inline styles
 5. Map Figma tokens to project tokens in `tokens.scss`
 6. Add component styles to the relevant SCSS file (usually `post.scss`)
 - Figma file key: `jpufpSygcQs3tE29WBsLWa` (MonSite)
+
+**Never call MCP tools directly** — the skill's structured workflow (metadata → design context → variables) catches details that ad-hoc calls miss.
 
 ## Rules
 - Never approximate. If unsure, pull the Figma node.

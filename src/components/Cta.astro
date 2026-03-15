@@ -1,26 +1,25 @@
 ---
-interface Props {
+interface Props extends astroHTML.JSX.HTMLAttributes {
   text: string;
   variant?: 'active' | 'passive';
   href?: string;
 }
 
-const { text, variant = 'active', href } = Astro.props;
+const { text, variant = 'active', href, ...attrs } = Astro.props;
 const classes = `cta cta--${variant}`;
-const openChevron = variant === 'active' ? '\u00AB' : '\u2039';
-const closeChevron = variant === 'active' ? '\u00BB' : '\u203A';
+const isActive = variant === 'active';
 ---
 
 {href ? (
-  <a class={classes} href={href}>
-    <span class="cta__chevron">{openChevron}</span>
+  <a class={classes} href={href} {...attrs}>
+    {isActive && <span class="cta__bracket">[</span>}
     <span class="cta__label">{text}</span>
-    <span class="cta__chevron">{closeChevron}</span>
+    {isActive && <span class="cta__bracket">]</span>}
   </a>
 ) : (
-  <span class={classes}>
-    <span class="cta__chevron">{openChevron}</span>
+  <button class={classes} type="button" {...attrs}>
+    {isActive && <span class="cta__bracket">[</span>}
     <span class="cta__label">{text}</span>
-    <span class="cta__chevron">{closeChevron}</span>
-  </span>
+    {isActive && <span class="cta__bracket">]</span>}
+  </button>
 )}

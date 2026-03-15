@@ -27,18 +27,14 @@ const projects = (await getCollection('projects'))
         projects.map((project, index) => (
           <>
             {index > 0 && <Divider variant="work" />}
-            <div class="project-entry">
-              <ProjectCard
-                slug={project.slug}
-                title={project.data.title}
-                description={project.data.subtitle || ''}
-                cover={project.data.cover}
-                period={project.data.period}
-              />
-              {project.slug !== 'spacesecure' && (
-                <button class="btn btn--primary" data-project={project.slug}>See project</button>
-              )}
-            </div>
+            <ProjectCard
+              slug={project.slug}
+              title={project.data.title}
+              description={project.data.subtitle || ''}
+              cover={project.data.cover}
+              period={project.data.period}
+              openable={project.slug !== 'spacesecure'}
+            />
           </>
         ))
       }

@@ -1,43 +1,3 @@
-// Scroll Spy: Activate nav item when section reaches top of viewport
-(function () {
-  const sections = document.querySelectorAll(".section[id]");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  if (!sections.length || !navLinks.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Remove active from all links
-          navLinks.forEach((link) => link.classList.remove("is-active"));
-
-          // Add active to matching link
-          const activeLink = document.querySelector(
-            `.nav-link[href="#${entry.target.id}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("is-active");
-          }
-        }
-      });
-    },
-    {
-      // Trigger when section top reaches top 5% of viewport
-      rootMargin: "0px 0px -95% 0px",
-      threshold: 0,
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-
-  // Set intro as active on initial page load
-  const introLink = document.querySelector('.nav-link[href="#intro"]');
-  if (introLink) {
-    introLink.classList.add("is-active");
-  }
-})();
-
 // Image Carousel: fade-loop through stacked images
 var _carouselTimers = [];
 function initCarousels(root) {
@@ -111,151 +71,112 @@ function initLoopVideos(root) {
   });
 }
 
-// Project Modal: Load project content dynamically
-(function () {
-  const modal = document.getElementById("project-modal");
-  const modalContent = modal?.querySelector(".project-modal-content");
-  const closeBtn = modal?.querySelector(".project-modal-close");
-  const backdrop = modal?.querySelector(".project-modal-backdrop");
+// Init all page-specific features — runs on first load and after View Transitions
+function initPage() {
+  // Scroll Spy
+  var sections = document.querySelectorAll(".section[id]");
+  var navLinks = document.querySelectorAll(".nav-link");
 
-  if (!modal || !modalContent) return;
+  if (sections.length && navLinks.length) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (link) { link.classList.remove("is-active"); });
+            var activeLink = document.querySelector(
+              '.nav-link[href="#' + entry.target.id + '"]'
+            );
+            if (activeLink) {
+              activeLink.classList.add("is-active");
+            }
+          }
+        });
+      },
+      { rootMargin: "0px 0px -95% 0px", threshold: 0 }
+    );
 
-  // Cache for loaded content
-  const contentCache = new Map();
+    sections.forEach(function (section) { observer.observe(section); });
 
-  // List of section IDs to exclude from project modal
-  const sectionIds = ["intro", "work", "beliefs", "values", "background", "about"];
-
-  function openModal(slug) {
-    document.documentElement.classList.add("modal-open");
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    modal.scrollTop = 0;
-    loadContent(slug);
-  }
-
-  function closeModal() {
-    document.documentElement.classList.remove("modal-open");
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    history.pushState(null, "", window.location.pathname);
-  }
-
-  async function loadContent(slug) {
-    // Check cache first
-    if (contentCache.has(slug)) {
-      modalContent.innerHTML = contentCache.get(slug);
-      initCarousels(modalContent);
-      initLoopVideos(modalContent);
-      return;
-    }
-
-    // Show loading state
-    modalContent.innerHTML = "";
-    modalContent.classList.add("is-loading");
-
-    try {
-      const response = await fetch(`/partials/projects/${slug}/`);
-      if (!response.ok) throw new Error("Failed to load project");
-
-      const html = await response.text();
-
-      // Extract body content from the HTML
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-      const content = doc.body.innerHTML;
-
-      // Cache and display
-      contentCache.set(slug, content);
-      modalContent.classList.remove("is-loading");
-      modalContent.innerHTML = content;
-      initCarousels(modalContent);
-      initLoopVideos(modalContent);
-    } catch (error) {
-      console.error("Error loading project:", error);
-      modalContent.classList.remove("is-loading");
-      modalContent.innerHTML = `<p>Error loading project. Please try again.</p>`;
+    var introLink = document.querySelector('.nav-link[href="#intro"]');
+    if (introLink) {
+      introLink.classList.add("is-active");
     }
   }
 
-  // Handle project link clicks
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("[data-project]");
-    if (link) {
+  // Carousels & videos
+  initCarousels();
+  initLoopVideos();
+
+  // Scroll hint
+  var scrollHint = document.querySelector(".intro-scroll-hint");
+  if (scrollHint) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY < 10) {
+        scrollHint.classList.remove("is-hidden");
+      } else {
+        scrollHint.classList.add("is-hidden");
+      }
+    }, { passive: true });
+  }
+
+  // Scroll reveal — auto-apply to post figures and canvases with backgrounds
+  var postPage = document.querySelector(".post-page");
+  if (postPage) {
+    // All content objects reveal on scroll — one rule for all
+    postPage.querySelectorAll(
+      ".post-figure, .post-section__cols, .post-text, .post-meta, .post-header__wrapper, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .divider"
+    ).forEach(function (el) {
+      el.classList.add("reveal");
+    });
+
+    // Canvas backgrounds fade in (no translate, just opacity)
+    postPage.querySelectorAll(".post-canvas[style*='background']").forEach(function (el) {
+      el.classList.add("reveal");
+      el.style.transform = "none";
+    });
+  }
+
+  // Delay observer by one frame so browser paints the initial hidden state
+  requestAnimationFrame(function () {
+    var reveals = document.querySelectorAll(".reveal");
+    if (reveals.length) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+
+      reveals.forEach(function (el) { revealObserver.observe(el); });
+    }
+  });
+
+  // Email copy
+  var emailLink = document.querySelector(".about-contact__copy-email");
+  var tooltip = document.querySelector(".about-contact__tooltip");
+  if (emailLink && tooltip) {
+    emailLink.addEventListener("click", function (e) {
       e.preventDefault();
-      const slug = link.dataset.project;
-      history.pushState(null, "", `#${slug}`);
-      openModal(slug);
-    }
-  });
+      var email = emailLink.getAttribute("data-email") || "";
+      if (!email) return;
 
-  // Close button
-  closeBtn?.addEventListener("click", closeModal);
-
-  // Backdrop click
-  backdrop?.addEventListener("click", closeModal);
-
-  // ESC key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
-    }
-  });
-
-  // Handle hash on page load and hash change
-  function checkHash() {
-    const hash = window.location.hash.slice(1);
-    if (hash && !sectionIds.includes(hash)) {
-      openModal(hash);
-    }
-  }
-
-  // Check hash on load
-  checkHash();
-
-  // Handle browser back/forward
-  window.addEventListener("popstate", () => {
-    const hash = window.location.hash.slice(1);
-    if (hash && !sectionIds.includes(hash)) {
-      openModal(hash);
-    } else {
-      closeModal();
-    }
-  });
-})();
-
-// Scroll hint: show when at top, hide when scrolled, reappear when back at top
-(function () {
-  const scrollHint = document.querySelector(".intro-scroll-hint");
-  if (!scrollHint) return;
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY < 10) {
-      scrollHint.classList.remove("is-hidden");
-    } else {
-      scrollHint.classList.add("is-hidden");
-    }
-  }, { passive: true });
-})();
-
-// About: copy email to clipboard and show tooltip (no mailto)
-(function () {
-  const link = document.querySelector(".about-contact__copy-email");
-  const tooltip = document.querySelector(".about-contact__tooltip");
-  if (!link || !tooltip) return;
-
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const email = link.getAttribute("data-email") || "";
-    if (!email) return;
-
-    navigator.clipboard.writeText(email).then(
-      function () {
+      navigator.clipboard.writeText(email).then(function () {
         tooltip.classList.add("is-visible");
         setTimeout(function () {
           tooltip.classList.remove("is-visible");
         }, 2000);
-      }
-    );
-  });
-})();
+      });
+    });
+  }
+}
+
+// Run on initial load
+initPage();
+
+// Enable smooth scroll after page has loaded and restored position
+// This prevents the animated scroll on refresh/back navigation
+requestAnimationFrame(function () {
+  document.documentElement.classList.add("smooth-scroll");
+});

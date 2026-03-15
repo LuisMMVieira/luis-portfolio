@@ -24,7 +24,7 @@
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
 	padding-block-start: var(--spacing-md);
-	padding-block-end: var(--spacing-md);
+	padding-block-end: var(--spacing-sm);
 
 	.post-header__wrapper {
 		grid-column: 1 / -1;
@@ -211,7 +211,7 @@
 .post-header__title-group {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xs);
+	gap: var(--spacing-sm);
 }
 
 .post-header__title {
@@ -307,7 +307,8 @@
 	font-weight: var(--type-text-m-font-weight);
 	line-height: var(--type-text-m-line-height);
 	color: var(--text-secondary);
-	padding-block: var(--spacing-sm);
+	padding-block-start: var(--spacing-sm);
+	padding-block-end: var(--spacing-none);
 	margin: 0;
 }
 
@@ -322,7 +323,8 @@
 	font-weight: var(--type-text-m-font-weight);
 	line-height: var(--type-text-m-line-height);
 	color: var(--text-secondary);
-	padding-block: var(--spacing-sm);
+	padding-block-start: var(--spacing-sm);
+	padding-block-end: var(--spacing-none);
 	max-width: 320px;
 	margin: 0;
 }
@@ -385,7 +387,7 @@
 	line-height: var(--type-text-m-line-height);
 	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-primary);
-	min-width: 5.714rem; /* 80px — aligns values across rows */
+	min-width: 8rem; /* 112px — aligns values across rows */
 	margin: 0;
 }
 
@@ -401,7 +403,7 @@
 
 /* Scroll right-wide strip — right-wide grid (cols 4/13 at md+), full-width at xs */
 /* Figma: py=80px, right-aligned overflow, transparent bg by default */
-/* .post-page prefix beats .project-modal-content img reset */
+/* .post-page prefix beats .project-page__container img reset */
 .post-page .post-scroll-right-wide {
 	overflow-x: auto;
 	scrollbar-width: none;
@@ -435,8 +437,8 @@
 
 	.post-header {
 		padding-inline: var(--grid-margin-md);
-		padding-block-start: var(--spacing-ml);
-		padding-block-end: var(--spacing-ml);
+		padding-block-start: var(--spacing-xl);
+		padding-block-end: var(--spacing-xxl);
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
@@ -444,7 +446,7 @@
 	}
 
 	.post-header__title-group {
-		gap: var(--spacing-xs);
+		gap: var(--spacing-sm);
 	}
 
 	.post-section {
@@ -522,8 +524,8 @@
 	}
 
 	.post-header {
-		padding-block-start: var(--spacing-lg);
-		padding-block-end: var(--spacing-lg);
+		padding-block-start: var(--spacing-xxl);
+		padding-block-end: var(--spacing-huge);
 		max-width: var(--width-modal-max);
 		margin-inline: auto;
 
@@ -609,6 +611,34 @@
 .post-section--col2-big-small .post-section__cols > :last-child,
 .post-section--col2-small-big .post-section__cols > :first-child { flex: 3 0 0; }
 
+
+/* Phones row: centered flex row of phone mockup images */
+.post-phones-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-lg);
+
+	img {
+		height: 480px;
+		width: auto;
+		max-width: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.post-phones-row {
+		gap: var(--spacing-md);
+		overflow-x: auto;
+		scrollbar-width: none;
+		justify-content: flex-start;
+		padding-inline: var(--grid-margin-xs);
+
+		img {
+			height: 320px;
+		}
+	}
+}
 
 /* Canvas Carousel: elevated bg container with stacked rotating images */
 /* Figma: full-width canvas bg (--bg-elevated), content flex-centered */

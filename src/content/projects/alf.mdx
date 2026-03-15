@@ -1,44 +1,145 @@
 ---
 title: "Alf—Spaceship's AI assistant"
 subtitle: "AI agent that helps users manage domains, set up services, and navigate their Spaceship accounts. Designed the full iOS experience."
-cover: "/assets/projects/alf/images/cover/alf cover.png"
+cover: "/assets/projects/alf/images/Cover/alf-featured.png"
 order: 2
 period: "2025"
 draft: false
 ---
 
-import PostSection from '../../components/mdx/PostSection.astro';
-import Figure from '../../components/mdx/Figure.astro';
-import Video from '../../components/mdx/Video.astro';
+{/* ── COVER ─────────────────────────────────────────────────────── */}
 
-<div class="post-cover">
-<PostSection layout="full">
-  <div
-    class="post-cover-hero"
-    style="--cover-bg: url('/assets/projects/alf/images/cover/sps cover background.png')"
-  >
-    <Video src="/assets/projects/alf/videos/alf onboarding.mp4" />
+<section class="post-cover post-section post-section--canvas post-section--media-center">
+  <div class="post-canvas">
+    <div class="post-cover-hero" style="--cover-bg: url('/assets/projects/alf/images/Cover/alf-cover-background.png')">
+      <figure class="post-figure--video">
+        <video src="/assets/projects/alf/videos/alf onboarding.mp4" autoplay loop muted playsinline></video>
+      </figure>
+    </div>
   </div>
-</PostSection>
-</div>
+</section>
 
-<PostSection layout="big">
-  <Figure
-    src="/assets/projects/alf/images/sections/alf display light.png"
-    alt=""
-  />
-</PostSection>
+{/* ── HEADER ────────────────────────────────────────────────────── */}
 
-<PostSection layout="big">
-  <Figure
-    src="/assets/projects/alf/images/sections/alf display dark.png"
-    alt=""
-  />
-</PostSection>
+<header class="post-header">
+  <div class="post-canvas">
+    <div class="post-header__wrapper">
+      <div class="post-header__title-group">
+        <h1 class="post-header__title">Alf—Spaceship's AI Assistant</h1>
+      </div>
+      <p class="post-header__intro">Alf is Spaceship's AI assistant—built to help users manage domains, set up services, and navigate their account through natural conversation. I designed the full iOS experience: information architecture, conversation mechanics, checkout flow, and browser fallback patterns.</p>
+    </div>
+  </div>
+</header>
 
-<PostSection layout="full">
-  <Figure
-    src="/assets/projects/alf/images/sections/alf mechanics sketch.png"
-    alt="Alf — mechanics sketch"
-  />
-</PostSection>
+{/* ── BODY ──────────────────────────────────────────────────────── */}
+
+{/* App store screens — right-wide scroll strip */}
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="post-scroll-right-wide">
+      <img src="/assets/projects/alf/images/App Store/alf-app-store-1.png" alt="Alf App Store screenshot 1" />
+      <img src="/assets/projects/alf/images/App Store/alf-app-store-2.png" alt="Alf App Store screenshot 2" />
+      <img src="/assets/projects/alf/images/App Store/alf-app-store-3.png" alt="Alf App Store screenshot 3" />
+      <img src="/assets/projects/alf/images/App Store/alf-app-store-4.png" alt="Alf App Store screenshot 4" />
+      <img src="/assets/projects/alf/images/App Store/alf-app-store-5.png" alt="Alf App Store screenshot 5" />
+    </div>
+  </div>
+</section>
+
+{/* Phones light — full canvas with gradient bg */}
+<section class="post-section post-section--canvas post-section--media-full">
+  <div class="post-canvas" style="background-image: url('/assets/projects/alf/images/Phones/alf-light-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
+    <figure class="post-figure">
+      <div class="post-phones-row">
+        <img src="/assets/projects/alf/images/Phones/alf-phone-light-1.png" alt="Alf light mode — conversation" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-light-2.png" alt="Alf light mode — actions" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-light-3.png" alt="Alf light mode — checkout" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-light-4.png" alt="Alf light mode — results" loading="lazy" />
+      </div>
+    </figure>
+  </div>
+</section>
+
+{/* Phones dark — full canvas with gradient bg */}
+<section class="post-section post-section--canvas post-section--media-full">
+  <div class="post-canvas" style="background-image: url('/assets/projects/alf/images/Phones/alf-dark-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
+    <figure class="post-figure">
+      <div class="post-phones-row">
+        <img src="/assets/projects/alf/images/Phones/alf-phone-dark-1.png" alt="Alf dark mode — conversation" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-dark-2.png" alt="Alf dark mode — actions" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-dark-3.png" alt="Alf dark mode — checkout" loading="lazy" />
+        <img src="/assets/projects/alf/images/Phones/alf-phone-dark-4.png" alt="Alf dark mode — results" loading="lazy" />
+      </div>
+    </figure>
+  </div>
+</section>
+
+{/* Fallback — col2 small-big (phone + chart) */}
+<section class="post-section post-section--big post-section--col2 post-section--col2-small-big">
+  <div class="post-canvas">
+    <div class="post-section__cols" style="align-items: flex-end; padding-block: var(--spacing-xl)">
+      <figure class="post-figure">
+        <img src="/assets/projects/alf/images/alf-fallback-screen.png" alt="Alf browser fallback screen" loading="lazy" />
+      </figure>
+      <figure class="post-figure">
+        <img src="/assets/projects/alf/images/alf-fallback-chart.png" alt="Alf fallback decision chart" loading="lazy" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+{/* Flow sketch — full */}
+<section class="post-section post-section--big post-section--media-full">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/alf/images/alf-flow-sketch.png" alt="Alf conversation flow sketch" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+{/* Mechanics sketch — full */}
+<section class="post-section post-section--big post-section--media-full">
+  <div class="post-canvas">
+    <figure class="post-figure">
+      <img src="/assets/projects/alf/images/alf-mechanics-sketch.png" alt="Alf mechanics sketch" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+{/* ── CLOSING — Summary + Post Meta ──────────────────────────── */}
+
+<section class="post-section post-section--big">
+  <div class="post-canvas">
+    <div class="divider divider--above-xl divider--below-xl">
+      <div class="divider__line"></div>
+    </div>
+  </div>
+</section>
+
+<section class="post-section post-section--canvas post-section--media-center" style="padding-block: var(--spacing-xl)">
+  <div class="post-canvas" style="padding-block: var(--spacing-xl)">
+    <div class="post-text" style="margin-block-end: var(--spacing-xl)">
+      <h2 class="post-text__title">Summary</h2>
+      <p>Paragraph goes here and continues continues like so.</p>
+    </div>
+    <dl class="post-meta">
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Role</dt>
+        <dd class="post-meta__value">Text</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Focus</dt>
+        <dd class="post-meta__value">Text</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Team</dt>
+        <dd class="post-meta__value">Text</dd>
+      </div>
+      <div class="post-meta__row">
+        <dt class="post-meta__label">Period</dt>
+        <dd class="post-meta__value">Text</dd>
+      </div>
+    </dl>
+  </div>
+</section>
