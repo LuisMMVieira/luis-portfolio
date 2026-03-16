@@ -1,6 +1,4 @@
 ---
-import Cta from './Cta.astro';
-
 interface Props {
   slug: string;
   title: string;
@@ -35,5 +33,5 @@ const { slug, title, description, cover, period, openable = true, descriptionIta
       {period && <span class="project-card-period">{period}</span>}
     </div>
   </article>
-  {openable && <Cta text="See project" variant="active" href={`/projects/${slug}`} />}
+  {openable && <a class="btn btn--primary" href={`/projects/${slug}`}>See project</a>}
 </div>

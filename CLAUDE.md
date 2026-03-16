@@ -207,10 +207,18 @@ Uses its own `cp-*` classes for page layout — **never** use post classes (`Pos
 
 **Never call MCP tools directly** — the skill's structured workflow (metadata → design context → variables) catches details that ad-hoc calls miss.
 
+## Asset Conventions
+- Project assets: `public/assets/projects/{slug}/images/` with subfolders (e.g. `Cover/`, `Phones/`, `App Store/`)
+- Videos: `public/assets/projects/{slug}/videos/`
+- Referenced in MDX via absolute paths: `/assets/projects/{slug}/images/...`
+
 ## Rules
 - Never approximate. If unsure, pull the Figma node.
 - Don't add features beyond what's asked.
 - Don't create new files unless necessary — prefer editing existing ones.
+- When updating a post, edit the original file directly — never create `-v2` copies.
 - Styles go in `post.scss` (post/report components) or `main.scss` (global/page).
 - Always use design tokens — no hardcoded colors, spacing, or border widths.
 - Emphasis color only uses the purple (`--color-emphasis`) with transparency shades — no other accent colors.
+- `draft: true` posts show purple debug outlines on canvases and placeholder backgrounds on images (`.post-page--draft`). This is intentional dev tooling, not a bug — it only appears on draft templates and the components page.
+- Think in systems: prefer reusable patterns, tokens, and components over one-off solutions.

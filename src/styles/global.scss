@@ -156,27 +156,28 @@ small {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: var(--spacing-xs) var(--spacing-md);
-	border-radius: var(--radius-infinite);
+	padding: var(--spacing-sm);
+	border-radius: var(--radius-sm);
 	border: none;
 	cursor: pointer;
 	font-family: var(--type-cta-font-family);
 	font-size: var(--type-cta-font-size);
 	font-weight: var(--type-cta-font-weight);
-	text-box-trim: trim-both;
 	line-height: var(--type-cta-line-height);
 	letter-spacing: var(--type-cta-letter-spacing);
-	color: var(--text-primary);
 	text-decoration: none;
 	white-space: nowrap;
 	text-align: center;
+	opacity: 0.9;
 }
 
 .btn--primary {
 	background-color: var(--button-primary-idle);
+	color: var(--color-darkest);
 
 	&:hover {
 		background-color: var(--button-primary-hover);
+		opacity: 1;
 	}
 }
 
@@ -225,6 +226,11 @@ button.cta {
 
 .cta--active .cta__label {
 	color: var(--text-primary);
+}
+
+.cta--passive {
+	cursor: default;
+	pointer-events: none;
 }
 
 .cta--passive .cta__label {

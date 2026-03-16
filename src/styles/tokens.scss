@@ -37,8 +37,8 @@
 	--border-default: var(--color-medium-dark);
 	--border-strong: var(--color-base);
 
-	--button-primary-idle: var(--color-emphasis-transparency-high);
-	--button-primary-hover: var(--color-emphasis-transparency-mid);
+	--button-primary-idle: var(--text-primary);
+	--button-primary-hover: white;
 	--button-secondary-idle: var(--color-neutral-transparency-high);
 	--button-secondary-hover: var(--color-neutral-transparency-mid);
 
@@ -132,9 +132,7 @@
 	--font-family-sans: 'IBM Plex Sans', system-ui, sans-serif;
 
 	--font-weight-regular: 400;
-	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
-	--font-weight-bold: 700;
 
 	/* ─────────────────────────────────────────
 	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
@@ -202,9 +200,9 @@
 
 	/* CTA — 14px / 120% (Buttons, CTAs) */
 	--type-cta-font-family: var(--font-family-sans);
-	--type-cta-font-weight: var(--font-weight-regular);
+	--type-cta-font-weight: var(--font-weight-semibold);
 	--type-cta-font-size: 1rem;
-	--type-cta-line-height: 1.2;
+	--type-cta-line-height: 1;
 	--type-cta-letter-spacing: 0em;
 
 	/* ─────────────────────────────────────────
@@ -221,14 +219,14 @@
 	/* Easings */
 	--ease-linear: cubic-bezier(0.25, 0.25, 0.75, 0.75);
 	--ease-soft: cubic-bezier(0.25, 0.25, 0.35, 1);
-	--ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+	--ease-out: cubic-bezier(0.0, 0.0, 0.05, 1);
 	--ease-in: cubic-bezier(0.4, 0.0, 1, 1);
 	--ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
 	--ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
 	/* Reveal defaults */
 	--reveal-duration: var(--duration-slow);
-	--reveal-ease: var(--ease-soft);
+	--reveal-ease: var(--ease-out);
 	--reveal-distance: 80px;
 }
 

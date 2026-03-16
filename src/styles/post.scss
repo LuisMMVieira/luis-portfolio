@@ -105,6 +105,15 @@
 	/* padding-inline inherited from .post-section = --grid-margin-xs / --grid-margin-md */
 }
 
+/* Responsive canvas backgrounds: full-bleed at xs, contained at md+ */
+/* At mobile, canvases with backgrounds lose their bg + padding */
+@media (max-width: 767px) {
+	.post-canvas[style*="background"] {
+		background: none !important;
+		padding-block: 0 !important;
+	}
+}
+
 /* Cover hero: background image with video on top */
 .post-cover-hero {
 	background-image: var(--cover-bg);
