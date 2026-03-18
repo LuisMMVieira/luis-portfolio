@@ -1,13 +1,13 @@
 /* ─────────────────────────────────────────
    Grid System — Clean columns + padding for margins
-   xs: 2 cols + 20px padding | md/xl: 12 cols + 12px padding
+   xs: 2 cols + 20px padding | md/xl: 12 cols + 40px padding
    Grid only on sections. Post template has grid in each section.
    ───────────────────────────────────────── */
 
 /*
    [padding] [cols, no gap] [padding]
    xs:  20px padding | 2 × 1fr | 20px padding
-   md+: 12px padding | 12 × 1fr | 12px padding
+   md+: 40px padding | 12 × 1fr | 40px padding
 */
 
 $grid-12: repeat(12, 1fr);

@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import Divider from '../components/Divider.astro';
 
 import IntroContent from '../content/intro.md';
 import BeliefsContent from '../content/beliefs.md';
@@ -24,18 +23,14 @@ const projects = (await getCollection('projects'))
   <Section id="work">
     <div class="projects-list">
       {
-        projects.map((project, index) => (
-          <>
-            {index > 0 && <Divider variant="work" />}
-            <ProjectCard
-              slug={project.slug}
-              title={project.data.title}
-              description={project.data.subtitle || ''}
-              cover={project.data.cover}
-              period={project.data.period}
-              openable={project.slug !== 'spacesecure'}
-            />
-          </>
+        projects.map((project) => (
+          <ProjectCard
+            slug={project.slug}
+            title={project.data.title}
+            cover={project.data.cover}
+            period={project.data.period}
+            openable={project.slug !== 'spacesecure'}
+          />
         ))
       }
     </div>
@@ -52,29 +47,34 @@ const projects = (await getCollection('projects'))
   <Section id="about" bg="--color-emphasis">
     <AboutContent />
     <div class="about-contact">
-      <span class="about-contact__label">Contact:</span>
-      <span class="about-contact__email-wrap">
-        <a
-          href="#"
-          class="about-contact__link about-contact__link--dotted about-contact__copy-email"
-          data-email="luis@luisvieira.design">luis@luisvieira.design</a
-        >
-        <span class="about-contact__tooltip" aria-live="polite">Copied</span>
-      </span>
-      <span class="about-contact__separator">/</span>
-      <span class="about-contact__label">Social:</span>
-      <a
-        href="https://x.com/Luis_M_Vieira"
-        class="about-contact__link"
-        target="_blank"
-        rel="noopener noreferrer">X</a
-      >
-      <a
-        href="https://www.linkedin.com/in/lmmvieira/"
-        class="about-contact__link"
-        target="_blank"
-        rel="noopener noreferrer">LinkedIn</a
-      >
+      <div class="about-contact__group">
+        <span class="about-contact__label">Contact:</span>
+        <span class="about-contact__email-wrap">
+          <a
+            href="#"
+            class="about-contact__link about-contact__link--dotted about-contact__copy-email"
+            data-email="luis@luisvieira.design">luis@luisvieira.design</a
+          >
+          <span class="about-contact__tooltip" aria-live="polite">Copied</span>
+        </span>
+      </div>
+      <div class="about-contact__group">
+        <span class="about-contact__label">Social:</span>
+        <div class="about-contact__social-links">
+          <a
+            href="https://x.com/Luis_M_Vieira"
+            class="about-contact__link"
+            target="_blank"
+            rel="noopener noreferrer">X</a
+          >
+          <a
+            href="https://www.linkedin.com/in/lmmvieira/"
+            class="about-contact__link"
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn</a
+          >
+        </div>
+      </div>
     </div>
   </Section>
 </BaseLayout>

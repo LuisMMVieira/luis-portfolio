@@ -2,36 +2,26 @@
 interface Props {
   slug: string;
   title: string;
-  description: string;
   cover: string;
   period?: string;
   openable?: boolean;
-  descriptionItalic?: boolean;
 }
 
-const { slug, title, description, cover, period, openable = true, descriptionItalic = false } = Astro.props;
+const { slug, title, cover, period, openable = true } = Astro.props;
 ---
 
-<div class="project-entry">
-  <article class:list={["project-card", !openable && "project-card--no-action"]}>
-    {openable ? (
-      <a class="project-card-image" href={`/projects/${slug}`}>
-        <img src={cover} alt={title} loading="lazy" />
-      </a>
-    ) : (
-      <div class="project-card-image">
-        <img src={cover} alt={title} loading="lazy" />
-      </div>
-    )}
-    <div class="project-card-info">
-      <div class="project-card-info__main">
-        <h3 class="project-card-title">{title}</h3>
-        <p class:list={["project-card-description", descriptionItalic && "project-card-description--italic"]}>
-          {descriptionItalic ? <em>{description}</em> : description}
-        </p>
-      </div>
-      {period && <span class="project-card-period">{period}</span>}
+<article class:list={["project-card", !openable && "project-card--no-action"]}>
+  {openable ? (
+    <a class="project-card-image" href={`/projects/${slug}`}>
+      <img src={cover} alt={title} loading="lazy" />
+    </a>
+  ) : (
+    <div class="project-card-image">
+      <img src={cover} alt={title} loading="lazy" />
     </div>
-  </article>
-  {openable && <a class="btn btn--primary" href={`/projects/${slug}`}>See project</a>}
-</div>
+  )}
+  <div class="project-card-info">
+    {period && <span class="project-card-period">{period}</span>}
+    <h3 class="project-card-title">{title}</h3>
+  </div>
+</article>
