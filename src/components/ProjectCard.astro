@@ -12,8 +12,8 @@ const { slug, title, cover, period, openable = true } = Astro.props;
 
 <article class:list={["project-card", !openable && "project-card--no-action"]}>
   {openable ? (
-    <a class="project-card-image" href={`/projects/${slug}`}>
-      <img src={cover} alt={title} loading="lazy" />
+    <a class="project-card-image" href={`/projects/${slug}`} aria-label={title}>
+      <img src={cover} alt="" loading="lazy" />
     </a>
   ) : (
     <div class="project-card-image">

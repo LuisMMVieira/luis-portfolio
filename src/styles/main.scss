@@ -68,7 +68,6 @@
 	 ───────────────────────────────────────── */
 
 .section#intro {
-	min-height: 100svh;
 	position: relative;
 
 	.flow {
@@ -76,25 +75,12 @@
 		grid-template-columns: subgrid;
 		grid-column: 1 / -1;
 		align-content: start;
-		row-gap: var(--spacing-xl);
-		min-height: 100vh;
+		row-gap: var(--spacing-lg);
 		padding-block-start: var(--spacing-huge);
 		padding-block-end: var(--spacing-xl);
 		position: relative;
 	}
 
-	/* Tall viewports: no full-height, no scroll hint */
-	@media (min-height: 960px) {
-		min-height: auto;
-
-		.flow {
-			min-height: auto;
-		}
-
-		.intro-scroll-hint {
-			display: none;
-		}
-	}
 
 	h1 {
 		grid-column: 1 / -1;
@@ -109,21 +95,6 @@
 		grid-column: 1 / 2;
 	}
 
-	.intro-scroll-hint {
-		position: absolute;
-		bottom: var(--spacing-xl);
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: opacity 0.3s ease;
-
-		&.is-hidden {
-			opacity: 0;
-			pointer-events: none;
-		}
-	}
 
 	.intro-headline {
 		text-wrap: balance;
@@ -216,7 +187,6 @@
 .project-card {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md);
 }
 
 .project-card-image {
@@ -570,10 +540,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		grid-column: span 5;
 	}
 
-	.project-card {
-		gap: var(--spacing-lg);
-	}
-
 	.project-card-title {
 		font-size: var(--type-title-m-font-size);
 		line-height: var(--type-title-m-line-height);
@@ -671,8 +637,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 	/* Intro */
 	.section#intro {
-		min-height: 100vh;
-
 		.flow {
 			grid-column: 4 / 12;
 			padding-block-start: var(--spacing-max);
@@ -740,14 +704,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 }
 
-/* Touch devices (iPhone / iPad) — lift scroll hint above browser chrome */
-@media (hover: none) and (pointer: coarse) {
-	.section#intro {
-		.intro-scroll-hint {
-			margin-bottom: var(--spacing-sm); /* 12px — clears iOS bottom nav */
-		}
-	}
-}
 
 /* ─────────────────────────────────────────
 	 Components Page (private style guide)

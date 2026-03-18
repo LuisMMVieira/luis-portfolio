@@ -13,6 +13,15 @@ html {
 }
 
 /* ─────────────────────────────────────────
+   Focus-visible — keyboard-only focus ring
+   ───────────────────────────────────────── */
+
+:focus-visible {
+	outline: var(--border-width-thick) solid var(--color-emphasis);
+	outline-offset: var(--spacing-xxxs);
+}
+
+/* ─────────────────────────────────────────
    Motion library
    ───────────────────────────────────────── */
 
@@ -400,7 +409,6 @@ h6 {
 	gap: var(--spacing-xs);
 	padding: var(--spacing-xs);
 	border: none;
-	outline: none;
 	background: transparent;
 	border-radius: var(--radius-infinite);
 	cursor: pointer;
