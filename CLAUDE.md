@@ -28,7 +28,7 @@ npm run format     # Prettier (all files)
 
 ## Grid
 - **xs:** 2-col (`$grid-2`), `20px` padding-inline (`--grid-margin-xs`)
-- **md+:** 12-col (`$grid-12`), `12px` padding-inline (`--grid-margin-md`)
+- **md+:** 12-col (`$grid-12`), `40px` padding-inline (`--grid-margin-md`)
 - Column-gap: `0`. Margins come from `padding-inline`, not margin columns.
 - Max page width: `--width-modal-max` (85rem / 1360px) at xl.
 - `container`: md = `grid-column: 1/-1` (full 12 cols), xl = `grid-column: 1/-1`
@@ -111,8 +111,8 @@ Inline call-to-action link/button. Styled in `global.scss`.
 | Breakpoint | Divider padding-top | Divider padding-inline |
 |------------|--------------------|-----------------------|
 | xs         | `--spacing-xxl` (80px) | `--grid-margin-xs` (20px) |
-| md         | `--spacing-xxl` (80px) | `--grid-margin-md` (12px) |
-| xl         | `--spacing-huge` (120px) | `--grid-margin-md` (12px) |
+| md         | `--spacing-xxl` (80px) | `--grid-margin-md` (40px) |
+| xl         | `--spacing-huge` (120px) | `--grid-margin-md` (40px) |
 
 ### PostSection (sub section) spacing
 | Breakpoint | padding-top | padding-bottom |
