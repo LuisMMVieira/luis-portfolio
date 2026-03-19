@@ -13,7 +13,3 @@
     I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts: <strong>the web</strong>, <strong>mobile</strong>, <strong>social</strong>, <em>and now <strong>AI</strong></em>.
   </p>
 </div>
-
-<div class="intro-scroll-hint" aria-hidden="true">
-  <span class="cta cta--passive"><span class="cta__label">Scroll to explore</span></span>
-</div>

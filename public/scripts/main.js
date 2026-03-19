@@ -118,18 +118,6 @@ function initPage() {
   initCarousels();
   initLoopVideos();
 
-  // Scroll hint
-  var scrollHint = document.querySelector(".intro-scroll-hint");
-  if (scrollHint) {
-    window.addEventListener("scroll", function () {
-      if (window.scrollY < 10) {
-        scrollHint.classList.remove("is-hidden");
-      } else {
-        scrollHint.classList.add("is-hidden");
-      }
-    }, { passive: true });
-  }
-
   // Scroll reveal — homepage elements
   var homeSections = document.querySelectorAll(".section[id]");
   if (homeSections.length && !document.querySelector(".post-page")) {
@@ -137,18 +125,15 @@ function initPage() {
     var introContent = document.querySelector(".section#intro h1");
     var introParagraph = document.querySelector(".intro-sub-content");
     var siteHeader = document.querySelector(".site-header");
-    var scrollHint = document.querySelector(".intro-scroll-hint");
-
     // Step 1: Hide everything immediately
     [introContent, introParagraph].forEach(function (el) {
       if (!el) return;
       el.style.opacity = "0";
       el.style.transform = "translateY(200px)";
     });
-    [siteHeader, scrollHint].forEach(function (el) {
-      if (!el) return;
-      el.style.opacity = "0";
-    });
+    if (siteHeader) {
+      siteHeader.style.opacity = "0";
+    }
 
     var ease = "cubic-bezier(0.0, 0.0, 0.05, 1)";
 
@@ -162,13 +147,12 @@ function initPage() {
       });
     }, 50);
 
-    // Step 3: After reveal is done, fade in nav + scroll hint
+    // Step 3: After reveal is done, fade in nav
     setTimeout(function () {
-      [siteHeader, scrollHint].forEach(function (el) {
-        if (!el) return;
-        el.style.transition = "opacity 0.2s " + ease;
-        el.style.opacity = "1";
-      });
+      if (siteHeader) {
+        siteHeader.style.transition = "opacity 0.2s " + ease;
+        siteHeader.style.opacity = "1";
+      }
     }, 700);
 
 
