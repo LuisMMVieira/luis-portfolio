@@ -41,10 +41,10 @@
 	font-family: var(--type-text-m-font-family);
 	font-size: var(--type-text-m-font-size);
 	line-height: var(--type-text-m-line-height);
-	font-weight: var(--font-weight-regular);
+	font-weight: var(--font-weight-medium);
 	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-primary);
-	opacity: 0.35;
+	opacity: 0.30;
 	text-decoration: none;
 
 	&:hover {
@@ -54,7 +54,7 @@
 	&.is-active {
 		color: var(--text-primary);
 		opacity: 1;
-		font-weight: var(--font-weight-semibold);
+		font-weight: var(--font-weight-medium);
 	}
 }
 
@@ -142,7 +142,7 @@
 	a {
 		color: var(--text-secondary);
 		text-decoration: underline;
-		text-decoration-thickness: var(--border-width-hairline);
+		text-decoration-thickness: var(--line-width);
 		text-underline-offset: 0.15em;
 	}
 
@@ -273,8 +273,6 @@
 
 	.bg-chapter + .bg-chapter {
 		margin-top: var(--spacing-xxl);
-		border-top: var(--border-width-hairline) solid var(--border-default);
-		padding-block-start: var(--spacing-lg);
 	}
 }
 
@@ -382,7 +380,7 @@
 	letter-spacing: var(--type-text-s-letter-spacing);
 	color: var(--text-secondary);
 	background: var(--color-darkest);
-	border: var(--border-width-hairline) solid var(--border-default);
+	border: var(--line-width) solid var(--border-default);
 	border-radius: var(--radius-xs);
 	white-space: nowrap;
 	opacity: 0;
@@ -400,7 +398,7 @@
 .about-contact__link {
 	color: var(--text-primary);
 	text-decoration: underline;
-	text-decoration-thickness: var(--border-width-hairline);
+	text-decoration-thickness: var(--line-width);
 	text-underline-offset: 0.15em;
 
 	&--dotted {
@@ -442,7 +440,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 .divider__line {
 	width: 100%;
-	height: var(--border-width-hairline);
+	height: var(--line-width);
 	background-color: var(--border-default);
 }
 
@@ -540,11 +538,6 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		grid-column: span 5;
 	}
 
-	.project-card-title {
-		font-size: var(--type-title-m-font-size);
-		line-height: var(--type-title-m-line-height);
-		letter-spacing: var(--type-title-m-letter-spacing);
-	}
 
 	.section#about {
 		h3 {
@@ -589,7 +582,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 	/* Desktop: sidebar nav at grid edge */
 	.site-header {
-		--page-width: min(100vw, var(--width-modal-max));
+		--page-width: min(100vw, var(--site-max-width));
 		--page-offset: calc((100vw - var(--page-width)) / 2);
 		--col-width: calc((var(--page-width) - 2 * var(--grid-margin-md)) / 12);
 
@@ -622,17 +615,28 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		grid-column: span 4;
 	}
 
-	/* About: xl → 8-col nested grid */
+	/* About: xl → 8-col nested grid, vertical stack */
 	.section#about .flow {
 		grid-template-columns: repeat(8, 1fr);
+		gap: var(--spacing-ml);
+	}
+
+	.section#about h3 {
+		grid-column: 1 / span 6;
+	}
+
+	.section#about .about-photo {
+		grid-column: 1 / span 6;
 	}
 
 	.section#about .about-paragraphs {
-		grid-column: 1 / span 5;
+		grid-column: 1 / span 6;
 	}
 
 	.section#about .about-contact {
-		grid-column: 6 / span 3;
+		grid-column: 1 / span 5;
+		flex-direction: row;
+		gap: var(--spacing-lg);
 	}
 
 	/* Intro */
@@ -715,7 +719,7 @@ body:has(.components-page) {
 }
 
 .components-page {
-	max-width: var(--width-modal-max);
+	max-width: var(--site-max-width);
 	margin-inline: auto;
 	padding-block-end: var(--spacing-xxl);
 
@@ -727,7 +731,7 @@ body:has(.components-page) {
 	/* Post preview overrides (inside .cp-post-context wrappers) */
 	.post-canvas {
 		row-gap: var(--spacing-lg);
-		outline: var(--border-width-hairline) dashed var(--border-default);
+		outline: var(--line-width) dashed var(--border-default);
 	}
 
 	.post-figure img,
@@ -820,7 +824,7 @@ body:has(.components-page) {
 	height: 2.857rem;
 	border-radius: 50%;
 	background-color: var(--button-secondary-idle);
-	border: var(--border-width-hairline) solid var(--border-default);
+	border: var(--line-width) solid var(--border-default);
 	text-decoration: none;
 	color: var(--text-primary);
 	transition: background-color 180ms ease;
@@ -970,7 +974,7 @@ body:has(.components-page) {
 	justify-content: center;
 	padding: 2px var(--spacing-xxs);
 	border-radius: var(--radius-infinite);
-	border: var(--border-width-hairline) solid var(--border-default);
+	border: var(--line-width) solid var(--border-default);
 	background: transparent;
 	cursor: pointer;
 	font-family: var(--type-text-s-font-family);
@@ -1021,7 +1025,7 @@ body:has(.components-page) {
 	width: 100%;
 	height: 3.5rem;
 	border-radius: var(--radius-sm);
-	border: var(--border-width-hairline) solid var(--border-default);
+	border: var(--line-width) solid var(--border-default);
 }
 
 .cp-swatch__label {
@@ -1072,7 +1076,7 @@ body:has(.components-page) {
 .cp-placeholder--media {
 	aspect-ratio: 750 / 500;
 	background-color: var(--bg-elevated);
-	border: var(--border-width-hairline) solid var(--border-default);
+	border: var(--line-width) solid var(--border-default);
 }
 
 /* ── Post context wrapper ── */
@@ -1132,7 +1136,7 @@ body:has(.components-page) {
 	position: relative;
 	margin-inline: auto;
 	max-width: 100%;
-	outline: var(--border-width-thick) solid var(--border-default);
+	outline: var(--line-width-thick) solid var(--border-default);
 	overflow: hidden;
 }
 
@@ -1354,7 +1358,7 @@ body:has(.components-page) {
 		letter-spacing: var(--type-text-s-letter-spacing);
 		color: var(--text-secondary);
 		text-decoration: none;
-		border-left: var(--border-width-thick) solid transparent;
+		border-left: var(--line-width-thick) solid transparent;
 		transition: color 180ms ease, border-color 180ms ease;
 
 		&:hover {
@@ -1428,12 +1432,12 @@ body:has(.components-page) {
 	align-items: center;
 	gap: var(--spacing-md);
 	padding-block: var(--spacing-md);
-	border-block-end: var(--border-width-hairline) solid var(--border-default);
+	border-block-end: var(--line-width) solid var(--border-default);
 	text-decoration: none;
 	transition: background-color 0.15s ease;
 
 	&:first-child {
-		border-block-start: var(--border-width-hairline) solid var(--border-default);
+		border-block-start: var(--line-width) solid var(--border-default);
 	}
 
 	&:hover {

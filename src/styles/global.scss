@@ -17,7 +17,7 @@ html {
    ───────────────────────────────────────── */
 
 :focus-visible {
-	outline: var(--border-width-thick) solid var(--color-emphasis);
+	outline: var(--line-width-thick) solid var(--color-emphasis);
 	outline-offset: var(--spacing-xxxs);
 }
 
@@ -273,7 +273,7 @@ button.cta {
 	width: 3.143rem; /* 44px */
 	height: 0.571rem; /* 8px */
 	border-radius: var(--radius-infinite);
-	border: var(--border-width-thick) solid var(--border-default);
+	border: var(--line-width-thick) solid var(--border-default);
 	background: linear-gradient(to right, var(--color-light) 50%, var(--color-darkest) 50%);
 }
 
@@ -444,7 +444,7 @@ h6 {
 	.project-page__container {
 		width: 100%;
 		min-width: 75rem;
-		max-width: var(--width-modal-max);
+		max-width: var(--site-max-width);
 		margin-inline: auto;
 	}
 }

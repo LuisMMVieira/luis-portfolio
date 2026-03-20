@@ -25,7 +25,7 @@ $grid-2: 1fr 1fr;
 
 @media (min-width: 1200px) {
 	.page {
-		max-width: var(--width-modal-max);
+		max-width: var(--site-max-width);
 		margin-inline: auto;
 	}
 

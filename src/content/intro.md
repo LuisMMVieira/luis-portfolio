@@ -2,7 +2,7 @@
 ---
 
 <h1>
-  <span class="intro-greeting">Hi there</span>
+  <span class="intro-greeting">Hi there,</span>
   <span class="intro-headline">
     I'm Luís Vieira, a digital product designer, intimate with <span class="intro-headline__emphasis">systems</span> and <span class="intro-headline__emphasis">aesthetics</span>
   </span>
@@ -14,6 +14,3 @@
   </p>
 </div>
 
-<div class="intro-scroll-hint" aria-hidden="true">
-  <span class="cta cta--passive"><span class="cta__label">Scroll to explore</span></span>
-</div>

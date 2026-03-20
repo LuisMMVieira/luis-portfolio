@@ -80,17 +80,17 @@
 	--grid-margin-md: var(--spacing-lg);
 	/* 40px */
 
-	--width-text-max: 40rem;
+	--text-max-width: 40rem;
 	/* 560px */
-	--width-text-max-wide: 47.714rem;
+	--text-max-width-wide: 47.714rem;
 	/* 668px */
-	--width-text-minimum-max: 22.857rem;
+	--text-minimum-max-width: 22.857rem;
 	/* 320px */
 	--width-section-text: 25.714rem;
 	/* 360px */
 	--width-container-max: 91.429rem;
 	/* 1280px */
-	--width-modal-max: 97.143rem;
+	--site-max-width: 97.143rem;
 	/* 1360px */
 	--width-thumbnail: 20rem;
 	/* 280px */
@@ -105,9 +105,9 @@
 	 Borders
 	 ───────────────────────────────────────── */
 
-	--border-width-hairline: 0.5px;
+	--line-width: 0.5px;
 	--border-width-default: 1px;
-	--border-width-thick: 1.5px;
+	--line-width-thick: 1.5px;
 
 	/* ─────────────────────────────────────────
 		 Radius
@@ -132,6 +132,7 @@
 	--font-family-sans: 'IBM Plex Sans', system-ui, sans-serif;
 
 	--font-weight-regular: 400;
+	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
 
 	/* ─────────────────────────────────────────
@@ -145,17 +146,17 @@
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
-	/* Title L — 44px / 115% / -0.88px (Figma: title-l) */
+	/* Title L — 50px / 110% / -1px (Figma: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 3.143rem;
-	--type-title-l-line-height: 1.15;
+	--type-title-l-font-size: 3.571rem;
+	--type-title-l-line-height: 1.1;
 	--type-title-l-letter-spacing: -0.02em;
 
-	/* Title M — 30px / 120% / -0.6px (Figma: title-m, Ag M) */
+	/* Title M — 34px / 120% / -0.68px (Figma: title-m) */
 	--type-title-m-font-family: var(--font-family-display);
 	--type-title-m-font-weight: var(--font-weight-semibold);
-	--type-title-m-font-size: 2.143rem;
+	--type-title-m-font-size: 2.429rem;
 	--type-title-m-line-height: 1.2;
 	--type-title-m-letter-spacing: -0.02em;
 
