@@ -74,11 +74,11 @@
 	 Layout / Widths
 	 ───────────────────────────────────────── */
 
-	/* Grid margins: side padding — xs 20px, md/xl 40px */
+	/* Grid margins: side padding — 20px at all breakpoints */
 	--grid-margin-xs: var(--spacing-md);
 	/* 20px */
-	--grid-margin-md: var(--spacing-lg);
-	/* 40px */
+	--grid-margin-md: var(--spacing-md);
+	/* 20px */
 
 	--text-max-width: 40rem;
 	/* 560px */

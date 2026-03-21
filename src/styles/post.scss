@@ -23,8 +23,7 @@
 .post-header {
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
-	padding-block-start: var(--spacing-md);
-	padding-block-end: var(--spacing-sm);
+	padding-block: var(--spacing-md);
 
 	.post-header__wrapper {
 		grid-column: 1 / -1;
@@ -59,8 +58,7 @@
 
 /* Canvas: section owns the padding (same as --big at xs) */
 .post-section--canvas {
-	padding-block-start: var(--spacing-lg);
-	padding-block-end: var(--spacing-sm);
+	padding-block: var(--spacing-md);  /* 20px */
 }
 
 /* Canvas: CSS Grid container (child of section or header) */
@@ -90,13 +88,11 @@
 }
 
 .post-section--small {
-	padding-block-start: var(--spacing-lg);  /* 40px */
-	padding-block-end: var(--spacing-sm);    /* 12px */
+	padding-block: var(--spacing-md);  /* 20px */
 }
 
 .post-section--big {
-	padding-block-start: var(--spacing-lg);  /* 40px */
-	padding-block-end: var(--spacing-sm);    /* 12px */
+	padding-block: var(--spacing-md);  /* 20px */
 }
 
 /* Full: keeps lateral padding (grid padding-inline). Hero images stay inside grid. */
@@ -442,12 +438,12 @@
 
 	.post-section-group__divider {
 		padding-inline: var(--grid-margin-md);
+		padding-block-start: var(--spacing-huge); /* 120px */
 	}
 
 	.post-header {
 		padding-inline: var(--grid-margin-md);
-		padding-block-start: var(--spacing-xl);
-		padding-block-end: var(--spacing-xxl);
+		padding-block: var(--spacing-xl); /* 56px */
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
@@ -460,6 +456,12 @@
 
 	.post-section {
 		padding-inline: var(--grid-margin-md);
+	}
+
+	.post-section--big,
+	.post-section--small,
+	.post-section--canvas {
+		padding-block: var(--spacing-ml); /* 30px */
 	}
 
 	.post-canvas {
@@ -489,7 +491,7 @@
 	}
 
 	.post-section--media-center .post-figure {
-		grid-column: 4 / 10;
+		grid-column: 3 / 11;
 	}
 
 	.post-section--media-left-wide .post-figure {
@@ -513,6 +515,31 @@
 		grid-column: 9 / 13;
 	}
 
+	/* 2-column media variants: two children placed on the CSS grid */
+	.post-section--media-2-left .post-canvas > :nth-child(1) {
+		grid-column: 1 / 9;
+	}
+	.post-section--media-2-left .post-canvas > :nth-child(2) {
+		grid-column: 10 / 13;
+		grid-row: 1;
+	}
+
+	.post-section--media-2-right .post-canvas > :nth-child(1) {
+		grid-column: 1 / 4;
+	}
+	.post-section--media-2-right .post-canvas > :nth-child(2) {
+		grid-column: 5 / 13;
+		grid-row: 1;
+	}
+
+	.post-section--media-2-center .post-canvas > :nth-child(1) {
+		grid-column: 1 / 6;
+	}
+	.post-section--media-2-center .post-canvas > :nth-child(2) {
+		grid-column: 8 / 13;
+		grid-row: 1;
+	}
+
 	.post-page .post-scroll-right-wide {
 		grid-column: 4 / 13;
 
@@ -533,8 +560,7 @@
 	}
 
 	.post-header {
-		padding-block-start: var(--spacing-xxl);
-		padding-block-end: var(--spacing-huge);
+		padding-block: var(--spacing-xxl); /* 80px */
 		max-width: var(--site-max-width);
 		margin-inline: auto;
 
@@ -548,9 +574,9 @@
 	}
 
 	.post-section--big,
+	.post-section--small,
 	.post-section--canvas {
-		padding-block-start: var(--spacing-xl);  /* 56px */
-		padding-block-end: var(--spacing-sm);    /* 12px */
+		padding-block: var(--spacing-ml); /* 30px — same as md */
 	}
 
 	/* Text content: narrow column inset */
@@ -598,6 +624,28 @@
 	.post-section--media-right-small .post-figure {
 		grid-column: 9 / 13;
 		/* cols 9-12 */
+	}
+
+	/* 2-column media variants at xl — same columns as md */
+	.post-section--media-2-left .post-canvas > :nth-child(1) {
+		grid-column: 1 / 9;
+	}
+	.post-section--media-2-left .post-canvas > :nth-child(2) {
+		grid-column: 10 / 13;
+	}
+
+	.post-section--media-2-right .post-canvas > :nth-child(1) {
+		grid-column: 1 / 4;
+	}
+	.post-section--media-2-right .post-canvas > :nth-child(2) {
+		grid-column: 5 / 13;
+	}
+
+	.post-section--media-2-center .post-canvas > :nth-child(1) {
+		grid-column: 1 / 6;
+	}
+	.post-section--media-2-center .post-canvas > :nth-child(2) {
+		grid-column: 8 / 13;
 	}
 
 	.post-page .post-scroll-right-wide {

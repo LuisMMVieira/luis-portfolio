@@ -34,8 +34,8 @@ All tokens in `src/styles/tokens.scss` — read it before writing CSS.
 xs = default (mobile-first), md = `48rem` (768px), xl = `75rem` (1200px). Hardcoded in media queries, not SCSS variables.
 
 ## Grid
-- **xs:** 2-col (`$grid-2`), padding-inline `--grid-margin-xs`
-- **md+:** 12-col (`$grid-12`), padding-inline `--grid-margin-md`
+- **Grid margins are 20px at all breakpoints** (`--grid-margin-xs` and `--grid-margin-md` are both `--spacing-md`). Same grid across pages and posts.
+- **xs:** 2-col (`$grid-2`). **md+:** 12-col (`$grid-12`).
 - Column-gap: `0`. Max page width: `--site-max-width`.
 - `container`: full width. `container--narrow`: md = cols 3/11, xl = cols 4/10.
 
