@@ -730,6 +730,9 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 	.section#beliefs p {
+		font-size: var(--type-title-l-font-size);
+		line-height: var(--type-title-l-line-height);
+		letter-spacing: var(--type-title-l-letter-spacing);
 		max-width: var(--text-max-width); /* 560px */
 	}
 
