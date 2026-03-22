@@ -12,10 +12,19 @@ html {
 	}
 }
 
-/* Dazzed OpenType features: applied globally, only affects Dazzed glyphs */
-* {
+/* Dazzed OpenType features — only on elements using the display font */
+h1, h2, h3, h4, h5, h6,
+.intro-headline,
+.intro-greeting,
+.section#beliefs p,
+.cta__bracket,
+.post-header__title,
+.post-text h2,
+.post-text h3,
+.divider__label {
 	font-feature-settings: var(--font-feature-settings-display);
 }
+
 
 /* ─────────────────────────────────────────
    Focus-visible — keyboard-only focus ring
