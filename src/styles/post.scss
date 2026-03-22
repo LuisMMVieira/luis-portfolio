@@ -409,6 +409,11 @@
 /* Scroll right-wide strip — right-wide grid (cols 4/13 at md+), full-width at xs */
 /* Figma: py=80px, right-aligned overflow, transparent bg by default */
 /* .post-page prefix beats .project-page__container img reset */
+/* Section containing a scroll strip loses right padding so image bleeds to viewport edge */
+.post-section:has(.post-scroll-right-wide) {
+	padding-inline-end: 0;
+}
+
 .post-page .post-scroll-right-wide {
 	overflow-x: auto;
 	scrollbar-width: none;
@@ -416,8 +421,6 @@
 	flex-direction: row;
 	align-items: flex-end;
 	padding-block: var(--spacing-xxl); /* 80px */
-	/* Bleed to viewport edge on the right */
-	margin-right: calc(-1 * var(--grid-margin-xs));
 
 	&::-webkit-scrollbar {
 		display: none;
