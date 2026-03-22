@@ -1,11 +1,11 @@
 /* ─────────────────────────────
    Typography · Dazzed (Headings)
-   Zeplin: DazzedTRIAL, weight 600
    ───────────────────────────── */
 
 @font-face {
   font-family: "Dazzed";
-  src: url("/fonts/DazzedTRIAL-SemiBold.woff2") format("woff2");
+  src: url("/fonts/Dazzed-SemiBold.woff2") format("woff2"),
+       url("/fonts/Dazzed-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: fallback;

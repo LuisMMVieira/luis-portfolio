@@ -689,7 +689,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 		.intro-headline {
 			font-size: var(--type-title-hero-font-size);
-			line-height: var(--type-title-hero-line-height);
+			line-height: 98%;
 			letter-spacing: var(--type-title-hero-letter-spacing);
 		}
 
