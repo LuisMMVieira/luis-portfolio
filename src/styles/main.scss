@@ -688,9 +688,9 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		}
 
 		.intro-headline {
-			font-size: var(--type-title-l-font-size);
-			line-height: var(--type-title-l-line-height);
-			letter-spacing: var(--type-title-l-letter-spacing);
+			font-size: var(--type-title-hero-font-size);
+			line-height: var(--type-title-hero-line-height);
+			letter-spacing: var(--type-title-hero-letter-spacing);
 		}
 
 		.intro-greeting {

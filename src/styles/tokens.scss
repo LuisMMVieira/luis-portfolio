@@ -139,6 +139,13 @@
 	 Type Roles — Title (Zeplin: title-*, DazzedTRIAL 600)
 	 ───────────────────────────────────────── */
 
+	/* Title Hero — 70px / 102% (Figma: title-hero, intro headline at xl) */
+	--type-title-hero-font-family: var(--font-family-display);
+	--type-title-hero-font-weight: var(--font-weight-semibold);
+	--type-title-hero-font-size: 5rem;
+	--type-title-hero-line-height: 1.02;
+	--type-title-hero-letter-spacing: -0.02em;
+
 	/* Title XL — 56px / 106% (Ag XL) */
 	--type-title-xl-font-family: var(--font-family-display);
 	--type-title-xl-font-weight: var(--font-weight-semibold);
@@ -146,10 +153,10 @@
 	--type-title-xl-line-height: 1.06;
 	--type-title-xl-letter-spacing: -0.02em;
 
-	/* Title L — 50px / 110% / -1px (Figma: title-l) */
+	/* Title L — 52px / 110% (Figma: title-l) */
 	--type-title-l-font-family: var(--font-family-display);
 	--type-title-l-font-weight: var(--font-weight-semibold);
-	--type-title-l-font-size: 3.571rem;
+	--type-title-l-font-size: 3.714rem;
 	--type-title-l-line-height: 1.1;
 	--type-title-l-letter-spacing: -0.02em;
 
