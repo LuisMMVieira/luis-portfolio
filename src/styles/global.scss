@@ -12,6 +12,15 @@ html {
 	}
 }
 
+/* Dazzed OpenType features: stylistic sets + discretionary ligatures */
+h1, h2, h3, h4, h5, h6,
+.intro-headline,
+.intro-greeting,
+.section#beliefs p,
+.cta__bracket {
+	font-feature-settings: var(--font-feature-settings-display);
+}
+
 /* ─────────────────────────────────────────
    Focus-visible — keyboard-only focus ring
    ───────────────────────────────────────── */
