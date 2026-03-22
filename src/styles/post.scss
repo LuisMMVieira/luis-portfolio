@@ -416,6 +416,8 @@
 	flex-direction: row;
 	align-items: flex-end;
 	padding-block: var(--spacing-xxl); /* 80px */
+	/* Bleed to viewport edge on the right */
+	margin-right: calc(-1 * var(--grid-margin-xs));
 
 	&::-webkit-scrollbar {
 		display: none;
