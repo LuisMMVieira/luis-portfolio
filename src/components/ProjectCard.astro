@@ -21,7 +21,7 @@ const { slug, title, cover, period, openable = true } = Astro.props;
     </div>
   )}
   <div class="project-card-info">
-    
     <h3 class="project-card-title">{title}</h3>
+    {!openable && <p class="project-card-status">Coming soon</p>}
   </div>
 </article>
