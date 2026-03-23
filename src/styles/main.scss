@@ -364,6 +364,8 @@
 .about-contact__group {
 	display: flex;
 	flex-direction: column;
+	gap: var(--spacing-xs);
+	align-items: flex-start;
 }
 
 .about-contact__social-links {
