@@ -18,7 +18,7 @@ function initCarousels(root) {
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.opacity = "1";
       slides[i].style.zIndex = slides.length - i;
-      slides[i].style.transition = "opacity 0.5s ease";
+      slides[i].style.transition = "opacity 0.2s ease";
     }
 
     function getDelay(i) { return config[i] ? config[i][0] : defaultMs; }
@@ -34,7 +34,7 @@ function initCarousels(root) {
           slides[current].style.transition = "none";
           slides[current].style.opacity = "0";
           void carousel.offsetHeight;
-          slides[current].style.transition = "opacity 0.5s ease";
+          slides[current].style.transition = "opacity 0.2s ease";
         }
         current = (current + 1) % slides.length;
         // On loop reset: snap all back instantly
@@ -46,7 +46,7 @@ function initCarousels(root) {
           }
           void carousel.offsetHeight;
           for (var i = 0; i < slides.length; i++) {
-            slides[i].style.transition = "opacity 0.5s ease";
+            slides[i].style.transition = "opacity 0.2s ease";
           }
         }
         step();
@@ -54,6 +54,89 @@ function initCarousels(root) {
       _carouselTimers.push(id);
     }
     step();
+  });
+}
+
+// Unbox theme toggle: swap light/dark image sets
+function initUnboxToggle() {
+  document.querySelectorAll("[data-unbox-switch]").forEach(function (toggle) {
+    if (toggle._bound) return;
+    toggle._bound = true;
+
+    // Reparent toggle to the subsection so it sits outside the scroll container
+    var subsection = toggle.closest(".post-subsection");
+    var canvas = toggle.closest(".post-canvas");
+    if (subsection) {
+      subsection.style.position = "relative";
+      subsection.appendChild(toggle);
+    }
+
+    // Add spacer so last image can scroll to same center position as first
+    if (canvas) {
+      var slot = canvas.querySelector(".content-slot");
+      if (slot) {
+        var slides = slot.querySelector(".post-unbox-strip__slides");
+        if (slides && !slides.querySelector(".post-unbox-strip__spacer")) {
+          var spacer = document.createElement("div");
+          spacer.className = "post-unbox-strip__spacer";
+          spacer.style.flex = "0 0 0px";
+          slides.appendChild(spacer);
+
+          // Measure and correct in next frame when layout is stable
+          requestAnimationFrame(function () {
+            var firstImg = slides.querySelector("[data-unbox-slide]");
+            var canvasRect = canvas.getBoundingClientRect();
+            var targetLeft = firstImg.getBoundingClientRect().left - canvasRect.left;
+            var theme = slides.closest("[data-unbox-theme]").getAttribute("data-unbox-theme");
+            var imgs = slides.querySelectorAll('[data-unbox-slide="' + theme + '"]');
+            var lastImg = imgs[imgs.length - 1];
+
+            // Scroll to end, measure, correct, restore
+            var saved = canvas.scrollLeft;
+            canvas.scrollLeft = canvas.scrollWidth;
+            var lastLeft = lastImg.getBoundingClientRect().left - canvasRect.left;
+            var needed = lastLeft - targetLeft;
+            canvas.scrollLeft = saved;
+
+            // Set spacer and do a second correction pass
+            spacer.style.flex = "0 0 " + Math.max(0, needed) + "px";
+            requestAnimationFrame(function () {
+              canvas.scrollLeft = canvas.scrollWidth;
+              var finalLeft = lastImg.getBoundingClientRect().left - canvas.getBoundingClientRect().left;
+              var diff = finalLeft - targetLeft;
+              if (Math.abs(diff) > 1) {
+                var current = parseFloat(spacer.style.flex.split(" ")[2]) || 0;
+                spacer.style.flex = "0 0 " + Math.max(0, current + diff) + "px";
+              }
+              canvas.scrollLeft = saved;
+            });
+          });
+        }
+      }
+    }
+
+    toggle.addEventListener("click", function () {
+      var strip = subsection.querySelector("[data-unbox-theme]");
+      if (!strip) return;
+      var current = strip.getAttribute("data-unbox-theme");
+      var next = current === "light" ? "dark" : "light";
+      strip.setAttribute("data-unbox-theme", next);
+      toggle.setAttribute("data-unbox-active", next);
+
+      // Swap canvas bg
+      var cvs = subsection.querySelector(".post-canvas");
+      if (cvs) {
+        var bg = next === "dark" ? "var(--color-medium-dark)" : "var(--color-dark)";
+        cvs.style.backgroundColor = bg;
+      }
+
+      var slides = strip.querySelector(".post-unbox-strip__slides");
+      if (slides) {
+        slides.querySelectorAll("[data-unbox-slide]").forEach(function (img) {
+          img.style.display = img.getAttribute("data-unbox-slide") === next ? "" : "none";
+        });
+      }
+    });
   });
 }
 
@@ -114,9 +197,10 @@ function initPage() {
     }
   }
 
-  // Carousels & videos
+  // Carousels, videos & toggles
   initCarousels();
   initLoopVideos();
+  initUnboxToggle();
 
   // Scroll hint
   var scrollHint = document.querySelector(".intro-scroll-hint");
@@ -200,7 +284,7 @@ function initPage() {
   if (postPage) {
     // All content objects reveal on scroll — one rule for all
     postPage.querySelectorAll(
-      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide"
+      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip"
     ).forEach(function (el) {
       el.classList.add("reveal");
     });

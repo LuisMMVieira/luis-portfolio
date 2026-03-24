@@ -33,12 +33,10 @@ draft: false
   <Figure src="/assets/projects/spaceship/images/homepage/sps-home-handoff.png" alt="Homepage design handoff" caption="Homepage handoff." />
 </PostSection>
 
-{/* Breakpoints — panoramic horizontal scroll (custom canvas, no slot) */}
-<section class="post-subsection post-subsection--big">
-  <div class="post-canvas post-canvas--scroll-x" style="padding-block: var(--spacing-xxl)">
-    <img src="/assets/projects/spaceship/images/homepage/sps-home-breakpoints.png" alt="Spaceship homepage across breakpoints" loading="lazy" />
-  </div>
-</section>
+{/* Breakpoints — panoramic horizontal scroll, right-wide */}
+<PostSection media="right-wide" padding="spacing-xxl" scroll>
+  <Figure src="/assets/projects/spaceship/images/homepage/sps-home-breakpoints.png" alt="Spaceship homepage across breakpoints" />
+</PostSection>
 
 <PostSection media="full">
   <Figure src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="Domain search and transfer mode-switching logic" caption="Domain search and transfer mode-switching logic." />
@@ -64,24 +62,18 @@ draft: false
 
 <PostSectionGroup title="The Launchpad">
 
-{/* Launchpad carousel — custom component, no PostSection wrapper needed for canvas control */}
-<section class="post-subsection post-subsection--canvas">
-  <div class="post-canvas" style="background-color: var(--color-light); padding-block: var(--spacing-xl)">
-    <div class="post-canvas-carousel">
-      <div class="post-canvas-carousel__canvas">
-        <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 01.png" alt="Launchpad" />
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 02.png" alt="Launchpad" />
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 03.png" alt="Launchpad" />
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 04.png" alt="Launchpad" />
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 05.png" alt="Launchpad" />
-          <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 06.png" alt="Launchpad" />
-        </div>
-      </div>
+<PostSection layout="canvas" media="center-wide" bg="color-light" padding="spacing-xxl" caption="The Launchpad allowed users to reach applications fast, where customization was possible.">
+  <div class="post-canvas-carousel">
+    <div class="post-canvas-carousel__frame" data-image-carousel data-slides="[[5000,true],[3000,true],[1000,true],[1000,true],[3000,true],[5000,false]]">
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 01.png" alt="Launchpad" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 02.png" alt="Launchpad" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 03.png" alt="Launchpad" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 04.png" alt="Launchpad" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 05.png" alt="Launchpad" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/launchpad/carousel/Variation=sps launchpad 06.png" alt="Launchpad" />
     </div>
   </div>
-  <p class="post-subsection__caption">The Launchpad allowed users to reach applications fast, where customization was possible.</p>
-</section>
+</PostSection>
 
 <PostSection media="right-wide">
   <Figure src="/assets/projects/spaceship/images/launchpad/sps-launchpad-grids.png" alt="Launchpad 2-grid system" caption="Launchpad 2-grid system." />
@@ -107,22 +99,19 @@ draft: false
 
 <PostSectionGroup title="Manager Applications">
 
-{/* Managers carousel — custom component */}
-<section class="post-subsection post-subsection--canvas">
-  <div class="post-canvas" style="background-color: var(--bg-elevated); padding-block: var(--spacing-xl)">
-    <div class="post-managers-carousel">
-      <div class="post-managers-carousel__frame" data-image-carousel data-interval="3000">
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-1.png" alt="Domain Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-2.png" alt="Domain Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-3.png" alt="Domain Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-1.png" alt="Hosting Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-2.png" alt="Hosting Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-subscription-manager.png" alt="Subscription Manager" />
-        <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-connection-manager.png" alt="Connection Manager" />
-      </div>
+<PostSection layout="canvas" media="center-wide" bg="bg-elevated" padding="spacing-xxl">
+  <div class="post-managers-carousel">
+    <div class="post-managers-carousel__frame" data-image-carousel data-interval="2000">
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-1.png" alt="Domain Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-2.png" alt="Domain Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-domain-manager-3.png" alt="Domain Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-1.png" alt="Hosting Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-hosting-manager-2.png" alt="Hosting Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-subscription-manager.png" alt="Subscription Manager" />
+      <img data-carousel-slide src="/assets/projects/spaceship/images/managers/carousel/Variation=sps-connection-manager.png" alt="Connection Manager" />
     </div>
   </div>
-</section>
+</PostSection>
 
 <PostSection media="center">
   <PostText>
@@ -137,21 +126,33 @@ draft: false
 
 <PostSectionGroup title="Unbox™️">
 
-{/* Unbox light screens — custom scroll strip */}
-<section class="post-subsection post-subsection--canvas">
-  <div class="post-canvas" style="background-color: var(--bg-elevated); padding-block: var(--spacing-huge); overflow: clip">
-    <div class="post-scroll-right-wide post-scroll-right-wide--elevated">
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-1.png" alt="Unbox onboarding step 1" />
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-2.png" alt="Unbox onboarding step 2" />
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-3.png" alt="Unbox onboarding step 3" />
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-4.png" alt="Unbox onboarding step 4" />
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-5.png" alt="Unbox onboarding step 5" />
-      <img src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-6.png" alt="Unbox onboarding step 6" />
+<PostSection layout="canvas" media="center" bg="color-dark" padding="spacing-huge" scroll>
+  <div class="post-unbox-strip" data-unbox-theme="light">
+    <div class="post-unbox-strip__switch" data-unbox-switch>
+      <span class="post-unbox-strip__switch-label">Light</span>
+      <span class="post-unbox-strip__switch-track">
+        <span class="post-unbox-strip__switch-thumb"></span>
+      </span>
+      <span class="post-unbox-strip__switch-label">Dark</span>
+    </div>
+    <div class="post-unbox-strip__slides">
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-1.png" alt="Unbox onboarding step 1" />
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-2.png" alt="Unbox onboarding step 2" />
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-3.png" alt="Unbox onboarding step 3" />
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-4.png" alt="Unbox onboarding step 4" />
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-5.png" alt="Unbox onboarding step 5" />
+      <img data-unbox-slide="light" src="/assets/projects/spaceship/images/unbox/light/Variation=sps-unbox-light-6.png" alt="Unbox onboarding step 6" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-1.png" alt="Unbox onboarding step 1 dark" style="display:none" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-2.png" alt="Unbox onboarding step 2 dark" style="display:none" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-3.png" alt="Unbox onboarding step 3 dark" style="display:none" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-4.png" alt="Unbox onboarding step 4 dark" style="display:none" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-5.png" alt="Unbox onboarding step 5 dark" style="display:none" />
+      <img data-unbox-slide="dark" src="/assets/projects/spaceship/images/unbox/dark/Variation=sps-unbox-dark-6.png" alt="Unbox onboarding step 6 dark" style="display:none" />
     </div>
   </div>
-</section>
+</PostSection>
 
-<PostSection media="center">
+<PostSection media="center" padding="spacing-xl">
   <PostText>
     <p>Unbox is where Spaceship goes from "I bought a domain" to "I have a working site." It's the post-purchase flow that guides users through connecting and configuring everything — hosting, email, SSL, CMS — into one setup. The design challenge was real: dozens of product combinations, each with its own logic, all needing to feel like one path. We mapped 12+ scenarios and designed a system that absorbs the complexity underneath. Choose, connect, configure, create.</p>
   </PostText>
@@ -184,7 +185,7 @@ draft: false
 <PostSectionGroup>
 
 <PostSection media="center" padding="spacing-xxl" slotGap="spacing-xl">
-  <PostText heading="About">
+  <PostText>
     <p>Spaceship is a Namecheap spin-off built to reimagine what the domain and online presence industry could be, and set a new standard in design and technology. I joined a small founding team before any product existed. Over six years, we built the platform from nothing into a full ecosystem. I shaped its core experiences end-to-end, led cross-functional design initiatives, and built the system and documentation that other teams shipped with. The vision was fully realized.</p>
     <p><strong>5 million domains under management.</strong> A 4.4★ on Trustpilot across 4,000+ reviews. The interface and ease of use are what get mentioned most.</p>
   </PostText>
