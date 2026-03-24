@@ -19,45 +19,45 @@
 	}
 }
 
-/* Post Header */
+/* Post Header — Figma: Sub Section (title + intro) */
 .post-header {
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
-	padding-block: var(--spacing-md);
+	padding-block: var(--spacing-md); /* 20px xs */
 
 	.post-header__wrapper {
 		grid-column: 1 / -1;
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-lg);
+		gap: var(--spacing-ml); /* 30px xs */
 	}
 }
 
 /* ── Section Group: wraps divider + multiple subsections ── */
 
-.post-section-group {
+.post-section {
 	width: 100%;
 }
 
-.post-section-group__divider {
+.post-section__divider {
 	padding-block-start: var(--spacing-xxl); /* 80px */
 	padding-inline: var(--grid-margin-xs);
 }
 
-.post-section-group__body {
+.post-section__body {
 	display: flex;
 	flex-direction: column;
 }
 
 /* ── Post Section (subsection): padding wrapper ── */
 
-.post-section {
+.post-subsection {
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
 }
 
 /* Canvas: section owns the padding (same as --big at xs) */
-.post-section--canvas {
+.post-subsection--canvas {
 	padding-block: var(--spacing-md);  /* 20px */
 }
 
@@ -74,6 +74,12 @@
 	}
 }
 
+/* Content slot — Figma: Content (Place on section grid) */
+.content-slot {
+	display: flex;
+	flex-direction: column;
+}
+
 /* Dev: canvas outline + image placeholders — only on draft templates & components page */
 .post-page--draft .post-canvas,
 .cp-post-context .post-canvas {
@@ -87,18 +93,18 @@
 	background-color: var(--color-emphasis-transparency-high);
 }
 
-.post-section--small {
+.post-subsection--small {
 	padding-block: var(--spacing-md);  /* 20px */
 }
 
-.post-section--big {
+.post-subsection--big {
 	padding-block: var(--spacing-md);  /* 20px */
 }
 
 /* Full: keeps lateral padding (grid padding-inline). Hero images stay inside grid. */
-.post-section--full {
+.post-subsection--full {
 	padding-block: 0;
-	/* padding-inline inherited from .post-section = --grid-margin-xs / --grid-margin-md */
+	/* padding-inline inherited from .post-subsection = --grid-margin-xs / --grid-margin-md */
 }
 
 /* Responsive canvas backgrounds: full-bleed at xs, contained at md+ */
@@ -197,7 +203,7 @@
 }
 
 /* col2/col3 inner wrapper: stacked at xs, flex row at md+ */
-.post-section__cols {
+.post-subsection__cols {
 	grid-column: 1 / -1;
 	display: flex;
 	flex-direction: column;
@@ -239,9 +245,9 @@
 
 @media (min-width: 1200px) {
 	.post-header__title {
-		font-size: var(--type-title-xl-font-size);
-		line-height: var(--type-title-xl-line-height);
-		letter-spacing: var(--type-title-xl-letter-spacing);
+		font-size: var(--type-title-l-font-size); /* 52px — Figma: Title/L at xl */
+		line-height: var(--type-title-l-line-height);
+		letter-spacing: var(--type-title-l-letter-spacing);
 	}
 }
 
@@ -317,12 +323,12 @@
 	margin: 0;
 }
 
-.post-section--small .post-figure__caption,
-.post-section--big .post-figure__caption {
+.post-subsection--small .post-figure__caption,
+.post-subsection--big .post-figure__caption {
 	padding-inline: 0;
 }
 
-.post-section__caption {
+.post-subsection__caption {
 	font-family: var(--type-text-m-font-family);
 	font-size: var(--type-text-m-font-size);
 	font-weight: var(--type-text-m-font-weight);
@@ -341,17 +347,23 @@
 .post-text {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-sm);
+	gap: var(--spacing-sm); /* 12px — Figma: Text Block gap (title ↔ first paragraph) */
 }
 
 .post-text__title {
-	font-family: var(--type-title-m-font-family);
-	font-size: var(--type-title-m-font-size);
-	font-weight: var(--type-title-m-font-weight);
-	line-height: var(--type-title-m-line-height);
-	letter-spacing: var(--type-title-m-letter-spacing);
+	font-family: var(--type-title-s-font-family);
+	font-size: var(--type-title-s-font-size); /* 22px — Figma: Title/S at xs+md */
+	font-weight: var(--type-title-s-font-weight);
+	line-height: var(--type-title-s-line-height);
+	letter-spacing: var(--type-title-s-letter-spacing);
 	color: var(--text-primary);
 	margin: 0;
+
+	@media (min-width: 1200px) {
+		font-size: var(--type-title-m-font-size); /* 34px — Figma: Title/M at xl */
+		line-height: var(--type-title-m-line-height);
+		letter-spacing: var(--type-title-m-letter-spacing);
+	}
 }
 
 .post-text p {
@@ -362,7 +374,10 @@
 	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-secondary);
 	margin: 0;
+}
 
+.post-text p + p {
+	margin-top: var(--spacing-xs); /* +8px → 20px total between paragraphs (12px gap + 8px margin) */
 }
 
 /* ─────────────────────────────────────────
@@ -392,8 +407,12 @@
 	line-height: var(--type-text-m-line-height);
 	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-primary);
-	min-width: 8rem; /* 112px — aligns values across rows */
+	min-width: 8rem; /* 112px — Figma: Post Meta label width at xs+md */
 	margin: 0;
+
+	@media (min-width: 1200px) {
+		min-width: 4.571rem; /* 64px — Figma: Post Meta label width at xl */
+	}
 }
 
 .post-meta__value {
@@ -406,11 +425,30 @@
 	margin: 0;
 }
 
+/* Panoramic scroll — block layout, horizontal scroll, no scrollbar */
+.post-page .post-canvas--scroll-x {
+	display: block;
+	overflow-x: auto;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* Panoramic image — proportional, never squashed */
+.post-page .post-canvas--scroll-x img {
+	display: block;
+	width: auto;
+	height: 280px;
+	max-width: none;
+}
+
 /* Scroll right-wide strip — right-wide grid (cols 4/13 at md+), full-width at xs */
 /* Figma: py=80px, right-aligned overflow, transparent bg by default */
 /* .post-page prefix beats .project-page__container img reset */
 /* Section containing a scroll strip loses right padding so image bleeds to viewport edge */
-.post-section:has(.post-scroll-right-wide) {
+.post-subsection:has(.post-scroll-right-wide) {
 	padding-inline-end: 0;
 }
 
@@ -441,17 +479,18 @@
 
 @media (min-width: 768px) {
 
-	.post-section-group__divider {
+	.post-section__divider {
 		padding-inline: var(--grid-margin-md);
 		padding-block-start: var(--spacing-huge); /* 120px */
 	}
 
 	.post-header {
 		padding-inline: var(--grid-margin-md);
-		padding-block: var(--spacing-xl); /* 56px */
+		padding-block: var(--spacing-lg); /* 40px — Figma */
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
+			gap: var(--spacing-lg); /* 40px md */
 		}
 	}
 
@@ -459,13 +498,13 @@
 		gap: var(--spacing-sm);
 	}
 
-	.post-section {
+	.post-subsection {
 		padding-inline: var(--grid-margin-md);
 	}
 
-	.post-section--big,
-	.post-section--small,
-	.post-section--canvas {
+	.post-subsection--big,
+	.post-subsection--small,
+	.post-subsection--canvas {
 		padding-block: var(--spacing-ml); /* 30px */
 	}
 
@@ -480,69 +519,84 @@
 	}
 
 	/* col2/col3: inner wrapper spans full canvas (1/-1), flex row with gap */
-	.post-section__cols {
+	.post-subsection__cols {
 		grid-column: 1 / -1;
 		flex-direction: row;
 		align-items: flex-start;
 	}
 
 	/* Media variants at md */
-	.post-section--media-full .post-figure {
+	.post-subsection--media-full .post-figure {
 		grid-column: 1 / -1;
 	}
 
-	.post-section--media-center-wide .post-figure {
+	.post-subsection--media-center-wide .post-figure {
 		grid-column: 3 / 11;
 	}
 
-	.post-section--media-center .post-figure {
+	.post-subsection--media-center .post-figure {
 		grid-column: 3 / 11;
 	}
 
-	.post-section--media-left-wide .post-figure {
+	.post-subsection--media-left-wide .post-figure {
 		grid-column: 1 / 10;
 	}
 
-	.post-section--media-left .post-figure,
-	.post-section--media-left-small .post-figure {
+	.post-subsection--media-left .post-figure,
+	.post-subsection--media-left-small .post-figure {
 		grid-column: 1 / 5;
 	}
 
-	.post-section--media-right-wide .post-figure {
+	.post-subsection--media-right-wide .post-figure {
 		grid-column: 4 / 13;
 	}
 
-	.post-section--media-right .post-figure {
+	.post-subsection--media-right .post-figure {
 		grid-column: 7 / 13;
 	}
 
-	.post-section--media-right-small .post-figure {
+	.post-subsection--media-right-small .post-figure {
 		grid-column: 9 / 13;
 	}
 
+	/* Slot-based media variants (Figma: Content "Place on section grid" wrapper) */
+	.post-subsection--media-full .post-canvas > .content-slot { grid-column: 1 / -1; }
+	.post-subsection--media-center-wide .post-canvas > .content-slot { grid-column: 3 / 11; }
+	.post-subsection--media-center .post-canvas > .content-slot { grid-column: 3 / 11; }
+	.post-subsection--media-left-wide .post-canvas > .content-slot { grid-column: 1 / 10; }
+	.post-subsection--media-left .post-canvas > .content-slot,
+	.post-subsection--media-left-small .post-canvas > .content-slot { grid-column: 1 / 5; }
+	.post-subsection--media-right-wide .post-canvas > .content-slot { grid-column: 4 / 13; }
+	.post-subsection--media-right .post-canvas > .content-slot { grid-column: 7 / 13; }
+	.post-subsection--media-right-small .post-canvas > .content-slot { grid-column: 9 / 13; }
+
 	/* 2-column media variants: two children placed on the CSS grid */
-	.post-section--media-2-left .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-left .post-canvas > :nth-child(1) {
 		grid-column: 1 / 9;
 	}
-	.post-section--media-2-left .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-left .post-canvas > :nth-child(2) {
 		grid-column: 10 / 13;
 		grid-row: 1;
 	}
 
-	.post-section--media-2-right .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-right .post-canvas > :nth-child(1) {
 		grid-column: 1 / 4;
 	}
-	.post-section--media-2-right .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-right .post-canvas > :nth-child(2) {
 		grid-column: 5 / 13;
 		grid-row: 1;
 	}
 
-	.post-section--media-2-center .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-center .post-canvas > :nth-child(1) {
 		grid-column: 1 / 6;
 	}
-	.post-section--media-2-center .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-center .post-canvas > :nth-child(2) {
 		grid-column: 8 / 13;
 		grid-row: 1;
+	}
+
+	.post-page .post-canvas--scroll-x img {
+		height: 320px;
 	}
 
 	.post-page .post-scroll-right-wide {
@@ -560,12 +614,12 @@
    ───────────────────────────────────────── */
 
 @media (min-width: 1200px) {
-	.post-section-group__divider {
+	.post-section__divider {
 		padding-block-start: var(--spacing-huge); /* 120px */
 	}
 
 	.post-header {
-		padding-block: var(--spacing-xxl); /* 80px */
+		padding-block: var(--spacing-xl); /* 56px — Figma */
 		max-width: var(--site-max-width);
 		margin-inline: auto;
 
@@ -575,12 +629,12 @@
 	}
 
 	.post-header__title-group {
-		gap: var(--spacing-md);
+		gap: var(--spacing-sm); /* 12px — Figma: Text Block gap, same at all breakpoints */
 	}
 
-	.post-section--big,
-	.post-section--small,
-	.post-section--canvas {
+	.post-subsection--big,
+	.post-subsection--small,
+	.post-subsection--canvas {
 		padding-block: var(--spacing-ml); /* 30px — same as md */
 	}
 
@@ -591,66 +645,81 @@
 	}
 
 	/* Media variants (Figma) — single figure per section */
-	.post-section--media-full .post-figure {
+	.post-subsection--media-full .post-figure {
 		grid-column: 1 / 13;
 	}
 
-	.post-section--media-center-wide .post-figure {
+	.post-subsection--media-center-wide .post-figure {
 		grid-column: 3 / 11;
 		/* cols 3-10, 8 cols */
 	}
 
-	.post-section--media-center .post-figure {
+	.post-subsection--media-center .post-figure {
 		grid-column: 4 / 10;
 		/* cols 4-9, 6 cols centered */
 	}
 
-	.post-section--media-left-wide .post-figure {
+	.post-subsection--media-left-wide .post-figure {
 		grid-column: 1 / 10;
 		/* cols 1-9, flush left */
 	}
 
-	.post-section--media-left .post-figure,
-	.post-section--media-left-small .post-figure {
+	.post-subsection--media-left .post-figure,
+	.post-subsection--media-left-small .post-figure {
 		grid-column: 1 / 5;
 		/* cols 1-4 */
 	}
 
-	.post-section--media-right-wide .post-figure {
+	.post-subsection--media-right-wide .post-figure {
 		grid-column: 4 / 13;
 		/* cols 4-12, flush right */
 	}
 
-	.post-section--media-right .post-figure {
+	.post-subsection--media-right .post-figure {
 		grid-column: 7 / 13;
 		/* cols 7-12 */
 	}
 
-	.post-section--media-right-small .post-figure {
+	.post-subsection--media-right-small .post-figure {
 		grid-column: 9 / 13;
 		/* cols 9-12 */
 	}
 
+	/* Slot-based media variants at xl */
+	.post-subsection--media-full .post-canvas > .content-slot { grid-column: 1 / 13; }
+	.post-subsection--media-center-wide .post-canvas > .content-slot { grid-column: 3 / 11; }
+	.post-subsection--media-center .post-canvas > .content-slot { grid-column: 4 / 10; }
+	.post-subsection--media-left-wide .post-canvas > .content-slot { grid-column: 1 / 10; }
+	.post-subsection--media-left .post-canvas > .content-slot,
+	.post-subsection--media-left-small .post-canvas > .content-slot { grid-column: 1 / 5; }
+	.post-subsection--media-right-wide .post-canvas > .content-slot { grid-column: 4 / 13; }
+	.post-subsection--media-right .post-canvas > .content-slot { grid-column: 7 / 13; }
+	.post-subsection--media-right-small .post-canvas > .content-slot { grid-column: 9 / 13; }
+
 	/* 2-column media variants at xl — same columns as md */
-	.post-section--media-2-left .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-left .post-canvas > :nth-child(1) {
 		grid-column: 1 / 9;
 	}
-	.post-section--media-2-left .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-left .post-canvas > :nth-child(2) {
 		grid-column: 10 / 13;
 	}
 
-	.post-section--media-2-right .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-right .post-canvas > :nth-child(1) {
 		grid-column: 1 / 4;
 	}
-	.post-section--media-2-right .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-right .post-canvas > :nth-child(2) {
 		grid-column: 5 / 13;
 	}
 
-	.post-section--media-2-center .post-canvas > :nth-child(1) {
+	.post-subsection--media-2-center .post-canvas > :nth-child(1) {
 		grid-column: 1 / 6;
 	}
-	.post-section--media-2-center .post-canvas > :nth-child(2) {
+	.post-subsection--media-2-center .post-canvas > :nth-child(2) {
 		grid-column: 8 / 13;
+	}
+
+	.post-page .post-canvas--scroll-x img {
+		height: 400px;
 	}
 
 	.post-page .post-scroll-right-wide {
@@ -667,11 +736,11 @@
 }
 
 /* Unequal col2 sizes — flex ratio 7:3 */
-.post-section--col2-big-small .post-section__cols > :first-child,
-.post-section--col2-small-big .post-section__cols > :last-child  { flex: 7 0 0; }
+.post-subsection--col2-big-small .post-subsection__cols > :first-child,
+.post-subsection--col2-small-big .post-subsection__cols > :last-child  { flex: 7 0 0; }
 
-.post-section--col2-big-small .post-section__cols > :last-child,
-.post-section--col2-small-big .post-section__cols > :first-child { flex: 3 0 0; }
+.post-subsection--col2-big-small .post-subsection__cols > :last-child,
+.post-subsection--col2-small-big .post-subsection__cols > :first-child { flex: 3 0 0; }
 
 
 /* Phones row: centered flex row of phone mockup images */

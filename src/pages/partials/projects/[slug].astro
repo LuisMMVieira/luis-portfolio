@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import PostSection from "../../../components/mdx/PostSection.astro";
+import PostSectionGroup from "../../../components/mdx/PostSectionGroup.astro";
 import PostHeader from "../../../components/mdx/PostHeader.astro";
 import PostText from "../../../components/mdx/PostText.astro";
 import Figure from "../../../components/mdx/Figure.astro";
@@ -26,5 +27,5 @@ const isDraft = project.data.draft === true;
 ---
 
 <div class:list={["post-page", { "post-page--draft": isDraft }]}>
-  <Content components={{ PostSection, PostHeader, PostText, Figure, ImageCarousel, Video, Divider }} />
+  <Content components={{ PostSection, PostSectionGroup, PostHeader, PostText, Figure, ImageCarousel, Video, Divider }} />
 </div>

@@ -1224,7 +1224,7 @@ body:has(.components-page) {
 /* ── Base reset: force mobile styles inside bp-frame (override @media rules) ── */
 
 .cp-bp-frame {
-	.post-section {
+	.post-subsection {
 		padding-inline: var(--grid-margin-xs);
 	}
 
@@ -1232,14 +1232,14 @@ body:has(.components-page) {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.post-section--small,
-	.post-section--big,
-	.post-section--canvas {
+	.post-subsection--small,
+	.post-subsection--big,
+	.post-subsection--canvas {
 		padding-block-start: var(--spacing-lg);
 		padding-block-end: var(--spacing-sm);
 	}
 
-	.post-section__cols {
+	.post-subsection__cols {
 		flex-direction: column;
 		gap: var(--spacing-md);
 	}
@@ -1255,7 +1255,7 @@ body:has(.components-page) {
 
 @container (min-width: 768px) {
 	.cp-bp-frame {
-		.post-section {
+		.post-subsection {
 			padding-inline: var(--grid-margin-md);
 		}
 
@@ -1268,25 +1268,25 @@ body:has(.components-page) {
 			grid-column: 3 / 11;
 		}
 
-		.post-section__cols {
+		.post-subsection__cols {
 			grid-column: 1 / -1;
 			flex-direction: row;
 			align-items: flex-start;
 			gap: var(--spacing-xl);
 		}
 
-		.post-section--media-full .post-figure { grid-column: 1 / -1; }
-		.post-section--media-center-wide .post-figure { grid-column: 3 / 11; }
-		.post-section--media-center .post-figure { grid-column: 4 / 10; }
-		.post-section--media-left-wide .post-figure { grid-column: 1 / 10; }
-		.post-section--media-left .post-figure,
-		.post-section--media-left-small .post-figure { grid-column: 1 / 5; }
-		.post-section--media-right-wide .post-figure { grid-column: 4 / 13; }
-		.post-section--media-right .post-figure { grid-column: 7 / 13; }
-		.post-section--media-right-small .post-figure { grid-column: 9 / 13; }
+		.post-subsection--media-full .post-figure { grid-column: 1 / -1; }
+		.post-subsection--media-center-wide .post-figure { grid-column: 3 / 11; }
+		.post-subsection--media-center .post-figure { grid-column: 4 / 10; }
+		.post-subsection--media-left-wide .post-figure { grid-column: 1 / 10; }
+		.post-subsection--media-left .post-figure,
+		.post-subsection--media-left-small .post-figure { grid-column: 1 / 5; }
+		.post-subsection--media-right-wide .post-figure { grid-column: 4 / 13; }
+		.post-subsection--media-right .post-figure { grid-column: 7 / 13; }
+		.post-subsection--media-right-small .post-figure { grid-column: 9 / 13; }
 
-		.post-section--small,
-		.post-section--big {
+		.post-subsection--small,
+		.post-subsection--big {
 			padding-block-start: var(--spacing-lg);
 			padding-block-end: var(--spacing-sm);
 		}
@@ -1296,12 +1296,12 @@ body:has(.components-page) {
 
 @container (min-width: 1200px) {
 	.cp-bp-frame {
-		.post-section--big {
+		.post-subsection--big {
 			padding-block-start: var(--spacing-xl);
 			padding-block-end: var(--spacing-sm);
 		}
 
-		.post-section--canvas {
+		.post-subsection--canvas {
 			padding-block-start: var(--spacing-xl);
 			padding-block-end: var(--spacing-sm);
 		}
@@ -1311,15 +1311,15 @@ body:has(.components-page) {
 			grid-column: 4 / 10;
 		}
 
-		.post-section--media-full .post-figure { grid-column: 1 / 13; }
-		.post-section--media-center-wide .post-figure { grid-column: 3 / 11; }
-		.post-section--media-center .post-figure { grid-column: 4 / 10; }
-		.post-section--media-left-wide .post-figure { grid-column: 1 / 10; }
-		.post-section--media-left .post-figure,
-		.post-section--media-left-small .post-figure { grid-column: 1 / 5; }
-		.post-section--media-right-wide .post-figure { grid-column: 4 / 13; }
-		.post-section--media-right .post-figure { grid-column: 7 / 13; }
-		.post-section--media-right-small .post-figure { grid-column: 9 / 13; }
+		.post-subsection--media-full .post-figure { grid-column: 1 / 13; }
+		.post-subsection--media-center-wide .post-figure { grid-column: 3 / 11; }
+		.post-subsection--media-center .post-figure { grid-column: 4 / 10; }
+		.post-subsection--media-left-wide .post-figure { grid-column: 1 / 10; }
+		.post-subsection--media-left .post-figure,
+		.post-subsection--media-left-small .post-figure { grid-column: 1 / 5; }
+		.post-subsection--media-right-wide .post-figure { grid-column: 4 / 13; }
+		.post-subsection--media-right .post-figure { grid-column: 7 / 13; }
+		.post-subsection--media-right-small .post-figure { grid-column: 9 / 13; }
 
 	}
 }

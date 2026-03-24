@@ -67,7 +67,7 @@ import Figure from '../components/mdx/Figure.astro';
               <li><a href="#post-header" class="cp-sidebar__link" data-spy-target="post-header">PostHeader</a></li>
               <li><a href="#post-text-meta" class="cp-sidebar__link" data-spy-target="post-text-meta">PostText & PostMeta</a></li>
               <li><a href="#figure" class="cp-sidebar__link" data-spy-target="figure">Figure</a></li>
-              <li><a href="#post-section-layouts" class="cp-sidebar__link" data-spy-target="post-section-layouts">PostSection Layouts</a></li>
+              <li><a href="#post-subsection-layouts" class="cp-sidebar__link" data-spy-target="post-subsection-layouts">PostSection Layouts</a></li>
               <li><a href="#project-card" class="cp-sidebar__link" data-spy-target="project-card">ProjectCard</a></li>
               <li><a href="#additional" class="cp-sidebar__link" data-spy-target="additional">Additional</a></li>
             </ul>
@@ -490,7 +490,7 @@ import Figure from '../components/mdx/Figure.astro';
 
         {/* ── PostSection Layouts ─────────────── */}
 
-        <div id="post-section-layouts">
+        <div id="post-subsection-layouts">
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">PostSection Layouts</h2>
@@ -707,7 +707,7 @@ import Figure from '../components/mdx/Figure.astro';
               <dd>.project-page — Standalone project page with View Transitions.</dd>
 
               <dt>PostSection</dt>
-              <dd>.post-section — Grid layout wrapper. Layout variants, column splits, media positioning.</dd>
+              <dd>.post-subsection — Grid layout wrapper. Layout variants, column splits, media positioning.</dd>
             </dl>
           </section>
         </div>
@@ -769,14 +769,14 @@ import Figure from '../components/mdx/Figure.astro';
       });
 
       // Section classes
-      var cls = ['post-section', 'post-section--canvas'];
-      if (items === '1') cls.push('post-section--media-' + position);
-      if (items === '2') cls.push('post-section--col2');
+      var cls = ['post-subsection', 'post-subsection--canvas'];
+      if (items === '1') cls.push('post-subsection--media-' + position);
+      if (items === '2') cls.push('post-subsection--col2');
 
       // Inner content
       var inner;
       if (items === '2') {
-        inner = '<div class="post-section__cols">' + itemHTML(item1, '4/3') + itemHTML(item2, '4/3') + '</div>';
+        inner = '<div class="post-subsection__cols">' + itemHTML(item1, '4/3') + itemHTML(item2, '4/3') + '</div>';
       } else {
         inner = itemHTML(item1, '3/2');
       }
@@ -784,7 +784,7 @@ import Figure from '../components/mdx/Figure.astro';
       // Canvas + optional section caption
       var html = '<section class="' + cls.join(' ') + '">'
         + '<div class="post-canvas">' + inner + '</div>'
-        + (caption === 'on' ? '<p class="post-section__caption">Section caption text</p>' : '')
+        + (caption === 'on' ? '<p class="post-subsection__caption">Section caption text</p>' : '')
         + '</section>';
 
       var preview = lp.querySelector('[data-layout-preview]');

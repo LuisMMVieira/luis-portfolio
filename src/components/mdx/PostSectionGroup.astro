@@ -14,14 +14,14 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class="post-section-group">
-  <div class="post-section-group__divider">
+<div class="post-section">
+  <div class="post-section__divider">
     <div class="divider">
       <div class="divider__line"></div>
       {title && <p class="divider__label">{title}</p>}
     </div>
   </div>
-  <div class="post-section-group__body">
+  <div class="post-section__body">
     <slot />
   </div>
 </div>

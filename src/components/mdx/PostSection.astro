@@ -1,41 +1,63 @@
 ---
+/**
+ * PostSection — a single sub-section inside a PostSectionGroup.
+ *
+ * Figma: "Sub Section"
+ *   Canvas (css grid)
+ *     Content (Place on section grid)  ← auto-generated content-slot
+ *       Content/Figure | Content/Text
+ *   Caption (optional, outside canvas)
+ *
+ * When `media` is set, children are auto-wrapped in a `content-slot` div
+ * that receives the grid-column placement. For 2-column layouts (media="2-*"),
+ * wrap each column's content in its own `<div class="content-slot">` manually.
+ */
 interface Props {
   layout?: 'small' | 'big' | 'canvas' | 'full';
-  /** Background color token (e.g. "color-darkest", "bg-elevated", "color-base") — applied to section for full-bleed canvas bg */
+  /** Background color token (e.g. "bg-elevated", "bg-sunken", "color-light") */
   bg?: string;
-  /** 2-column layout (Zeplin: 2 col) */
-  col2?: boolean;
-  /** 3-column layout (Zeplin: 3 col) */
-  col3?: boolean;
   /** Media position: full | center-wide | center | left | left-wide | right | right-wide | right-small | 2-left | 2-right | 2-center */
   media?: 'full' | 'center-wide' | 'center' | 'left' | 'left-wide' | 'right' | 'right-wide' | 'right-small' | '2-left' | '2-right' | '2-center';
-  /** col2 size ratio: equal (default) | big-small (7:3) | small-big (3:7) */
-  col2Sizes?: 'equal' | 'big-small' | 'small-big';
-  /** Optional caption displayed below the canvas */
+  /** Canvas padding override (e.g. "spacing-xxl", "spacing-huge") — sets padding-block */
+  padding?: string;
+  /** Optional caption displayed below the canvas (Figma: Caption at Sub Section level) */
   caption?: string;
+  /** Canvas overflow override (e.g. "clip") */
+  overflow?: string;
+  /** Content-slot gap (e.g. "spacing-xl") — Figma: Content slot gap between children */
+  slotGap?: string;
 }
 
-const { layout = 'big', bg, col2 = false, col3 = false, media, col2Sizes, caption } = Astro.props;
+const { layout = 'big', bg, media, padding, caption, overflow, slotGap } = Astro.props;
+
+const is2Col = media?.startsWith('2-');
 
 const classes = [
-  'post-section',
-  `post-section--${layout}`,
-  col2 ? 'post-section--col2' : '',
-  col3 ? 'post-section--col3' : '',
-  media ? `post-section--media-${media}` : '',
-  col2Sizes ? `post-section--col2-${col2Sizes}` : ''
+  'post-subsection',
+  `post-subsection--${layout}`,
+  media ? `post-subsection--media-${media}` : '',
 ].filter(Boolean).join(' ');
+
+const canvasStyle = [
+  bg ? `background-color: var(--${bg})` : '',
+  padding ? `padding-block: var(--${padding})` : '',
+  overflow ? `overflow: ${overflow}` : '',
+].filter(Boolean).join('; ') || undefined;
+
+const slotStyle = slotGap ? `gap: var(--${slotGap})` : undefined;
 ---
 
 <section class={classes}>
-  <div class="post-canvas" style={bg ? `background-color: var(--${bg})` : undefined}>
-    {(col2 || col3) ? (
-      <div class="post-section__cols">
+  <div class="post-canvas" style={canvasStyle}>
+    {is2Col ? (
+      <slot />
+    ) : media ? (
+      <div class="content-slot" style={slotStyle}>
         <slot />
       </div>
     ) : (
       <slot />
     )}
   </div>
-  {caption && <p class="post-section__caption">{caption}</p>}
+  {caption && <p class="post-subsection__caption">{caption}</p>}
 </section>
