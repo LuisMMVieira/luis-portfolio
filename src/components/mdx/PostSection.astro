@@ -11,6 +11,9 @@
  * When `media` is set, children are auto-wrapped in a `content-slot` div
  * that receives the grid-column placement. For 2-column layouts (media="2-*"),
  * wrap each column's content in its own `<div class="content-slot">` manually.
+ *
+ * When `scroll` is set, the canvas gets horizontal scroll and the content-slot
+ * allows overflow — for panoramic images that are wider than the grid column.
  */
 interface Props {
   layout?: 'small' | 'big' | 'canvas' | 'full';
@@ -26,9 +29,11 @@ interface Props {
   overflow?: string;
   /** Content-slot gap (e.g. "spacing-xl") — Figma: Content slot gap between children */
   slotGap?: string;
+  /** Panoramic scroll — canvas scrolls horizontally, content-slot allows overflow */
+  scroll?: boolean;
 }
 
-const { layout = 'big', bg, media, padding, caption, overflow, slotGap } = Astro.props;
+const { layout = 'big', bg, media, padding, caption, overflow, slotGap, scroll = false } = Astro.props;
 
 const is2Col = media?.startsWith('2-');
 
@@ -38,21 +43,31 @@ const classes = [
   media ? `post-subsection--media-${media}` : '',
 ].filter(Boolean).join(' ');
 
+const canvasClasses = [
+  'post-canvas',
+  scroll ? 'post-canvas--scroll-x' : '',
+].filter(Boolean).join(' ');
+
 const canvasStyle = [
   bg ? `background-color: var(--${bg})` : '',
   padding ? `padding-block: var(--${padding})` : '',
   overflow ? `overflow: ${overflow}` : '',
 ].filter(Boolean).join('; ') || undefined;
 
+const slotClasses = [
+  'content-slot',
+  scroll ? 'content-slot--overflow' : '',
+].filter(Boolean).join(' ');
+
 const slotStyle = slotGap ? `gap: var(--${slotGap})` : undefined;
 ---
 
 <section class={classes}>
-  <div class="post-canvas" style={canvasStyle}>
+  <div class={canvasClasses} style={canvasStyle}>
     {is2Col ? (
       <slot />
     ) : media ? (
-      <div class="content-slot" style={slotStyle}>
+      <div class={slotClasses} style={slotStyle}>
         <slot />
       </div>
     ) : (

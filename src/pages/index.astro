@@ -11,7 +11,7 @@ import AboutContent from '../content/about.md';
 
 // Get all projects, sorted by order
 const projects = (await getCollection('projects'))
-  .filter((project) => !project.data.draft)
+  .filter((project) => !project.data.draft && project.slug !== 'namecheapvpn')
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -29,7 +29,7 @@ const projects = (await getCollection('projects'))
             title={project.data.title}
             cover={project.data.cover}
             period={project.data.period}
-            openable={project.slug !== 'namecheapvpn'}
+
           />
         ))
       }
