@@ -168,4 +168,3 @@ The JS adds `.reveal` (opacity: 0) to elements matching specific selectors, then
 - Emphasis color: only `--color-emphasis` with transparency shades.
 - Think in systems: reusable patterns over one-off solutions.
 - PostSection `bg` prop only supports `background-color` tokens. For `background-image`, use CSS classes (e.g. `.post-cover .post-canvas`) or inline styles on inner elements.
-- Use `<div>` not `<label>` for custom interactive toggles — labels can cause double-click events.
