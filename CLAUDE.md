@@ -88,6 +88,23 @@ Title area below the cover. Supports optional subtitle and intro paragraph slot.
 <Video src="/assets/..." caption="Optional" />
 ```
 
+### PostSection `scroll` prop
+Enables horizontal scroll on the canvas (`post-canvas--scroll-x`) and overflow on the content-slot (`content-slot--overflow`). Used for panoramic images and multi-image strips.
+```jsx
+{/* Single wide image that overflows the slot */}
+<PostSection media="right-wide" padding="spacing-xl" scroll>
+  <Figure src="..." alt="..." />
+</PostSection>
+
+{/* Multiple images in a row — use inline flex on the figure */}
+<PostSection media="right-wide" padding="spacing-xl" scroll>
+  <figure class="post-figure" style="display: flex; flex-direction: row; gap: var(--spacing-md); align-items: flex-end;">
+    <img src="..." /> ...
+  </figure>
+</PostSection>
+```
+**Note:** `.post-figure` base CSS has `flex-direction: column` — always set `flex-direction: row` explicitly in inline styles when using horizontal flex.
+
 ### Captions
 Two levels (matches Figma): **figure caption** (inside Figure via `caption` prop) and **sub-section caption** (outside canvas via PostSection `caption` prop).
 
@@ -133,12 +150,22 @@ Always use the `figma-design-weaver` skill for Figma URLs. Never call MCP tools 
 - Videos: `public/assets/projects/{slug}/videos/`
 - MDX paths: absolute `/assets/projects/{slug}/...`
 
+## Scroll Reveal System (`public/scripts/main.js`)
+The JS adds `.reveal` (opacity: 0) to elements matching specific selectors, then triggers `.is-visible` via IntersectionObserver. Two key mechanisms:
+1. **Content elements** (line ~203): `.post-figure, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip` — add new custom classes here when creating new content types.
+2. **Canvas backgrounds** (line ~214): any `.post-canvas[style*='background']` automatically gets `.reveal`. Its child content element must be in the selector list above to trigger the parent canvas reveal.
+
+**If a section renders invisible**, check if its canvas or content element has `.reveal` without `.is-visible` — the selector list likely needs updating.
+
 ## Rules
 - Figma is the source of truth — never approximate. If unsure, pull the Figma node.
 - Change flow: component → template → project. Never skip steps.
+- **Never use raw HTML `<section>` tags** — always use PostSection components for structural consistency.
 - Always use design tokens from `tokens.scss` — no hardcoded values.
 - Prefer editing existing files — don't create new ones unless necessary.
 - Edit originals directly — never create `-v2` copies.
 - Don't add features beyond what's asked.
 - Emphasis color: only `--color-emphasis` with transparency shades.
 - Think in systems: reusable patterns over one-off solutions.
+- PostSection `bg` prop only supports `background-color` tokens. For `background-image`, use CSS classes (e.g. `.post-cover .post-canvas`) or inline styles on inner elements.
+- Use `<div>` not `<label>` for custom interactive toggles — labels can cause double-click events.
