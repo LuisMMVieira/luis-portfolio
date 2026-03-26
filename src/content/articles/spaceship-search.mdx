@@ -1,0 +1,100 @@
+---
+title: "Fixing a Frankenstein"
+subtitle: "Redesigning the Spaceship Search Experience"
+date: 2026-03-26
+cover: "/assets/articles/spaceship-search/images/component-logic.png"
+draft: false
+---
+
+**Role:** Process Lead & UX Designer — Product Platform
+**Team:** 11 people across UX PP, SDS, Brand, and Research
+**Timeline:** November 2023 – January 2024
+**Outcome:** Shipped April 2024. Transfer success rate up 4×.
+
+---
+
+There's a specific kind of bad design that's hard to argue with in a meeting. It mostly works. Users get through it, eventually. It doesn't look broken. But watch someone use it for the first time and you see the hesitation—that half-second where they're not sure if pressing Enter will do what they think it will do.
+
+That was the Spaceship homepage search widget. A component that tried to handle domain registration and domain transfer from the same input field, through a dropdown labelled "I want to..." and a button that said "Transfer." The logic made sense on a whiteboard. In practice it was a Frankenstein—mismatched parts stitched together, full of bad surprises. Type a domain, hit Enter, and you might have just started a search when you meant to start a transfer. Or the opposite. The component had modes nobody knew they were in.
+
+<Figure src="/assets/articles/spaceship-search/images/search-before.png" alt="The original Spaceship homepage search widget with the 'I want to...' dropdown open" caption="The original search widget. Modes hidden behind a dropdown, transfer one accidental click away." />
+
+The first research sessions confirmed what we suspected. Users were confused by the placeholder. The dropdown felt like links, not a mode switch. The "Bulk transfer" option was one accidental click away for anyone who didn't want it. People got through the task, but they were doing it despite the interface, not with it.
+
+---
+
+### A different kind of process
+
+This wasn't the first time someone at Spaceship had looked at this problem. What was different this time was the approach—and honestly, that's what I'm most proud of.
+
+Instead of one designer going off alone with a brief, we kicked off with four teams in the room: Product Platform, the Design System team, Brand, and Research. Eleven people. A shared roadmap with actual milestones. Defined roles. Research bookending the design work, not added at the end to validate decisions already made.
+
+<Figure src="/assets/articles/spaceship-search/images/team.png" alt="Overview of the four teams involved in the redesign" caption="Four teams, eleven people, one shared roadmap." />
+
+<Figure src="/assets/articles/spaceship-search/images/roadmap.png" alt="Gantt-style roadmap showing all four team swim lanes" caption="The roadmap that kept everyone aligned across 2.5 months." />
+
+I led the process—the roadmap, the coordination, the pacing—while also being one of the designers. That dual role was intentional. I wanted to stay close to the work, not just manage it from a distance. And I think it made a difference. When you're in the Figma file yourself, you have a different kind of authority in the conversations.
+
+We ran the first research phase on the live product, in the browser. Real friction, real users. No prototype comfort blanket. That was the right call—you can't test a confusing component with a polished simulation of it. The signal was clean. The issues were exactly where we expected them, and a few places we didn't.
+
+<Figure src="/assets/articles/spaceship-search/images/research-findings.png" alt="Research findings overview with severity scores" caption="Six issues ranked by severity. The #1 problem—confusion between search and transfer—affected every participant." />
+
+---
+
+### Three proposals. One conversation.
+
+Following the first research phase, three of us—myself, David, and Mafalda—each took our own design direction. Different approaches, same brief. The goal wasn't to pick a winner but to generate a real conversation.
+
+<Figure src="/assets/articles/spaceship-search/images/proposals.png" alt="Three design proposals side by side" caption="Three directions, same brief. The conversation that followed was one of the best I've been part of." />
+
+The design critique session is where the project found its direction. We structured it in two steps: async analysis from each reviewer before the meeting, then a live discussion. No presenting, no defending—just talking about the work. It was one of the best design conversations I've been part of. Everyone brought something to the table, and by the end of it I knew exactly what to do.
+
+I took everything I'd heard in that room and designed the final component myself. Not by committee—by synthesis. There's a difference.
+
+---
+
+### The decisions that mattered
+
+The core insight was straightforward once we named it: registration and transfer are two fundamentally different user intentions. They shouldn't share a mode. They should be a choice made upfront, before anything else happens.
+
+So the new component starts with a toggle—**Register** or **Transfer**—sitting above the search bar. Switch to Transfer and the whole bar transforms: different placeholder, different CTA, different secondary action. No ambiguity about what Enter will do. Inside the Transfer mode, **Bulk transfer** lives as a secondary action—accessible, but not accidentally triggerable. Click it and you get a modal that handles up to 500 domains, with a CSV upload option for the power users who actually need it. Progressive disclosure that earns each step.
+
+<Figure src="/assets/articles/spaceship-search/images/component-logic.png" alt="Mode-switching flow diagram showing Register and Transfer modes" caption="Register left, Transfer right, Bulk Transfer below. No ambiguity about what anything does." />
+
+There's one more decision worth naming—and it came right at the end, when everything felt done. The refined prototype had the Register/Transfer toggle living inside the component, visible only after you clicked into it. It was cleaner. More elegant, honestly. But in the final review, we looked at it together—me, the team, the stakeholders—and recognised the problem: we'd spent the whole project removing hidden modes and bad surprises, and here we were introducing a subtle version of the same thing. We moved the toggle outside. Always visible from the start. It was the safer choice. It was also the right one. Sometimes the most honest design decision is the one that trades a bit of elegance for a lot of clarity.
+
+Two other decisions I pushed for that aren't obvious from the component itself: I removed the subtitle copy above the search bar, and I pushed for the entrance animation to darken the background before the component appears. Both came from the first research phase. The subtitle was adding cognitive load without adding clarity—people were reading it and still confused. The background on the original homepage was busy enough that the component had to compete for attention the moment the page loaded. Darkening it removes that competition. The component becomes the obvious starting point before the user has read a single word. That's the job of an entrance animation—not decoration, but orientation.
+
+<Figure src="/assets/articles/spaceship-search/images/deliverables.png" alt="Final deliverables including specs and design system updates" caption="Final deliverables: specs, motion, and design system updates—ready for handoff." />
+
+The second research phase, which used a Figma prototype, was less definitive. We got some directional confirmation—all tasks were completed successfully, and the core confusion between search and transfer was resolved. But Figma can only simulate so much. Users interact differently with a prototype than with a live product—the stakes feel different, the friction is smoothed out, the errors aren't real. We caught this during the sessions and flagged it in the retro. It's a lesson we'll bring forward: for interaction-heavy flows, test in the browser or as close to it as possible.
+
+<Figure src="/assets/articles/spaceship-search/images/retro.png" alt="Retrospective session outcomes" caption="The retro. Honest about what worked, what didn't, and what we'd do differently." />
+
+---
+
+### What the numbers said
+
+The design shipped in April 2024. A few weeks later, the Business Intelligence team flagged an anomaly. Widget interactions had dropped by roughly 95%. In most organisations that triggers a panic.
+
+It wasn't a problem. It was the design working exactly as intended.
+
+The old widget was one click away from the homepage—accessible to anyone who interacted with the search bar for any reason. Most of those interactions were accidental or exploratory. Users landing on bulk transfer when they wanted to register a domain. The new design put transfer behind an intentional toggle and bulk transfer behind a second deliberate action. Only users who actually wanted to transfer were reaching the widget.
+
+The success rate—successful transfers as a proportion of widget interactions—went from around 5% to over 21%. Four times higher. The volume was down, but the intent was real, and the design was serving it.
+
+When the BI team asked what had changed, the answer was: the search component. The design made the data legible.
+
+---
+
+### What I took from it
+
+Running a multidisciplinary sprint of this scale was new for our team, and it worked better than I expected—largely because of the roadmap and the rhythm it created. No loss of momentum between phases. Everyone knew what was coming next.
+
+The research felt genuinely useful, not ceremonial. That matters. When research changes what you design—not just validates what you've already decided—it earns its place in the process.
+
+And the design critique session is something I want to keep doing. Getting three strong designers in a room to talk honestly about three different proposals, without egos, without defending—that's how you find the answer faster. I walked out of that session knowing what to build. That's not always how it goes.
+
+The Frankenstein is gone. The component is simple, honest, and does exactly one thing per mode. That's enough.
+
+<Figure src="/assets/articles/spaceship-search/images/transfer-desktop.png" alt="The finished homepage with the new component in Transfer mode" caption="The finished component. Transfer mode active. One mode, one action, no surprises." />
