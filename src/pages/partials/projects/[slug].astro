@@ -23,9 +23,9 @@ interface Props {
 
 const { project } = Astro.props as Props;
 const { Content } = await project.render();
-const isDraft = project.data.draft === true;
+const isTemplate = project.slug === 'project-template';
 ---
 
-<div class:list={["post-page", { "post-page--draft": isDraft }]}>
+<div class:list={["post-page", { "post-page--draft": isTemplate }]}>
   <Content components={{ PostSection, PostSectionGroup, PostHeader, PostText, Figure, ImageCarousel, Video, Divider }} />
 </div>

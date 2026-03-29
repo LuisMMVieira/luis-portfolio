@@ -1,0 +1,478 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const slides = [
+  {
+    id: 1,
+    beat: "OPENER",
+    timing: "~10 seconds",
+    headline: "Transfer success rate: 5% → 21%",
+    subline: "Redesigning Spaceship's homepage search",
+    visual: "Dark slide. The number is the hero. Nothing else competes.",
+    imageRef: "No image. Just the metric, massive.",
+    say: "I led the redesign of Spaceship's homepage search—the main entry point for domain registration and transfer. Transfer success rate went from 5% to 21%.",
+    notes: "Let the number land. Pause. Don't rush to explain.",
+    accent: "var(--color-emphasis)",
+  },
+  {
+    id: 2,
+    beat: "PROBLEM",
+    timing: "~60 seconds",
+    headline: "One input. Two intentions. Zero clarity.",
+    subline: null,
+    visual: "Screenshot of the OLD component with the dropdown open. The 'I want to…' dropdown visible.",
+    imageRef: "search-before.png + research-findings.png",
+    say: "Registration and transfer lived in the same input field, behind a dropdown. Users would type a domain, hit Enter, and accidentally start a transfer. The bulk transfer option looked like a button—people clicked it not knowing it was a mode switch. Every participant in research hit the same confusion.",
+    notes: "Point at the dropdown in the screenshot. Make them SEE the confusion. Then show the research findings—severity scores. Quick, credible.",
+    accent: "#ef4444",
+  },
+  {
+    id: 3,
+    beat: "INSIGHT",
+    timing: "~30 seconds",
+    headline: "Two intentions. One upfront choice.",
+    subline: "Register or Transfer—decided before anything else happens.",
+    visual: "The mode-switching logic diagram. Register left, Transfer right.",
+    imageRef: "component-logic.png",
+    say: "The core insight was simple. Register and transfer are two different intentions. Make it an upfront choice, not a hidden mode.",
+    notes: "This is the conceptual turn. One breath. Let the interviewer nod. Then show the diagram—it makes the logic visual and undeniable.",
+    accent: "#3b82f6",
+  },
+  {
+    id: 4,
+    beat: "DECISIONS",
+    timing: "~60 seconds",
+    headline: "Three calls that shaped the outcome",
+    subline: null,
+    visual: "Three quick images: toggle always visible, bulk transfer progressive disclosure, entrance animation darkening.",
+    imageRef: "component-logic.png + deliverables.png",
+    say: "Three decisions worth naming…",
+    notes: "This is where you show design judgment, not just execution. The 'we almost buried the toggle' story shows you catch your own mistakes. The darkening story is pure growth thinking—say 'orientation, not decoration.'",
+    accent: "#a855f7",
+    decisions: [
+      {
+        label: "Toggle outside, not inside",
+        detail: "We almost buried it. Caught ourselves repeating the old mistake—hiding modes. Moved it out. Always visible.",
+      },
+      {
+        label: "Bulk transfer behind intent",
+        detail: "Progressive disclosure. Only users who chose Transfer, then clicked Bulk, reached it. No more accidents.",
+      },
+      {
+        label: "Background darkens on entrance",
+        detail: "The component needed to be the obvious starting point before the user read a single word. Orientation, not decoration.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    beat: "RESULT",
+    timing: "~30 seconds",
+    headline: "Interactions dropped 95%",
+    subline: "That was the design doing the talk.",
+    visual: "The finished component in Transfer mode. Clean. Resolved.",
+    imageRef: "transfer-desktop.png",
+    say: "After launch, widget interactions dropped 95%. That sounds like a disaster. It wasn't. The old component counted accidental clicks. The new one only reached users with real intent. Transfer success: 5% to 21%. Four times higher.",
+    notes: "Slow down RIGHT BEFORE '95%'. Pause after 'sounds like a disaster.' Then resolve it. This is your mic-drop. End with the number. Then silence.",
+    accent: "var(--color-emphasis)",
+  },
+];
+---
+
+<BaseLayout title="Sword Interview Deck — Luis Vieira" description="Spaceship Search case study storyboard." hideHeader={true}>
+
+  <a href="/andamento" class="cp-home-btn" aria-label="Back to andamento">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"></path>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+
+  <div class="sb">
+    <!-- Tabs -->
+    <div class="sb__tabs">
+      {slides.map((s, i) => (
+        <button
+          class={`sb__tab ${i === 0 ? 'is-active' : ''}`}
+          data-index={i}
+          style={`--tab-accent: ${s.accent}`}
+        >
+          <span class="sb__tab-id">{s.id}</span>
+          {s.beat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Content (vertically centered) -->
+    <div class="sb__content">
+      {slides.map((s, i) => (
+        <div class={`sb__panel ${i === 0 ? 'is-active' : ''}`} data-panel={i} style={`--panel-accent: ${s.accent}`}>
+          <div class="sb__preview">
+            <span class="sb__timing">{s.timing}</span>
+            <h1 class="sb__headline">{s.headline}</h1>
+            {s.subline && <p class="sb__subline">{s.subline}</p>}
+            {s.decisions && (
+              <div class="sb__decisions">
+                {s.decisions.map((d) => (
+                  <div class="sb__decision">
+                    <div class="sb__decision-label">{d.label}</div>
+                    <div class="sb__decision-detail">{d.detail}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom zone -->
+    <div class="sb__bottom">
+      {slides.map((s, i) => (
+        <div class={`sb__details ${i === 0 ? 'is-active' : ''}`} data-details={i} style={`--panel-accent: ${s.accent}`}>
+          <div class="sb__card">
+            <div class="sb__card-label">Visual on screen</div>
+            <p class="sb__card-text">{s.visual}</p>
+            <div class="sb__card-ref">→ {s.imageRef}</div>
+          </div>
+          <div class="sb__card">
+            <div class="sb__card-label">What you say</div>
+            <p class="sb__card-say">{s.say}</p>
+          </div>
+          <div class="sb__coach">
+            <div class="sb__coach-label">Coach notes</div>
+            <p class="sb__coach-text">{s.notes}</p>
+          </div>
+        </div>
+      ))}
+
+      <div class="sb__notes" id="notes">
+        <span class="sb__notes-prefix">SAY:</span>
+        <span id="notes-text"></span>
+      </div>
+
+      <div class="sb__footer">
+        <button class="sb__nav-btn" id="prev-btn">← Previous</button>
+        <span class="sb__total">Total: ~3 min 10 sec</span>
+        <div class="sb__footer-right">
+          <button class="sb__toggle-notes" id="toggle-notes">N — notes</button>
+          <button class="sb__nav-btn" id="next-btn">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="say-data" type="application/json" set:html={JSON.stringify(slides.map(s => s.say))} />
+
+  <script>
+    const tabs = document.querySelectorAll('.sb__tab');
+    const panels = document.querySelectorAll('.sb__panel');
+    const details = document.querySelectorAll('.sb__details');
+    const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+    const notesPanel = document.getElementById('notes')!;
+    const notesText = document.getElementById('notes-text')!;
+    const toggleBtn = document.getElementById('toggle-notes')!;
+    const sayData: string[] = JSON.parse(document.getElementById('say-data')!.textContent!);
+    const total = tabs.length;
+    let current = 0;
+    let showNotes = false;
+
+    function goTo(index: number) {
+      current = Math.max(0, Math.min(total - 1, index));
+      tabs.forEach((t, i) => t.classList.toggle('is-active', i === current));
+      panels.forEach((p, i) => p.classList.toggle('is-active', i === current));
+      details.forEach((d, i) => d.classList.toggle('is-active', i === current));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+      notesText.textContent = sayData[current];
+    }
+
+    function toggleNotes() {
+      showNotes = !showNotes;
+      notesPanel.classList.toggle('is-visible', showNotes);
+      toggleBtn.classList.toggle('is-on', showNotes);
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => goTo(i));
+    });
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    toggleBtn.addEventListener('click', toggleNotes);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'n') toggleNotes();
+    });
+
+    goTo(0);
+  </script>
+
+  <style>
+    .sb {
+      font-family: var(--font-family-sans);
+      background: var(--bg-sunken);
+      color: var(--text-primary);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ─── Tabs ─── */
+    .sb__tabs {
+      display: flex;
+      gap: 2px;
+      padding: var(--spacing-md) var(--spacing-md) 0;
+      flex-shrink: 0;
+    }
+    .sb__tab {
+      flex: 1;
+      padding: var(--spacing-sm) var(--spacing-xs);
+      background: transparent;
+      border: none;
+      border-top: 3px solid var(--border-default);
+      color: var(--text-shy);
+      cursor: pointer;
+      font-family: var(--font-family-sans);
+      font-size: var(--type-text-s-size);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+    .sb__tab.is-active {
+      background: var(--bg-elevated);
+      border-top-color: var(--tab-accent);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .sb__tab-id {
+      color: var(--text-shy);
+      margin-right: 6px;
+    }
+    .sb__tab.is-active .sb__tab-id {
+      color: var(--tab-accent);
+    }
+
+    /* ─── Content ─── */
+    .sb__content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    /* ─── Panels ─── */
+    .sb__panel {
+      display: none;
+      width: 100%;
+    }
+    .sb__panel.is-active {
+      display: block;
+    }
+
+    /* ─── Preview ─── */
+    .sb__preview {
+      margin: var(--spacing-md);
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      padding: var(--spacing-xxl) var(--spacing-xl);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      border: 1px solid var(--border-default);
+    }
+    .sb__timing {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      font-size: var(--type-text-s-size);
+      color: var(--text-shy);
+      letter-spacing: 0.05em;
+    }
+    .sb__headline {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 var(--spacing-xs);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+    }
+    .sb__subline {
+      font-size: var(--type-text-l-size);
+      color: var(--panel-accent);
+      margin: 0;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    /* ─── Decisions ─── */
+    .sb__decisions {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      flex-wrap: wrap;
+    }
+    .sb__decision {
+      flex: 1 1 200px;
+      background: var(--color-neutral-transparency-high);
+      border-radius: 6px;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-left: 2px solid var(--panel-accent);
+    }
+    .sb__decision-label {
+      font-size: var(--type-text-s-size);
+      color: var(--panel-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .sb__decision-detail {
+      font-size: var(--type-text-s-size);
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ─── Bottom zone ─── */
+    .sb__bottom {
+      flex-shrink: 0;
+    }
+
+    /* ─── Details grid ─── */
+    .sb__details {
+      display: none;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+      background: var(--bg-elevated);
+    }
+    .sb__details.is-active {
+      display: grid;
+    }
+    .sb__card {
+      padding: var(--spacing-sm) 0;
+    }
+    .sb__card-label {
+      font-size: 0.625rem;
+      color: var(--text-shy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-xs);
+    }
+    .sb__card-text {
+      font-size: var(--type-text-s-size);
+      color: var(--text-secondary);
+      margin: 0 0 var(--spacing-xs);
+      line-height: 1.5;
+    }
+    .sb__card-ref {
+      font-size: var(--type-text-s-size);
+      color: var(--color-emphasis);
+      opacity: 0.7;
+    }
+    .sb__card-say {
+      font-size: var(--type-text-s-size);
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ─── Coach notes ─── */
+    .sb__coach {
+      padding: var(--spacing-sm) 0;
+    }
+    .sb__coach-label {
+      font-size: 0.625rem;
+      color: var(--color-emphasis);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-xs);
+    }
+    .sb__coach-text {
+      font-size: var(--type-text-s-size);
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ─── Notes panel ─── */
+    .sb__notes {
+      display: none;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-default);
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--type-text-s-size);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    .sb__notes.is-visible {
+      display: block;
+    }
+    .sb__notes-prefix {
+      color: var(--text-shy);
+      margin-right: var(--spacing-xs);
+      opacity: 0.5;
+    }
+
+    /* ─── Footer ─── */
+    .sb__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-top: 1px solid var(--bg-elevated);
+      background: var(--bg-sunken);
+    }
+    .sb__footer-right {
+      display: flex;
+      gap: var(--spacing-xs);
+      align-items: center;
+    }
+    .sb__nav-btn {
+      background: transparent;
+      border: 1px solid var(--border-default);
+      color: var(--text-shy);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-family-sans);
+      font-size: var(--type-text-s-size);
+      font-weight: 500;
+    }
+    .sb__nav-btn:disabled {
+      color: var(--border-default);
+      cursor: default;
+    }
+    .sb__toggle-notes {
+      background: transparent;
+      border: 1px solid var(--border-default);
+      color: var(--text-shy);
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-family-sans);
+      font-size: var(--type-text-s-size);
+    }
+    .sb__toggle-notes.is-on {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+    }
+    .sb__total {
+      font-size: var(--type-text-s-size);
+      color: var(--text-shy);
+      opacity: 0.5;
+    }
+  </style>
+
+</BaseLayout>

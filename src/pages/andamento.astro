@@ -1,5 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.slug !== 'project-template')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const articles = (await getCollection('articles'))
+  .filter((a) => a.slug !== 'article-template')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const reports = (await getCollection('reports'))
+  .filter((r) => r.slug !== 'report-template')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <BaseLayout title="Andamento — Luis Vieira" description="Private development index." hideHeader={true}>
@@ -20,37 +33,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="andamento__section">
       <h2 class="andamento__section-title">Showcases</h2>
       <nav class="andamento__nav">
-        <a href="/projects/spaceship-v2" class="andamento__link">
-          <span class="andamento__link-label">Spaceship</span>
-          <span class="andamento__link-path">/projects/spaceship-v2</span>
-        </a>
-        <a href="/projects/alf-v2" class="andamento__link">
-          <span class="andamento__link-label">Alf</span>
-          <span class="andamento__link-path">/projects/alf-v2</span>
-        </a>
-        <a href="/projects/spacesecure-v2" class="andamento__link">
-          <span class="andamento__link-label">Spacesecure</span>
-          <span class="andamento__link-path">/projects/spacesecure-v2</span>
-        </a>
+        {projects.map((p) => (
+          <a href={`/projects/${p.slug}`} class="andamento__link">
+            <span class="andamento__link-label">
+              {p.data.title}
+              {p.data.draft && <span class="andamento__draft-badge">draft</span>}
+            </span>
+            <span class="andamento__link-path">/projects/{p.slug}</span>
+          </a>
+        ))}
       </nav>
     </section>
 
     <section class="andamento__section">
       <h2 class="andamento__section-title">Articles</h2>
       <nav class="andamento__nav">
-        <a href="/articles/spaceship-search" class="andamento__link">
-          <span class="andamento__link-label">One Search, Two Intentions</span>
-          <span class="andamento__link-path">/articles/spaceship-search</span>
-        </a>
+        {articles.map((a) => (
+          <a href={`/articles/${a.slug}`} class="andamento__link">
+            <span class="andamento__link-label">
+              {a.data.title}
+              {a.data.draft && <span class="andamento__draft-badge">draft</span>}
+            </span>
+            <span class="andamento__link-path">/articles/{a.slug}</span>
+          </a>
+        ))}
       </nav>
     </section>
 
+    {reports.length > 0 && (
+      <section class="andamento__section">
+        <h2 class="andamento__section-title">Reports</h2>
+        <nav class="andamento__nav">
+          {reports.map((r) => (
+            <a href={`/reports/${r.slug}`} class="andamento__link">
+              <span class="andamento__link-label">
+                {r.data.title}
+                {r.data.draft && <span class="andamento__draft-badge">draft</span>}
+              </span>
+              <span class="andamento__link-path">/reports/{r.slug}</span>
+            </a>
+          ))}
+        </nav>
+      </section>
+    )}
+
     <section class="andamento__section">
-      <h2 class="andamento__section-title">Reports</h2>
+      <h2 class="andamento__section-title">Decks</h2>
       <nav class="andamento__nav">
-        <a href="/reports/report-template" class="andamento__link">
-          <span class="andamento__link-label">Bulk Transfer Widget</span>
-          <span class="andamento__link-path">/reports/report-template</span>
+        <a href="/sword-deck" class="andamento__link">
+          <span class="andamento__link-label">Sword Interview — Spaceship Search</span>
+          <span class="andamento__link-path">/sword-deck</span>
         </a>
       </nav>
     </section>
