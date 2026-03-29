@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const slides = [
+  {
+    id: "opener",
+    type: "metric",
+    metric: "5% → 21%",
+    caption: "Transfer success rate after redesigning Spaceship's homepage search",
+    context: "Led by Luís Vieira · Product Platform UX · 2024",
+  },
+  {
+    id: "problem",
+    type: "statement",
+    label: "The problem",
+    headline: "One input. Two intentions. Zero clarity.",
+    body: "Registration and transfer lived in the same input field, behind a dropdown. Users would type a domain, hit Enter, and accidentally start a transfer. The bulk transfer option looked like a button — people clicked it not knowing it was a mode switch.",
+    image: true,
+    imageAlt: "The original search widget with hidden mode dropdown",
+  },
+  {
+    id: "research",
+    type: "statement",
+    label: "Research",
+    headline: "Every participant hit the same confusion.",
+    body: "We tested the live product with real users — not a prototype. The signal was clean. The number one problem was exactly what we suspected, plus a few we didn't expect. Confusion between search and transfer affected 100% of participants.",
+    image: true,
+    imageAlt: "Six issues ranked by severity from usability testing",
+  },
+  {
+    id: "insight",
+    type: "insight",
+    line1: "Register and transfer are",
+    emphasis: "two different intentions.",
+    line2: "Make it an upfront choice, not a hidden mode.",
+  },
+  {
+    id: "solution",
+    type: "statement",
+    label: "The solution",
+    headline: "Register left. Transfer right. No ambiguity.",
+    body: "The new component starts with a visible toggle — Register or Transfer — above the search bar. Switch to Transfer and the whole bar transforms. Bulk transfer lives behind a second intentional click. No more accidents.",
+    image: true,
+    imageAlt: "Mode-switching logic diagram showing the new component",
+  },
+  {
+    id: "result",
+    type: "result",
+    stat1: "−95%",
+    stat1Label: "widget interactions",
+    reveal: "That was the design doing the talk.",
+    body: "The old component counted accidental clicks. The new one only reached users with real intent.",
+    stat2: "5% → 21%",
+    stat2Label: "transfer success rate",
+    image: true,
+    imageAlt: "The finished transfer component on desktop",
+  },
+];
+---
+
+<BaseLayout title="Spaceship Search — Case Study" description="How redesigning one search input 4× transfer success." hideHeader={true}>
+
+  <a href="/andamento" class="cp-home-btn" aria-label="Back to andamento">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"></path>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+
+  <div class="deck">
+    <!-- Progress -->
+    <div class="deck__progress">
+      <div class="deck__progress-fill" id="progress"></div>
+    </div>
+
+    <!-- Slides -->
+    <div class="deck__stage" id="stage">
+
+      {slides.map((s, i) => (
+        <div class={`deck__slide ${i === 0 ? 'is-active' : ''}`} data-index={i}>
+
+          {/* ── Metric (opener) ── */}
+          {s.type === 'metric' && (
+            <div class="s-metric">
+              <div class="s-metric__number">{s.metric}</div>
+              <p class="s-metric__caption">{s.caption}</p>
+              <span class="s-metric__context">{s.context}</span>
+            </div>
+          )}
+
+          {/* ── Statement (problem, research, solution) ── */}
+          {s.type === 'statement' && (
+            <div class="s-statement">
+              <div class="s-statement__text">
+                <span class="s-statement__label">{s.label}</span>
+                <h2 class="s-statement__headline">{s.headline}</h2>
+                <p class="s-statement__body">{s.body}</p>
+              </div>
+              <div class="s-statement__visual">
+                <div class="s-placeholder" aria-label={s.imageAlt}>
+                  <span class="s-placeholder__label">Image placeholder</span>
+                  <span class="s-placeholder__alt">{s.imageAlt}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Insight ── */}
+          {s.type === 'insight' && (
+            <div class="s-insight">
+              <p class="s-insight__line1">{s.line1}</p>
+              <p class="s-insight__emphasis">{s.emphasis}</p>
+              <p class="s-insight__line2">{s.line2}</p>
+            </div>
+          )}
+
+          {/* ── Result ── */}
+          {s.type === 'result' && (
+            <div class="s-result">
+              <div class="s-result__text">
+                <div class="s-result__stat">
+                  <span class="s-result__number">{s.stat1}</span>
+                  <span class="s-result__label">{s.stat1Label}</span>
+                </div>
+                <p class="s-result__reveal">{s.reveal}</p>
+                <p class="s-result__body">{s.body}</p>
+                <div class="s-result__final">
+                  <span class="s-result__final-number">{s.stat2}</span>
+                  <span class="s-result__final-label">{s.stat2Label}</span>
+                </div>
+              </div>
+              <div class="s-result__visual">
+                <div class="s-placeholder" aria-label={s.imageAlt}>
+                  <span class="s-placeholder__label">Image placeholder</span>
+                  <span class="s-placeholder__alt">{s.imageAlt}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer -->
+    <div class="deck__footer">
+      <span class="deck__counter" id="counter">1 / {slides.length}</span>
+      <span class="deck__hint">← → to navigate</span>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.deck__slide');
+    const progress = document.getElementById('progress')!;
+    const counter = document.getElementById('counter')!;
+    const stage = document.getElementById('stage')!;
+    const total = slides.length;
+    let current = 0;
+
+    function goTo(i: number) {
+      current = Math.max(0, Math.min(total - 1, i));
+      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === current));
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    });
+
+    stage.addEventListener('click', (e: MouseEvent) => {
+      const rect = stage.getBoundingClientRect();
+      if (e.clientX - rect.left > rect.width / 2) goTo(current + 1);
+      else goTo(current - 1);
+    });
+
+    goTo(0);
+  </script>
+
+  <style>
+    /* ─── Shell ─── */
+    .deck {
+      background: var(--bg-default);
+      color: var(--text-primary);
+      font-family: var(--font-family-sans);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .deck__progress {
+      height: 2px;
+      background: transparent;
+      flex-shrink: 0;
+    }
+    .deck__progress-fill {
+      height: 100%;
+      background: var(--text-shy);
+      transition: width var(--duration-moderate) var(--ease-out);
+    }
+
+    .deck__stage {
+      flex: 1;
+      position: relative;
+      cursor: pointer;
+      min-height: 0;
+    }
+
+    .deck__slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: var(--spacing-xxl) var(--spacing-xl);
+    }
+    .deck__slide.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck__footer {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-xl);
+    }
+    .deck__counter,
+    .deck__hint {
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      opacity: 0.4;
+    }
+
+    /* ─── Slide: metric ─── */
+    .s-metric {
+      text-align: center;
+      max-width: 800px;
+    }
+    .s-metric__number {
+      font-family: var(--font-family-display);
+      font-feature-settings: var(--font-feature-settings-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: clamp(72px, 14vw, 160px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+    }
+    .s-metric__caption {
+      font-size: var(--type-text-l-font-size);
+      line-height: var(--type-text-l-line-height);
+      color: var(--text-secondary);
+      margin: 0 0 var(--spacing-xxl);
+      max-width: 28em;
+    }
+    .s-metric__context {
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      opacity: 0.5;
+    }
+
+    /* ─── Slide: statement ─── */
+    .s-statement {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .s-statement__text {
+      flex: 0 0 40%;
+    }
+    .s-statement__label {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: var(--font-weight-medium);
+      color: var(--text-shy);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--spacing-sm);
+    }
+    .s-statement__headline {
+      font-family: var(--font-family-display);
+      font-feature-settings: var(--font-feature-settings-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--type-title-m-font-size);
+      line-height: var(--type-title-m-line-height);
+      letter-spacing: var(--type-title-m-letter-spacing);
+      color: var(--text-primary);
+      margin: 0 0 var(--spacing-md);
+    }
+    .s-statement__body {
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .s-statement__visual {
+      flex: 1;
+    }
+
+    /* ─── Slide: insight ─── */
+    .s-insight {
+      text-align: center;
+      max-width: 700px;
+    }
+    .s-insight__line1 {
+      font-size: var(--type-text-l-font-size);
+      line-height: var(--type-text-l-line-height);
+      color: var(--text-shy);
+      margin: 0 0 var(--spacing-xs);
+    }
+    .s-insight__emphasis {
+      font-family: var(--font-family-display);
+      font-feature-settings: var(--font-feature-settings-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-emphasis);
+      margin: 0 0 var(--spacing-lg);
+    }
+    .s-insight__line2 {
+      font-size: var(--type-text-l-font-size);
+      line-height: var(--type-text-l-line-height);
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* ─── Slide: result ─── */
+    .s-result {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .s-result__text {
+      flex: 0 0 40%;
+    }
+    .s-result__stat {
+      margin-bottom: var(--spacing-lg);
+    }
+    .s-result__number {
+      display: block;
+      font-family: var(--font-family-display);
+      font-feature-settings: var(--font-feature-settings-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: clamp(48px, 8vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .s-result__label {
+      display: block;
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      margin-top: var(--spacing-xxxs);
+    }
+    .s-result__reveal {
+      font-size: var(--type-text-l-font-size);
+      font-weight: var(--font-weight-medium);
+      color: var(--text-primary);
+      margin: 0 0 var(--spacing-xs);
+    }
+    .s-result__body {
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
+      color: var(--text-secondary);
+      margin: 0 0 var(--spacing-lg);
+    }
+    .s-result__final {
+      border-top: var(--line-width) solid var(--border-default);
+      padding-top: var(--spacing-md);
+    }
+    .s-result__final-number {
+      display: block;
+      font-family: var(--font-family-display);
+      font-feature-settings: var(--font-feature-settings-display);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--type-title-l-font-size);
+      line-height: var(--type-title-l-line-height);
+      letter-spacing: var(--type-title-l-letter-spacing);
+      color: var(--text-primary);
+    }
+    .s-result__final-label {
+      display: block;
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      margin-top: var(--spacing-xxxs);
+    }
+    .s-result__visual {
+      flex: 1;
+    }
+
+    /* ─── Image placeholder ─── */
+    .s-placeholder {
+      aspect-ratio: 16 / 10;
+      background: var(--color-neutral-transparency-high);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-xs);
+    }
+    .s-placeholder__label {
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      opacity: 0.4;
+    }
+    .s-placeholder__alt {
+      font-size: var(--type-text-s-font-size);
+      color: var(--text-shy);
+      opacity: 0.25;
+      max-width: 24em;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
+
+</BaseLayout>
