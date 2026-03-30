@@ -23,7 +23,7 @@
 	--color-neutral-transparency-mid: oklab(100% 0 0 / 0.2);
 
 	/* ─────────────────────────────────────────
-		 Semantic Colors (single theme — design token table)
+		 Semantic Colors (dark theme — default)
 		 ───────────────────────────────────────── */
 
 	--bg-default: var(--color-superpastel-dark);
@@ -215,6 +215,14 @@
 	--type-nameplate-letter-spacing: 0.12em;
 	--type-nameplate-text-transform: uppercase;
 
+	/* Nameplate S — 10px / 140% / 0.25em (dense label, uppercase) */
+	--type-nameplate-s-font-family: var(--font-family-sans);
+	--type-nameplate-s-font-weight: var(--font-weight-semibold);
+	--type-nameplate-s-font-size: 0.714rem;
+	--type-nameplate-s-line-height: 1.4;
+	--type-nameplate-s-letter-spacing: 0.25em;
+	--type-nameplate-s-text-transform: uppercase;
+
 	/* CTA — 14px / 120% (Buttons, CTAs) */
 	--type-cta-font-family: var(--font-family-sans);
 	--type-cta-font-weight: var(--font-weight-semibold);
@@ -245,5 +253,31 @@
 	--reveal-duration: var(--duration-slow);
 	--reveal-ease: var(--ease-out);
 	--reveal-distance: 80px;
+}
+
+/* ─────────────────────────────────────────
+	 Light theme — flipped monochrome
+	 Set via data-theme="light" on <html>
+	 ───────────────────────────────────────── */
+
+[data-theme='light'] {
+	--bg-default: var(--color-superpastel-light);
+	--bg-elevated: var(--color-lightest);
+	--bg-sunken: var(--color-light);
+
+	--text-primary: var(--color-superpastel-dark);
+	--text-secondary: var(--color-medium-dark);
+	--text-shy: var(--color-base);
+
+	--border-default: var(--color-light);
+	--border-strong: var(--color-medium-light);
+
+	--button-primary-idle: var(--text-primary);
+	--button-primary-hover: var(--color-darkest);
+	--button-secondary-idle: oklab(0% 0 0 / 0.05);
+	--button-secondary-hover: oklab(0% 0 0 / 0.12);
+
+	--color-neutral-transparency-high: oklab(0% 0 0 / 0.05);
+	--color-neutral-transparency-mid: oklab(0% 0 0 / 0.12);
 }
 

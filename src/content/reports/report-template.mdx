@@ -1,287 +1,216 @@
 ---
-title: "Spaceship · Research Overview"
-subtitle: "Compiled from 2 studies · Bulk Transfer Widget (BI-13028) & Usability Testing Round 1 · Jan–Aug 2024"
-date: 2026-03-01
-draft: false
+title: "Report Template"
+subtitle: "All report components with dummy data · Use as reference"
+date: 2025-01-01
+draft: true
 ---
 
-<ReportSection number="01" title="Bulk Transfer Widget — Key Numbers" description="Data covers Jan 1 – Aug 31, 2024. A significant product change on April 11 renamed the widget from 'Transfer' to 'Bulk Transfer' and added an extra click to access it. The numbers before and after that date tell very different stories.">
+<ReportSection number="01" title="KPI Cards" description="Use KpiGrid with KpiCard children. The cols prop controls columns (default 3). Values, labels, and optional sub-text.">
 
-<Callout title="April 11 change:">
-
-The widget label changed from *"Transfer"* to *"Bulk Transfer"* and moved behind an extra click. Daily interactions dropped by **~95%** — from ~1,004 to ~47 per day. This is not a failure: it filters out users who were accidentally landing on a bulk flow they didn't need.
-
-</Callout>
-
-<KpiGrid cols={5}>
-  <KpiCard label="Avg daily interactions" value="47" sub="↓ from 1,004 (before Apr 12)" />
-  <KpiCard label="Success rate (post change)" value="21%" sub="↑ from ~5% (before Apr 12)" />
-  <KpiCard label="Widget submit rate (post)" value="31%" sub="↑ from ~8% (before Apr 12)" />
-  <KpiCard label="Desktop share (post)" value="91%" sub="Mobile: 9% · Tablet/TV: <1%" />
-  <KpiCard label="Total interactions (full period)" value="109K" sub="102K before · 6.7K after Apr 12" />
+<KpiGrid cols={4}>
+  <KpiCard label="Conversion rate" value="34%" sub="↑ from 21% last quarter" />
+  <KpiCard label="Avg session duration" value="4m 12s" sub="Desktop: 5m · Mobile: 3m" />
+  <KpiCard label="Task completion" value="87%" sub="Target: 90%" />
+  <KpiCard label="Total sessions" value="12.4K" sub="8.1K returning · 4.3K new" />
 </KpiGrid>
 
+<KpiGrid cols={3}>
+  <KpiCard label="Error rate" value="2.1%" />
+  <KpiCard label="NPS score" value="72" />
+  <KpiCard label="Support tickets" value="48" sub="↓ 31% vs previous period" />
+</KpiGrid>
+
+</ReportSection>
+
+<ReportSection number="02" title="Charts" description="ChartCard wraps a Chart.js canvas. Each chart needs a unique chartId and a JSON chartConfig string. Wrap pairs in a report-chart-grid div.">
+
 <div class="report-chart-grid">
   <ChartCard
-    title="Monthly Interactions — Widget"
-    subtitle="Total widget interactions per month. The April cliff marks the product change."
-    chartId="chartMonthlyInteractions"
-    chartConfig='{"type":"bar","data":{"labels":["Jan","Feb","Mar","Apr ⚡","May","Jun","Jul","Aug"],"datasets":[{"label":"Widget Interactions","data":[28918,31184,30491,12716,1277,1208,1712,1520],"backgroundColor":["#5B4FCF","#5B4FCF","#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)"],"borderRadius":5,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false},"tooltip":{"callbacks":{}}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'
+    title="Monthly Active Users"
+    subtitle="Unique sessions per month over the last 8 months."
+    chartId="chartMAU"
+    chartConfig='{"type":"bar","data":{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"datasets":[{"label":"Users","data":[3200,3800,4100,3900,4500,5200,5800,6100],"backgroundColor":"#5B4FCF","borderRadius":5,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'
   />
   <ChartCard
-    title="Monthly Success Rate — Widget"
-    subtitle="Successful transfers ÷ interactions. Quality of intent rises sharply post-April."
-    chartId="chartSuccessRate"
-    chartConfig='{"type":"line","data":{"labels":["Jan","Feb","Mar","Apr ⚡","May","Jun","Jul","Aug"],"datasets":[{"label":"Success Rate %","data":[5.8,4.6,4.1,4.4,20.9,24.1,17.2,22.5],"borderColor":"#5B4FCF","backgroundColor":"rgba(91,79,207,0.1)","fill":true,"tension":0.4,"pointBackgroundColor":"#5B4FCF","pointRadius":4},{"label":"Submit Rate %","data":[9.8,7.8,7.9,8.7,31.8,34.2,26.8,32.4],"borderColor":"rgba(91,79,207,0.4)","backgroundColor":"transparent","borderDash":[4,3],"tension":0.4,"pointBackgroundColor":"rgba(91,79,207,0.4)","pointRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"suggestedMax":40},"x":{"grid":{"display":false}}}}}'
+    title="Task Success Rate"
+    subtitle="Percentage of users completing core flows without error."
+    chartId="chartTaskSuccess"
+    chartConfig='{"type":"line","data":{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"datasets":[{"label":"Success %","data":[62,65,68,64,71,78,82,87],"borderColor":"#5B4FCF","backgroundColor":"rgba(91,79,207,0.1)","fill":true,"tension":0.4,"pointBackgroundColor":"#5B4FCF","pointRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"display":false}},"scales":{"y":{"grid":{"color":"#2e2e38"},"suggestedMax":100},"x":{"grid":{"display":false}}}}}'
   />
 </div>
 
 <div class="report-chart-grid">
   <ChartCard
-    title="Device Split — Before vs After Apr 12"
-    subtitle="Interactions by device category, both periods."
-    chartId="chartDeviceSplit"
-    chartConfig='{"type":"bar","data":{"labels":["Desktop","Mobile","Tablet","Smart TV"],"datasets":[{"label":"Before Apr 12","data":[78702,23259,400,8],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"After Apr 12","data":[6054,591,12,0],"backgroundColor":"rgba(91,79,207,0.3)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'
+    title="Device Distribution"
+    subtitle="Sessions by device type."
+    chartId="chartDevices"
+    chartConfig='{"type":"doughnut","data":{"labels":["Desktop","Mobile","Tablet"],"datasets":[{"data":[58,35,7],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.15)"],"borderWidth":0,"hoverOffset":6}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12}}}}}'
   />
   <ChartCard
-    title="Funnel Comparison — Before vs After Apr 12"
-    subtitle="Avg daily: Interactions → Submits (widget) → Successful Transfers (widget)."
-    chartId="chartFunnel"
-    chartConfig='{"type":"bar","data":{"labels":["Interactions","Widget Submits","Transfers"],"datasets":[{"label":"Before Apr 12 (avg/day)","data":[1003.6,82.9,46.4],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"After Apr 12 (avg/day)","data":[46.9,14.6,9.8],"backgroundColor":"rgba(91,79,207,0.3)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"type":"logarithmic"},"x":{"grid":{"display":false}}}}}'
+    title="Errors by Category"
+    subtitle="Distribution of user-facing errors."
+    chartId="chartErrors"
+    chartConfig='{"type":"bar","data":{"labels":["Validation","Timeout","Auth","Network"],"datasets":[{"label":"Count","data":[142,87,34,19],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.6)","rgba(91,79,207,0.35)","rgba(91,79,207,0.15)"],"borderRadius":4}]},"options":{"responsive":true,"indexAxis":"y","plugins":{"legend":{"display":false}},"scales":{"x":{"grid":{"color":"#2e2e38"}},"y":{"grid":{"display":false}}}}}'
   />
 </div>
 
-<DataTable caption="Monthly Summary Table — Widget Activity">
+<div class="report-chart-grid report-chart-grid--3">
+  <ChartCard
+    title="Satisfaction"
+    subtitle="Post-task survey (n=86)"
+    chartId="chartSat1"
+    chartConfig='{"type":"doughnut","data":{"labels":["Satisfied","Neutral","Dissatisfied"],"datasets":[{"data":[64,22,14],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.35)","rgba(91,79,207,0.12)"],"borderWidth":0}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12,"font":{"size":11}}}}}}'
+  />
+  <ChartCard
+    title="Ease of Use"
+    subtitle="System Usability Scale"
+    chartId="chartSat2"
+    chartConfig='{"type":"doughnut","data":{"labels":["Easy","Moderate","Difficult"],"datasets":[{"data":[71,19,10],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.35)","rgba(91,79,207,0.12)"],"borderWidth":0}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12,"font":{"size":11}}}}}}'
+  />
+  <ChartCard
+    title="Would Recommend"
+    subtitle="Likelihood to recommend"
+    chartId="chartSat3"
+    chartConfig='{"type":"doughnut","data":{"labels":["Yes","Maybe","No"],"datasets":[{"data":[58,30,12],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.35)","rgba(91,79,207,0.12)"],"borderWidth":0}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12,"font":{"size":11}}}}}}'
+  />
+</div>
+
+</ReportSection>
+
+<ReportSection number="03" title="Data Tables" description="DataTable wraps a standard HTML table. Optional caption prop. Use report-tag spans for inline badges and report-severity for dot scales.">
+
+<DataTable caption="Feature Adoption — First 90 Days">
 <table>
 <thead>
 <tr>
-<th>Month</th>
-<th>Interactions</th>
-<th>Widget Submits</th>
-<th>Submit Rate</th>
-<th>Domain Orders</th>
-<th>Successful Transfers</th>
-<th>Success Rate</th>
+<th>Feature</th>
+<th>Impressions</th>
+<th>Activations</th>
+<th>Adoption Rate</th>
+<th>Retention (D30)</th>
+<th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Jan 2024</strong></td>
-<td>28,918</td>
-<td>2,828</td>
-<td><span class="report-tag">9.8%</span></td>
-<td>1,849</td>
-<td>1,677</td>
-<td><span class="report-tag">5.8%</span></td>
+<td><strong>Quick search</strong></td>
+<td>18,200</td>
+<td>9,400</td>
+<td><span class="report-tag report-tag--strong">51.6%</span></td>
+<td>72%</td>
+<td><span class="report-tag report-tag--strong">Strong</span></td>
 </tr>
 <tr>
-<td><strong>Feb 2024</strong></td>
-<td>31,184</td>
-<td>2,423</td>
-<td><span class="report-tag">7.8%</span></td>
-<td>1,571</td>
-<td>1,445</td>
-<td><span class="report-tag">4.6%</span></td>
+<td><strong>Bulk actions</strong></td>
+<td>6,800</td>
+<td>1,900</td>
+<td><span class="report-tag">27.9%</span></td>
+<td>44%</td>
+<td><span class="report-tag">Moderate</span></td>
 </tr>
 <tr>
-<td><strong>Mar 2024</strong></td>
-<td>30,491</td>
-<td>2,405</td>
-<td><span class="report-tag">7.9%</span></td>
-<td>1,427</td>
-<td>1,250</td>
-<td><span class="report-tag">4.1%</span></td>
+<td><strong>Saved filters</strong></td>
+<td>4,100</td>
+<td>820</td>
+<td><span class="report-tag">20.0%</span></td>
+<td>61%</td>
+<td><span class="report-tag">Moderate</span></td>
 </tr>
 <tr>
-<td><strong>Apr 2024 ⚡</strong></td>
-<td>12,716</td>
-<td>1,102</td>
-<td><span class="report-tag">8.7%</span></td>
-<td>607</td>
-<td>562</td>
-<td><span class="report-tag">4.4%</span></td>
-</tr>
-<tr>
-<td><strong>May 2024</strong></td>
-<td>1,277</td>
-<td>406</td>
-<td><span class="report-tag report-tag--strong">31.8%</span></td>
-<td>272</td>
-<td>267</td>
-<td><span class="report-tag report-tag--strong">20.9%</span></td>
-</tr>
-<tr>
-<td><strong>Jun 2024</strong></td>
-<td>1,208</td>
-<td>413</td>
-<td><span class="report-tag report-tag--strong">34.2%</span></td>
-<td>303</td>
-<td>291</td>
-<td><span class="report-tag report-tag--strong">24.1%</span></td>
-</tr>
-<tr>
-<td><strong>Jul 2024</strong></td>
-<td>1,712</td>
-<td>459</td>
-<td><span class="report-tag report-tag--strong">26.8%</span></td>
-<td>303</td>
-<td>295</td>
-<td><span class="report-tag report-tag--strong">17.2%</span></td>
-</tr>
-<tr>
-<td><strong>Aug 2024</strong></td>
-<td>1,520</td>
-<td>493</td>
-<td><span class="report-tag report-tag--strong">32.4%</span></td>
-<td>352</td>
-<td>342</td>
-<td><span class="report-tag report-tag--strong">22.5%</span></td>
+<td><strong>Export CSV</strong></td>
+<td>2,300</td>
+<td>310</td>
+<td><span class="report-tag">13.5%</span></td>
+<td>38%</td>
+<td><span class="report-tag">Low</span></td>
 </tr>
 </tbody>
 </table>
 </DataTable>
 
-<Callout title="The signal behind the noise:">
-
-Post-change, users who do reach the widget are *much more intentional* — submit rates jumped from ~8% to ~31%, and success rates from ~5% to ~21%. The drop in volume is real, but it's largely noise removal. The transfer flow itself is working better for users who truly need it.
-
-</Callout>
-
-</ReportSection>
-
-<ReportSection number="02" title="Usability Testing — Round 1 · Spaceship Homepage" description="3 moderated sessions (Nov 28–30, 2023) testing the search experience on spaceship.com. Participants: 2 designers, 1 product owner — all domain owners. 3 tasks covered: finding a domain, transferring a domain, and bulk transfer.">
-
-<div class="report-chart-grid report-chart-grid--3">
-  <ChartCard
-    title="Participants"
-    subtitle="3 of 4 planned sessions completed"
-    chartId="chartParticipants"
-    chartConfig='{"type":"bar","data":{"labels":["P01 · AS","P02 · CB","P03 · DB"],"datasets":[{"label":"Domains owned","data":[4,1,3],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.2)"],"borderRadius":4}]},"options":{"responsive":true,"indexAxis":"y","plugins":{"legend":{"display":false}},"scales":{"x":{"grid":{"color":"#2e2e38"}},"y":{"grid":{"display":false}}}}}'
-  />
-  <ChartCard
-    title="Task Completion Rates"
-    subtitle="Across 3 tasks, 3 participants"
-    chartId="chartTaskCompletion"
-    chartConfig='{"type":"doughnut","data":{"labels":["Completed, no issues","Completed with difficulty","Not completed"],"datasets":[{"data":[4,5,0],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.35)","rgba(91,79,207,0.12)"],"borderWidth":0,"hoverOffset":6}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12,"font":{"size":11}}}}}}'
-  />
-  <ChartCard
-    title="Issues by Task Area"
-    subtitle="6 distinct issues found, 3 task areas"
-    chartId="chartIssuesByTask"
-    chartConfig='{"type":"doughnut","data":{"labels":["Bulk Transfer","Transfer Domain","Find Domain"],"datasets":[{"data":[4,2,1],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.15)"],"borderWidth":0,"hoverOffset":6}]},"options":{"responsive":true,"cutout":"65%","plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":12,"font":{"size":11}}}}}}'
-  />
-</div>
-
-<DataTable caption="Ranked Issues — by Severity Score">
+<DataTable caption="Usability Issues — Ranked by Severity">
 <table>
 <thead>
 <tr>
 <th>Rank</th>
-<th>Task</th>
-<th>Location</th>
+<th>Area</th>
 <th>Issue</th>
 <th>Affected</th>
 <th>Severity</th>
-<th>Suggestion</th>
+<th>Recommendation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><span class="report-tag report-tag--strong">1st</span></td>
-<td><strong>Find domain</strong></td>
-<td>Homepage</td>
-<td>"Search or transfer a domain" placeholder creates confusion — users don't understand the difference between search and transfer, especially with the dropdown open.</td>
-<td><span class="report-tag report-tag--strong">3/3</span></td>
+<td><strong>Search</strong></td>
+<td>Users confuse the search field with a URL bar and paste full URLs instead of keywords.</td>
+<td><span class="report-tag report-tag--strong">4/5</span></td>
 <td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span></span> 6</td>
-<td>Separate search and transfer clearly — different labels, possibly different entry points.</td>
+<td>Add URL detection with auto-strip. Show format hint on focus.</td>
 </tr>
 <tr>
 <td><span class="report-tag">2nd</span></td>
-<td><strong>Bulk transfer</strong></td>
-<td>Transfer Results</td>
-<td>Clicking "http://" in the domain field triggers an unintended "enter" action, reverting to selected mode. User must re-click and use keyboard to correct.</td>
-<td><span class="report-tag">2/3</span></td>
+<td><strong>Navigation</strong></td>
+<td>Secondary actions are buried in a kebab menu. Users don't discover them without prompting.</td>
+<td><span class="report-tag">3/5</span></td>
 <td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> 4</td>
-<td>Make the domain field freely editable — clicking should position the cursor, not trigger submission.</td>
+<td>Surface top 2 actions as visible buttons. Keep rest in overflow.</td>
 </tr>
 <tr>
 <td><span class="report-tag">3rd</span></td>
-<td><strong>Bulk transfer</strong></td>
-<td>Homepage / Results</td>
-<td>Domains with errors silently disappear from results. Error messages are unclear, shown only after the 3rd attempt. Users unsure what format is expected.</td>
-<td><span class="report-tag">1/3</span></td>
+<td><strong>Forms</strong></td>
+<td>Error messages appear only after submit. No inline validation or progress indication.</td>
+<td><span class="report-tag">2/5</span></td>
 <td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> 2</td>
-<td>Block progression if domains have errors. Auto-strip "https://". Show inline errors immediately with clear format guidance.</td>
-</tr>
-<tr>
-<td><span class="report-tag">4th</span></td>
-<td><strong>Transfer domain</strong></td>
-<td>Domains Page</td>
-<td>Transfer section is hard to find — requires significant scrolling. Users feel entry points need improvement.</td>
-<td><span class="report-tag">1/3</span></td>
-<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> 1</td>
-<td>Add a prominent "Transfer" entry point. Consider a "Domains" submenu with "Transfer" as a distinct item.</td>
-</tr>
-<tr>
-<td><span class="report-tag">5th</span></td>
-<td><strong>Transfer domain</strong></td>
-<td>Search Results</td>
-<td>After searching for a domain, there's no option to transfer from the results page. Back button doesn't work. Users must restart the whole process.</td>
-<td><span class="report-tag">1/3</span></td>
-<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> 1</td>
-<td>Add a "Transfer this domain" CTA in search results. Fix browser back button navigation.</td>
-</tr>
-<tr>
-<td><span class="report-tag">6th</span></td>
-<td><strong>Bulk transfer</strong></td>
-<td>Transfer Results</td>
-<td>"Bulk Transfer" button on the results page is expected to add more domains, but triggers a new modal instead. Inconsistent with homepage button behaviour.</td>
-<td><span class="report-tag">1/3</span></td>
-<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> 1</td>
-<td>Ensure button labels and behaviours are consistent across pages. "Bulk Transfer" should behave the same everywhere.</td>
+<td>Add inline validation on blur. Show progress bar for multi-step flows.</td>
 </tr>
 </tbody>
 </table>
 </DataTable>
 
+</ReportSection>
+
+<ReportSection number="04" title="Callouts" description="Callout highlights key insights or quotes. Optional title prop. Supports markdown in the slot (bold, italic, etc).">
+
+<Callout title="Key finding:">
+
+The redesigned flow reduced error rates by **68%** while maintaining the same task completion time. Users reported feeling *more confident* despite fewer on-screen instructions — proof that clarity beats volume.
+
+</Callout>
+
 <div class="report-quote-grid">
-<Callout title="P01 on the search bar:">
+<Callout title="P01 on navigation:">
 
-"I don't understand the difference between 'Search and transfer a domain' to the search and transfer button. When I click to start typing it shows more options that I was expecting, it gives options that I didn't know that existed — this can be confusing."
-
-</Callout>
-<Callout title="P02 on bulk transfer error handling:">
-
-"I copy/pasted the three domains in the input field because I thought the 'transfer' option would be efficient enough to identify them — like how email fields handle multiple addresses. I was expecting the same happened here."
+"I kept looking for the transfer option in the sidebar. It never occurred to me to use the search bar for that — those feel like completely different actions."
 
 </Callout>
-<Callout title="P02 on transfer confidence:">
+<Callout title="P03 on confidence:">
 
-"I never done a transfer before. I don't know if the process will put my website offline, how much time and steps it will take. I wish it had here some bullet points with that information to help me feel more confident."
-
-</Callout>
-<Callout title="P03 on workflow consistency:">
-
-"The transfer process is so fast that I'm afraid I'm doing something wrong. I would like to have some information to reassure that everything is ok — that I won't be charged twice, for example."
+"The confirmation screen is too fast. I clicked and it was done before I could read what happened. I need a moment to *verify* before committing."
 
 </Callout>
 </div>
 
+<Callout>
+
+A callout without a title works too — use it for general observations or transitional notes between sections.
+
+</Callout>
+
 </ReportSection>
 
-<ReportSection number="03" title="Cross-Study Connections" description="Where qualitative signals and quantitative data reinforce each other.">
+<ReportSection number="05" title="Annotations" description="Annotation is for numbered cross-study connections or analytical notes. Each takes a number, title, and text prop.">
 
-<Annotation number="1" title="The April change was directionally right, but users still struggle once they find the widget." text="The 21% success rate post-change and the qualitative issues around error handling and format validation suggest that the funnel is intentional now, but the experience inside the widget has friction that costs conversions." />
+<Annotation number="1" title="Quantitative data confirms the qualitative signal." text="Users who reported confusion in interviews are the same segment showing the highest drop-off in the funnel. The 34% who abandon at step 2 map directly to the 'I don't understand what this does' feedback from usability sessions." />
 
-<Annotation number="2" title="Mobile is a real gap." text="Post-April, mobile drops from 23% to 9% of widget interactions — but domain transfers on mobile are a legitimate use case. The usability data shows that the bulk transfer flow was already hard enough on desktop. On mobile, it's likely worse." />
+<Annotation number="2" title="Mobile is underserved but growing." text="Mobile sessions grew 18% quarter-over-quarter, but task completion on mobile is 23 points below desktop. The gap is widening — responsive layout alone isn't enough. The interaction model needs rethinking for touch." />
 
-<Annotation number="3" title="Discoverability is the upstream problem." text="Users in the usability test repeatedly couldn't find the transfer entry point. The quantitative data confirms this — most users who interact with the widget submit (92%+ drop off before submitting). If users can't find or trust the entry point, the funnel never starts." />
-
-<Annotation number="4" title="Trust and clarity are conversion levers." text="Multiple participants expressed anxiety about what happens during a transfer (downtime, double billing, timelines). This isn't a cosmetic UX issue — it likely suppresses transfers that would otherwise complete. Reassurance copy and process transparency are low-effort, high-impact fixes." />
+<Annotation number="3" title="Trust is a conversion lever, not a nice-to-have." text="Three of five participants expressed anxiety about irreversible actions. Adding confirmation steps and undo capability in the prototype increased completion rates by 12% with no measurable increase in time-on-task." />
 
 </ReportSection>
 
 <footer class="report-footer">
-<p>Spaceship.com — Internal Design Research</p>
-<p>Sources: BI-13028 · Usability Testing Round 1 · Jan–Aug 2024 data</p>
+<p>Report Template — All Components</p>
+<p>Dummy data for reference only</p>
 </footer>

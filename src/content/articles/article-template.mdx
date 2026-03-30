@@ -1,55 +1,98 @@
 ---
-title: "Designing with Intention"
-subtitle: "How constraints shape better digital products"
-date: 2026-03-12
+title: "Article Template"
+subtitle: "All available elements for article pages"
+date: 2025-01-01
 cover: "/images/Placeholder.png"
 draft: false
 ---
 
-Every design decision carries weight. The best digital products aren't born from unlimited possibility — they emerge from **thoughtful constraints** that channel creativity into purposeful outcomes. After years of shaping interfaces, I've come to believe that intention beats inspiration every time.
+This is a body paragraph in `text-l` (18px / 140%). Articles use a narrow measure for comfortable reading. **Bold text** for emphasis, *italic* for asides or titles. Both can combine: ***bold italic***. Inline `code` renders in monospace.
 
-This isn't about following rigid rules. It's about understanding *why* each element exists, what it communicates, and how it serves the person using it.
+A second paragraph to show vertical rhythm between blocks. Links look [like this](#) within the flow of text. The article body supports all standard markdown plus the components listed below.
 
-## The Case for Constraints
+## Heading 2 — Section Title
 
-When a project begins with a blank canvas and no boundaries, the result is often noise. Too many typefaces, inconsistent spacing, decorative elements that serve no function. Constraints act as a filter — they force you to justify every choice.
+Use `##` for major sections. This is the primary structural heading inside the article body. The article title (h1) comes from frontmatter via ArticleHeader.
 
-> Good design is as little design as possible. Less, but better — because it concentrates on the essential aspects, and the products are not burdened with non-essentials.
+### Heading 3 — Subsection
 
-Consider a design system with just two typefaces, a strict spacing scale, and a limited color palette. Within those boundaries, you're free to focus on what actually matters:
+Use `###` for subsections within a section. Don't skip levels.
 
-- **Hierarchy** — what does the reader see first?
-- **Rhythm** — does the content breathe between sections?
-- **Clarity** — can someone scan this in five seconds and understand the structure?
-- **Consistency** — does this feel like it belongs with everything else?
+#### Heading 4 — Minor Heading
 
-These aren't aesthetic questions. They're communication questions.
+Use `####` sparingly. If you need this many levels, the article might need restructuring.
 
-## Systems Over Styles
+## Lists
 
-A well-built design system doesn't just make things look consistent — it makes decisions faster. When you've already defined your type scale, your spacing tokens, your color semantics, you stop debating pixels and start solving problems.
+Unordered list:
 
-<Figure src="/images/Placeholder.png" alt="Design system components arranged in a grid layout" caption="A design system reduces decisions, not creativity. Each token encodes a reason." />
+- First item in the list
+- Second item with **bold** for emphasis
+- Third item with a longer body to show how wrapping works when text extends beyond a single line in the list
 
-The shift from "what looks good" to "what's appropriate" is subtle but transformative. Style is a byproduct of good systems thinking. When every spacing value maps to a purpose, when every color token has a semantic name, the visual language becomes self-reinforcing.
+Ordered list:
 
-### Tokens as Design Decisions
+1. First step in a sequence
+2. Second step with *italic* reference
+3. Third step to complete the flow
 
-A spacing token like `--spacing-md` (20px) isn't arbitrary. It represents a deliberate choice about how much breathing room content needs between related elements. The token *is* the decision — encoded, reusable, and consistent.
+## Blockquote
 
-The same applies to typography. When `text-l` at 18px with 140% line-height is your long-form body size, you're not choosing a font size for each page. You're applying a principle: readable prose at a comfortable measure.
+> A blockquote for pull quotes, external references, or key statements. Blockquotes stand apart from the body text and carry their own visual weight.
 
-## Writing as Interface Design
+A paragraph after the quote to show spacing.
 
-Articles — like this one — are interfaces too. The column width, the paragraph spacing, the heading hierarchy: these are all design decisions that shape how someone experiences your words.
+## Figure — with Caption
 
-1. **Narrow measure** keeps eyes from drifting across wide screens
-2. **Generous line-height** lets text breathe on the vertical axis
-3. **Clear heading scale** creates scannable landmarks in long content
-4. **Figures that break wider** create visual rhythm and contrast with the text column
+<Figure src="/images/Placeholder.png" alt="Placeholder image showing where a real asset would go" caption="Figure with caption — use for images that need context or attribution." />
 
-The best reading experiences are invisible. You don't notice the typography — you notice the ideas.
+## Figure — without Caption
+
+<Figure src="/images/Placeholder.png" alt="Placeholder image without caption" />
+
+## Divider
+
+A horizontal divider separates thematic sections:
+
+<Divider />
+
+Content continues after the divider. Use sparingly — headings usually provide enough structure.
+
+## Divider — with Label
+
+<Divider label="Section label" />
+
+Labelled dividers name a break point. Good for long-form pieces with distinct parts.
+
+## Code Block
+
+```js
+// Fenced code blocks render with syntax highlighting
+const tokens = {
+  spacing: '--spacing-md',
+  type: '--type-text-l-font-size',
+  color: '--text-primary',
+};
+```
+
+## Horizontal Rule
+
+Standard markdown `---` also produces a rule:
 
 ---
 
-Intention doesn't mean perfection. It means every element can answer the question: *why are you here?* If it can't, it probably shouldn't be.
+## Combined Elements
+
+A paragraph that sets up the image below. Notice the rhythm: text block, then figure, then text again. The alternation creates a reading pace.
+
+<Figure src="/images/Placeholder.png" alt="Another placeholder" caption="Figures break wider than the text column, creating visual contrast." />
+
+A closing paragraph. The best articles feel like a conversation — each element leading naturally to the next.
+
+---
+
+**Frontmatter fields:** `title` (required), `subtitle` (optional), `date` (required), `cover` (optional — hero image above body), `draft` (boolean), `theme` (`"dark"` or `"light"`, defaults to light).
+
+**Components:** `Figure` (src, alt, caption?), `Divider` (label?, spaceAbove?, spaceBelow?, variant?).
+
+**Markdown:** Headings (h2–h4), paragraphs, bold, italic, links, unordered/ordered lists, blockquotes, fenced code blocks, inline code, horizontal rules.

@@ -6,11 +6,12 @@ const {
   title = 'Luis Vieira—Digital Product Designer',
   description = 'I design purposeful digital products—clear systems with human presence.',
   hideHeader = false,
+  theme = 'dark',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={theme}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +28,9 @@ const {
     <meta name="description" content={description} />
     <slot name="head" />
     <script is:inline>
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add(
+        document.documentElement.dataset.theme || 'dark'
+      );
     </script>
   </head>
   <body>

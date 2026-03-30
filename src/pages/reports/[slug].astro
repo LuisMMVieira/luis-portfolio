@@ -30,7 +30,7 @@ const { report } = Astro.props as Props;
 const { Content } = await report.render();
 ---
 
-<BaseLayout title={`${report.data.title} — Luis Vieira`} hideHeader={true}>
+<BaseLayout title={`${report.data.title} — Luis Vieira`} hideHeader={true} theme={report.data.theme}>
   <script slot="head" is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
