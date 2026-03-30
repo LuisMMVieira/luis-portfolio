@@ -58,9 +58,9 @@ const slides = [
 ];
 ---
 
-<BaseLayout title="Spaceship Search — Case Study" description="How redesigning one search input 4× transfer success." hideHeader={true}>
+<BaseLayout title="Spaceship Search — Case Study (Light)" description="How redesigning one search input 4× transfer success." hideHeader={true}>
 
-  <a href="/andamento" class="cp-home-btn" aria-label="Back to andamento">
+  <a href="/andamento" class="cp-home-btn deck-light-btn" aria-label="Back to andamento">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M19 12H5"></path>
       <polyline points="12 19 5 12 12 5"></polyline>
@@ -79,7 +79,6 @@ const slides = [
       {slides.map((s, i) => (
         <div class={`deck__slide ${i === 0 ? 'is-active' : ''}`} data-index={i}>
 
-          {/* ── Metric (opener) ── */}
           {s.type === 'metric' && (
             <div class="s-metric">
               <div class="s-metric__number">{s.metric}</div>
@@ -88,7 +87,6 @@ const slides = [
             </div>
           )}
 
-          {/* ── Statement (problem, research, solution) ── */}
           {s.type === 'statement' && (
             <div class="s-statement">
               <div class="s-statement__text">
@@ -105,7 +103,6 @@ const slides = [
             </div>
           )}
 
-          {/* ── Insight ── */}
           {s.type === 'insight' && (
             <div class="s-insight">
               <p class="s-insight__line1">{s.line1}</p>
@@ -114,7 +111,6 @@ const slides = [
             </div>
           )}
 
-          {/* ── Result ── */}
           {s.type === 'result' && (
             <div class="s-result">
               <div class="s-result__text">
@@ -179,8 +175,25 @@ const slides = [
   </script>
 
   <style>
-    /* ─── Shell ─── */
+    /*
+     * Light mode — override semantic tokens.
+     * Flipped monochrome: white paper, dark type.
+     * --color-emphasis stays unchanged.
+     */
+
+    :global(body) {
+      background: var(--color-superpastel-light);
+    }
+
     .deck {
+      /* Override semantic tokens for light mode */
+      --bg-default: var(--color-superpastel-light);
+      --text-primary: var(--color-superpastel-dark);
+      --text-secondary: var(--color-medium-dark);
+      --text-shy: var(--color-base);
+      --border-default: var(--color-light);
+      --color-neutral-transparency-high: var(--color-light);
+
       background: var(--bg-default);
       color: var(--text-primary);
       font-family: var(--font-family-sans);
@@ -190,6 +203,14 @@ const slides = [
       overflow: hidden;
     }
 
+    /* Back button override for light bg */
+    .deck-light-btn {
+      color: var(--text-shy) !important;
+    }
+    .deck-light-btn:hover {
+      color: var(--text-primary) !important;
+    }
+
     .deck__progress {
       height: 2px;
       background: transparent;
@@ -197,7 +218,7 @@ const slides = [
     }
     .deck__progress-fill {
       height: 100%;
-      background: var(--text-shy);
+      background: var(--border-default);
       transition: width var(--duration-moderate) var(--ease-out);
     }
 
@@ -236,10 +257,16 @@ const slides = [
     }
     .deck__counter,
     .deck__hint {
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
-      opacity: 0.4;
     }
+
+    /*
+     * 3 type sizes only (SINPHONY):
+     *   Display — title-xl (Dazzed 56px)
+     *   Heading — title-m  (Dazzed 34px)
+     *   Text    — text-m   (Plex 14px) — labels use weight + color, not size
+     */
 
     /* ─── Slide: metric ─── */
     .s-metric {
@@ -248,26 +275,24 @@ const slides = [
       align-self: center;
     }
     .s-metric__number {
-      font-family: var(--font-family-display);
+      font-family: var(--type-title-xl-font-family);
       font-feature-settings: var(--font-feature-settings-display);
-      font-weight: var(--font-weight-semibold);
-      font-size: clamp(72px, 14vw, 160px);
-      line-height: 1;
-      letter-spacing: -0.04em;
+      font-weight: var(--type-title-xl-font-weight);
+      font-size: var(--type-title-xl-font-size);
+      line-height: var(--type-title-xl-line-height);
+      letter-spacing: var(--type-title-xl-letter-spacing);
       color: var(--text-primary);
       margin-bottom: var(--spacing-md);
     }
     .s-metric__caption {
-      font-size: var(--type-text-l-font-size);
-      line-height: var(--type-text-l-line-height);
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
       color: var(--text-secondary);
-      margin: 0 0 var(--spacing-xxl);
-      max-width: 28em;
+      margin: 0 0 var(--spacing-xl);
     }
     .s-metric__context {
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
-      opacity: 0.5;
     }
 
     /* ─── Slide: statement ─── */
@@ -278,6 +303,9 @@ const slides = [
       align-items: center;
     }
     .s-statement__text {
+      grid-column: 1 / -1;
+    }
+    .s-statement__visual {
       grid-column: 1 / -1;
     }
     @media (min-width: 768px) {
@@ -300,9 +328,9 @@ const slides = [
       margin-bottom: var(--spacing-sm);
     }
     .s-statement__headline {
-      font-family: var(--font-family-display);
+      font-family: var(--type-title-m-font-family);
       font-feature-settings: var(--font-feature-settings-display);
-      font-weight: var(--font-weight-semibold);
+      font-weight: var(--type-title-m-font-weight);
       font-size: var(--type-title-m-font-size);
       line-height: var(--type-title-m-line-height);
       letter-spacing: var(--type-title-m-letter-spacing);
@@ -314,9 +342,6 @@ const slides = [
       line-height: var(--type-text-m-line-height);
       color: var(--text-secondary);
       margin: 0;
-    }
-    .s-statement__visual {
-      grid-column: 1 / -1;
     }
 
     /* ─── Slide: insight ─── */
@@ -331,24 +356,24 @@ const slides = [
       }
     }
     .s-insight__line1 {
-      font-size: var(--type-text-l-font-size);
-      line-height: var(--type-text-l-line-height);
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
       color: var(--text-shy);
       margin: 0 0 var(--spacing-xs);
     }
     .s-insight__emphasis {
-      font-family: var(--font-family-display);
+      font-family: var(--type-title-xl-font-family);
       font-feature-settings: var(--font-feature-settings-display);
-      font-weight: var(--font-weight-semibold);
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-weight: var(--type-title-xl-font-weight);
+      font-size: var(--type-title-xl-font-size);
+      line-height: var(--type-title-xl-line-height);
+      letter-spacing: var(--type-title-xl-letter-spacing);
       color: var(--color-emphasis);
       margin: 0 0 var(--spacing-lg);
     }
     .s-insight__line2 {
-      font-size: var(--type-text-l-font-size);
-      line-height: var(--type-text-l-line-height);
+      font-size: var(--type-text-m-font-size);
+      line-height: var(--type-text-m-line-height);
       color: var(--text-secondary);
       margin: 0;
     }
@@ -361,6 +386,9 @@ const slides = [
       align-items: center;
     }
     .s-result__text {
+      grid-column: 1 / -1;
+    }
+    .s-result__visual {
       grid-column: 1 / -1;
     }
     @media (min-width: 768px) {
@@ -376,22 +404,22 @@ const slides = [
     }
     .s-result__number {
       display: block;
-      font-family: var(--font-family-display);
+      font-family: var(--type-title-xl-font-family);
       font-feature-settings: var(--font-feature-settings-display);
-      font-weight: var(--font-weight-semibold);
-      font-size: clamp(48px, 8vw, 80px);
-      line-height: 1;
-      letter-spacing: -0.03em;
+      font-weight: var(--type-title-xl-font-weight);
+      font-size: var(--type-title-xl-font-size);
+      line-height: var(--type-title-xl-line-height);
+      letter-spacing: var(--type-title-xl-letter-spacing);
       color: var(--text-primary);
     }
     .s-result__label {
       display: block;
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
       margin-top: var(--spacing-xxxs);
     }
     .s-result__reveal {
-      font-size: var(--type-text-l-font-size);
+      font-size: var(--type-text-m-font-size);
       font-weight: var(--font-weight-medium);
       color: var(--text-primary);
       margin: 0 0 var(--spacing-xs);
@@ -408,22 +436,19 @@ const slides = [
     }
     .s-result__final-number {
       display: block;
-      font-family: var(--font-family-display);
+      font-family: var(--type-title-m-font-family);
       font-feature-settings: var(--font-feature-settings-display);
-      font-weight: var(--font-weight-semibold);
-      font-size: var(--type-title-l-font-size);
-      line-height: var(--type-title-l-line-height);
-      letter-spacing: var(--type-title-l-letter-spacing);
+      font-weight: var(--type-title-m-font-weight);
+      font-size: var(--type-title-m-font-size);
+      line-height: var(--type-title-m-line-height);
+      letter-spacing: var(--type-title-m-letter-spacing);
       color: var(--text-primary);
     }
     .s-result__final-label {
       display: block;
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
       margin-top: var(--spacing-xxxs);
-    }
-    .s-result__visual {
-      grid-column: 1 / -1;
     }
 
     /* ─── Image placeholder ─── */
@@ -438,17 +463,16 @@ const slides = [
       gap: var(--spacing-xs);
     }
     .s-placeholder__label {
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
       opacity: 0.4;
     }
     .s-placeholder__alt {
-      font-size: var(--type-text-s-font-size);
+      font-size: var(--type-text-m-font-size);
       color: var(--text-shy);
       opacity: 0.25;
       max-width: 24em;
       text-align: center;
-      line-height: 1.4;
     }
   </style>
 

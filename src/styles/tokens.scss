@@ -207,6 +207,14 @@
 	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
 
+	/* Nameplate — 14px / 120% / 0.12em (structural label, uppercase) */
+	--type-nameplate-font-family: var(--font-family-sans);
+	--type-nameplate-font-weight: var(--font-weight-medium);
+	--type-nameplate-font-size: var(--type-text-m-font-size);
+	--type-nameplate-line-height: 1.2;
+	--type-nameplate-letter-spacing: 0.12em;
+	--type-nameplate-text-transform: uppercase;
+
 	/* CTA — 14px / 120% (Buttons, CTAs) */
 	--type-cta-font-family: var(--font-family-sans);
 	--type-cta-font-weight: var(--font-weight-semibold);
