@@ -18,13 +18,41 @@ Four teams in the room from day one: Product Platform, Design System, Brand, and
 
 I led the process and the roadmap while also being one of the designers. That dual role was intentional—when you're in the Figma file yourself, you have a different kind of authority in the conversations.
 
-<Figure src="/assets/articles/spaceship-search/images/team.png" alt="Overview of the four teams involved in the redesign" caption="Four teams, eleven people, one shared roadmap." />
-
-<Figure src="/assets/articles/spaceship-search/images/roadmap.png" alt="Gantt-style roadmap showing all four team swim lanes" caption="The roadmap that kept everyone aligned across 2.5 months." />
+<Figure src="/assets/articles/spaceship-search/images/roadmap-gantt.png" alt="Gantt-style roadmap showing all four team swim lanes across November 2023 to January 2024" caption="The roadmap that kept everyone aligned across 2.5 months." />
 
 First research phase ran on the live product, in the browser. No prototype comfort blanket. The signal was clean—six issues ranked by severity, the #1 problem affecting every participant.
 
-<Figure src="/assets/articles/spaceship-search/images/research-findings.png" alt="Research findings overview with severity scores" caption="Six issues ranked by severity. The #1 problem—confusion between search and transfer—affected every participant." />
+<figure class="post-figure">
+  <div style="background: var(--bg-elevated); border-radius: var(--radius-l); padding: var(--spacing-lg) var(--spacing-xl);">
+    <div style="display: flex; align-items: baseline; gap: var(--spacing-sm); margin-block-end: var(--spacing-md);">
+      <span style="font-family: var(--font-family-display); font-size: var(--type-title-l-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); line-height: 1;">#1</span>
+      <span style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); letter-spacing: 0.04em; text-transform: uppercase;">Highest severity</span>
+    </div>
+    <p style="font-family: var(--font-family-sans); font-size: var(--type-text-l-font-size); line-height: var(--type-text-l-line-height); color: var(--text-primary); margin: 0 0 var(--spacing-lg);">"Search or transfer a domain" placeholder creates confusion — users don't understand the difference between search and transfer, especially with the dropdown open.</p>
+    <div style="display: flex; gap: var(--spacing-xl); flex-wrap: wrap;">
+      <div>
+        <div style="font-family: var(--font-family-display); font-size: var(--type-title-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); line-height: 1;">3/3</div>
+        <div style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin-block-start: var(--spacing-xxs);">Participants affected</div>
+      </div>
+      <div>
+        <div style="font-family: var(--font-family-display); font-size: var(--type-title-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); line-height: 1; display: flex; gap: 4px;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--color-emphasis);"></span>
+        </div>
+        <div style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin-block-start: var(--spacing-xxs);">Severity 6 / 6</div>
+      </div>
+      <div>
+        <div style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary);">Location</div>
+        <div style="font-family: var(--font-family-sans); font-size: var(--type-text-m-font-size); color: var(--text-secondary); margin-block-start: var(--spacing-xxs);">Homepage search widget</div>
+      </div>
+    </div>
+  </div>
+  <figcaption style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin-block-start: var(--spacing-sm);">Issue #1 from usability testing — confusion between search and transfer affected every participant. <a href="/reports/usability-round-1">Full report →</a></figcaption>
+</figure>
 
 ---
 
@@ -33,6 +61,21 @@ First research phase ran on the live product, in the browser. No prototype comfo
 Three designers—myself, David, and Mafalda—each took our own direction. Same brief. The goal wasn't to pick a winner but to generate a real conversation.
 
 <Figure src="/assets/articles/spaceship-search/images/proposals.png" alt="Three design proposals side by side" caption="Three directions, same brief. The conversation that followed was one of the best I've been part of." />
+
+<div class="article-video-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-sm);">
+  <figure class="post-figure post-figure--video" style="margin: 0;">
+    <video src="/assets/articles/spaceship-search/videos/proposal-functional.mp4" autoplay muted loop playsinline></video>
+    <figcaption class="post-figure__caption">Functional</figcaption>
+  </figure>
+  <figure class="post-figure post-figure--video" style="margin: 0;">
+    <video src="/assets/articles/spaceship-search/videos/proposal-overlay.mp4" autoplay muted loop playsinline></video>
+    <figcaption class="post-figure__caption">Overlay</figcaption>
+  </figure>
+  <figure class="post-figure post-figure--video" style="margin: 0;">
+    <video src="/assets/articles/spaceship-search/videos/proposal-parallax.mp4" autoplay muted loop playsinline></video>
+    <figcaption class="post-figure__caption">Parallax</figcaption>
+  </figure>
+</div>
 
 The design critique was structured: async analysis first, then a live discussion. No presenting, no defending—just talking about the work. I took everything from that room and designed the final component. Not by committee—by synthesis.
 
@@ -44,11 +87,11 @@ The core insight: registration and transfer are two fundamentally different inte
 
 The new component starts with a visible toggle—**Register** or **Transfer**—above the search bar. Switch to Transfer and the whole bar transforms: different placeholder, different CTA, different secondary action. **Bulk transfer** lives as a secondary action inside Transfer mode—accessible but not accidentally triggerable, with a modal handling up to 500 domains and CSV upload.
 
-<Figure src="/assets/articles/spaceship-search/images/component-logic.png" alt="Mode-switching flow diagram showing Register and Transfer modes" caption="Register left, Transfer right, Bulk Transfer below. No ambiguity about what anything does." />
+<Figure src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="The final search component showing Register and Transfer modes with the toggle always visible" caption="The final component: Register and Transfer as two distinct, visible modes. No hidden dropdowns." />
 
 One late decision worth naming: the refined prototype had the toggle living inside the component, visible only after clicking in. Cleaner, more elegant. But we recognised the problem—we'd spent the whole project removing hidden modes, and here we were introducing a subtle version of the same thing. We moved the toggle outside. Always visible. Sometimes the most honest design decision trades a bit of elegance for a lot of clarity.
 
-<Figure src="/assets/articles/spaceship-search/images/deliverables.png" alt="Final deliverables including specs and design system updates" caption="Final deliverables: specs, motion, and design system updates—ready for handoff." />
+<Figure src="/assets/articles/spaceship-search/images/transfer-desktop.png" alt="The finished homepage with the search component in Transfer mode, toggle visible above the input" caption="Transfer mode on the live homepage. The toggle sits above the bar — always visible, never buried." />
 
 ---
 
@@ -56,13 +99,24 @@ One late decision worth naming: the refined prototype had the toggle living insi
 
 The design shipped April 2024. Weeks later, the BI team flagged an anomaly: widget interactions dropped ~95%. It wasn't a problem—it was the design working as intended.
 
-<Figure src="/assets/articles/spaceship-search/images/chart-monthly-interactions.png" alt="Bar chart showing monthly widget interactions dropping dramatically after April 2024" caption="Monthly interactions before and after the redesign. The April cliff is the noise disappearing." />
+<figure class="post-figure">
+  <div class="report-chart-card" style="background: var(--bg-elevated); border-radius: var(--radius-l); padding: var(--spacing-lg) var(--spacing-xl);">
+    <div class="report-chart-card__header">
+      <h3 class="report-chart-card__title" style="font-family: var(--font-family-sans); font-size: var(--type-text-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin: 0;">Monthly Widget Interactions</h3>
+      <p class="report-chart-card__subtitle" style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin: var(--spacing-xxs) 0 0;">The April cliff marks the product change.</p>
+    </div>
+    <div style="margin-block-start: var(--spacing-md);">
+      <canvas id="articleChartMonthly" data-chart-config='{"type":"bar","data":{"labels":["Jan","Feb","Mar","Apr ⚡","May","Jun","Jul","Aug"],"datasets":[{"label":"Widget Interactions","data":[28918,31184,30491,12716,1277,1208,1712,1520],"backgroundColor":["#5B4FCF","#5B4FCF","#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)"],"borderRadius":5,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'></canvas>
+    </div>
+  </div>
+  <figcaption style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin-block-start: var(--spacing-sm);">Monthly interactions before and after the redesign. The April cliff is the noise disappearing. <a href="/reports/search-transfer-overview">Full data breakdown →</a></figcaption>
+</figure>
 
 The old widget was one click from the homepage—most interactions were accidental. The new design put transfer behind an intentional toggle and bulk transfer behind a second deliberate action. Only users who actually wanted to transfer were reaching the widget.
 
-**Transfer success rate: ~5% → 21%.** Four times higher. Volume down, intent up. The [full data breakdown](/reports/report-template) tells the rest.
+**Transfer success rate: ~5% → 21%.** Four times higher. Volume down, intent up. The [full data breakdown](/reports/search-transfer-overview) tells the rest.
 
-<Figure src="/assets/articles/spaceship-search/images/transfer-desktop.png" alt="The finished homepage with the new component in Transfer mode" caption="The finished component. Transfer mode active. One mode, one action, no surprises." />
+<Video src="/assets/articles/spaceship-search/videos/entrance-choreography.mp4" caption="The entrance animation choreography — each element arrives with intent." />
 
 ---
 

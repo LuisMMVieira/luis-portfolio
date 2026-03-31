@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Figure from "../../components/mdx/Figure.astro";
+import Video from "../../components/mdx/Video.astro";
 import Divider from "../../components/Divider.astro";
 import ArticleHeader from "../../components/mdx/ArticleHeader.astro";
 
@@ -24,6 +25,7 @@ const { Content } = await article.render();
 ---
 
 <BaseLayout title={`${article.data.title} — Luis Vieira`} hideHeader={true} theme={article.data.theme}>
+  <script slot="head" is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -46,7 +48,24 @@ const { Content } = await article.render();
       </figure>
     )}
     <div class="article-body">
-      <Content components={{ Figure, Divider }} />
+      <Content components={{ Figure, Video, Divider }} />
     </div>
   </div>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Chart === 'undefined') return;
+      Chart.defaults.color = '#888896';
+      Chart.defaults.borderColor = '#2e2e38';
+      Chart.defaults.font.family = "'IBM Plex Sans', system-ui, sans-serif";
+      Chart.defaults.font.size = 12;
+      document.querySelectorAll('[data-chart-config]').forEach(function(canvas) {
+        try {
+          var config = JSON.parse(canvas.dataset.chartConfig);
+          new Chart(canvas, config);
+        } catch (e) {
+          console.warn('Chart init failed for', canvas.id, e);
+        }
+      });
+    });
+  </script>
 </BaseLayout>
