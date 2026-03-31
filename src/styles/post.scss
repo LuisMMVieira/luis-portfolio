@@ -973,11 +973,12 @@
 
 .article-header {
 	grid-column: 1 / -1;
-	padding-block-start: var(--spacing-xxl);
+	padding-block-start: var(--spacing-huge);
 	padding-block-end: var(--spacing-lg);
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacing-xs);
+	text-align: center;
 
 	@media (min-width: 48rem) {
 		grid-column: 3 / 11;
@@ -986,6 +987,7 @@
 
 	@media (min-width: 75rem) {
 		grid-column: 4 / 10;
+		padding-block-start: var(--spacing-max);
 	}
 }
 
