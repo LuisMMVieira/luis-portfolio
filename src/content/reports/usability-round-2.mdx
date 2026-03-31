@@ -1,0 +1,206 @@
+---
+title: "Spaceship · Usability Testing Round 2"
+subtitle: "4 moderated sessions · Redesigned homepage prototype · Nov 2024"
+date: 2024-12-23
+draft: false
+---
+
+<ReportSection number="01" title="Context" description="Following Round 1 (Nov 2023), a prototype was built to address the primary blockers found — search/transfer confusion, error handling, and discoverability. Round 2 tests whether those fixes worked.">
+
+<Callout title="What changed between rounds:">
+
+Round 1 revealed that users couldn't distinguish between search and transfer in the homepage search bar. The redesigned prototype separated these flows, introduced a clearer modal structure, and added a bulk transfer option with CSV upload. Round 2 tested this prototype with 4 participants — same 3 tasks.
+
+</Callout>
+
+<KpiGrid cols={4}>
+  <KpiCard label="Participants" value="4" sub="↑ from 3 in Round 1" />
+  <KpiCard label="Tasks completed" value="11/12" sub="1 blocked by prototype bug" />
+  <KpiCard label="Issues found" value="4" sub="↓ from 6 in Round 1" />
+  <KpiCard label="Avg ease of use" value="Easy–Very Easy" sub="All tasks, all participants" />
+</KpiGrid>
+
+</ReportSection>
+
+<ReportSection number="02" title="Task Results" description="3 tasks: find a domain, transfer a domain, bulk transfer. 4 participants: 2 internal (Namecheap), 2 external tech-savvy users.">
+
+<div class="report-chart-grid">
+  <ChartCard
+    title="Task Completion — Round 2"
+    subtitle="11 of 12 task attempts completed. 1 blocked by prototype bug (not a usability issue)."
+    chartId="chartR2TaskCompletion"
+    chartConfig='{"type":"bar","data":{"labels":["Find Domain","Transfer Domain","Bulk Transfer"],"datasets":[{"label":"Completed, no issues","data":[4,3,2],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"Completed with difficulty","data":[0,0,2],"backgroundColor":"rgba(91,79,207,0.35)","borderRadius":4},{"label":"Not completed (bug)","data":[0,1,0],"backgroundColor":"rgba(91,79,207,0.12)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"ticks":{"stepSize":1}},"x":{"grid":{"display":false}}}}}'
+  />
+  <ChartCard
+    title="Ease of Use — by Task"
+    subtitle="Self-reported by participants (1 = Very Difficult, 5 = Very Easy)"
+    chartId="chartR2EaseOfUse"
+    chartConfig='{"type":"bar","data":{"labels":["Find Domain","Transfer Domain","Bulk Transfer"],"datasets":[{"label":"Avg Rating","data":[5,4.3,3.75],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.6)","rgba(91,79,207,0.35)"],"borderRadius":4}]},"options":{"responsive":true,"indexAxis":"y","plugins":{"legend":{"display":false}},"scales":{"x":{"grid":{"color":"#2e2e38"},"min":1,"max":5,"ticks":{"stepSize":1}},"y":{"grid":{"display":false}}}}}'
+  />
+</div>
+
+<DataTable caption="Per-Participant Breakdown">
+<table>
+<thead>
+<tr>
+<th>Participant</th>
+<th>Profile</th>
+<th>Task 1 · Find</th>
+<th>Task 2 · Transfer</th>
+<th>Task 3 · Bulk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P01 · JB</strong></td>
+<td>Internal (HR), no domains</td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td>Prototype bug</td>
+<td><span class="report-tag">✓ Easy (with difficulty)</span></td>
+</tr>
+<tr>
+<td><strong>P02 · J</strong></td>
+<td>External, owns 1 domain</td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td><span class="report-tag">✓ Easy</span></td>
+<td><span class="report-tag">✓ Easy (with difficulty)</span></td>
+</tr>
+<tr>
+<td><strong>P03 · T</strong></td>
+<td>External, owns 10+ domains</td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td><span class="report-tag">✓ Average</span></td>
+</tr>
+<tr>
+<td><strong>P04 · RN</strong></td>
+<td>Internal, owns 1 domain</td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+<td><span class="report-tag report-tag--strong">✓ Very Easy</span></td>
+</tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="03" title="Ranked Issues" description="4 issues found. Severity scored by task criticality × impact × frequency.">
+
+<DataTable caption="Issues — by Severity">
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Task</th>
+<th>Location</th>
+<th>Issue</th>
+<th>Affected</th>
+<th>Severity</th>
+<th>Suggestion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="report-tag report-tag--strong">1st</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>Homepage</td>
+<td>Users expect to initiate transfers through the menu — not the search bar. The search input is perceived as "for registering", not transferring.</td>
+<td><span class="report-tag report-tag--strong">3/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span></span> Critical</td>
+<td>Add a visible transfer entry point in the navigation menu or domains page — don't rely solely on the search bar.</td>
+</tr>
+<tr>
+<td><span class="report-tag">2nd</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>Transfer Modal</td>
+<td>EPP code tooltip goes unnoticed. Users don't realize they can include authorization codes in the bulk transfer flow.</td>
+<td><span class="report-tag">3/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> Minor</td>
+<td>Surface EPP code instructions directly in the input area — not behind a tooltip. Reference Namecheap's inline approach.</td>
+</tr>
+<tr>
+<td><span class="report-tag">3rd</span></td>
+<td><strong>Transfer results</strong></td>
+<td>Header</td>
+<td>The input field in the results page header is confusing — unclear if it's for adding more domains or starting over. Copy says "Make your move!" which misleads mid-flow.</td>
+<td><span class="report-tag">1/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> Minor</td>
+<td>Adjust copy to reflect current context ("Add more domains"). Use consistent icons (magnifying glass, not arrow).</td>
+</tr>
+<tr>
+<td><span class="report-tag">4th</span></td>
+<td><strong>Search results</strong></td>
+<td>Main suggestion</td>
+<td>System assumes .com when user enters a bare domain name. User questioned why results show "greatdomain.com" as available when they never specified a TLD.</td>
+<td><span class="report-tag">1/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span> Minor</td>
+<td>When no TLD is specified, show suggestions only — don't present .com as the primary "available" result.</td>
+</tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="04" title="What Changed from Round 1" description="Direct comparison: which Round 1 issues were resolved, which persist.">
+
+<Annotation number="1" title="Search/transfer confusion — resolved." text="The #1 issue from Round 1 ('Search or transfer a domain' placeholder confused all 3 participants) did not resurface. The redesigned modal with separated flows eliminated the ambiguity. All 4 participants found domain search straightforward." />
+
+<Annotation number="2" title="Bulk transfer entry point — still a problem." text="Round 1 flagged discoverability (issue #4: 'Transfer section is hard to find'). Round 2 confirms this from a different angle: 3 of 4 users went to the menu first, not the search bar. The search bar works — but users don't expect transfers to live there." />
+
+<Annotation number="3" title="Error handling — improved but EPP codes now the gap." text="Round 1's error handling issues (silent failures, unclear format guidance) were not reproduced. But a new blind spot appeared: the EPP code tooltip is invisible to most users. The information architecture improved; the micro-interactions need work." />
+
+<Annotation number="4" title="Task completion improved significantly." text="Round 1: 4 completed without issues, 5 with difficulty, across 9 attempts. Round 2: 9 completed without issues, 2 with difficulty, across 12 attempts (excluding 1 prototype bug). The redesign moved the needle." />
+
+</ReportSection>
+
+<ReportSection number="05" title="Findings" description="Answering the 3 test goals set before the study.">
+
+<Callout title="1. Have we resolved the search modal misunderstandings?">
+
+Yes. The main usability issues from Round 1 were fixed. One user was unfamiliar with "bulk" as a concept, but the modal components themselves were clear.
+
+</Callout>
+
+<Callout title="2. Is the search bar the primary option for initiating a transfer?">
+
+No — not intuitively. Some users overlook the "search or transfer" placeholder or assume transfers belong in the menu. The search bar works once found, but discoverability needs a secondary entry point (menu or domains page).
+
+</Callout>
+
+<Callout title="3. Can users complete all flows without difficulty?">
+
+Yes — all users completed all tasks. The only friction was finding the transfer entry point and the invisible EPP tooltip. Once inside the flow, the experience was rated Easy to Very Easy across the board.
+
+</Callout>
+
+<div class="report-quote-grid">
+<Callout title="P04 on search simplicity:">
+
+"This is as simple as Google — a white page with a text box in the middle. Spaceship does the same, so there's no confusion about what needs to be done."
+
+</Callout>
+<Callout title="P03 on search vs. transfer:">
+
+"It doesn't seem normal to use a search input for a transfer."
+
+</Callout>
+<Callout title="P01 on terminology:">
+
+"Registering and buying should be the same thing."
+
+</Callout>
+<Callout title="P04 on .com assumption:">
+
+"It's strange that the results automatically assume I want '.com'. I entered 'greatdomain,' and the results display 'greatdomain.com' as available. If I haven't specified '.com,' why is it being presented this way?"
+
+</Callout>
+</div>
+
+</ReportSection>
+
+<footer class="report-footer">
+<p>Spaceship.com — Internal Design Research</p>
+<p>Source: Usability Testing Round 2 · 4 sessions · Nov 2024</p>
+</footer>

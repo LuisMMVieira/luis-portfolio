@@ -1,0 +1,258 @@
+---
+title: "Spaceship · Search & Transfer — Full Research Report"
+subtitle: "3 studies compiled · Usability Round 1 (Nov 2023) · Analytics BI-13028 (Jan–Aug 2024) · Usability Round 2 (Nov 2024)"
+date: 2024-12-23
+draft: false
+---
+
+<ReportSection number="01" title="Bulk Transfer Widget — Analytics" description="BI-13028 · Jan 1 – Aug 31, 2024. On April 11, the widget label changed from 'Transfer' to 'Bulk Transfer' and moved behind an extra click.">
+
+<Callout title="April 11 change:">
+
+Daily interactions dropped by **~95%** — from ~1,004 to ~47 per day. This is not a failure: it filters out users who were accidentally landing on a bulk flow they didn't need.
+
+</Callout>
+
+<KpiGrid cols={5}>
+  <KpiCard label="Avg daily interactions" value="47" sub="↓ from 1,004 (before Apr 12)" />
+  <KpiCard label="Success rate (post change)" value="21%" sub="↑ from ~5% (before Apr 12)" />
+  <KpiCard label="Widget submit rate (post)" value="31%" sub="↑ from ~8% (before Apr 12)" />
+  <KpiCard label="Desktop share (post)" value="91%" sub="Mobile: 9% · Tablet/TV: <1%" />
+  <KpiCard label="Total interactions (full period)" value="109K" sub="102K before · 6.7K after Apr 12" />
+</KpiGrid>
+
+<div class="report-chart-grid">
+  <ChartCard
+    title="Monthly Interactions"
+    subtitle="The April cliff marks the product change."
+    chartId="chartFullMonthly"
+    chartConfig='{"type":"bar","data":{"labels":["Jan","Feb","Mar","Apr ⚡","May","Jun","Jul","Aug"],"datasets":[{"label":"Widget Interactions","data":[28918,31184,30491,12716,1277,1208,1712,1520],"backgroundColor":["#5B4FCF","#5B4FCF","#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)"],"borderRadius":5,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false},"tooltip":{"callbacks":{}}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'
+  />
+  <ChartCard
+    title="Success Rate & Submit Rate"
+    subtitle="Quality of intent rises sharply post-April."
+    chartId="chartFullSuccess"
+    chartConfig='{"type":"line","data":{"labels":["Jan","Feb","Mar","Apr ⚡","May","Jun","Jul","Aug"],"datasets":[{"label":"Success Rate %","data":[5.8,4.6,4.1,4.4,20.9,24.1,17.2,22.5],"borderColor":"#5B4FCF","backgroundColor":"rgba(91,79,207,0.1)","fill":true,"tension":0.4,"pointBackgroundColor":"#5B4FCF","pointRadius":4},{"label":"Submit Rate %","data":[9.8,7.8,7.9,8.7,31.8,34.2,26.8,32.4],"borderColor":"rgba(91,79,207,0.4)","backgroundColor":"transparent","borderDash":[4,3],"tension":0.4,"pointBackgroundColor":"rgba(91,79,207,0.4)","pointRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"suggestedMax":40},"x":{"grid":{"display":false}}}}}'
+  />
+</div>
+
+<div class="report-chart-grid">
+  <ChartCard
+    title="Device Split — Before vs After"
+    subtitle="Interactions by device category."
+    chartId="chartFullDevice"
+    chartConfig='{"type":"bar","data":{"labels":["Desktop","Mobile","Tablet","Smart TV"],"datasets":[{"label":"Before Apr 12","data":[78702,23259,400,8],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"After Apr 12","data":[6054,591,12,0],"backgroundColor":"rgba(91,79,207,0.3)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'
+  />
+  <ChartCard
+    title="Funnel — Before vs After"
+    subtitle="Avg daily: Interactions → Submits → Transfers."
+    chartId="chartFullFunnel"
+    chartConfig='{"type":"bar","data":{"labels":["Interactions","Widget Submits","Transfers"],"datasets":[{"label":"Before Apr 12 (avg/day)","data":[1003.6,82.9,46.4],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"After Apr 12 (avg/day)","data":[46.9,14.6,9.8],"backgroundColor":"rgba(91,79,207,0.3)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"type":"logarithmic"},"x":{"grid":{"display":false}}}}}'
+  />
+</div>
+
+<DataTable caption="Monthly Summary — Widget Activity">
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Interactions</th>
+<th>Widget Submits</th>
+<th>Submit Rate</th>
+<th>Successful Transfers</th>
+<th>Success Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><strong>Jan 2024</strong></td><td>28,918</td><td>2,828</td><td><span class="report-tag">9.8%</span></td><td>1,677</td><td><span class="report-tag">5.8%</span></td></tr>
+<tr><td><strong>Feb 2024</strong></td><td>31,184</td><td>2,423</td><td><span class="report-tag">7.8%</span></td><td>1,445</td><td><span class="report-tag">4.6%</span></td></tr>
+<tr><td><strong>Mar 2024</strong></td><td>30,491</td><td>2,405</td><td><span class="report-tag">7.9%</span></td><td>1,250</td><td><span class="report-tag">4.1%</span></td></tr>
+<tr><td><strong>Apr 2024 ⚡</strong></td><td>12,716</td><td>1,102</td><td><span class="report-tag">8.7%</span></td><td>562</td><td><span class="report-tag">4.4%</span></td></tr>
+<tr><td><strong>May 2024</strong></td><td>1,277</td><td>406</td><td><span class="report-tag report-tag--strong">31.8%</span></td><td>267</td><td><span class="report-tag report-tag--strong">20.9%</span></td></tr>
+<tr><td><strong>Jun 2024</strong></td><td>1,208</td><td>413</td><td><span class="report-tag report-tag--strong">34.2%</span></td><td>291</td><td><span class="report-tag report-tag--strong">24.1%</span></td></tr>
+<tr><td><strong>Jul 2024</strong></td><td>1,712</td><td>459</td><td><span class="report-tag report-tag--strong">26.8%</span></td><td>295</td><td><span class="report-tag report-tag--strong">17.2%</span></td></tr>
+<tr><td><strong>Aug 2024</strong></td><td>1,520</td><td>493</td><td><span class="report-tag report-tag--strong">32.4%</span></td><td>342</td><td><span class="report-tag report-tag--strong">22.5%</span></td></tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="02" title="Usability Testing — Round 1" description="3 moderated sessions · Nov 28–30, 2023 · Testing spaceship.com homepage as shipped. 6 issues found.">
+
+<KpiGrid cols={4}>
+  <KpiCard label="Participants" value="3" sub="2 designers, 1 product owner" />
+  <KpiCard label="Completion" value="9/9" sub="4 clean · 5 with difficulty" />
+  <KpiCard label="Issues found" value="6" sub="Bulk transfer: 4 · Transfer: 2 · Search: 1" />
+  <KpiCard label="#1 issue" value="3/3" sub="Search/transfer confusion — all participants" />
+</KpiGrid>
+
+<DataTable caption="Round 1 Issues — Ranked by Severity">
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Task</th>
+<th>Issue</th>
+<th>Affected</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="report-tag report-tag--strong">1st</span></td>
+<td><strong>Find domain</strong></td>
+<td>"Search or transfer a domain" placeholder confuses all users — can't distinguish search from transfer.</td>
+<td><span class="report-tag report-tag--strong">3/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">2nd</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>Clicking "http://" in domain field triggers unintended submission.</td>
+<td><span class="report-tag">2/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">3rd</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>Domains with errors silently disappear. Error messages unclear, delayed.</td>
+<td><span class="report-tag">1/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">4th</span></td>
+<td><strong>Transfer</strong></td>
+<td>Transfer section hard to find — buried behind scrolling.</td>
+<td><span class="report-tag">1/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">5th</span></td>
+<td><strong>Transfer</strong></td>
+<td>No transfer option from search results. Back button broken.</td>
+<td><span class="report-tag">1/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">6th</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>"Bulk Transfer" button behaves differently on homepage vs results page.</td>
+<td><span class="report-tag">1/3</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="03" title="Usability Testing — Round 2" description="4 moderated sessions · Nov 18–22, 2024 · Testing redesigned prototype built to address Round 1 findings. 4 issues found.">
+
+<KpiGrid cols={4}>
+  <KpiCard label="Participants" value="4" sub="2 internal · 2 external" />
+  <KpiCard label="Completion" value="11/12" sub="9 clean · 2 with difficulty · 1 prototype bug" />
+  <KpiCard label="Issues found" value="4" sub="↓ from 6 in Round 1" />
+  <KpiCard label="Ease of use" value="Easy–Very Easy" sub="All tasks, all participants" />
+</KpiGrid>
+
+<DataTable caption="Round 2 Issues — Ranked by Severity">
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Task</th>
+<th>Issue</th>
+<th>Affected</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="report-tag report-tag--strong">1st</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>Users expect transfers in the menu — not the search bar. Search perceived as "for registering".</td>
+<td><span class="report-tag report-tag--strong">3/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">2nd</span></td>
+<td><strong>Bulk transfer</strong></td>
+<td>EPP code tooltip goes unnoticed — users miss that auth codes can be included.</td>
+<td><span class="report-tag">3/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">3rd</span></td>
+<td><strong>Transfer results</strong></td>
+<td>Header input field confusing mid-flow. "Make your move!" copy misleads.</td>
+<td><span class="report-tag">1/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+<tr>
+<td><span class="report-tag">4th</span></td>
+<td><strong>Search results</strong></td>
+<td>System auto-assumes .com when no TLD specified.</td>
+<td><span class="report-tag">1/4</span></td>
+<td><span class="report-severity"><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot report-severity__dot--filled"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span><span class="report-severity__dot"></span></span></td>
+</tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="04" title="Round 1 → Round 2 Comparison" description="What the redesign fixed, what persists, and what's new.">
+
+<div class="report-chart-grid">
+  <ChartCard
+    title="Issues Found — Round 1 vs Round 2"
+    subtitle="Total issues decreased. Critical issues shifted from search clarity to transfer discoverability."
+    chartId="chartFullIssueCompare"
+    chartConfig='{"type":"bar","data":{"labels":["Find Domain","Transfer Domain","Bulk Transfer"],"datasets":[{"label":"Round 1","data":[1,2,3],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"Round 2","data":[0,0,4],"backgroundColor":"rgba(91,79,207,0.3)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"ticks":{"stepSize":1}},"x":{"grid":{"display":false}}}}}'
+  />
+  <ChartCard
+    title="Task Completion Quality"
+    subtitle="Proportion of clean completions improved significantly."
+    chartId="chartFullCompletionCompare"
+    chartConfig='{"type":"bar","data":{"labels":["Round 1 (9 attempts)","Round 2 (12 attempts)"],"datasets":[{"label":"No issues","data":[4,9],"backgroundColor":"#5B4FCF","borderRadius":4},{"label":"With difficulty","data":[5,2],"backgroundColor":"rgba(91,79,207,0.35)","borderRadius":4},{"label":"Not completed","data":[0,1],"backgroundColor":"rgba(91,79,207,0.12)","borderRadius":4}]},"options":{"responsive":true,"plugins":{"legend":{"position":"bottom","labels":{"boxWidth":10,"padding":16}}},"scales":{"y":{"grid":{"color":"#2e2e38"},"ticks":{"stepSize":1}},"x":{"grid":{"display":false}}}}}'
+  />
+</div>
+
+<DataTable caption="Issue Tracker — Round 1 → Round 2">
+<table>
+<thead>
+<tr>
+<th>Round 1 Issue</th>
+<th>Status in Round 2</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Search/transfer placeholder confusion (3/3)</td><td><span class="report-tag report-tag--strong">Resolved</span> — separated flows eliminated ambiguity</td></tr>
+<tr><td>http:// click triggers submission (2/3)</td><td><span class="report-tag report-tag--strong">Resolved</span> — not reproduced</td></tr>
+<tr><td>Silent error handling, delayed messages (1/3)</td><td><span class="report-tag report-tag--strong">Resolved</span> — not reproduced</td></tr>
+<tr><td>Transfer section hard to find (1/3)</td><td><span class="report-tag">Persists</span> — 3/4 users went to menu first, not search bar</td></tr>
+<tr><td>No transfer CTA in search results (1/3)</td><td><span class="report-tag report-tag--strong">Resolved</span> — prototype addressed this</td></tr>
+<tr><td>Inconsistent Bulk Transfer button (1/3)</td><td><span class="report-tag report-tag--strong">Resolved</span> — not reproduced</td></tr>
+</tbody>
+</table>
+</DataTable>
+
+</ReportSection>
+
+<ReportSection number="05" title="Cross-Study Connections" description="Where analytics and qualitative data reinforce each other across all 3 studies.">
+
+<Annotation number="1" title="The April change was directionally right — Round 2 confirms the redesign pushed further." text="Analytics: 95% drop in volume, 4× increase in success rate. Round 1 showed why — accidental users flooded the widget. Round 2 shows the redesigned modal works: search confusion gone, task completion up from 44% clean to 75% clean." />
+
+<Annotation number="2" title="Transfer discoverability is the persistent upstream problem." text="Round 1: users couldn't find the transfer entry point. Analytics: 92%+ drop-off before submitting. Round 2: 3 of 4 users still went to the menu first. The search bar works once found — but users don't expect transfers to live there. This needs a secondary entry point." />
+
+<Annotation number="3" title="Mobile remains an unresolved gap." text="Post-April, mobile dropped from 23% to 9% of widget interactions. Neither usability round tested mobile. Domain transfers on mobile are a legitimate use case — and likely worse than desktop given the bulk transfer complexity." />
+
+<Annotation number="4" title="Trust and micro-interactions are the next frontier." text="Round 1 surfaced anxiety about downtime, double billing, timelines. Round 2 surfaced invisible EPP tooltips and confusing mid-flow copy. The big structural problems are solved — what remains is polish: reassurance copy, inline guidance, consistent iconography." />
+
+</ReportSection>
+
+<footer class="report-footer">
+<p>Spaceship.com — Internal Design Research</p>
+<p>Sources: BI-13028 · Usability Testing Round 1 (Nov 2023) · Usability Testing Round 2 (Nov 2024)</p>
+</footer>

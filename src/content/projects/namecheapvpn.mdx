@@ -1,16 +1,121 @@
 ---
-title: "Namecheap VPN"
-subtitle: "Product design for Namecheap's consumer VPN application across platforms."
+title: "Namecheap VPN—a new product from zero to launch"
+subtitle: "Sole UX designer on a new team. macOS menubar app and marketing landing page, shipped in four months."
 cover: "/assets/projects/namecheapvpn/images/cover/vpn-featured.png"
 order: 3
 period: "2019"
-draft: false
+draft: true
 ---
 
-import PostSection from '../../components/mdx/PostSection.astro';
-import PostHeader from '../../components/mdx/PostHeader.astro';
-import Figure from '../../components/mdx/Figure.astro';
+{/* ── COVER ─────────────────────────────────────────────────────── */}
 
-<PostHeader title="Namecheap VPN" subtitle="Product design for Namecheap's consumer VPN application.">
-Coming soon.
+<PostSection layout="canvas" media="full">
+  <Figure src="/assets/projects/namecheapvpn/images/cover/vpn-featured.png" alt="Namecheap VPN — macOS app idle and connected states" />
+</PostSection>
+
+{/* ── HEADER ────────────────────────────────────────────────────── */}
+
+<PostHeader title="A new product from zero to launch">
+  <p>Namecheap launched a VPN product in 2019. I was the sole UX designer on a newly formed team—the "New Product Pod"—responsible for two deliverables in four months: a macOS menubar app and the product's marketing landing page. The app was the core challenge—a small popover window that needed to handle multiple connection states through a consistent layout system. The landing page organized a dense feature set into a single, navigable page.</p>
 </PostHeader>
+
+{/* ── LANDING PAGE ────────────────────────────────────────────── */}
+
+<PostSectionGroup title="Landing Page">
+
+{/* Landing page — desktop mockup */}
+<PostSection media="full" caption="Final desktop mockup — hero, pricing, features, and download sections on a single page.">
+  <Figure src="/assets/projects/namecheapvpn/images/landing/vpn-landing-desktop.jpg" alt="Namecheap VPN landing page — full desktop view" />
+</PostSection>
+
+{/* Content architecture wireframe */}
+<PostSection media="center-wide" caption="Content architecture — mapping every section, entry point, and user flow before visual design.">
+  <Figure src="/assets/projects/namecheapvpn/images/landing/vpn-landing-architecture.png" alt="VPN landing page content architecture and wireframe" />
+</PostSection>
+
+{/* User flows */}
+<PostSection media="center" caption="User flows — how visitors reach the VPN landing page from different entry points across namecheap.com.">
+  <Figure src="/assets/projects/namecheapvpn/images/landing/vpn-flows.png" alt="VPN landing page user flow diagram" />
+</PostSection>
+
+{/* Landing page overview from presentation */}
+<PostSection media="full">
+  <Figure src="/assets/projects/namecheapvpn/images/landing/vpn-landing-overview.png" alt="Landing page overview — desktop and mobile views side by side" />
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── macOS APP ───────────────────────────────────────────────── */}
+
+<PostSectionGroup title="macOS App">
+
+{/* App overview — idle and connected states */}
+<PostSection media="full" caption="The macOS menubar app — idle and connected states. A small window with a lot of responsibility.">
+  <Figure src="/assets/projects/namecheapvpn/images/app/vpn-app-overview.png" alt="Namecheap VPN macOS app — idle and connected states" />
+</PostSection>
+
+{/* Layout architecture */}
+<PostSection layout="canvas" media="center-wide" bg="bg-elevated" padding="spacing-xxl" caption="Layout architecture — five zones that stay consistent across every state: logo area, info, CTA, actions, and data footer.">
+  <Figure src="/assets/projects/namecheapvpn/images/app/vpn-app-layout.png" alt="VPN macOS app layout architecture with annotated zones" />
+</PostSection>
+
+{/* Concepts — annotated wireframe */}
+<PostSection layout="canvas" media="center-wide" bg="bg-elevated" padding="spacing-xxl" caption="Concept document — numbered annotations mapping every element to its function and content across states.">
+  <Figure src="/assets/projects/namecheapvpn/images/app/vpn-app-concepts.png" alt="VPN macOS app concept wireframe with numbered annotations" />
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── SYSTEM ELEMENTS ─────────────────────────────────────────── */}
+
+<PostSectionGroup title="System Elements">
+
+{/* Toolbar and notification icons */}
+<PostSection media="full" caption="Toolbar icons for classic and dark mode — regular, connecting, selected, active, warning, and error states. Plus notification icons and the app logo.">
+  <Figure src="/assets/projects/namecheapvpn/images/system/vpn-app-elements.png" alt="VPN toolbar icon states for classic and dark mode" />
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── PROCESS ─────────────────────────────────────────────────── */}
+
+<PostSectionGroup title="Process">
+
+{/* Full team sync loop */}
+<PostSection media="center-wide" caption="The sync loop — how the team worked. Kick-off with the PM, wireframes from me, copy and illustrations from the marketing team, mockups back to me, then frontend development.">
+  <Figure src="/assets/projects/namecheapvpn/images/process/vpn-process-frontend.png" alt="VPN project team sync loop — full process with all roles" />
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── CLOSING ─────────────────────────────────────────────────── */}
+
+<PostSectionGroup>
+
+<PostSection media="center" padding="spacing-xxl" slotGap="spacing-xl">
+  <PostText heading="About">
+    <p>Namecheap launched a VPN product in 2019. I was the sole UX designer on a new team — the "New Product Pod" — responsible for two deliverables in four months: a macOS menubar app and the product's marketing landing page.</p>
+    <p>The app was the core challenge — a small popover window handling multiple connection states through a consistent layout system. The landing page organized a dense feature set into a single, navigable page.</p>
+    <p>The product shipped on time, soft-launched successfully, and grew into a revenue line for Namecheap. The project was later presented to the full UX team as a reference for how to take a product from zero to launch.</p>
+  </PostText>
+  <dl class="post-meta">
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Role</dt>
+      <dd class="post-meta__value">Sole UX Designer</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Focus</dt>
+      <dd class="post-meta__value">Research, information architecture, wireframes, UI mockups, prototyping, UI specs, developer handoff</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Team</dt>
+      <dd class="post-meta__value">Product Manager, Copywriter, Brand Designer, Illustrator, 2 Web Developers, App Developer</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Period</dt>
+      <dd class="post-meta__value">2019</dd>
+    </div>
+  </dl>
+</PostSection>
+
+</PostSectionGroup>
