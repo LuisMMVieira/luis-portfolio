@@ -154,8 +154,43 @@ function initLoopVideos(root) {
   });
 }
 
+// Video Gallery — main player + thumbnail navigation
+function initVideoGallery() {
+  document.querySelectorAll('[data-video-gallery]').forEach(function(gallery) {
+    var mainVideo = gallery.querySelector('.article-video-gallery__main video');
+    var caption = gallery.querySelector('.article-video-gallery__caption');
+    var thumbs = gallery.querySelectorAll('.article-video-gallery__thumb');
+
+    if (!mainVideo || !thumbs.length) return;
+
+    thumbs.forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        var src = thumb.getAttribute('data-video-src');
+        var label = thumb.getAttribute('data-label');
+
+        if (mainVideo.getAttribute('src') === src) return;
+
+        // Switch active thumb
+        thumbs.forEach(function(t) {
+          t.classList.remove('article-video-gallery__thumb--active');
+        });
+        thumb.classList.add('article-video-gallery__thumb--active');
+
+        // Switch video
+        mainVideo.src = src;
+        mainVideo.load();
+        mainVideo.play();
+
+        // Update caption
+        if (caption) caption.textContent = label;
+      });
+    });
+  });
+}
+
 // Init all page-specific features — runs on first load and after View Transitions
 function initPage() {
+  initVideoGallery();
   // Scroll Spy
   var sections = document.querySelectorAll(".section[id]");
   var navLinks = document.querySelectorAll(".nav-link");
@@ -284,7 +319,7 @@ function initPage() {
   if (postPage) {
     // All content objects reveal on scroll — one rule for all
     postPage.querySelectorAll(
-      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip"
+      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip, .article-video-gallery"
     ).forEach(function (el) {
       el.classList.add("reveal");
     });

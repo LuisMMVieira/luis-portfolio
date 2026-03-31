@@ -14,8 +14,10 @@ const formatted = date.toLocaleDateString('en-US', {
 ---
 
 <header class="article-header">
-  <h1 class="article-header__title">{title}</h1>
-  {subtitle && <p class="article-header__subtitle">{subtitle}</p>}
+  <div class="article-header__titles">
+    <h1 class="article-header__title">{title}</h1>
+    {subtitle && <p class="article-header__subtitle">{subtitle}</p>}
+  </div>
   <time class="article-header__date" datetime={date.toISOString()}>
     {formatted}
   </time>
