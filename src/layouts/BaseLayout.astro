@@ -1,6 +1,9 @@
 ---
 import '../styles/main.scss';
 import Header from '../components/Header.astro';
+import AgentationToolbar from '../components/AgentationToolbar';
+
+const isDev = import.meta.env.DEV;
 
 const {
   title = 'Luis Vieira—Digital Product Designer',
@@ -42,5 +45,6 @@ const {
     </div>
 
     <script type="module" src="/scripts/main.js"></script>
+    {isDev && <AgentationToolbar client:only="react" />}
   </body>
 </html>

@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
 
 export default defineConfig({
   // Output a fully static site.
@@ -17,7 +18,7 @@ export default defineConfig({
     host: "0.0.0.0",
   },
 
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), react()],
 
   vite: {
     server: {
