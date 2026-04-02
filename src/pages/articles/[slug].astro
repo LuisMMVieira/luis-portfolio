@@ -42,7 +42,15 @@ const { Content } = await article.render();
       subtitle={article.data.subtitle}
       date={article.data.date}
     />
-    {article.data.cover && (
+    {article.data.covers && article.data.covers.length > 0 ? (
+      <figure class="article-cover">
+        <div class="article-cover__carousel" data-image-carousel data-interval="2000">
+          {article.data.covers.map((src) => (
+            <img data-carousel-slide src={src} alt="" />
+          ))}
+        </div>
+      </figure>
+    ) : article.data.cover && (
       <figure class="article-cover">
         <img src={article.data.cover} alt="" />
       </figure>

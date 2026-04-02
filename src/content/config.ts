@@ -23,6 +23,7 @@ const articles = defineCollection({
     subtitle: z.string().optional(),
     date: z.date(),
     cover: z.string().optional(),
+    covers: z.array(z.string()).optional(),
     draft: z.boolean().optional().default(false),
     theme: themeField("light"),
   }),
