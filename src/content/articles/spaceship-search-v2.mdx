@@ -131,6 +131,7 @@ The new component starts with a visible toggle—**Register** or **Transfer**—
 
 <figure class="post-figure">
   <img src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="The final search component showing Register and Transfer modes with the toggle always visible" />
+  <figcaption class="post-figure__caption">The background dims when the component is active — pulling focus without competing for it.</figcaption>
 </figure>
 
 **Bulk transfer** lives as a secondary action inside Transfer mode—accessible but not accidentally triggerable. A modal handles up to 500 domains with CSV upload. Power users get what they need. Casual users never see it.
@@ -160,9 +161,9 @@ The final component needed to feel intentional at every state. Not just the happ
   <figcaption class="post-figure__caption">The final homepage. Toggle always visible, modes immediately legible, transfer no longer accidental.</figcaption>
 </figure>
 
-<Figure src="/assets/articles/spaceship-search/images/transfer-mobile-dark.png" alt="Transfer mode on mobile — the component adapts to a single-column layout" caption="Mobile. The component stacks cleanly — same intent, different surface." />
-
-<Figure src="/assets/articles/spaceship-search/images/component-logic.png" alt="Component logic diagram showing the state tree for register mode, transfer mode, and bulk transfer" caption="The component state tree. Each mode has its own input logic, validation, and CTA." />
+<figure class="post-figure article-figure--full-width">
+  <img src="/assets/articles/spaceship-search/images/component-logic.png" alt="Component logic diagram showing the state tree for register mode, transfer mode, and bulk transfer" />
+</figure>
 
 The entrance choreography was deliberate—each element arrives with purpose, not decoration. The toggle, then the bar, then the suggestions. Sequence creates hierarchy.
 

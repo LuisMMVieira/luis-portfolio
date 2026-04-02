@@ -1155,11 +1155,7 @@
 
 		&.article-card {
 			border-top: none;
-			border-left: 2px solid var(--color-emphasis);
-			padding: var(--spacing-md) var(--spacing-lg);
-			text-align: left;
-			background: var(--color-emphasis-transparency-high);
-			border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+			padding: var(--spacing-lg);
 		}
 	}
 
