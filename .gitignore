@@ -3,3 +3,6 @@ node_modules/
 dist/
 .DS_Store
 .zeplin/cli.log
+.agents/
+.claude/skills/
+skills-lock.json
