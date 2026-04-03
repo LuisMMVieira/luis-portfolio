@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.slug !== 'project-template')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const articles = (await getCollection('articles'))
+  .filter((a) => a.slug !== 'article-template')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const reports = (await getCollection('reports'))
+  .filter((r) => r.slug !== 'report-template')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const decks = [
+  { title: 'Spaceship Search — Dark', slug: 'spaceship-search' },
+  { title: 'Spaceship Search — Light', slug: 'spaceship-search-light' },
+  { title: 'Sword Interview — Storyboard', slug: 'sword-deck' },
+];
+
+function splitLastWord(title: string) {
+  const i = title.lastIndexOf(' ');
+  if (i === -1) return { head: '', tail: title };
+  return { head: title.slice(0, i) + ' ', tail: title.slice(i + 1) };
+}
+---
+
+<BaseLayout title="Andamento — Luis Vieira" description="Private development index." hideHeader={true}>
+
+  <a href="/" class="cp-home-btn" aria-label="Back to home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
+  </a>
+
+  <div class="andamento">
+    <header class="andamento__header">
+      <h1 class="andamento__title">Andamento</h1>
+    </header>
+
+    <div class="andamento__grid">
+
+      <!-- ── Column 1: Projects ── -->
+      <div class="andamento__col">
+        <section class="andamento__section">
+          <h2 class="andamento__section-label">
+            <a href="/projects" class="andamento__section-link">Projects</a>
+          </h2>
+          <nav class="andamento__nav">
+            {projects.map((p) => {
+              const { head, tail } = splitLastWord(p.data.title);
+              return (
+                <a href={`/projects/${p.slug}`} class="andamento__link">
+                  {p.data.draft ? <>{head}<span class="cp-nowrap">{tail} <span class="cp-tag">D</span></span></> : p.data.title}
+                </a>
+              );
+            })}
+          </nav>
+        </section>
+      </div>
+
+      <!-- ── Column 2: Articles + Reports + Decks ── -->
+      <div class="andamento__col">
+        <section class="andamento__section">
+          <h2 class="andamento__section-label">
+            <a href="/articles" class="andamento__section-link">Articles</a>
+          </h2>
+          <nav class="andamento__nav">
+            {articles.map((a) => {
+              const { head, tail } = splitLastWord(a.data.title);
+              return (
+                <a href={`/articles/${a.slug}`} class="andamento__link">
+                  {a.data.draft ? <>{head}<span class="cp-nowrap">{tail} <span class="cp-tag">D</span></span></> : a.data.title}
+                </a>
+              );
+            })}
+          </nav>
+        </section>
+
+        {reports.length > 0 && (
+          <section class="andamento__section">
+            <h2 class="andamento__section-label">
+              <a href="/reports" class="andamento__section-link">Reports</a>
+            </h2>
+            <nav class="andamento__nav">
+              {reports.map((r) => {
+                const { head, tail } = splitLastWord(r.data.title);
+                return (
+                  <a href={`/reports/${r.slug}`} class="andamento__link">
+                    {r.data.draft ? <>{head}<span class="cp-nowrap">{tail} <span class="cp-tag">D</span></span></> : r.data.title}
+                  </a>
+                );
+              })}
+            </nav>
+          </section>
+        )}
+
+        <section class="andamento__section">
+          <h2 class="andamento__section-label">
+            <a href="/decks" class="andamento__section-link">Decks</a>
+          </h2>
+          <nav class="andamento__nav">
+            {decks.map((d) => (
+              <a href={`/decks/${d.slug}`} class="andamento__link">{d.title}</a>
+            ))}
+          </nav>
+        </section>
+      </div>
+
+      <!-- ── Column 3: SINPHONY + Templates ── -->
+      <div class="andamento__col">
+        <section class="andamento__section andamento__section--emphasis">
+          <h2 class="andamento__section-label">SINPHONY</h2>
+          <nav class="andamento__nav">
+            <a href="/components" class="andamento__link">Components</a>
+          </nav>
+        </section>
+
+        <section class="andamento__section andamento__section--inverted">
+          <h2 class="andamento__section-label">Templates</h2>
+          <nav class="andamento__nav">
+            <a href="/projects/project-template" class="andamento__link">Project</a>
+            <a href="/articles/article-template" class="andamento__link">Article</a>
+            <a href="/reports/report-template" class="andamento__link">Report</a>
+          </nav>
+        </section>
+      </div>
+
+      <!-- ── Column 4: Documents + Tools ── -->
+      <div class="andamento__col">
+        <section class="andamento__section">
+          <h2 class="andamento__section-label">Documents</h2>
+          <nav class="andamento__nav">
+            <a href="/docs/cv.pdf" class="andamento__link" target="_blank">CV</a>
+            <a href="/docs/resume.pdf" class="andamento__link" target="_blank">Résumé</a>
+          </nav>
+        </section>
+
+        <section class="andamento__section">
+          <h2 class="andamento__section-label">Tools</h2>
+          <nav class="andamento__nav">
+            <a href="/andamento/kanban" class="andamento__link">Kanban</a>
+            <a href="/andamento/sitemap" class="andamento__link">Sitemap</a>
+          </nav>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>

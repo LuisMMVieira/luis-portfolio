@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const articles = (await getCollection('articles'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const reports = (await getCollection('reports'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const decks = [
+  { title: 'Spaceship Search — Dark', slug: 'spaceship-search' },
+  { title: 'Spaceship Search — Light', slug: 'spaceship-search-light' },
+  { title: 'Sword Interview — Storyboard', slug: 'sword-deck' },
+];
+
+const templates = [
+  { title: 'Project Template', path: '/projects/project-template' },
+  { title: 'Article Template', path: '/articles/article-template' },
+  { title: 'Report Template', path: '/reports/report-template' },
+];
+
+const publicProjects = projects.filter((p) => p.slug !== 'project-template');
+const publicArticles = articles.filter((a) => a.slug !== 'article-template');
+const publicReports = reports.filter((r) => r.slug !== 'report-template');
+---
+
+<BaseLayout title="Sitemap — Luis Vieira" description="Visual site architecture." hideHeader={true}>
+
+  <a href="/andamento" class="cp-home-btn" aria-label="Back to Andamento">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </a>
+
+  <div class="sitemap">
+    <header class="sitemap__header">
+      <h1 class="sitemap__title">Sitemap</h1>
+      <p class="sitemap__desc">Auto-generated from content collections and page routes.</p>
+    </header>
+
+    <!-- ── Public ── -->
+
+    <section class="sitemap__section">
+      <h2 class="sitemap__section-title">Public</h2>
+
+      <ul class="sitemap__tree">
+        <li class="sitemap__branch">
+          <a href="/" class="sitemap__node sitemap__node--root">luisvieira.design</a>
+
+          <ul class="sitemap__tree">
+            <li class="sitemap__branch">
+              <a href="/" class="sitemap__node">Home</a>
+            </li>
+
+            <li class="sitemap__branch">
+              <a href="/projects" class="sitemap__node">Projects</a>
+              <ul class="sitemap__tree">
+                {publicProjects.map((p) => (
+                  <li class="sitemap__branch">
+                    <a href={`/projects/${p.slug}`} class="sitemap__node">
+                      {p.data.title}
+                      {p.data.draft && <span class="cp-tag">D</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            <li class="sitemap__branch">
+              <a href="/articles" class="sitemap__node">Articles</a>
+              <ul class="sitemap__tree">
+                {publicArticles.map((a) => (
+                  <li class="sitemap__branch">
+                    <a href={`/articles/${a.slug}`} class="sitemap__node">
+                      {a.data.title}
+                      {a.data.draft && <span class="cp-tag">D</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            {publicReports.length > 0 && (
+              <li class="sitemap__branch">
+                <a href="/reports" class="sitemap__node">Reports</a>
+                <ul class="sitemap__tree">
+                  {publicReports.map((r) => (
+                    <li class="sitemap__branch">
+                      <a href={`/reports/${r.slug}`} class="sitemap__node">
+                        {r.data.title}
+                        {r.data.draft && <span class="cp-tag">D</span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )}
+
+            <li class="sitemap__branch">
+              <a href="/decks" class="sitemap__node">Decks</a>
+              <ul class="sitemap__tree">
+                {decks.map((d) => (
+                  <li class="sitemap__branch">
+                    <a href={`/decks/${d.slug}`} class="sitemap__node">{d.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── Private ── -->
+
+    <section class="sitemap__section">
+      <h2 class="sitemap__section-title">Private</h2>
+
+      <ul class="sitemap__tree">
+        <li class="sitemap__branch">
+          <a href="/andamento" class="sitemap__node">Andamento</a>
+          <ul class="sitemap__tree">
+            <li class="sitemap__branch">
+              <a href="/andamento/kanban" class="sitemap__node">Kanban</a>
+            </li>
+            <li class="sitemap__branch">
+              <a href="/andamento/sitemap" class="sitemap__node">Sitemap</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sitemap__branch">
+          <a href="/components" class="sitemap__node">Components</a>
+        </li>
+
+        <li class="sitemap__branch">
+          <span class="sitemap__node sitemap__node--group">Templates</span>
+          <ul class="sitemap__tree">
+            {templates.map((t) => (
+              <li class="sitemap__branch">
+                <a href={t.path} class="sitemap__node">{t.title}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+</BaseLayout>

@@ -348,9 +348,9 @@ h6 {
 /* Tablet (md) — scale headings up */
 @media (min-width: 768px) {
 	h1 {
-		font-size: var(--type-title-xl-font-size);
-		line-height: var(--type-title-xl-line-height);
-		letter-spacing: var(--type-title-xl-letter-spacing);
+		font-size: var(--type-title-l-font-size);
+		line-height: var(--type-title-l-line-height);
+		letter-spacing: var(--type-title-l-letter-spacing);
 	}
 
 	h2 {
@@ -461,4 +461,28 @@ h6 {
 		max-width: var(--site-max-width);
 		margin-inline: auto;
 	}
+}
+
+/* ─────────────────────────────────────────
+   Tag — reusable label component
+   ───────────────────────────────────────── */
+
+.cp-nowrap {
+	white-space: nowrap;
+}
+
+.cp-tag {
+	display: inline-block;
+	font-family: var(--font-family-sans);
+	font-size: var(--type-nameplate-s-font-size);
+	font-weight: var(--font-weight-medium);
+	line-height: 1;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-shy);
+	border: var(--line-width) solid var(--border-default);
+	border-radius: var(--radius-xs);
+	padding: 2px 4px;
+	margin-inline-start: var(--spacing-xxs);
+	vertical-align: middle;
 }

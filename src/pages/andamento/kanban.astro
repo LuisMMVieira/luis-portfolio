@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Kanban — Luis Vieira" description="Project kanban board." hideHeader={true}>
+
+  <a href="/andamento" class="cp-home-btn" aria-label="Back to Andamento">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </a>
+
+  <div class="kanban">
+    <header class="kanban__header">
+      <h1 class="kanban__title">Kanban</h1>
+    </header>
+
+    <div class="kanban__board" id="kanban-board">
+      <div class="kanban__column" data-column="todo">
+        <div class="kanban__column-header">
+          <h2 class="kanban__column-title">To Do <span class="kanban__count" data-count="todo">0</span></h2>
+        </div>
+        <div class="kanban__cards" data-drop="todo"></div>
+        <button class="kanban__add-btn" data-add="todo">+ Add card</button>
+      </div>
+
+      <div class="kanban__column" data-column="inprogress">
+        <div class="kanban__column-header">
+          <h2 class="kanban__column-title">In Progress <span class="kanban__count" data-count="inprogress">0</span></h2>
+        </div>
+        <div class="kanban__cards" data-drop="inprogress"></div>
+        <button class="kanban__add-btn" data-add="inprogress">+ Add card</button>
+      </div>
+
+      <div class="kanban__column" data-column="onhold">
+        <div class="kanban__column-header">
+          <h2 class="kanban__column-title">On Hold <span class="kanban__count" data-count="onhold">0</span></h2>
+        </div>
+        <div class="kanban__cards" data-drop="onhold"></div>
+        <button class="kanban__add-btn" data-add="onhold">+ Add card</button>
+      </div>
+
+      <div class="kanban__column" data-column="done">
+        <div class="kanban__column-header">
+          <h2 class="kanban__column-title">Done <span class="kanban__count" data-count="done">0</span></h2>
+        </div>
+        <div class="kanban__cards" data-drop="done"></div>
+        <button class="kanban__add-btn" data-add="done">+ Add card</button>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  const STORAGE_KEY = 'kanban-board';
+
+  type BoardData = Record<string, string[]>;
+
+  function load(): BoardData {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return { todo: [], inprogress: [], onhold: [], done: [] };
+  }
+
+  function save(data: BoardData) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function updateCounts(data: BoardData) {
+    for (const [col, cards] of Object.entries(data)) {
+      const el = document.querySelector(`[data-count="${col}"]`);
+      if (el) el.textContent = String(cards.length);
+    }
+  }
+
+  function createCard(text: string, colId: string): HTMLElement {
+    const card = document.createElement('div');
+    card.className = 'kanban__card';
+    card.draggable = true;
+    card.dataset.column = colId;
+
+    const span = document.createElement('span');
+    span.className = 'kanban__card-text';
+    span.textContent = text;
+
+    const del = document.createElement('button');
+    del.className = 'kanban__card-delete';
+    del.textContent = '\u00d7';
+    del.setAttribute('aria-label', 'Delete card');
+    del.addEventListener('click', () => {
+      const data = load();
+      const idx = data[colId].indexOf(text);
+      if (idx > -1) data[colId].splice(idx, 1);
+      save(data);
+      card.remove();
+      updateCounts(data);
+    });
+
+    card.appendChild(span);
+    card.appendChild(del);
+
+    // Drag events
+    card.addEventListener('dragstart', (e) => {
+      card.classList.add('kanban__card--dragging');
+      e.dataTransfer!.setData('text/plain', JSON.stringify({ text, from: colId }));
+      e.dataTransfer!.effectAllowed = 'move';
+    });
+
+    card.addEventListener('dragend', () => {
+      card.classList.remove('kanban__card--dragging');
+    });
+
+    return card;
+  }
+
+  function renderBoard() {
+    const data = load();
+
+    for (const [colId, cards] of Object.entries(data)) {
+      const container = document.querySelector(`[data-drop="${colId}"]`);
+      if (!container) continue;
+      container.innerHTML = '';
+      for (const text of cards) {
+        container.appendChild(createCard(text, colId));
+      }
+    }
+
+    updateCounts(data);
+  }
+
+  // Drop zones
+  document.querySelectorAll<HTMLElement>('[data-drop]').forEach((zone) => {
+    const colId = zone.dataset.drop!;
+
+    zone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer!.dropEffect = 'move';
+      zone.classList.add('kanban__cards--dragover');
+
+      // Position indicator
+      const afterEl = getDragAfterElement(zone, e.clientY);
+      const dragging = document.querySelector('.kanban__card--dragging');
+      if (!dragging) return;
+      if (afterEl) {
+        zone.insertBefore(dragging, afterEl);
+      } else {
+        zone.appendChild(dragging);
+      }
+    });
+
+    zone.addEventListener('dragleave', (e) => {
+      if (!zone.contains(e.relatedTarget as Node)) {
+        zone.classList.remove('kanban__cards--dragover');
+      }
+    });
+
+    zone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      zone.classList.remove('kanban__cards--dragover');
+
+      const raw = e.dataTransfer!.getData('text/plain');
+      if (!raw) return;
+
+      const { text, from } = JSON.parse(raw);
+      const data = load();
+
+      // Remove from source
+      const srcIdx = data[from].indexOf(text);
+      if (srcIdx > -1) data[from].splice(srcIdx, 1);
+
+      // Find position in target based on where the card was dropped
+      const afterEl = getDragAfterElement(zone, e.clientY);
+      const cardsInZone = [...zone.querySelectorAll('.kanban__card:not(.kanban__card--dragging)')];
+      let insertIdx = cardsInZone.length;
+      if (afterEl) {
+        const afterText = afterEl.querySelector('.kanban__card-text')?.textContent || '';
+        insertIdx = data[colId]?.indexOf(afterText) ?? data[colId].length;
+        if (insertIdx < 0) insertIdx = data[colId].length;
+      }
+
+      // Insert at position
+      if (!data[colId]) data[colId] = [];
+      data[colId].splice(insertIdx, 0, text);
+
+      save(data);
+      renderBoard();
+    });
+  });
+
+  function getDragAfterElement(container: Element, y: number): Element | null {
+    const cards = [...container.querySelectorAll('.kanban__card:not(.kanban__card--dragging)')];
+
+    let closest: { offset: number; element: Element | null } = { offset: Number.POSITIVE_INFINITY, element: null };
+
+    for (const child of cards) {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > -closest.offset) {
+        closest = { offset: -offset, element: child };
+      }
+    }
+
+    return closest.element;
+  }
+
+  // Add card buttons
+  document.querySelectorAll<HTMLButtonElement>('[data-add]').forEach((btn) => {
+    const colId = btn.dataset.add!;
+
+    btn.addEventListener('click', () => {
+      // Don't add another input if one exists
+      if (btn.previousElementSibling?.classList.contains('kanban__input-wrap')) return;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'kanban__input-wrap';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'kanban__input';
+      input.placeholder = 'Card title...';
+
+      const cancel = () => wrap.remove();
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && input.value.trim()) {
+          const data = load();
+          if (!data[colId]) data[colId] = [];
+          data[colId].push(input.value.trim());
+          save(data);
+          renderBoard();
+          wrap.remove();
+        }
+        if (e.key === 'Escape') cancel();
+      });
+
+      input.addEventListener('blur', () => {
+        // Small delay so Enter can fire before blur removes the element
+        setTimeout(() => {
+          if (document.body.contains(wrap) && !input.value.trim()) cancel();
+        }, 150);
+      });
+
+      wrap.appendChild(input);
+      btn.parentElement!.insertBefore(wrap, btn);
+      input.focus();
+    });
+  });
+
+  // Initial render
+  renderBoard();
+</script>

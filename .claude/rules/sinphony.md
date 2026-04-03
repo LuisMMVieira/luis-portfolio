@@ -12,7 +12,7 @@ Inherits from: root CLAUDE.md (architecture). Governs all visual decisions.
 ## Tokens
 All tokens live in `src/styles/tokens.scss` — **read it before writing any CSS**. Never hardcode values that exist as tokens.
 
-Naming patterns: `--text-*`, `--bg-*`, `--border-*`, `--spacing-*`, `--type-title-{xl,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`. Borders, radius, motion — all tokenized.
+Naming patterns: `--text-*`, `--bg-*`, `--border-*`, `--spacing-*`, `--type-title-{hero,l,m,s,xs}-*`, `--type-text-{l,m,s}-*`. Borders, radius, motion — all tokenized.
 
 Typefaces: `--font-family-display` (Dazzed), `--font-family-sans` (IBM Plex Sans). Single theme, no light/dark.
 
