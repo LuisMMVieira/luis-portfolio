@@ -13,6 +13,12 @@ const articles = (await getCollection('articles'))
 const reports = (await getCollection('reports'))
   .filter((r) => r.slug !== 'report-template')
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const decks = [
+  { title: 'Spaceship Search — Dark', slug: 'spaceship-search' },
+  { title: 'Spaceship Search — Light', slug: 'spaceship-search-light' },
+  { title: 'Sword Interview — Storyboard', slug: 'sword-deck' },
+];
 ---
 
 <BaseLayout title="Andamento — Luis Vieira" description="Private development index." hideHeader={true}>
@@ -27,11 +33,15 @@ const reports = (await getCollection('reports'))
   <div class="andamento">
     <header class="andamento__header">
       <h1 class="andamento__title">Andamento</h1>
-      <p class="andamento__desc">Private index — templates, components, and development pages.</p>
+      <p class="andamento__desc">Private index — all content, design system, templates, and documents.</p>
     </header>
 
+    <!-- ── Content ── -->
+
     <section class="andamento__section">
-      <h2 class="andamento__section-title">Showcases</h2>
+      <h2 class="andamento__section-title">
+        <a href="/projects" class="andamento__section-link">Projects</a>
+      </h2>
       <nav class="andamento__nav">
         {projects.map((p) => (
           <a href={`/projects/${p.slug}`} class="andamento__link">
@@ -46,7 +56,9 @@ const reports = (await getCollection('reports'))
     </section>
 
     <section class="andamento__section">
-      <h2 class="andamento__section-title">Articles</h2>
+      <h2 class="andamento__section-title">
+        <a href="/articles" class="andamento__section-link">Articles</a>
+      </h2>
       <nav class="andamento__nav">
         {articles.map((a) => (
           <a href={`/articles/${a.slug}`} class="andamento__link">
@@ -62,7 +74,9 @@ const reports = (await getCollection('reports'))
 
     {reports.length > 0 && (
       <section class="andamento__section">
-        <h2 class="andamento__section-title">Reports</h2>
+        <h2 class="andamento__section-title">
+          <a href="/reports" class="andamento__section-link">Reports</a>
+        </h2>
         <nav class="andamento__nav">
           {reports.map((r) => (
             <a href={`/reports/${r.slug}`} class="andamento__link">
@@ -78,34 +92,36 @@ const reports = (await getCollection('reports'))
     )}
 
     <section class="andamento__section">
-      <h2 class="andamento__section-title">Decks</h2>
+      <h2 class="andamento__section-title">
+        <a href="/decks" class="andamento__section-link">Decks</a>
+      </h2>
       <nav class="andamento__nav">
-        <a href="/decks/spaceship-search" class="andamento__link">
-          <span class="andamento__link-label">Spaceship Search — Dark</span>
-          <span class="andamento__link-path">/decks/spaceship-search</span>
-        </a>
-        <a href="/decks/spaceship-search-light" class="andamento__link">
-          <span class="andamento__link-label">Spaceship Search — Light</span>
-          <span class="andamento__link-path">/decks/spaceship-search-light</span>
-        </a>
-        <a href="/sword-deck" class="andamento__link">
-          <span class="andamento__link-label">Sword Interview — Storyboard</span>
-          <span class="andamento__link-path">/sword-deck</span>
-        </a>
+        {decks.map((d) => (
+          <a href={`/decks/${d.slug}`} class="andamento__link">
+            <span class="andamento__link-label">{d.title}</span>
+            <span class="andamento__link-path">/decks/{d.slug}</span>
+          </a>
+        ))}
       </nav>
     </section>
 
+    <!-- ── SINPHONY ── -->
+
     <section class="andamento__section">
-      <h2 class="andamento__section-title">Dev</h2>
+      <h2 class="andamento__section-title">SINPHONY</h2>
       <nav class="andamento__nav">
-        <a href="/" class="andamento__link">
-          <span class="andamento__link-label">Homepage</span>
-          <span class="andamento__link-path">/</span>
-        </a>
         <a href="/components" class="andamento__link">
           <span class="andamento__link-label">Components</span>
           <span class="andamento__link-path">/components</span>
         </a>
+      </nav>
+    </section>
+
+    <!-- ── Templates ── -->
+
+    <section class="andamento__section">
+      <h2 class="andamento__section-title">Templates</h2>
+      <nav class="andamento__nav">
         <a href="/projects/project-template" class="andamento__link">
           <span class="andamento__link-label">Project Template</span>
           <span class="andamento__link-path">/projects/project-template</span>
@@ -120,6 +136,23 @@ const reports = (await getCollection('reports'))
         </a>
       </nav>
     </section>
+
+    <!-- ── Documents ── -->
+
+    <section class="andamento__section">
+      <h2 class="andamento__section-title">Documents</h2>
+      <nav class="andamento__nav">
+        <a href="/docs/cv.pdf" class="andamento__link" target="_blank">
+          <span class="andamento__link-label">CV</span>
+          <span class="andamento__link-path">pdf</span>
+        </a>
+        <a href="/docs/resume.pdf" class="andamento__link" target="_blank">
+          <span class="andamento__link-label">Résumé</span>
+          <span class="andamento__link-path">pdf</span>
+        </a>
+      </nav>
+    </section>
+
   </div>
 
 </BaseLayout>

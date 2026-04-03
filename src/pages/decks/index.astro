@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const decks = [
+  { title: 'Spaceship Search — Dark', slug: 'spaceship-search' },
+  { title: 'Spaceship Search — Light', slug: 'spaceship-search-light' },
+  { title: 'Sword Interview — Storyboard', slug: 'sword-deck' },
+];
+---
+
+<BaseLayout title="Decks — Luis Vieira" description="All decks." hideHeader={true}>
+
+<div class="andamento">
+    <header class="andamento__header">
+      <h1 class="andamento__title">Decks</h1>
+      <p class="andamento__desc">{decks.length} decks</p>
+    </header>
+
+    <nav class="andamento__nav">
+      {decks.map((d) => (
+        <a href={`/decks/${d.slug}`} class="andamento__link">
+          <span class="andamento__link-label">{d.title}</span>
+          <span class="andamento__link-path">/decks/{d.slug}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+</BaseLayout>

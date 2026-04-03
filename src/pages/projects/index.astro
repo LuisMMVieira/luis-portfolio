@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.slug !== 'project-template' && !p.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Projects — Luis Vieira" description="All projects." hideHeader={true}>
+
+<div class="andamento">
+    <header class="andamento__header">
+      <h1 class="andamento__title">Projects</h1>
+      <p class="andamento__desc">{projects.length} projects</p>
+    </header>
+
+    <nav class="andamento__nav">
+      {projects.map((p) => (
+        <a href={`/projects/${p.slug}`} class="andamento__link">
+          <span class="andamento__link-label">
+            {p.data.title}
+          </span>
+          <span class="andamento__link-path">/projects/{p.slug}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+</BaseLayout>

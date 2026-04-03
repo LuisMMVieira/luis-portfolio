@@ -14,12 +14,10 @@ import Divider from "../../components/Divider.astro";
 
 export async function getStaticPaths() {
   const reports = await getCollection("reports");
-  return reports
-    .filter((r) => !r.data.draft)
-    .map((report) => ({
-      params: { slug: report.slug },
-      props: { report },
-    }));
+  return reports.map((report) => ({
+    params: { slug: report.slug },
+    props: { report },
+  }));
 }
 
 interface Props {
@@ -28,20 +26,23 @@ interface Props {
 
 const { report } = Astro.props as Props;
 const { Content } = await report.render();
+const isDraft = report.data.draft;
 ---
 
 <BaseLayout title={`${report.data.title} — Luis Vieira`} hideHeader={true} theme={report.data.theme}>
   <script slot="head" is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-      <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-      <line x1="14" y1="4" x2="21" y2="4"></line>
-      <line x1="14" y1="8" x2="21" y2="8"></line>
-      <line x1="14" y1="15" x2="21" y2="15"></line>
-      <line x1="14" y1="19" x2="21" y2="19"></line>
-    </svg>
-  </a>
+  {isDraft && (
+    <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+        <line x1="14" y1="4" x2="21" y2="4"></line>
+        <line x1="14" y1="8" x2="21" y2="8"></line>
+        <line x1="14" y1="15" x2="21" y2="15"></line>
+        <line x1="14" y1="19" x2="21" y2="19"></line>
+      </svg>
+    </a>
+  )}
   <div class="report-page">
     <ReportHeader
       title={report.data.title}

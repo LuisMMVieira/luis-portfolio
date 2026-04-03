@@ -8,12 +8,10 @@ import ArticleHeader from "../../components/mdx/ArticleHeader.astro";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
-  return articles
-    .filter((a) => !a.data.draft)
-    .map((article) => ({
-      params: { slug: article.slug },
-      props: { article },
-    }));
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
 }
 
 interface Props {
@@ -22,20 +20,23 @@ interface Props {
 
 const { article } = Astro.props as Props;
 const { Content } = await article.render();
+const isDraft = article.data.draft;
 ---
 
 <BaseLayout title={`${article.data.title} — Luis Vieira`} hideHeader={true} theme={article.data.theme}>
   <script slot="head" is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-      <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-      <line x1="14" y1="4" x2="21" y2="4"></line>
-      <line x1="14" y1="8" x2="21" y2="8"></line>
-      <line x1="14" y1="15" x2="21" y2="15"></line>
-      <line x1="14" y1="19" x2="21" y2="19"></line>
-    </svg>
-  </a>
+  {isDraft && (
+    <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+        <line x1="14" y1="4" x2="21" y2="4"></line>
+        <line x1="14" y1="8" x2="21" y2="8"></line>
+        <line x1="14" y1="15" x2="21" y2="15"></line>
+        <line x1="14" y1="19" x2="21" y2="19"></line>
+      </svg>
+    </a>
+  )}
   <div class="article-page">
     <ArticleHeader
       title={article.data.title}

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const reports = (await getCollection('reports'))
+  .filter((r) => r.slug !== 'report-template' && !r.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Reports — Luis Vieira" description="All reports." hideHeader={true}>
+
+<div class="andamento">
+    <header class="andamento__header">
+      <h1 class="andamento__title">Reports</h1>
+      <p class="andamento__desc">{reports.length} reports</p>
+    </header>
+
+    <nav class="andamento__nav">
+      {reports.map((r) => (
+        <a href={`/reports/${r.slug}`} class="andamento__link">
+          <span class="andamento__link-label">
+            {r.data.title}
+          </span>
+          <span class="andamento__link-path">/reports/{r.slug}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+</BaseLayout>
