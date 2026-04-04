@@ -189,13 +189,17 @@
 .project-card {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md);
+	gap: var(--spacing-xs);
+	border: var(--border-width-default) solid var(--border-shy);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-xs);
 }
 
 .project-card-image {
 	overflow: hidden;
 	cursor: pointer;
 	width: 100%;
+	border-radius: var(--radius-xs);
 
 	.project-card--no-action & {
 		cursor: default;
@@ -214,6 +218,9 @@
 	flex-direction: column;
 	gap: var(--spacing-xxs);
 	max-width: 300px;
+	padding-inline: var(--spacing-sm);
+	padding-block-start: var(--spacing-md);
+	padding-block-end: var(--spacing-xxl);
 }
 
 .project-card-period {
@@ -617,7 +624,9 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 	.project-card-info {
 		width: 220px;
+		max-width: 240px;
 		flex-shrink: 0;
+		padding-block-start: var(--spacing-sm);
 	}
 
 

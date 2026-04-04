@@ -5,6 +5,7 @@ import Cta from '../components/Cta.astro';
 import Switch from '../components/Switch.astro';
 import Divider from '../components/Divider.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Card from '../components/Card.astro';
 import PostHeader from '../components/mdx/PostHeader.astro';
 import PostSection from '../components/mdx/PostSection.astro';
 import PostText from '../components/mdx/PostText.astro';
@@ -69,6 +70,7 @@ import Figure from '../components/mdx/Figure.astro';
               <li><a href="#figure" class="cp-sidebar__link" data-spy-target="figure">Figure</a></li>
               <li><a href="#post-subsection-layouts" class="cp-sidebar__link" data-spy-target="post-subsection-layouts">PostSection Layouts</a></li>
               <li><a href="#project-card" class="cp-sidebar__link" data-spy-target="project-card">ProjectCard</a></li>
+              <li><a href="#card" class="cp-sidebar__link" data-spy-target="card">Card</a></li>
               <li><a href="#additional" class="cp-sidebar__link" data-spy-target="additional">Additional</a></li>
             </ul>
           </div>
@@ -684,6 +686,70 @@ import Figure from '../components/mdx/Figure.astro';
                 </div>
               </div>
             </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Card ──────────── */}
+
+        <div id="card">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Card</h2>
+              <p class="cp-header__desc">Contained card with sunken background. Two layouts: inline (horizontal) and stacked (vertical). Image is optional.</p>
+            </div>
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">layout</span>
+                  <div class="cp-pills" data-control="layout">
+                    <button class="cp-pill is-active" data-value="inline">inline</button>
+                    <button class="cp-pill" data-value="stacked">stacked</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">image</span>
+                  <div class="cp-pills" data-control="image">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">cta</span>
+                  <div class="cp-pills" data-control="cta">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview" style="display: block; padding: var(--spacing-md);">
+                {/* layout:inline | image:with | cta:with */}
+                <div data-variant-key="layout:inline|image:with|cta:with">
+                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" href="#" layout="inline" />
+                </div>
+                <div data-variant-key="layout:inline|image:with|cta:without" hidden>
+                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" layout="inline" />
+                </div>
+                <div data-variant-key="layout:inline|image:without|cta:with" hidden>
+                  <Card title="Title of this card goes here" href="#" layout="inline" />
+                </div>
+                <div data-variant-key="layout:inline|image:without|cta:without" hidden>
+                  <Card title="Title of this card goes here" layout="inline" />
+                </div>
+                {/* layout:stacked | image:with | cta:with */}
+                <div data-variant-key="layout:stacked|image:with|cta:with" hidden>
+                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" href="#" layout="stacked" />
+                </div>
+                <div data-variant-key="layout:stacked|image:with|cta:without" hidden>
+                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" layout="stacked" />
+                </div>
+                <div data-variant-key="layout:stacked|image:without|cta:with" hidden>
+                  <Card title="Title of this card goes here" href="#" layout="stacked" />
+                </div>
+                <div data-variant-key="layout:stacked|image:without|cta:without" hidden>
+                  <Card title="Title of this card goes here" layout="stacked" />
+                </div>
+              </div>
             </div>
           </section>
         </div>

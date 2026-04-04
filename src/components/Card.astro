@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+  cover?: string;
+  cta?: string;
+  layout?: 'inline' | 'stacked';
+}
+
+const {
+  title,
+  href,
+  cover,
+  cta = 'See project',
+  layout = 'inline',
+} = Astro.props;
+---
+
+<article class:list={['card', `card--${layout}`]}>
+  {cover && (
+    <div class="card__media">
+      <img src={cover} alt="" loading="lazy" />
+    </div>
+  )}
+  <div class="card__info">
+    <h3 class="card__title">{title}</h3>
+    {href && (
+      <a class="card__cta" href={href}>{cta}</a>
+    )}
+  </div>
+</article>

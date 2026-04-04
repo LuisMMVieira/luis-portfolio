@@ -486,3 +486,102 @@ h6 {
 	margin-inline-start: var(--spacing-xxs);
 	vertical-align: middle;
 }
+
+/* ─────────────────────────────────────────
+   Card — contained card component
+   Layout=Inline: image left, info right (md/xl)
+   Layout=Stacked: image top, info below (xs, or explicit)
+   ───────────────────────────────────────── */
+
+.card {
+	background: transparent;
+	border: var(--border-width-default) solid var(--border-shy);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-xs);
+	overflow: hidden;
+}
+
+.card--inline {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+
+	@media (min-width: 48rem) {
+		flex-direction: row;
+		gap: var(--spacing-md);
+	}
+}
+
+.card--stacked {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+.card__media {
+	overflow: hidden;
+	border-radius: var(--radius-xs);
+
+	.card--inline & {
+		@media (min-width: 48rem) {
+			flex-shrink: 0;
+			width: 577px;
+		}
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: cover;
+		aspect-ratio: 1920 / 1200;
+	}
+}
+
+.card__info {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	padding-inline: var(--spacing-sm);
+	padding-block-start: var(--spacing-md);
+	padding-block-end: var(--spacing-xxl);
+
+	.card--inline & {
+		@media (min-width: 48rem) {
+			width: 240px;
+			max-width: 240px;
+			flex-shrink: 0;
+			padding-block-start: var(--spacing-sm);
+		}
+	}
+}
+
+.card__title {
+	font-family: var(--type-title-s-font-family);
+	font-size: var(--type-title-s-font-size);
+	line-height: var(--type-title-s-line-height);
+	letter-spacing: var(--type-title-s-letter-spacing);
+	color: var(--text-primary);
+	margin: 0;
+}
+
+.card__cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--button-primary-idle);
+	color: var(--color-darkest);
+	font-family: var(--font-family-sans);
+	font-size: var(--type-cta-font-size);
+	font-weight: var(--font-weight-medium);
+	line-height: 1;
+	text-decoration: none;
+	padding: var(--spacing-sm);
+	border-radius: var(--radius-xs);
+	align-self: flex-start;
+	transition: background-color var(--duration-fast) var(--ease-soft);
+
+	&:hover {
+		background: var(--button-primary-hover);
+	}
+}
