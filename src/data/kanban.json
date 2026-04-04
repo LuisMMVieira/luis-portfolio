@@ -1,0 +1,18 @@
+{
+  "todo": [
+    "Redesign homepage hero",
+    "Fine tune Spaceship Search article"
+  ],
+  "inprogress": [],
+  "onhold": [],
+  "done": [
+    "Redesign background section (staggered grid)",
+    "Update type scale to match Figma",
+    "Redesign andamento index (4-col, cards)",
+    "Build kanban board",
+    "Build visual sitemap",
+    "Create Card component",
+    "Apply contained card style to project cards",
+    "Optimize CLAUDE.md cascade"
+  ]
+}

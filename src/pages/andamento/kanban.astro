@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import kanbanData from '../../data/kanban.json';
 ---
 
 <BaseLayout title="Kanban — Luis Vieira" description="Project kanban board." hideHeader={true}>
@@ -13,6 +14,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div class="kanban">
     <header class="kanban__header">
       <h1 class="kanban__title">Kanban</h1>
+      <button class="kanban__copy-btn" id="copy-json" aria-label="Copy board JSON to clipboard">Copy JSON</button>
     </header>
 
     <div class="kanban__board" id="kanban-board">
@@ -50,14 +52,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </div>
 
-</BaseLayout>
+  <Fragment set:html={`<script>window.__KANBAN_SEED__=${JSON.stringify(kanbanData)};</script>`} />
 
-<script>
-  const STORAGE_KEY = 'kanban-board';
+  <script is:inline>
+  // Seed from kanban.json (build-time) — always authoritative
+  var STORAGE_KEY = 'kanban-board';
+  if (window.__KANBAN_SEED__) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(window.__KANBAN_SEED__));
+  }
 
-  type BoardData = Record<string, string[]>;
-
-  function load(): BoardData {
+  function load() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
@@ -65,18 +69,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     return { todo: [], inprogress: [], onhold: [], done: [] };
   }
 
-  function save(data: BoardData) {
+  function save(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }
 
-  function updateCounts(data: BoardData) {
+  function updateCounts(data) {
     for (const [col, cards] of Object.entries(data)) {
       const el = document.querySelector(`[data-count="${col}"]`);
       if (el) el.textContent = String(cards.length);
     }
   }
 
-  function createCard(text: string, colId: string): HTMLElement {
+  function createCard(text, colId) {
     const card = document.createElement('div');
     card.className = 'kanban__card';
     card.draggable = true;
@@ -105,8 +109,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     // Drag events
     card.addEventListener('dragstart', (e) => {
       card.classList.add('kanban__card--dragging');
-      e.dataTransfer!.setData('text/plain', JSON.stringify({ text, from: colId }));
-      e.dataTransfer!.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', JSON.stringify({ text, from: colId }));
+      e.dataTransfer.effectAllowed = 'move';
     });
 
     card.addEventListener('dragend', () => {
@@ -132,12 +136,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   // Drop zones
-  document.querySelectorAll<HTMLElement>('[data-drop]').forEach((zone) => {
-    const colId = zone.dataset.drop!;
+  document.querySelectorAll('[data-drop]').forEach((zone) => {
+    const colId = zone.dataset.drop;
 
     zone.addEventListener('dragover', (e) => {
       e.preventDefault();
-      e.dataTransfer!.dropEffect = 'move';
+      e.dataTransfer.dropEffect = 'move';
       zone.classList.add('kanban__cards--dragover');
 
       // Position indicator
@@ -152,7 +156,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     });
 
     zone.addEventListener('dragleave', (e) => {
-      if (!zone.contains(e.relatedTarget as Node)) {
+      if (!zone.contains(e.relatedTarget)) {
         zone.classList.remove('kanban__cards--dragover');
       }
     });
@@ -161,7 +165,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       e.preventDefault();
       zone.classList.remove('kanban__cards--dragover');
 
-      const raw = e.dataTransfer!.getData('text/plain');
+      const raw = e.dataTransfer.getData('text/plain');
       if (!raw) return;
 
       const { text, from } = JSON.parse(raw);
@@ -190,10 +194,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     });
   });
 
-  function getDragAfterElement(container: Element, y: number): Element | null {
+  function getDragAfterElement(container, y) {
     const cards = [...container.querySelectorAll('.kanban__card:not(.kanban__card--dragging)')];
 
-    let closest: { offset: number; element: Element | null } = { offset: Number.POSITIVE_INFINITY, element: null };
+    let closest = { offset: Number.POSITIVE_INFINITY, element: null };
 
     for (const child of cards) {
       const box = child.getBoundingClientRect();
@@ -207,8 +211,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   // Add card buttons
-  document.querySelectorAll<HTMLButtonElement>('[data-add]').forEach((btn) => {
-    const colId = btn.dataset.add!;
+  document.querySelectorAll('[data-add]').forEach((btn) => {
+    const colId = btn.dataset.add;
 
     btn.addEventListener('click', () => {
       // Don't add another input if one exists
@@ -244,11 +248,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       });
 
       wrap.appendChild(input);
-      btn.parentElement!.insertBefore(wrap, btn);
+      btn.parentElement.insertBefore(wrap, btn);
       input.focus();
+    });
+  });
+
+  // Copy JSON button
+  document.getElementById('copy-json').addEventListener('click', function() {
+    const data = load();
+    const json = JSON.stringify(data, null, 2) + '\n';
+    navigator.clipboard.writeText(json).then(() => {
+      this.textContent = 'Copied!';
+      setTimeout(() => { this.textContent = 'Copy JSON'; }, 1500);
     });
   });
 
   // Initial render
   renderBoard();
-</script>
+  </script>
+
+</BaseLayout>

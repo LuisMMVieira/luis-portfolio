@@ -1625,7 +1625,28 @@ body:has(.components-page) {
 }
 
 .kanban__header {
+	display: flex;
+	align-items: baseline;
+	gap: var(--spacing-md);
 	margin-block-end: var(--spacing-xl);
+}
+
+.kanban__copy-btn {
+	background: none;
+	border: var(--border-width-default) solid var(--border-shy);
+	border-radius: var(--radius-xs);
+	color: var(--text-shy);
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-s-font-size);
+	padding: var(--spacing-xxs) var(--spacing-xs);
+	cursor: pointer;
+	transition: color var(--duration-fast) var(--ease-soft),
+	            border-color var(--duration-fast) var(--ease-soft);
+
+	&:hover {
+		color: var(--text-primary);
+		border-color: var(--border-default);
+	}
 }
 
 .kanban__title {
