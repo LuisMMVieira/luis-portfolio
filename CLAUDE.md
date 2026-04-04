@@ -30,7 +30,7 @@ Work directly on `main`. No branches, no PRs. Solo project.
 
 ### Not Public
 - **/andamento** — private dev index: all content (inc. drafts), SINPHONY, Templates, Documents
-- **/andamento/kanban** — drag-and-drop kanban board (To Do, In Progress, On Hold, Done). Uses localStorage. Use this to track and plan work on this project.
+- **/andamento/kanban** — drag-and-drop Kanbandamento board (To Do, In Progress, On Hold, Done). Uses localStorage. Use this to track and plan work on this project.
 - **/andamento/sitemap** — auto-generated visual sitemap / IA tree. Pulls from content collections at build time — always up to date.
 - **/components** — design system playground
 
