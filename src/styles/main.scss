@@ -179,19 +179,16 @@
 }
 
 .projects-list {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-direction: column;
 	gap: var(--spacing-ml);
-}
-
-.project-card {
-	grid-column: 1 / -1;
 }
 
 /* Project card */
 .project-card {
 	display: flex;
 	flex-direction: column;
+	gap: var(--spacing-md);
 }
 
 .project-card-image {
@@ -214,8 +211,8 @@
 .project-card-info {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xs);
-	padding-block: var(--spacing-md);
+	gap: var(--spacing-xxs);
+	max-width: 300px;
 }
 
 .project-card-period {
@@ -565,18 +562,24 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		}
 	}
 
-	/* Work: md → 10-col nested grid */
+	/* Work: md → horizontal cards */
 	.projects-list {
-		grid-template-columns: repeat(10, 1fr);
-		gap: var(--spacing-lg);
+		gap: var(--spacing-xl);
 	}
 
-	.project-card:first-child {
-		grid-column: 1 / -1;
+	.project-card {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--spacing-md);
 	}
 
-	.project-card:not(:first-child) {
-		grid-column: span 5;
+	.project-card-image {
+		flex: 0 0 59%;
+	}
+
+	.project-card-info {
+		width: 220px;
+		flex-shrink: 0;
 	}
 
 
@@ -647,13 +650,9 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		gap: 0;
 	}
 
-	/* Work: xl → 8-col nested grid */
-	.projects-list {
-		grid-template-columns: repeat(8, 1fr);
-	}
-
-	.project-card:not(:first-child) {
-		grid-column: span 4;
+	/* Work: xl → wider image ratio */
+	.project-card-image {
+		flex: 1 1 auto;
 	}
 
 	/* About: xl → 8-col nested grid, vertical stack */
@@ -1539,12 +1538,12 @@ body:has(.components-page) {
 }
 
 .andamento__section--emphasis {
-	background: oklab(47.8% 0.104 -0.202 / 0.1);
+	background: oklab(47.8% 0.104 -0.202 / 0.2);
 	border-color: transparent;
 }
 
 .andamento__section--inverted {
-	background: oklab(78.8% 0 0 / 0.1);
+	background: oklab(78.8% 0 0 / 0.05);
 	border-color: transparent;
 }
 

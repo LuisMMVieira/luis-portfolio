@@ -51,4 +51,3 @@ Read each component file for the full TypeScript interface.
 ## Rules
 - Never use raw HTML `<section>` tags — always use PostSection components.
 - PostSection `bg` prop only supports `background-color` tokens. For `background-image`, use CSS classes or inline styles.
-- Figma is the source of truth — never approximate. If unsure, pull the Figma node.

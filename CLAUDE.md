@@ -36,6 +36,12 @@ Work directly on `main`. No branches, no PRs. Solo project.
 
 Index pages only show published content (`draft: false`). /andamento shows everything.
 
+## Workflow
+- Use `/andamento/kanban` to track and plan work. Check it regularly. Update it. Push Luis on it if it's going stale.
+- Use `/andamento/sitemap` to understand the full site IA before structural changes.
+- Change flow is defined in `.claude/rules/templates.md` — follow it.
+- Design system rules live in `.claude/rules/sinphony.md` — read `src/styles/tokens.scss` before any visual work, critique, or CSS edit.
+
 ## Content Collections
 Defined in `src/content/config.ts`: `projects`, `articles`, `reports`. Decks are standalone pages (not yet a collection).
 
@@ -45,6 +51,8 @@ Always use the `figma-design-weaver` skill for Figma URLs. Never call MCP tools 
 - Map Figma columns to grid: xl col = ~98px (1200px ÷ 12).
 
 ## Granular Rules (`.claude/rules/`)
+Rule files inherit from this root file. Don't duplicate what's here in rule files, and don't duplicate rule file content here. Each rule lives in exactly one place.
+
 Detailed rules load automatically when you touch matching files:
 - **sinphony.md** — design tokens, grid, breakpoints, style ownership → `src/styles/**`, `src/components/**`
 - **templates.md** — change flow, Figma→code layer mapping, shared components → templates, `[slug].astro`
@@ -55,8 +63,7 @@ Detailed rules load automatically when you touch matching files:
 
 ## Global Rules
 - Figma is the source of truth — never approximate.
-- Change flow: component → template → content. Never skip steps.
-- Always use design tokens from `src/styles/tokens.scss` — no hardcoded values.
+- NEVER eyeball a design when using the Figma MCP — always read the actual values from `get_design_context` output.
 - Prefer editing existing files — don't create new ones unless necessary.
 - Edit originals directly — never create `-v2` copies.
 - Don't add features beyond what's asked.

@@ -44,6 +44,14 @@ const isDev = import.meta.env.DEV;
       </main>
     </div>
 
+    <script is:inline>
+      document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.code === 'KeyA') {
+          e.preventDefault();
+          window.location.href = '/andamento';
+        }
+      });
+    </script>
     <script type="module" src="/scripts/main.js"></script>
     {isDev && <AgentationToolbar client:only="react" />}
   </body>

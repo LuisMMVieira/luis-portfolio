@@ -20,7 +20,7 @@ Each deck is a self-contained `.astro` file in `src/pages/decks/`. Slide data is
 2. Import `BaseLayout` from `../../layouts/BaseLayout.astro`
 3. Define slide data array in frontmatter
 4. Add entry to the decks list in `src/pages/decks/index.astro`
-5. The deck appears automatically in `/andamento` only if added to the hardcoded list in `src/pages/andamento.astro`
+5. The deck appears automatically in `/andamento` only if added to the hardcoded list in `src/pages/andamento/index.astro`
 
 ## Navigation
 All decks include `/andamento` back link (top-left). Decks are backstage-only content — never linked from public pages.
