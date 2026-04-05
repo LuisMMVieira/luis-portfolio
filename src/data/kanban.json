@@ -1,6 +1,9 @@
 {
   "todo": [
-    "Redesign homepage hero"
+    "Redesign homepage hero",
+    "SINPHONY: add system message colors.",
+    "KANBAN: ability to edit cards content",
+    "KANBAN: add ability for details in cards"
   ],
   "inprogress": [
     "Alf project page"
