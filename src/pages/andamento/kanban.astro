@@ -172,6 +172,67 @@ import kanbanData from '../../data/kanban.json';
     updateCounts(data);
   }
 
+  // Confetti — firework style: fast burst, dramatic slowdown, gentle fade
+  function celebrate(cx, cy) {
+    var colors = ['#a78bfa','#f472b6','#34d399','#fbbf24','#60a5fa','#f87171','#e879f9','#fb923c'];
+    var count = 70;
+
+    for (var i = 0; i < count; i++) {
+      (function(idx) {
+        var size = 5 + Math.random() * 7;
+        var isRect = Math.random() > 0.4;
+        var el = document.createElement('div');
+        el.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;will-change:transform;';
+        el.style.left = '0px';
+        el.style.top = '0px';
+        el.style.width = size + 'px';
+        el.style.height = (isRect ? size * 0.6 : size) + 'px';
+        el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        if (!isRect) el.style.borderRadius = '50%';
+        document.body.appendChild(el);
+
+        // Wide spread — full circle, biased upward
+        var angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.8;
+        var maxDist = 150 + Math.random() * 250; // how far it travels
+        var dx = Math.cos(angle) * maxDist;
+        var dy = Math.sin(angle) * maxDist;
+        var rotEnd = (Math.random() - 0.5) * 360;
+        var duration = 1500; // exactly 1.5s
+        var start = null;
+
+        function tick(now) {
+          if (!start) start = now;
+          var t = Math.min((now - start) / duration, 1);
+
+          // Dramatic ease-out: fast start, long slow tail
+          // cubic ease-out with extra brake
+          var ease = 1 - Math.pow(1 - t, 4);
+
+          var px = cx + dx * ease;
+          var py = cy + dy * ease + 40 * ease * ease; // slight gravity sag at the end
+          var r = rotEnd * ease;
+
+          // Opacity: full for first 60%, then fade
+          var opacity = t < 0.6 ? 1 : 1 - ((t - 0.6) / 0.4);
+
+          // Scale: start at 1, grow slightly mid-flight, shrink at end
+          var scale = t < 0.3 ? 1 + t * 0.5 : 1.15 - (t - 0.3) * 0.8;
+          if (scale < 0.1) scale = 0.1;
+
+          el.style.transform = 'translate(' + px + 'px,' + py + 'px) rotate(' + r + 'deg) scale(' + scale + ')';
+          el.style.opacity = opacity;
+
+          if (t < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.remove();
+          }
+        }
+        requestAnimationFrame(tick);
+      })(i);
+    }
+  }
+
   // Drop zones
   document.querySelectorAll('[data-drop]').forEach(function(zone) {
     var colId = zone.dataset.drop;
@@ -223,6 +284,10 @@ import kanbanData from '../../data/kanban.json';
       data[colId].splice(insertIdx, 0, parsed.text);
       save(data);
       renderBoard();
+
+      if (colId === 'done' && parsed.from !== 'done') {
+        celebrate(e.clientX, e.clientY);
+      }
     });
   });
 
