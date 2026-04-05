@@ -20,6 +20,20 @@ const decks = [
   { title: 'Sword Interview — Storyboard', slug: 'sword-deck' },
 ];
 
+// Search index — all navigable items
+const searchItems = [
+  ...projects.map((p) => ({ title: p.data.title, path: `/projects/${p.slug}`, type: 'project' })),
+  ...articles.map((a) => ({ title: a.data.title, path: `/articles/${a.slug}`, type: 'article' })),
+  ...reports.map((r) => ({ title: r.data.title, path: `/reports/${r.slug}`, type: 'report' })),
+  ...decks.map((d) => ({ title: d.title, path: `/decks/${d.slug}`, type: 'deck' })),
+  { title: 'Components', path: '/components', type: 'tool' },
+  { title: 'Kanbandamento', path: '/andamento/kanban', type: 'tool' },
+  { title: 'Sitemap', path: '/andamento/sitemap', type: 'tool' },
+  { title: 'Project Template', path: '/projects/project-template', type: 'template' },
+  { title: 'Article Template', path: '/articles/article-template', type: 'template' },
+  { title: 'Report Template', path: '/reports/report-template', type: 'template' },
+];
+
 function splitLastWord(title: string) {
   const i = title.lastIndexOf(' ');
   if (i === -1) return { head: '', tail: title };
@@ -40,6 +54,11 @@ function splitLastWord(title: string) {
     <header class="andamento__header">
       <h1 class="andamento__title">Andamento</h1>
     </header>
+
+    <div class="andamento__search" id="andamento-search">
+      <input type="text" class="andamento__search-input" id="search-input" placeholder="Search pages..." autocomplete="off" />
+      <ul class="andamento__search-results" id="search-results"></ul>
+    </div>
 
     <div class="andamento__grid">
 
@@ -150,5 +169,102 @@ function splitLastWord(title: string) {
 
     </div>
   </div>
+
+  <Fragment set:html={`<script>window.__SEARCH_ITEMS__=${JSON.stringify(searchItems)};</script>`} />
+
+  <script is:inline>
+    (function() {
+      var items = window.__SEARCH_ITEMS__ || [];
+      var input = document.getElementById('search-input');
+      var list = document.getElementById('search-results');
+      var wrap = document.getElementById('andamento-search');
+      var activeIdx = -1;
+
+      // Only autofocus on desktop
+      if (window.innerWidth >= 768) input.focus();
+
+      function render(matches) {
+        list.innerHTML = '';
+        activeIdx = -1;
+        if (!matches.length) {
+          wrap.classList.remove('andamento__search--open');
+          return;
+        }
+        wrap.classList.add('andamento__search--open');
+        matches.forEach(function(item, i) {
+          var li = document.createElement('li');
+          li.className = 'andamento__search-item';
+          var a = document.createElement('a');
+          a.href = item.path;
+          a.className = 'andamento__search-link';
+          var title = document.createElement('span');
+          title.className = 'andamento__search-title';
+          title.textContent = item.title;
+          var type = document.createElement('span');
+          type.className = 'andamento__search-type';
+          type.textContent = item.type;
+          a.appendChild(title);
+          a.appendChild(type);
+          li.appendChild(a);
+          li.addEventListener('mouseenter', function() { setActive(i); });
+          list.appendChild(li);
+        });
+      }
+
+      function setActive(idx) {
+        var items = list.querySelectorAll('.andamento__search-item');
+        items.forEach(function(li) { li.classList.remove('andamento__search-item--active'); });
+        activeIdx = idx;
+        if (idx >= 0 && idx < items.length) {
+          items[idx].classList.add('andamento__search-item--active');
+        }
+      }
+
+      input.addEventListener('input', function() {
+        var q = input.value.trim().toLowerCase();
+        if (!q) { render([]); return; }
+        var matches = items.filter(function(item) {
+          return item.title.toLowerCase().indexOf(q) !== -1 ||
+                 item.type.toLowerCase().indexOf(q) !== -1 ||
+                 item.path.toLowerCase().indexOf(q) !== -1;
+        });
+        render(matches);
+        if (matches.length) setActive(0);
+      });
+
+      input.addEventListener('keydown', function(e) {
+        var items = list.querySelectorAll('.andamento__search-item');
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          setActive(Math.min(activeIdx + 1, items.length - 1));
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          setActive(Math.max(activeIdx - 1, 0));
+        } else if (e.key === 'Enter' && activeIdx >= 0) {
+          e.preventDefault();
+          var link = items[activeIdx].querySelector('a');
+          if (link) window.location.href = link.href;
+        } else if (e.key === 'Escape') {
+          input.value = '';
+          render([]);
+          input.blur();
+        }
+      });
+
+      // Close on click outside
+      document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+          render([]);
+        }
+      });
+
+      // Reopen on focus if there's a query
+      input.addEventListener('focus', function() {
+        if (input.value.trim()) input.dispatchEvent(new Event('input'));
+      });
+    })();
+  </script>
 
 </BaseLayout>
