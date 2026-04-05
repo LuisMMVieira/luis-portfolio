@@ -15,7 +15,6 @@ import kanbanData from '../../data/kanban.json';
     <header class="kanban__header">
       <h1 class="kanban__title">Kanbandamento</h1>
     </header>
-    <div class="kanban__toast" id="kanban-toast" hidden>Board changed · Click to copy</div>
 
     <div class="kanban__board" id="kanban-board">
       <div class="kanban__column" data-column="todo">
@@ -55,7 +54,7 @@ import kanbanData from '../../data/kanban.json';
   <Fragment set:html={`<script>window.__KANBAN_SEED__=${JSON.stringify(kanbanData)};</script>`} />
 
   <script is:inline>
-  // Seed from kanban.json only if localStorage is empty (first visit)
+  // Load board: prefer localStorage, fall back to JSON seed
   var STORAGE_KEY = 'kanban-board';
   if (!localStorage.getItem(STORAGE_KEY) && window.__KANBAN_SEED__) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(window.__KANBAN_SEED__));
@@ -63,40 +62,46 @@ import kanbanData from '../../data/kanban.json';
 
   function load() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      var raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
-    } catch {}
+    } catch(e) {}
     return { todo: [], inprogress: [], onhold: [], done: [] };
   }
 
   function save(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    // Auto-save to disk via dev server API
+    fetch('/api/kanban', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(function() {}); // silently fail in production (no API)
   }
 
   function updateCounts(data) {
-    for (const [col, cards] of Object.entries(data)) {
-      const el = document.querySelector(`[data-count="${col}"]`);
-      if (el) el.textContent = String(cards.length);
+    for (var col in data) {
+      var el = document.querySelector('[data-count="' + col + '"]');
+      if (el) el.textContent = String(data[col].length);
     }
   }
 
   function createCard(text, colId) {
-    const card = document.createElement('div');
+    var card = document.createElement('div');
     card.className = 'kanban__card';
     card.draggable = true;
     card.dataset.column = colId;
 
-    const span = document.createElement('span');
+    var span = document.createElement('span');
     span.className = 'kanban__card-text';
     span.textContent = text;
 
-    const del = document.createElement('button');
+    var del = document.createElement('button');
     del.className = 'kanban__card-delete';
     del.textContent = '\u00d7';
     del.setAttribute('aria-label', 'Delete card');
-    del.addEventListener('click', () => {
-      const data = load();
-      const idx = data[colId].indexOf(text);
+    del.addEventListener('click', function() {
+      var data = load();
+      var idx = data[colId].indexOf(text);
       if (idx > -1) data[colId].splice(idx, 1);
       save(data);
       card.remove();
@@ -106,14 +111,13 @@ import kanbanData from '../../data/kanban.json';
     card.appendChild(span);
     card.appendChild(del);
 
-    // Drag events
-    card.addEventListener('dragstart', (e) => {
+    card.addEventListener('dragstart', function(e) {
       card.classList.add('kanban__card--dragging');
-      e.dataTransfer.setData('text/plain', JSON.stringify({ text, from: colId }));
+      e.dataTransfer.setData('text/plain', JSON.stringify({ text: text, from: colId }));
       e.dataTransfer.effectAllowed = 'move';
     });
 
-    card.addEventListener('dragend', () => {
+    card.addEventListener('dragend', function() {
       card.classList.remove('kanban__card--dragging');
     });
 
@@ -121,32 +125,28 @@ import kanbanData from '../../data/kanban.json';
   }
 
   function renderBoard() {
-    const data = load();
-
-    for (const [colId, cards] of Object.entries(data)) {
-      const container = document.querySelector(`[data-drop="${colId}"]`);
+    var data = load();
+    for (var colId in data) {
+      var container = document.querySelector('[data-drop="' + colId + '"]');
       if (!container) continue;
       container.innerHTML = '';
-      for (const text of cards) {
-        container.appendChild(createCard(text, colId));
+      for (var i = 0; i < data[colId].length; i++) {
+        container.appendChild(createCard(data[colId][i], colId));
       }
     }
-
     updateCounts(data);
   }
 
   // Drop zones
-  document.querySelectorAll('[data-drop]').forEach((zone) => {
-    const colId = zone.dataset.drop;
+  document.querySelectorAll('[data-drop]').forEach(function(zone) {
+    var colId = zone.dataset.drop;
 
-    zone.addEventListener('dragover', (e) => {
+    zone.addEventListener('dragover', function(e) {
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
       zone.classList.add('kanban__cards--dragover');
-
-      // Position indicator
-      const afterEl = getDragAfterElement(zone, e.clientY);
-      const dragging = document.querySelector('.kanban__card--dragging');
+      var afterEl = getDragAfterElement(zone, e.clientY);
+      var dragging = document.querySelector('.kanban__card--dragging');
       if (!dragging) return;
       if (afterEl) {
         zone.insertBefore(dragging, afterEl);
@@ -155,82 +155,75 @@ import kanbanData from '../../data/kanban.json';
       }
     });
 
-    zone.addEventListener('dragleave', (e) => {
+    zone.addEventListener('dragleave', function(e) {
       if (!zone.contains(e.relatedTarget)) {
         zone.classList.remove('kanban__cards--dragover');
       }
     });
 
-    zone.addEventListener('drop', (e) => {
+    zone.addEventListener('drop', function(e) {
       e.preventDefault();
       zone.classList.remove('kanban__cards--dragover');
-
-      const raw = e.dataTransfer.getData('text/plain');
+      var raw = e.dataTransfer.getData('text/plain');
       if (!raw) return;
-
-      const { text, from } = JSON.parse(raw);
-      const data = load();
+      var parsed = JSON.parse(raw);
+      var data = load();
 
       // Remove from source
-      const srcIdx = data[from].indexOf(text);
-      if (srcIdx > -1) data[from].splice(srcIdx, 1);
+      var srcIdx = data[parsed.from].indexOf(parsed.text);
+      if (srcIdx > -1) data[parsed.from].splice(srcIdx, 1);
 
-      // Find position in target based on where the card was dropped
-      const afterEl = getDragAfterElement(zone, e.clientY);
-      const cardsInZone = [...zone.querySelectorAll('.kanban__card:not(.kanban__card--dragging)')];
-      let insertIdx = cardsInZone.length;
+      // Find insert position
+      var afterEl = getDragAfterElement(zone, e.clientY);
+      var insertIdx = data[colId] ? data[colId].length : 0;
       if (afterEl) {
-        const afterText = afterEl.querySelector('.kanban__card-text')?.textContent || '';
-        insertIdx = data[colId]?.indexOf(afterText) ?? data[colId].length;
-        if (insertIdx < 0) insertIdx = data[colId].length;
+        var afterText = afterEl.querySelector('.kanban__card-text');
+        if (afterText) {
+          var pos = data[colId].indexOf(afterText.textContent);
+          if (pos >= 0) insertIdx = pos;
+        }
       }
 
-      // Insert at position
       if (!data[colId]) data[colId] = [];
-      data[colId].splice(insertIdx, 0, text);
-
+      data[colId].splice(insertIdx, 0, parsed.text);
       save(data);
       renderBoard();
     });
   });
 
   function getDragAfterElement(container, y) {
-    const cards = [...container.querySelectorAll('.kanban__card:not(.kanban__card--dragging)')];
-
-    let closest = { offset: Number.POSITIVE_INFINITY, element: null };
-
-    for (const child of cards) {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      if (offset < 0 && offset > -closest.offset) {
-        closest = { offset: -offset, element: child };
+    var cards = Array.from(container.querySelectorAll('.kanban__card:not(.kanban__card--dragging)'));
+    var closest = { offset: Infinity, element: null };
+    for (var i = 0; i < cards.length; i++) {
+      var box = cards[i].getBoundingClientRect();
+      var offset = y - box.top - box.height / 2;
+      if (offset < 0 && -offset < closest.offset) {
+        closest = { offset: -offset, element: cards[i] };
       }
     }
-
     return closest.element;
   }
 
   // Add card buttons
-  document.querySelectorAll('[data-add]').forEach((btn) => {
-    const colId = btn.dataset.add;
+  document.querySelectorAll('[data-add]').forEach(function(btn) {
+    var colId = btn.dataset.add;
 
-    btn.addEventListener('click', () => {
-      // Don't add another input if one exists
-      if (btn.previousElementSibling?.classList.contains('kanban__input-wrap')) return;
+    btn.addEventListener('click', function() {
+      if (btn.previousElementSibling && btn.previousElementSibling.classList.contains('kanban__input-wrap')) return;
 
-      const wrap = document.createElement('div');
+      var wrap = document.createElement('div');
       wrap.className = 'kanban__input-wrap';
 
-      const input = document.createElement('input');
+      var input = document.createElement('input');
       input.type = 'text';
       input.className = 'kanban__input';
       input.placeholder = 'Card title...';
 
-      const cancel = () => wrap.remove();
+      var cancel = function() { wrap.remove(); };
 
-      input.addEventListener('keydown', (e) => {
+      input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' && input.value.trim()) {
-          const data = load();
+          var data = load();
           if (!data[colId]) data[colId] = [];
           data[colId].push(input.value.trim());
           save(data);
@@ -240,9 +233,8 @@ import kanbanData from '../../data/kanban.json';
         if (e.key === 'Escape') cancel();
       });
 
-      input.addEventListener('blur', () => {
-        // Small delay so Enter can fire before blur removes the element
-        setTimeout(() => {
+      input.addEventListener('blur', function() {
+        setTimeout(function() {
           if (document.body.contains(wrap) && !input.value.trim()) cancel();
         }, 150);
       });
@@ -250,38 +242,6 @@ import kanbanData from '../../data/kanban.json';
       wrap.appendChild(input);
       btn.parentElement.insertBefore(wrap, btn);
       input.focus();
-    });
-  });
-
-  // Toast: show after any board change, click to copy compact command
-  var toast = document.getElementById('kanban-toast');
-  var seedStr = JSON.stringify(window.__KANBAN_SEED__);
-  var dirty = false;
-
-  function markDirty() {
-    var current = JSON.stringify(load());
-    if (current !== seedStr && !dirty) {
-      dirty = true;
-      toast.hidden = false;
-    }
-  }
-
-  // Wrap save to detect changes
-  var _origSave = save;
-  save = function(data) {
-    _origSave(data);
-    markDirty();
-  };
-
-  toast.addEventListener('click', function() {
-    var data = load();
-    var msg = 'kanban: ' + JSON.stringify(data);
-    navigator.clipboard.writeText(msg).then(function() {
-      toast.textContent = 'Copied!';
-      setTimeout(function() {
-        toast.hidden = true;
-        toast.textContent = 'Board changed \u00b7 Click to copy';
-      }, 1200);
     });
   });
 

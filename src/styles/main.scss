@@ -1719,32 +1719,6 @@ body:has(.components-page) {
 	margin-block-end: var(--spacing-xl);
 }
 
-.kanban__toast {
-	position: fixed;
-	bottom: var(--spacing-md);
-	left: 50%;
-	transform: translateX(-50%);
-	background: var(--bg-elevated);
-	border: var(--border-width-default) solid var(--border-shy);
-	border-radius: var(--radius-sm);
-	color: var(--text-secondary);
-	font-family: var(--font-family-sans);
-	font-size: var(--type-text-s-font-size);
-	padding: var(--spacing-xs) var(--spacing-md);
-	cursor: pointer;
-	z-index: 100;
-	white-space: nowrap;
-	transition: opacity var(--duration-fast) var(--ease-soft);
-
-	&:hover {
-		color: var(--text-primary);
-		border-color: var(--border-default);
-	}
-
-	&[hidden] {
-		display: none;
-	}
-}
 
 .kanban__title {
 	font-family: var(--font-family-display);
