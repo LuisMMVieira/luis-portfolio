@@ -14,8 +14,8 @@ import kanbanData from '../../data/kanban.json';
   <div class="kanban">
     <header class="kanban__header">
       <h1 class="kanban__title">Kanbandamento</h1>
-      <button class="kanban__copy-btn" id="copy-json" aria-label="Copy board JSON to clipboard">Copy JSON</button>
     </header>
+    <div class="kanban__toast" id="kanban-toast" hidden>Board changed · Click to copy</div>
 
     <div class="kanban__board" id="kanban-board">
       <div class="kanban__column" data-column="todo">
@@ -253,13 +253,35 @@ import kanbanData from '../../data/kanban.json';
     });
   });
 
-  // Copy JSON button
-  document.getElementById('copy-json').addEventListener('click', function() {
-    const data = load();
-    const json = JSON.stringify(data, null, 2) + '\n';
-    navigator.clipboard.writeText(json).then(() => {
-      this.textContent = 'Copied!';
-      setTimeout(() => { this.textContent = 'Copy JSON'; }, 1500);
+  // Toast: show after any board change, click to copy compact command
+  var toast = document.getElementById('kanban-toast');
+  var seedStr = JSON.stringify(window.__KANBAN_SEED__);
+  var dirty = false;
+
+  function markDirty() {
+    var current = JSON.stringify(load());
+    if (current !== seedStr && !dirty) {
+      dirty = true;
+      toast.hidden = false;
+    }
+  }
+
+  // Wrap save to detect changes
+  var _origSave = save;
+  save = function(data) {
+    _origSave(data);
+    markDirty();
+  };
+
+  toast.addEventListener('click', function() {
+    var data = load();
+    var msg = 'kanban: ' + JSON.stringify(data);
+    navigator.clipboard.writeText(msg).then(function() {
+      toast.textContent = 'Copied!';
+      setTimeout(function() {
+        toast.hidden = true;
+        toast.textContent = 'Board changed \u00b7 Click to copy';
+      }, 1200);
     });
   });
 

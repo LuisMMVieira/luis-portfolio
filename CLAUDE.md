@@ -40,6 +40,7 @@ Index pages only show published content (`draft: false`). /andamento shows every
 - **Start every session** by reading `src/data/kanban.json` and telling Luis what's in progress. The Kanbandamento drives the work.
 - Use `/andamento/kanban` to track and plan work. Check it regularly. Update it. Push Luis on it if it's going stale.
 - If Luis asks for work not on the Kanbandamento, flag it. Don't just do it — ask if it should replace what's in progress or go to the backlog.
+- When Luis pastes `kanban: {...}`, write the JSON to `src/data/kanban.json`, commit, and push. No questions.
 - Use `/andamento/sitemap` to understand the full site IA before structural changes.
 - Change flow is defined in `.claude/rules/templates.md` — follow it.
 - Design system rules live in `.claude/rules/sinphony.md` — read `src/styles/tokens.scss` before any visual work, critique, or CSS edit.
