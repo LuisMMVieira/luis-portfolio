@@ -23,7 +23,7 @@
 .post-header {
 	padding-inline: var(--grid-margin-xs);
 	width: 100%;
-	padding-block: var(--spacing-md); /* 20px xs */
+	padding-block: var(--spacing-ml); /* 30px xs */
 
 	.post-header__wrapper {
 		grid-column: 1 / -1;
@@ -40,7 +40,7 @@
 }
 
 .post-section__divider {
-	padding-block-start: var(--spacing-xxl); /* 80px */
+	padding-block-start: var(--spacing-xl); /* 56px */
 	padding-inline: var(--grid-margin-xs);
 }
 
@@ -241,9 +241,9 @@
 
 @media (min-width: 1200px) {
 	.post-header__title {
-		font-size: var(--type-title-l-font-size); /* 52px — Figma: Title/L at xl */
-		line-height: var(--type-title-l-line-height);
-		letter-spacing: var(--type-title-l-letter-spacing);
+		font-size: var(--type-title-hero-font-size); /* 70px — Figma: Title/Hero at xl */
+		line-height: var(--type-title-hero-line-height);
+		letter-spacing: var(--type-title-hero-letter-spacing);
 	}
 }
 
@@ -492,12 +492,12 @@
 
 	.post-section__divider {
 		padding-inline: var(--grid-margin-md);
-		padding-block-start: var(--spacing-huge); /* 120px */
+		padding-block-start: var(--spacing-xxl); /* 80px */
 	}
 
 	.post-header {
 		padding-inline: var(--grid-margin-md);
-		padding-block: var(--spacing-lg); /* 40px — Figma */
+		padding-block: var(--spacing-xl); /* 56px — Figma */
 
 		.post-header__wrapper {
 			grid-column: 3 / 11;
@@ -626,11 +626,11 @@
 
 @media (min-width: 1200px) {
 	.post-section__divider {
-		padding-block-start: var(--spacing-huge); /* 120px */
+		padding-block-start: var(--spacing-xxl); /* 80px */
 	}
 
 	.post-header {
-		padding-block: var(--spacing-xl); /* 56px — Figma */
+		padding-block: var(--spacing-xxl); /* 80px — Figma */
 		max-width: var(--site-max-width);
 		margin-inline: auto;
 

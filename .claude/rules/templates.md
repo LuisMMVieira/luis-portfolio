@@ -26,6 +26,7 @@ The post system mirrors the Figma component hierarchy. Class names match Figma l
 | **Section Divider** | `post-section__divider` | *(inside PostSectionGroup)* |
 | **Section Body** | `post-section__body` | *(inside PostSectionGroup)* |
 | **Sub Section** | `post-subsection` | `PostSection` |
+| **Canvas** | — | *(Figma wrapper; not rendered separately in code)* |
 | **Canvas (css grid)** | `post-canvas` | *(inside PostSection)* |
 | **Content (Place on section grid)** | `content-slot` | *(auto-generated)* |
 | **Content/Figure** | `post-figure` | `Figure` |
