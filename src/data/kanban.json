@@ -2,7 +2,6 @@
   "todo": [
     "Redesign homepage hero",
     "SINPHONY: add system message colors.",
-    "KANBAN: ability to edit cards content",
     "KANBAN: add ability for details in cards"
   ],
   "inprogress": [
@@ -19,6 +18,7 @@
     "Build visual sitemap",
     "Create Card component",
     "Apply contained card style to project cards",
-    "Optimize CLAUDE.md cascade"
+    "Optimize CLAUDE.md cascade",
+    "KANBAN: ability to edit cards content"
   ]
 }

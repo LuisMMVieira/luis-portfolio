@@ -108,6 +108,41 @@ import kanbanData from '../../data/kanban.json';
       updateCounts(data);
     });
 
+    span.addEventListener('dblclick', function(e) {
+      e.stopPropagation();
+      card.draggable = false;
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'kanban__input';
+      input.value = text;
+      span.replaceWith(input);
+      input.focus();
+      input.select();
+
+      var done = false;
+      function finish(save_edit) {
+        if (done) return;
+        done = true;
+        var newText = input.value.trim();
+        if (save_edit && newText && newText !== text) {
+          var data = load();
+          var idx = data[colId].indexOf(text);
+          if (idx > -1) data[colId][idx] = newText;
+          save(data);
+          renderBoard();
+        } else {
+          input.replaceWith(span);
+          card.draggable = true;
+        }
+      }
+
+      input.addEventListener('keydown', function(ev) {
+        if (ev.key === 'Enter') finish(true);
+        if (ev.key === 'Escape') finish(false);
+      });
+      input.addEventListener('blur', function() { finish(true); });
+    });
+
     card.appendChild(span);
     card.appendChild(del);
 
