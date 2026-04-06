@@ -212,6 +212,20 @@ small {
 	}
 }
 
+.btn--sm {
+	padding: var(--spacing-xxs) var(--spacing-xs);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	border-radius: var(--radius-xs);
+}
+
+.btn:disabled,
+.btn.is-disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
 /* ─────────────────────────────────────────
 	 Switch
 	 ───────────────────────────────────────── */

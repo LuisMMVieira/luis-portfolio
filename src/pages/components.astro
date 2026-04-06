@@ -135,7 +135,7 @@ import Phone from '../components/mdx/Phone.astro';
                 </div>
                 <div style="margin-top: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-xxs);">
                   <span class="cp-type-token">--type-text-m</span>
-                  <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style — secondary color, regular weight.</p>
+                  <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style—secondary color, regular weight.</p>
                   <p><strong>Bold text renders in semibold weight with primary color.</strong> This demonstrates the inline emphasis treatment.</p>
                 </div>
               </div>
@@ -149,44 +149,44 @@ import Phone from '../components/mdx/Phone.astro';
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">Colors</h2>
-              <p class="cp-header__desc">Semantic color tokens. All values use oklab. Toggle theme in the dock bar to compare.</p>
+              <p class="cp-header__desc">Base color palette. All values in oklab. Toggle theme in the dock bar to compare.</p>
             </div>
             <div class="cp-swatches">
-              <div class="cp-swatch cp-swatch--bg-default">
+              <div class="cp-swatch cp-swatch--color-darkest">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--bg-default</span>
+                <span class="cp-swatch__label">--color-darkest</span>
               </div>
-              <div class="cp-swatch cp-swatch--bg-elevated">
+              <div class="cp-swatch cp-swatch--color-superpastel-dark">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--bg-elevated</span>
+                <span class="cp-swatch__label">--color-superpastel-dark</span>
               </div>
-              <div class="cp-swatch cp-swatch--bg-sunken">
+              <div class="cp-swatch cp-swatch--color-dark">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--bg-sunken</span>
+                <span class="cp-swatch__label">--color-dark</span>
               </div>
-              <div class="cp-swatch cp-swatch--text-primary">
+              <div class="cp-swatch cp-swatch--color-medium-dark">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--text-primary</span>
+                <span class="cp-swatch__label">--color-medium-dark</span>
               </div>
-              <div class="cp-swatch cp-swatch--text-secondary">
+              <div class="cp-swatch cp-swatch--color-base">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--text-secondary</span>
+                <span class="cp-swatch__label">--color-base</span>
               </div>
-              <div class="cp-swatch cp-swatch--text-shy">
+              <div class="cp-swatch cp-swatch--color-medium-light">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--text-shy</span>
+                <span class="cp-swatch__label">--color-medium-light</span>
               </div>
-              <div class="cp-swatch cp-swatch--border-shy">
+              <div class="cp-swatch cp-swatch--color-light">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--border-shy</span>
+                <span class="cp-swatch__label">--color-light</span>
               </div>
-              <div class="cp-swatch cp-swatch--border-default">
+              <div class="cp-swatch cp-swatch--color-superpastel-light">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--border-default</span>
+                <span class="cp-swatch__label">--color-superpastel-light</span>
               </div>
-              <div class="cp-swatch cp-swatch--border-strong">
+              <div class="cp-swatch cp-swatch--color-lightest">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--border-strong</span>
+                <span class="cp-swatch__label">--color-lightest</span>
               </div>
               <div class="cp-swatch cp-swatch--color-emphasis">
                 <div class="cp-swatch__preview"></div>
@@ -196,17 +196,17 @@ import Phone from '../components/mdx/Phone.astro';
                 <div class="cp-swatch__preview"></div>
                 <span class="cp-swatch__label">--color-emphasis-transparency-high</span>
               </div>
+              <div class="cp-swatch cp-swatch--color-emphasis-transparency-mid">
+                <div class="cp-swatch__preview"></div>
+                <span class="cp-swatch__label">--color-emphasis-transparency-mid</span>
+              </div>
               <div class="cp-swatch cp-swatch--color-neutral-transparency-high">
                 <div class="cp-swatch__preview"></div>
                 <span class="cp-swatch__label">--color-neutral-transparency-high</span>
               </div>
-              <div class="cp-swatch cp-swatch--button-primary-idle">
+              <div class="cp-swatch cp-swatch--color-neutral-transparency-mid">
                 <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--button-primary-idle</span>
-              </div>
-              <div class="cp-swatch cp-swatch--button-secondary-idle">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--button-secondary-idle</span>
+                <span class="cp-swatch__label">--color-neutral-transparency-mid</span>
               </div>
             </div>
           </section>
@@ -218,52 +218,70 @@ import Phone from '../components/mdx/Phone.astro';
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">Lines</h2>
-              <p class="cp-header__desc">Border width and color tokens. All lines use <code>background-color</code> for rendering.</p>
+              <p class="cp-header__desc">Width × color matrix. Every combination rendered at actual size against contrasting backgrounds.</p>
             </div>
-            <div class="cp-card">
-              <div class="cp-card__preview" style="display: flex; flex-direction: column; gap: var(--spacing-xl); padding: var(--spacing-lg);">
-
-                {/* Width tokens */}
-                <div>
-                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Widths</p>
-                  <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--line-width</span>
-                      <div style="flex: 1; height: var(--line-width); background: var(--border-default);"></div>
-                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">0.5px</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--border-width-default</span>
-                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-default);"></div>
-                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">1px</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--line-width-thick</span>
-                      <div style="flex: 1; height: var(--line-width-thick); background: var(--border-default);"></div>
-                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">1.5px</span>
-                    </div>
+            <div class="cp-card" data-playground id="lines-playground">
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">width</span>
+                  <div class="cp-pills" data-control="line-width">
+                    <button class="cp-pill" data-value="line-width">line-width <span class="cp-type-token">0.5px</span></button>
+                    <button class="cp-pill is-active" data-value="border-width-default">border-width-default <span class="cp-type-token">1px</span></button>
+                    <button class="cp-pill" data-value="line-width-thick">line-width-thick <span class="cp-type-token">1.5px</span></button>
                   </div>
                 </div>
-
-                {/* Color tokens */}
-                <div>
-                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Colors</p>
-                  <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--border-shy</span>
-                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-shy);"></div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--border-default</span>
-                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-default);"></div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                      <span class="cp-control-label" style="min-width: 10em;">--border-strong</span>
-                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-strong);"></div>
-                    </div>
+                <div class="cp-control-divider"></div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">color</span>
+                  <div class="cp-pills" data-control="line-color">
+                    <button class="cp-pill" data-value="border-shy">shy</button>
+                    <button class="cp-pill is-active" data-value="border-default">default</button>
+                    <button class="cp-pill" data-value="border-strong">strong</button>
                   </div>
                 </div>
+              </div>
+              <div class="cp-card__preview" style="display: block; padding: 0; min-height: auto;">
+                {/* Line on dark bg */}
+                <div class="cp-line-strip cp-line-strip--dark">
+                  <span class="cp-line-strip__label">dark bg</span>
+                  <div class="cp-line-sample" id="line-sample-dark"></div>
+                </div>
+                {/* Line on light bg */}
+                <div class="cp-line-strip cp-line-strip--light">
+                  <span class="cp-line-strip__label">light bg</span>
+                  <div class="cp-line-sample" id="line-sample-light"></div>
+                </div>
+              </div>
+            </div>
 
+            {/* Full matrix reference */}
+            <div class="cp-card" style="margin-top: var(--spacing-md);">
+              <div class="cp-card__preview" style="display: block; padding: var(--spacing-lg);">
+                <div class="cp-line-matrix">
+                  {/* Column headers */}
+                  <div class="cp-line-matrix__header"></div>
+                  <div class="cp-line-matrix__header">--border-shy</div>
+                  <div class="cp-line-matrix__header">--border-default</div>
+                  <div class="cp-line-matrix__header">--border-strong</div>
+
+                  {/* Row 1: line-width (0.5px) */}
+                  <div class="cp-line-matrix__label">--line-width <span class="cp-type-token">0.5px</span></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-shy);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-default);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-strong);"></div></div>
+
+                  {/* Row 2: border-width-default (1px) */}
+                  <div class="cp-line-matrix__label">--border-width-default <span class="cp-type-token">1px</span></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-shy);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-default);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-strong);"></div></div>
+
+                  {/* Row 3: line-width-thick (1.5px) */}
+                  <div class="cp-line-matrix__label">--line-width-thick <span class="cp-type-token">1.5px</span></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-shy);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-default);"></div></div>
+                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-strong);"></div></div>
+                </div>
               </div>
             </div>
           </section>
@@ -325,6 +343,7 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="fade-in">fade-in</button>
                   </div>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
                   <span class="cp-control-label">speed</span>
                   <div class="cp-pills" data-control="motion-speed">
@@ -335,6 +354,7 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="deliberate">deliberate</button>
                   </div>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
                   <span class="cp-control-label">easing</span>
                   <div class="cp-pills" data-control="motion-easing">
@@ -346,6 +366,7 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="bounce">bounce</button>
                   </div>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group" data-show-when="motion-type:reveal">
                   <span class="cp-control-label">distance</span>
                   <div class="cp-pills" data-control="motion-distance">
@@ -354,9 +375,9 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="dramatic">dramatic</button>
                   </div>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
-                  <span class="cp-control-label">&nbsp;</span>
-                  <button class="cp-pill cp-pill--action" data-replay>Replay</button>
+                  <button class="btn btn--primary btn--sm" data-replay>Replay</button>
                 </div>
               </div>
               <div class="cp-card__preview cp-motion-preview">
@@ -389,15 +410,24 @@ import Phone from '../components/mdx/Phone.astro';
                 </div>
                 <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
+                  <span class="cp-control-label">size</span>
+                  <div class="cp-pills" data-control="size">
+                    <button class="cp-pill is-active" data-value="default">default</button>
+                    <button class="cp-pill" data-value="sm">sm</button>
+                  </div>
+                </div>
+                <div class="cp-control-divider"></div>
+                <div class="cp-control-group">
                   <span class="cp-control-label">state</span>
                   <div class="cp-pills" data-control="state">
                     <button class="cp-pill is-active" data-value="idle">idle</button>
                     <button class="cp-pill" data-value="hover">hover</button>
+                    <button class="cp-pill" data-value="disabled">disabled</button>
                   </div>
                 </div>
               </div>
               <div class="cp-card__preview">
-                <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}'>Button Label</button>
+                <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}' data-size-target>Button Label</button>
               </div>
             </div>
           </section>
@@ -409,7 +439,7 @@ import Phone from '../components/mdx/Phone.astro';
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">Link</h2>
-              <p class="cp-header__desc">Plain text link. No background — underlines on hover.</p>
+              <p class="cp-header__desc">Plain text link. No background—underlines on hover.</p>
             </div>
             <div class="cp-card">
               <div class="cp-card__preview" style="display: flex; gap: var(--spacing-xl); align-items: center;">
@@ -483,19 +513,10 @@ import Phone from '../components/mdx/Phone.astro';
                 {/* States */}
                 <div>
                   <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">States</p>
-                  <div style="display: flex; gap: var(--spacing-lg); align-items: center; flex-wrap: wrap;">
-                    <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs); align-items: center;">
-                      <button class="cp-pill">Idle</button>
-                      <span class="cp-type-xs" style="color: var(--text-shy);">idle</span>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs); align-items: center;">
-                      <button class="cp-pill" style="color: var(--text-primary); background: var(--color-neutral-transparency-high);">Hover</button>
-                      <span class="cp-type-xs" style="color: var(--text-shy);">hover</span>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs); align-items: center;">
-                      <button class="cp-pill is-active">Active</button>
-                      <span class="cp-type-xs" style="color: var(--text-shy);">active</span>
-                    </div>
+                  <div class="cp-pills">
+                    <button class="cp-pill">Idle</button>
+                    <button class="cp-pill" style="color: var(--text-primary); background: var(--color-neutral-transparency-high);">Hover</button>
+                    <button class="cp-pill is-active">Active</button>
                   </div>
                 </div>
 
@@ -549,6 +570,7 @@ import Phone from '../components/mdx/Phone.astro';
                   <span class="cp-control-label">subtitle</span>
                   <button class="cp-toggle is-active" data-control="subtitle" data-value-on="with" data-value-off="without"></button>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
                   <span class="cp-control-label">intro</span>
                   <button class="cp-toggle is-active" data-control="intro" data-value-on="with" data-value-off="without"></button>
@@ -789,6 +811,7 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="text">text</button>
                   </div>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group" data-show-when="items:2">
                   <span class="cp-control-label">Item 2</span>
                   <div class="cp-pills" data-control="item2">
@@ -830,10 +853,12 @@ import Phone from '../components/mdx/Phone.astro';
                   <span class="cp-control-label">image</span>
                   <button class="cp-toggle is-active" data-control="image" data-value-on="with" data-value-off="without"></button>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
                   <span class="cp-control-label">subtitle</span>
                   <button class="cp-toggle is-active" data-control="subtitle" data-value-on="with" data-value-off="without"></button>
                 </div>
+                <div class="cp-control-divider"></div>
                 <div class="cp-control-group">
                   <span class="cp-control-label">cta</span>
                   <button class="cp-toggle is-active" data-control="cta" data-value-on="with" data-value-off="without"></button>
@@ -1050,15 +1075,20 @@ import Phone from '../components/mdx/Phone.astro';
         });
       });
 
-      // --- Hover simulation for buttons ---
+      // --- State simulation for buttons ---
       if (controls.state) {
         var btns = playground.querySelectorAll('.btn');
         btns.forEach(function (btn) {
-          if (controls.state === 'hover') {
-            btn.classList.add('is-hovered');
-          } else {
-            btn.classList.remove('is-hovered');
-          }
+          btn.classList.toggle('is-hovered', controls.state === 'hover');
+          btn.classList.toggle('is-disabled', controls.state === 'disabled');
+          btn.disabled = controls.state === 'disabled';
+        });
+      }
+
+      // --- Size toggle for buttons ---
+      if (controls.size) {
+        playground.querySelectorAll('[data-size-target]').forEach(function (btn) {
+          btn.classList.toggle('btn--sm', controls.size === 'sm');
         });
       }
 
@@ -1162,6 +1192,32 @@ import Phone from '../components/mdx/Phone.astro';
         applySize(slider.value);
       });
     }
+  })();
+  </script>
+
+  {/* ── Lines playground: width × color ─────────── */}
+  <script is:inline>
+  (function () {
+    var pg = document.getElementById('lines-playground');
+    if (!pg) return;
+    var sampleDark = document.getElementById('line-sample-dark');
+    var sampleLight = document.getElementById('line-sample-light');
+
+    function applyLine() {
+      var widthPill = pg.querySelector('[data-control="line-width"] .is-active');
+      var colorPill = pg.querySelector('[data-control="line-color"] .is-active');
+      if (!widthPill || !colorPill) return;
+      var w = 'var(--' + widthPill.getAttribute('data-value') + ')';
+      var c = 'var(--' + colorPill.getAttribute('data-value') + ')';
+      [sampleDark, sampleLight].forEach(function (el) {
+        el.style.height = w;
+        el.style.backgroundColor = c;
+      });
+    }
+
+    var observer = new MutationObserver(applyLine);
+    observer.observe(pg, { subtree: true, attributes: true, attributeFilter: ['class'] });
+    applyLine(); // Apply initial state on load
   })();
   </script>
 

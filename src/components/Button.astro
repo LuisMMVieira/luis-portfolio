@@ -2,16 +2,17 @@
 interface Props {
   text: string;
   variant?: 'primary' | 'secondary';
+  size?: 'default' | 'sm';
+  disabled?: boolean;
   href?: string;
 }
 
-const { text, variant = 'primary', href } = Astro.props;
-const classes = `btn btn--${variant}`;
-const Tag = href ? 'a' : 'button';
+const { text, variant = 'primary', size = 'default', disabled = false, href } = Astro.props;
+const classes = [`btn`, `btn--${variant}`, size === 'sm' && 'btn--sm'].filter(Boolean).join(' ');
 ---
 
 {href ? (
-  <a class={classes} href={href}>{text}</a>
+  <a class:list={[classes, { 'is-disabled': disabled }]} href={disabled ? undefined : href} aria-disabled={disabled ? 'true' : undefined}>{text}</a>
 ) : (
-  <button class={classes}>{text}</button>
+  <button class={classes} disabled={disabled}>{text}</button>
 )}
