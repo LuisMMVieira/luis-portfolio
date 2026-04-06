@@ -246,12 +246,14 @@
 
 .bg-item__year {
 	position: absolute;
-	top: -34px;
+	top: -31px;
 	left: 0;
-	font-family: var(--font-family-sans);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
-	color: var(--text-shy);
+	font-family: var(--type-title-xs-font-family);
+	font-size: var(--type-title-xs-font-size);
+	font-weight: var(--type-title-xs-font-weight);
+	line-height: var(--type-title-xs-line-height);
+	letter-spacing: var(--type-title-xs-letter-spacing);
+	color: var(--text-secondary);
 	white-space: nowrap;
 }
 
@@ -552,7 +554,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 	.bg-item__year {
 		top: 0;
-		left: -16px;
+		left: -12px;
 		transform: translateX(-100%);
 		text-align: right;
 	}
@@ -771,7 +773,6 @@ body:has(.components-page) {
 	/* Post preview overrides (inside .cp-post-context wrappers) */
 	.post-canvas {
 		row-gap: var(--spacing-lg);
-		outline: var(--line-width) dashed var(--border-default);
 	}
 
 	.post-figure img,
@@ -808,15 +809,21 @@ body:has(.components-page) {
 	margin: 0;
 }
 
-/* ── Showcase section ── */
+/* ── Showcase section — uses system grid ── */
 
 .cp-section {
+	display: grid;
+	column-gap: 0;
+	grid-template-columns: 1fr 1fr;
 	padding-inline: var(--grid-margin-xs);
 	padding-block-start: var(--spacing-lg);
 	padding-block-end: var(--spacing-sm);
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-lg);
+	row-gap: var(--spacing-lg);
+
+	/* All children span full by default */
+	> * {
+		grid-column: 1 / -1;
+	}
 }
 
 /* ── Two-column card layout ── */
@@ -834,6 +841,7 @@ body:has(.components-page) {
 	}
 
 	.cp-section {
+		grid-template-columns: repeat(12, 1fr);
 		padding-inline: var(--grid-margin-md);
 	}
 
@@ -955,7 +963,7 @@ body:has(.components-page) {
 /* ── Card (playground container) ── */
 
 .cp-card {
-	background: var(--color-darkest);
+	background: var(--bg-sunken);
 	border-radius: var(--radius-sm);
 	overflow: hidden;
 	display: flex;
@@ -1002,6 +1010,22 @@ body:has(.components-page) {
 	text-transform: capitalize;
 }
 
+.cp-link {
+	color: var(--text-primary);
+	text-decoration: none;
+	font-family: var(--type-cta-font-family);
+	font-size: var(--type-cta-font-size);
+	font-weight: var(--type-cta-font-weight);
+	line-height: var(--type-cta-line-height);
+	letter-spacing: var(--type-cta-letter-spacing);
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.15em;
+	}
+}
+
 .cp-pills {
 	display: flex;
 	flex-wrap: wrap;
@@ -1012,27 +1036,71 @@ body:has(.components-page) {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 2px var(--spacing-xxs);
-	border-radius: var(--radius-infinite);
-	border: var(--line-width) solid var(--border-default);
+	padding: var(--spacing-xxs) var(--spacing-xs);
+	border-radius: var(--radius-xs);
+	border: none;
 	background: transparent;
 	cursor: pointer;
 	font-family: var(--type-text-s-font-family);
 	font-size: var(--type-text-s-font-size);
 	line-height: var(--type-text-s-line-height);
 	color: var(--text-secondary);
-	transition: all 180ms ease;
+	transition: color var(--duration-fast) var(--ease-soft),
+				background-color var(--duration-fast) var(--ease-soft);
 
 	&:hover {
-		border-color: var(--border-strong);
 		color: var(--text-primary);
+		background: var(--color-neutral-transparency-high);
 	}
 
 	&.is-active {
-		background-color: var(--color-emphasis-transparency-high);
-		border-color: var(--color-emphasis);
 		color: var(--text-primary);
+		background: var(--color-emphasis-transparency-high);
 	}
+}
+
+/* ── Toggle (boolean switch for playground controls) ── */
+
+.cp-toggle {
+	position: relative;
+	width: 28px;
+	height: 16px;
+	background: var(--border-default);
+	border-radius: var(--radius-infinite);
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	transition: background-color var(--duration-fast) var(--ease-soft);
+}
+
+.cp-toggle::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--bg-default);
+	transition: transform var(--duration-fast) var(--ease-soft);
+}
+
+.cp-toggle.is-active {
+	background: var(--color-emphasis);
+}
+
+.cp-toggle.is-active::after {
+	transform: translateX(12px);
+}
+
+/* ── Control divider (vertical separator between control groups) ── */
+
+.cp-control-divider {
+	width: var(--line-width);
+	height: 1em;
+	background: var(--border-default);
+	align-self: center;
+	margin-inline: var(--spacing-xxs);
 }
 
 /* ── Grid showcase ── */
@@ -1108,9 +1176,8 @@ body:has(.components-page) {
 
 .cp-placeholder {
 	width: 100%;
-	aspect-ratio: 300 / 124;
-	background-color: oklab(28.9% -0.02 -0.04);
-	border-radius: var(--radius-xs);
+	aspect-ratio: 240 / 150;
+	background-color: var(--color-emphasis-transparency-high);
 }
 
 .cp-placeholder--media {
@@ -1176,7 +1243,7 @@ body:has(.components-page) {
 	position: relative;
 	margin-inline: auto;
 	max-width: 100%;
-	outline: var(--line-width-thick) solid var(--border-default);
+	outline: var(--line-width) dashed var(--border-default);
 	overflow: hidden;
 }
 
@@ -1196,10 +1263,11 @@ body:has(.components-page) {
 	pointer-events: none;
 }
 
-/* Layout item placeholder: emphasis color bg for grid visibility */
+/* Layout item placeholder — uses Figma Placeholder style */
 .cp-layout-item {
 	width: 100%;
 	background-color: var(--color-emphasis-transparency-high);
+	min-height: 150px;
 }
 
 /* ── Base reset: force mobile styles inside bp-frame (override @media rules) ── */
@@ -1348,7 +1416,7 @@ body:has(.components-page) {
 .cp-docknav__bar {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	padding: var(--spacing-xs) var(--grid-margin-xs);
 	cursor: pointer;
 }
@@ -1987,11 +2055,12 @@ body:has(.components-page) {
 }
 
 .cp-pill--action {
-	background-color: var(--color-emphasis);
+	background: var(--color-emphasis);
 	color: var(--text-primary);
 
 	&:hover {
-		background-color: var(--button-primary-hover);
+		background: var(--color-emphasis);
+		opacity: 0.8;
 	}
 }
 

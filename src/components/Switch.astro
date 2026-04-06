@@ -19,6 +19,12 @@ const { id = 'theme-switch' } = Astro.props;
       const checked = (e.target as HTMLInputElement).checked;
       // checked = dark (default), unchecked = light
       document.documentElement.dataset.theme = checked ? 'dark' : 'light';
+      // Sync all other switches to the same state
+      document.querySelectorAll('.switch__input').forEach((other) => {
+        if (other !== e.target) {
+          (other as HTMLInputElement).checked = checked;
+        }
+      });
     });
   });
 </script>

@@ -255,22 +255,28 @@
 	 ───────────────────────────────────────── */
 
 [data-theme='light'] {
+	/* Backgrounds: superpastel-light ↔ superpastel-dark */
 	--bg-default: var(--color-superpastel-light);
 	--bg-elevated: var(--color-lightest);
 	--bg-sunken: var(--color-light);
 
+	/* Text: symmetric contrast deltas */
 	--text-primary: var(--color-superpastel-dark);
 	--text-secondary: var(--color-medium-dark);
-	--text-shy: var(--color-base);
+	--text-shy: var(--color-medium-light);
 
-	--border-default: var(--color-light);
-	--border-strong: var(--color-medium-light);
+	/* Borders: symmetric contrast deltas */
+	--border-default: var(--color-medium-light);
+	--border-strong: var(--color-base);
+	--border-shy: var(--color-light);
 
+	/* Buttons */
 	--button-primary-idle: var(--text-primary);
 	--button-primary-hover: var(--color-darkest);
 	--button-secondary-idle: oklab(0% 0 0 / 0.05);
 	--button-secondary-hover: oklab(0% 0 0 / 0.12);
 
+	/* Neutral transparency (inverted: black instead of white) */
 	--color-neutral-transparency-high: oklab(0% 0 0 / 0.05);
 	--color-neutral-transparency-mid: oklab(0% 0 0 / 0.12);
 }

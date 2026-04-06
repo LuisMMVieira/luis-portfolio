@@ -17,7 +17,6 @@ h1, h2, h3, h4, h5, h6,
 .intro-headline,
 .intro-greeting,
 .section#beliefs p,
-.cta__bracket,
 .post-header__title,
 .post-text h2,
 .post-text h3,
@@ -196,7 +195,7 @@ small {
 
 .btn--primary {
 	background-color: var(--button-primary-idle);
-	color: var(--color-darkest);
+	color: var(--bg-default);
 
 	&:hover {
 		background-color: var(--button-primary-hover);
@@ -206,59 +205,11 @@ small {
 
 .btn--secondary {
 	background-color: var(--button-secondary-idle);
+	color: var(--text-primary);
 
 	&:hover {
 		background-color: var(--button-secondary-hover);
 	}
-}
-
-/* ─────────────────────────────────────────
-	 CTA (inline call-to-action)
-	 ───────────────────────────────────────── */
-
-button.cta {
-	background: none;
-	border: none;
-	padding: 0;
-}
-
-.cta {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--spacing-xs);
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.cta__bracket {
-	font-family: var(--type-text-l-font-family);
-	font-size: var(--type-text-l-font-size);
-	font-weight: var(--type-text-l-font-weight);
-	line-height: var(--type-text-l-line-height);
-	letter-spacing: var(--type-text-l-letter-spacing);
-	color: var(--color-emphasis);
-}
-
-.cta__label {
-	font-family: var(--type-cta-font-family);
-	font-size: var(--type-cta-font-size);
-	font-weight: var(--type-cta-font-weight);
-	line-height: 1;
-	letter-spacing: var(--type-cta-letter-spacing);
-}
-
-.cta--active .cta__label {
-	color: var(--text-primary);
-}
-
-.cta--passive {
-	cursor: default;
-	pointer-events: none;
-}
-
-.cta--passive .cta__label {
-	color: var(--text-secondary);
-	font-style: italic;
 }
 
 /* ─────────────────────────────────────────
@@ -494,7 +445,7 @@ h6 {
    ───────────────────────────────────────── */
 
 .card {
-	background: transparent;
+	background: var(--bg-sunken);
 	border: var(--border-width-default) solid var(--border-shy);
 	border-radius: var(--radius-md);
 	padding: var(--spacing-sm);
@@ -594,23 +545,7 @@ h6 {
 	margin: 0;
 }
 
-.card__cta {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--button-primary-idle);
-	color: var(--color-darkest);
-	font-family: var(--font-family-sans);
-	font-size: var(--type-cta-font-size);
-	font-weight: var(--font-weight-medium);
-	line-height: 1;
-	text-decoration: none;
-	padding: var(--spacing-sm);
-	border-radius: var(--radius-xs);
+/* Card button hugs content */
+.card__info > .btn {
 	align-self: flex-start;
-	transition: background-color var(--duration-fast) var(--ease-soft);
-
-	&:hover {
-		background: var(--button-primary-hover);
-	}
 }

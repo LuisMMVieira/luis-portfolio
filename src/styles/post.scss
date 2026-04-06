@@ -921,9 +921,10 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	border-color: rgba(0, 0, 0, 0.75);
 }
 
-.phone--dark.phone--soft   { border-color: rgba(0, 0, 0, 0.08); }
+.phone--dark.phone--soft    { border-color: rgba(0, 0, 0, 0.08); }
 .phone--light.phone--strong { border-color: rgba(255, 255, 255, 0.8); }
 .phone--light.phone--soft   { border-color: rgba(255, 255, 255, 0.08); }
+
 
 .phone__ring {
 	/* Inner radius: 52px at 1:1 */

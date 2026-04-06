@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 interface Props {
   title: string;
   subtitle?: string;
@@ -37,7 +39,7 @@ const {
       {status && <p class="card__status">{status}</p>}
     </div>
     {href && cta && (
-      <a class="card__cta" href={href}>{cta}</a>
+      <Button text={cta} variant="primary" href={href} />
     )}
   </div>
 </article>
