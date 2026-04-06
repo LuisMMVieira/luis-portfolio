@@ -960,6 +960,19 @@ body:has(.components-page) {
 	color: var(--text-primary);
 }
 
+.cp-type-row {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxxs);
+}
+
+.cp-type-token {
+	font-family: var(--type-text-s-font-family);
+	font-size: var(--type-text-s-font-size);
+	line-height: var(--type-text-s-line-height);
+	color: var(--text-shy);
+}
+
 /* ── Card (playground container) ── */
 
 .cp-card {
@@ -1156,6 +1169,10 @@ body:has(.components-page) {
 .cp-swatch--color-emphasis .cp-swatch__preview { background-color: var(--color-emphasis); }
 .cp-swatch--button-primary-idle .cp-swatch__preview { background-color: var(--button-primary-idle); }
 .cp-swatch--button-secondary-idle .cp-swatch__preview { background-color: var(--button-secondary-idle); }
+.cp-swatch--bg-sunken .cp-swatch__preview { background-color: var(--bg-sunken); }
+.cp-swatch--border-shy .cp-swatch__preview { background-color: var(--border-shy); }
+.cp-swatch--color-emphasis-transparency-high .cp-swatch__preview { background-color: var(--color-emphasis-transparency-high); }
+.cp-swatch--color-neutral-transparency-high .cp-swatch__preview { background-color: var(--color-neutral-transparency-high); }
 
 /* ── Switch inline demo ── */
 
