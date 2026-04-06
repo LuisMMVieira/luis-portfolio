@@ -11,6 +11,9 @@ import Video from "../../components/mdx/Video.astro";
 import Phone from "../../components/mdx/Phone.astro";
 import Divider from "../../components/Divider.astro";
 import Card from "../../components/Card.astro";
+import AgentationToolbar from "../../components/AgentationToolbar";
+
+const isDev = import.meta.env.DEV;
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -86,5 +89,6 @@ const theme = project.data.theme ?? 'dark';
       });
     </script>
     <script type="module" src="/scripts/main.js"></script>
+    {isDev && <AgentationToolbar client:only="react" />}
   </body>
 </html>

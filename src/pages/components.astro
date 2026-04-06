@@ -4,7 +4,6 @@ import Button from '../components/Button.astro';
 import Cta from '../components/Cta.astro';
 import Switch from '../components/Switch.astro';
 import Divider from '../components/Divider.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import Card from '../components/Card.astro';
 import PostHeader from '../components/mdx/PostHeader.astro';
 import PostSection from '../components/mdx/PostSection.astro';
@@ -36,52 +35,48 @@ import Phone from '../components/mdx/Phone.astro';
       <p class="cp-page-header__subtitle">Design system reference. All components with agnostic placeholder content.</p>
     </header>
 
-    {/* ── Layout: Sidebar + Content ─────────── */}
+    {/* ── Dock Navigation (bottom) ────────────── */}
+
+    <nav class="cp-docknav" aria-label="Components navigation">
+      <div class="cp-docknav__bar">
+        <span class="cp-docknav__indicator">Grid</span>
+      </div>
+      <div class="cp-docknav__panel">
+        <div class="cp-docknav__group">
+          <span class="cp-docknav__label">Foundations</span>
+          <div class="cp-docknav__links">
+            <a href="#grid" class="cp-docknav__link" data-spy-target="grid">Grid</a>
+            <a href="#typography" class="cp-docknav__link" data-spy-target="typography">Typography</a>
+            <a href="#colors" class="cp-docknav__link" data-spy-target="colors">Colors</a>
+          </div>
+        </div>
+        <div class="cp-docknav__group">
+          <span class="cp-docknav__label">Primitives</span>
+          <div class="cp-docknav__links">
+            <a href="#button-cta" class="cp-docknav__link" data-spy-target="button-cta">Button & CTA</a>
+            <a href="#switch-divider" class="cp-docknav__link" data-spy-target="switch-divider">Switch & Divider</a>
+            <a href="#lines" class="cp-docknav__link" data-spy-target="lines">Lines</a>
+            <a href="#motion" class="cp-docknav__link" data-spy-target="motion">Motion</a>
+          </div>
+        </div>
+        <div class="cp-docknav__group">
+          <span class="cp-docknav__label">Components</span>
+          <div class="cp-docknav__links">
+            <a href="#post-header" class="cp-docknav__link" data-spy-target="post-header">PostHeader</a>
+            <a href="#post-text-meta" class="cp-docknav__link" data-spy-target="post-text-meta">PostText & PostMeta</a>
+            <a href="#figure" class="cp-docknav__link" data-spy-target="figure">Figure</a>
+            <a href="#phone" class="cp-docknav__link" data-spy-target="phone">Phone</a>
+            <a href="#post-subsection-layouts" class="cp-docknav__link" data-spy-target="post-subsection-layouts">Layouts</a>
+            <a href="#card" class="cp-docknav__link" data-spy-target="card">Card</a>
+            <a href="#additional" class="cp-docknav__link" data-spy-target="additional">Additional</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {/* ── Content ─────────────────────────────── */}
 
     <div class="cp-layout">
-
-      {/* ── Sidebar Navigation ────────────────── */}
-
-      <nav class="cp-sidebar" aria-label="Components navigation">
-        <div class="cp-sidebar__inner">
-
-          <div class="cp-sidebar__group">
-            <span class="cp-sidebar__group-title">Foundations</span>
-            <ul class="cp-sidebar__list">
-              <li><a href="#grid" class="cp-sidebar__link" data-spy-target="grid">Grid</a></li>
-              <li><a href="#typography" class="cp-sidebar__link" data-spy-target="typography">Typography</a></li>
-              <li><a href="#colors" class="cp-sidebar__link" data-spy-target="colors">Colors</a></li>
-            </ul>
-          </div>
-
-          <div class="cp-sidebar__group">
-            <span class="cp-sidebar__group-title">Primitives</span>
-            <ul class="cp-sidebar__list">
-              <li><a href="#button-cta" class="cp-sidebar__link" data-spy-target="button-cta">Button & CTA</a></li>
-              <li><a href="#switch-divider" class="cp-sidebar__link" data-spy-target="switch-divider">Switch & Divider</a></li>
-              <li><a href="#motion" class="cp-sidebar__link" data-spy-target="motion">Motion</a></li>
-            </ul>
-          </div>
-
-          <div class="cp-sidebar__group">
-            <span class="cp-sidebar__group-title">Components</span>
-            <ul class="cp-sidebar__list">
-              <li><a href="#post-header" class="cp-sidebar__link" data-spy-target="post-header">PostHeader</a></li>
-              <li><a href="#post-text-meta" class="cp-sidebar__link" data-spy-target="post-text-meta">PostText & PostMeta</a></li>
-              <li><a href="#figure" class="cp-sidebar__link" data-spy-target="figure">Figure</a></li>
-              <li><a href="#phone" class="cp-sidebar__link" data-spy-target="phone">Phone</a></li>
-              <li><a href="#post-subsection-layouts" class="cp-sidebar__link" data-spy-target="post-subsection-layouts">PostSection Layouts</a></li>
-              <li><a href="#project-card" class="cp-sidebar__link" data-spy-target="project-card">ProjectCard</a></li>
-              <li><a href="#card" class="cp-sidebar__link" data-spy-target="card">Card</a></li>
-              <li><a href="#additional" class="cp-sidebar__link" data-spy-target="additional">Additional</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-
-      {/* ── Content ───────────────────────────── */}
-
       <div class="cp-content">
 
         {/* ── Grid Showcase ───────────────────── */}
@@ -263,6 +258,72 @@ import Phone from '../components/mdx/Phone.astro';
                     <Divider spaceAbove="none" spaceBelow="none" />
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Lines ─────────────────────────────── */}
+
+        <div id="lines">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Lines</h2>
+              <p class="cp-header__desc">Border width and color tokens. All lines use <code>background-color</code> for rendering.</p>
+            </div>
+            <div class="cp-card" data-playground id="lines-playground">
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">bg</span>
+                  <div class="cp-pills" data-control="bg">
+                    <button class="cp-pill is-active" data-value="dark">dark</button>
+                    <button class="cp-pill" data-value="light">light</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview" id="lines-preview" style="display: flex; flex-direction: column; gap: var(--spacing-xl); padding: var(--spacing-lg); transition: background-color var(--duration-moderate) var(--ease-soft);">
+
+                {/* Width tokens */}
+                <div>
+                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Widths</p>
+                  <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--line-width</span>
+                      <div style="flex: 1; height: var(--line-width); background: var(--border-default);"></div>
+                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">0.5px</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--border-width-default</span>
+                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-default);"></div>
+                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">1px</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--line-width-thick</span>
+                      <div style="flex: 1; height: var(--line-width-thick); background: var(--border-default);"></div>
+                      <span class="cp-type-xs" style="color: var(--text-shy); min-width: 3em; text-align: right;">1.5px</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Color tokens */}
+                <div>
+                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Colors</p>
+                  <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--border-shy</span>
+                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-shy);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--border-default</span>
+                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-default);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+                      <span class="cp-control-label" style="min-width: 10em;">--border-strong</span>
+                      <div style="flex: 1; height: var(--border-width-default); background: var(--border-strong);"></div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>
@@ -482,10 +543,10 @@ import Phone from '../components/mdx/Phone.astro';
               </div>
               <div class="cp-card__preview cp-card__preview--flush" style="padding: var(--spacing-md);">
                 <div data-variant-key="caption:with">
-                  <Figure src="/images/Placeholder.png" alt="Placeholder image" caption="Caption goes here (optional)" />
+                  <Figure src="https://picsum.photos/1920/1200" alt="Placeholder image" caption="Caption goes here (optional)" />
                 </div>
                 <div data-variant-key="caption:without" hidden>
-                  <Figure src="/images/Placeholder.png" alt="Placeholder image" />
+                  <Figure src="https://picsum.photos/1920/1200" alt="Placeholder image" />
                 </div>
               </div>
             </div>
@@ -498,9 +559,9 @@ import Phone from '../components/mdx/Phone.astro';
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">Phone</h2>
-              <p class="cp-header__desc">CSS-only device frame. Wraps any screenshot or video in a phone bezel.</p>
+              <p class="cp-header__desc">CSS-only device frame. Wraps any screenshot or video in a phone bezel. Scales proportionally via <code>--phone-w</code>.</p>
             </div>
-            <div class="cp-card" data-playground>
+            <div class="cp-card" data-playground id="phone-playground">
               <div class="cp-card__controls">
                 <div class="cp-control-group">
                   <span class="cp-control-label">mode</span>
@@ -516,24 +577,38 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill" data-value="soft">soft</button>
                   </div>
                 </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">bg</span>
+                  <div class="cp-pills" data-control="bg">
+                    <button class="cp-pill is-active" data-value="dark">dark</button>
+                    <button class="cp-pill" data-value="light">light</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">size</span>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-xs);">
+                    <input type="range" id="phone-size-slider" min="100" max="417" value="228" style="width: 120px; accent-color: var(--text-primary);" />
+                    <span id="phone-size-label" class="cp-control-label" style="min-width: 3em; text-align: right;">228</span>
+                  </div>
+                </div>
               </div>
-              <div class="cp-card__preview" style="display: flex; justify-content: center; padding: var(--spacing-lg);">
-                <div data-variant-key="mode:dark|intensity:strong" style="height: 480px;">
+              <div class="cp-card__preview" id="phone-preview" style="display: flex; justify-content: center; align-items: center; padding: var(--spacing-lg); min-height: 560px; transition: background-color var(--duration-moderate) var(--ease-soft);">
+                <div data-variant-key="mode:dark|intensity:strong">
                   <Phone mode="dark" intensity="strong">
                     <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
                   </Phone>
                 </div>
-                <div data-variant-key="mode:dark|intensity:soft" style="height: 480px;" hidden>
+                <div data-variant-key="mode:dark|intensity:soft" hidden>
                   <Phone mode="dark" intensity="soft">
                     <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
                   </Phone>
                 </div>
-                <div data-variant-key="mode:light|intensity:strong" style="height: 480px; background: var(--color-light); border-radius: var(--radius-sm); padding: var(--spacing-lg);">
+                <div data-variant-key="mode:light|intensity:strong" hidden>
                   <Phone mode="light" intensity="strong">
                     <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
                   </Phone>
                 </div>
-                <div data-variant-key="mode:light|intensity:soft" style="height: 480px; background: var(--color-light); border-radius: var(--radius-sm); padding: var(--spacing-lg);" hidden>
+                <div data-variant-key="mode:light|intensity:soft" hidden>
                   <Phone mode="light" intensity="soft">
                     <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
                   </Phone>
@@ -615,134 +690,6 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
-        {/* ── ProjectCard + Placeholders ──────── */}
-
-        <div id="project-card">
-          <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">ProjectCard & Placeholders</h2>
-              <p class="cp-header__desc">Clickable project card with cover image, and content placeholder blocks.</p>
-            </div>
-            <div class="cp-cols">
-            <div class="cp-card" data-playground>
-              <div class="cp-card__controls">
-                <div class="cp-control-group">
-                  <span class="cp-control-label">style</span>
-                  <div class="cp-pills" data-control="style">
-                    <button class="cp-pill is-active" data-value="default">default</button>
-                    <button class="cp-pill" data-value="italic">italic</button>
-                  </div>
-                </div>
-                <div class="cp-control-group">
-                  <span class="cp-control-label">period</span>
-                  <div class="cp-pills" data-control="period">
-                    <button class="cp-pill is-active" data-value="with">with</button>
-                    <button class="cp-pill" data-value="without">without</button>
-                  </div>
-                </div>
-                <div class="cp-control-group">
-                  <span class="cp-control-label">openable</span>
-                  <div class="cp-pills" data-control="openable">
-                    <button class="cp-pill is-active" data-value="yes">yes</button>
-                    <button class="cp-pill" data-value="no">no</button>
-                  </div>
-                </div>
-              </div>
-              <div class="cp-card__preview" style="display: block; padding: var(--spacing-md);">
-                <div data-variant-key="style:default|period:with|openable:yes">
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description placeholder text."
-                    cover="/images/Placeholder.png"
-                    period="2024–Today"
-                  />
-                </div>
-                <div data-variant-key="style:default|period:with|openable:no" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description placeholder text."
-                    cover="/images/Placeholder.png"
-                    period="2024–Today"
-                    openable={false}
-                  />
-                </div>
-                <div data-variant-key="style:default|period:without|openable:yes" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description placeholder text."
-                    cover="/images/Placeholder.png"
-                  />
-                </div>
-                <div data-variant-key="style:default|period:without|openable:no" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description placeholder text."
-                    cover="/images/Placeholder.png"
-                    openable={false}
-                  />
-                </div>
-                <div data-variant-key="style:italic|period:with|openable:yes" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description in italic style."
-                    cover="/images/Placeholder.png"
-                    period="2024–Today"
-                    descriptionItalic={true}
-                  />
-                </div>
-                <div data-variant-key="style:italic|period:with|openable:no" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description in italic style."
-                    cover="/images/Placeholder.png"
-                    period="2024–Today"
-                    descriptionItalic={true}
-                    openable={false}
-                  />
-                </div>
-                <div data-variant-key="style:italic|period:without|openable:yes" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description in italic style."
-                    cover="/images/Placeholder.png"
-                    descriptionItalic={true}
-                  />
-                </div>
-                <div data-variant-key="style:italic|period:without|openable:no" hidden>
-                  <ProjectCard
-                    slug="demo"
-                    title="Project Title"
-                    description="Project description in italic style."
-                    cover="/images/Placeholder.png"
-                    descriptionItalic={true}
-                    openable={false}
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="cp-card">
-              <div class="cp-card__preview" style="flex-direction: column; gap: var(--spacing-md); align-items: stretch;">
-                <div>
-                  <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Text</p>
-                  <div class="cp-placeholder"></div>
-                </div>
-                <div>
-                  <p style="margin-bottom: var(--spacing-xs); color: var(--text-shy);" class="cp-type-xs">Content/Media</p>
-                  <div class="cp-placeholder--media"></div>
-                </div>
-              </div>
-            </div>
-            </div>
-          </section>
-        </div>
-
         {/* ── Card ──────────── */}
 
         <div id="card">
@@ -768,6 +715,13 @@ import Phone from '../components/mdx/Phone.astro';
                   </div>
                 </div>
                 <div class="cp-control-group">
+                  <span class="cp-control-label">subtitle</span>
+                  <div class="cp-pills" data-control="subtitle">
+                    <button class="cp-pill is-active" data-value="with">with</button>
+                    <button class="cp-pill" data-value="without">without</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
                   <span class="cp-control-label">cta</span>
                   <div class="cp-pills" data-control="cta">
                     <button class="cp-pill is-active" data-value="with">with</button>
@@ -775,32 +729,32 @@ import Phone from '../components/mdx/Phone.astro';
                   </div>
                 </div>
               </div>
-              <div class="cp-card__preview" style="display: block; padding: var(--spacing-md);">
+              <div class="cp-card__preview" id="card-preview" style="display: block; padding: var(--spacing-md);">
                 {/* layout:inline | image:with | cta:with */}
                 <div data-variant-key="layout:inline|image:with|cta:with">
-                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" href="#" layout="inline" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" href="#" layout="inline" />
                 </div>
                 <div data-variant-key="layout:inline|image:with|cta:without" hidden>
-                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" layout="inline" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" layout="inline" />
                 </div>
                 <div data-variant-key="layout:inline|image:without|cta:with" hidden>
-                  <Card title="Title of this card goes here" href="#" layout="inline" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." href="#" layout="inline" />
                 </div>
                 <div data-variant-key="layout:inline|image:without|cta:without" hidden>
-                  <Card title="Title of this card goes here" layout="inline" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="inline" />
                 </div>
                 {/* layout:stacked | image:with | cta:with */}
                 <div data-variant-key="layout:stacked|image:with|cta:with" hidden>
-                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" href="#" layout="stacked" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" href="#" layout="stacked" />
                 </div>
                 <div data-variant-key="layout:stacked|image:with|cta:without" hidden>
-                  <Card title="Title of this card goes here" cover="/images/Placeholder.png" layout="stacked" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" layout="stacked" />
                 </div>
                 <div data-variant-key="layout:stacked|image:without|cta:with" hidden>
-                  <Card title="Title of this card goes here" href="#" layout="stacked" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." href="#" layout="stacked" />
                 </div>
                 <div data-variant-key="layout:stacked|image:without|cta:without" hidden>
-                  <Card title="Title of this card goes here" layout="stacked" />
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="stacked" />
                 </div>
               </div>
             </div>
@@ -1031,12 +985,88 @@ import Phone from '../components/mdx/Phone.astro';
   })();
   </script>
 
-  {/* ── Scroll Spy Script ─────────────────────── */}
+  {/* ── Phone playground: bg toggle + size slider ── */}
+  <script is:inline>
+  (function () {
+    var pg = document.getElementById('phone-playground');
+    if (!pg) return;
+    var preview = document.getElementById('phone-preview');
+    var slider = document.getElementById('phone-size-slider');
+    var label = document.getElementById('phone-size-label');
+
+    // Background toggle — handled via the general pill click system,
+    // but we need to react to the 'bg' control value
+    var observer = new MutationObserver(function () {
+      var bgPill = pg.querySelector('[data-control="bg"] .is-active');
+      if (bgPill) {
+        var val = bgPill.getAttribute('data-value');
+        preview.style.backgroundColor = val === 'light' ? 'var(--color-light)' : '';
+      }
+    });
+    observer.observe(pg, { subtree: true, attributes: true, attributeFilter: ['class'] });
+
+    // Size slider — sets --phone-w on all phone instances
+    if (slider && label) {
+      slider.addEventListener('input', function () {
+        var v = slider.value;
+        label.textContent = v;
+        pg.querySelectorAll('.phone').forEach(function (phone) {
+          phone.style.setProperty('--phone-w', v);
+        });
+      });
+    }
+  })();
+  </script>
+
+  {/* ── Lines playground: bg/theme toggle ────── */}
+  <script is:inline>
+  (function () {
+    var pg = document.getElementById('lines-playground');
+    if (!pg) return;
+    var preview = document.getElementById('lines-preview');
+
+    var observer = new MutationObserver(function () {
+      var bgPill = pg.querySelector('[data-control="bg"] .is-active');
+      if (bgPill) {
+        var isLight = bgPill.getAttribute('data-value') === 'light';
+        preview.setAttribute('data-theme', isLight ? 'light' : 'dark');
+        preview.style.backgroundColor = isLight ? 'white' : '';
+        preview.style.color = isLight ? 'black' : '';
+      }
+    });
+    observer.observe(pg, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  })();
+  </script>
+
+  {/* ── Card playground: subtitle toggle ───────── */}
+  <script is:inline>
+  (function () {
+    var preview = document.getElementById('card-preview');
+    if (!preview) return;
+    var pg = preview.closest('[data-playground]');
+    if (!pg) return;
+
+    var observer = new MutationObserver(function () {
+      var subtitlePill = pg.querySelector('[data-control="subtitle"] .is-active');
+      if (subtitlePill) {
+        var show = subtitlePill.getAttribute('data-value') === 'with';
+        preview.querySelectorAll('.card__subtitle').forEach(function (el) {
+          el.style.display = show ? '' : 'none';
+        });
+      }
+    });
+    observer.observe(pg, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  })();
+  </script>
+
+  {/* ── Scroll Spy + Dock Nav Script ──────────── */}
 
   <script is:inline>
   (function () {
     var sections = document.querySelectorAll('.cp-content > [id]');
-    var links = document.querySelectorAll('.cp-sidebar__link');
+    var links = document.querySelectorAll('.cp-docknav__link');
+    var indicator = document.querySelector('.cp-docknav__indicator');
+    var docknav = document.querySelector('.cp-docknav');
 
     if (!sections.length || !links.length) return;
 
@@ -1050,10 +1080,14 @@ import Phone from '../components/mdx/Phone.astro';
 
             var targetId = entry.target.id;
             var activeLink = document.querySelector(
-              '.cp-sidebar__link[data-spy-target="' + targetId + '"]'
+              '.cp-docknav__link[data-spy-target="' + targetId + '"]'
             );
             if (activeLink) {
               activeLink.classList.add('is-active');
+              // Update the collapsed bar indicator
+              if (indicator) {
+                indicator.textContent = activeLink.textContent;
+              }
             }
           }
         });
@@ -1073,11 +1107,10 @@ import Phone from '../components/mdx/Phone.astro';
       links[0].classList.add('is-active');
     }
 
-    // Smooth scroll on link click
-    var sidebar = document.querySelector('.cp-sidebar');
-    if (sidebar) {
-      sidebar.addEventListener('click', function (e) {
-        var link = e.target.closest('.cp-sidebar__link');
+    // Smooth scroll on link click + collapse panel
+    if (docknav) {
+      docknav.addEventListener('click', function (e) {
+        var link = e.target.closest('.cp-docknav__link');
         if (!link) return;
         e.preventDefault();
         var targetId = link.getAttribute('data-spy-target');
@@ -1085,6 +1118,11 @@ import Phone from '../components/mdx/Phone.astro';
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           history.replaceState(null, '', '#' + targetId);
+          // Force-collapse the panel after click
+          docknav.classList.add('is-collapsed');
+          setTimeout(function () {
+            docknav.classList.remove('is-collapsed');
+          }, 600);
         }
       });
     }

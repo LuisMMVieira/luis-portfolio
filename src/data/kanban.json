@@ -1,18 +1,21 @@
 {
   "todo": [
+    "SIN: fix the layout of the components page!",
+    "UI: close post button",
+    "SIN: add system message colors.",
     "Redesign homepage hero",
-    "SINPHONY: add system message colors.",
+    "optimize andamento search: first letter should match first letters lol",
     "KANBAN: add ability for details in cards",
-    "UI: close post button"
+    "SIN: dark and light optimized",
+    "SITE: think about the footer",
+    "KANBAN: add tag system (apple notes like)"
   ],
-  "inprogress": [
-    "Alf project page"
-  ],
-  "onhold": [
-    "Fine tune Spaceship Search article"
-  ],
+  "inprogress": [],
+  "onhold": [],
   "done": [
+    "Alf project page",
     "Redesign background section (staggered grid)",
+    "Fine tune Spaceship Search article",
     "Create Card component",
     "Update type scale to match Figma",
     "KANBAN: ability to edit cards content",

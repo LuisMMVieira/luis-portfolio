@@ -6,6 +6,7 @@ interface Props {
   cover?: string;
   cta?: string;
   layout?: 'inline' | 'stacked';
+  status?: string;
 }
 
 const {
@@ -15,21 +16,27 @@ const {
   cover,
   cta = 'See project',
   layout = 'inline',
+  status,
 } = Astro.props;
 ---
 
 <article class:list={['card', `card--${layout}`]}>
-  {cover && (
-    <div class="card__media">
+  {cover && href ? (
+    <a class="card__media" href={href} aria-label={title}>
       <img src={cover} alt="" loading="lazy" />
+    </a>
+  ) : cover ? (
+    <div class="card__media">
+      <img src={cover} alt={title} loading="lazy" />
     </div>
-  )}
+  ) : null}
   <div class="card__info">
     <div class="card__text">
       <h3 class="card__title">{title}</h3>
       {subtitle && <p class="card__subtitle">{subtitle}</p>}
+      {status && <p class="card__status">{status}</p>}
     </div>
-    {href && (
+    {href && cta && (
       <a class="card__cta" href={href}>{cta}</a>
     )}
   </div>

@@ -485,13 +485,52 @@
 	max-width: none;
 }
 
+/* App Store strip — flex row of rounded screens inside scroll canvas */
+.post-app-store-strip {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: var(--spacing-md);
+
+	img {
+		display: block;
+		flex: none;
+		height: 400px;
+		width: auto;
+		max-width: none;
+		border-radius: 32px;
+	}
+}
+
+@media (min-width: 768px) {
+	.post-app-store-strip img {
+		height: 480px;
+		border-radius: 40px;
+	}
+
+	/* Start at col 5 instead of default right-wide col 4 */
+	.post-subsection--media-right-wide:has(.post-app-store-strip) .post-canvas > .content-slot {
+		grid-column: 5 / 13;
+	}
+}
+
+@media (min-width: 1200px) {
+	.post-app-store-strip img {
+		height: 600px;
+		border-radius: 49px;
+	}
+
+	.post-subsection--media-right-wide:has(.post-app-store-strip) .post-canvas > .content-slot {
+		grid-column: 5 / 13;
+	}
+}
+
 /* Scroll right-wide strip — right-wide grid (cols 4/13 at md+), full-width at xs */
 /* Figma: py=80px, right-aligned overflow, transparent bg by default */
 /* .post-page prefix beats .project-page__container img reset */
 /* Section containing a scroll strip loses right padding so image bleeds to viewport edge */
 .post-subsection:has(.post-scroll-right-wide) {
 	padding-inline-end: 0;
-	overflow: hidden;
 }
 
 .post-page .post-scroll-right-wide {
@@ -647,8 +686,7 @@
 	}
 
 	.post-page .post-scroll-right-wide {
-		grid-column: 3 / 13;
-		overflow: visible;
+		grid-column: 5 / 13;
 
 		img {
 			height: 320px;
@@ -776,7 +814,7 @@
 	}
 
 	.post-page .post-scroll-right-wide {
-		grid-column: 3 / 13;
+		grid-column: 5 / 13;
 
 		img {
 			height: 400px;
@@ -888,8 +926,6 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 .phone--light.phone--soft   { border-color: rgba(255, 255, 255, 0.08); }
 
 .phone__ring {
-	/* Ring: 1.5px at 1:1 */
-	border: calc(var(--phone-w) / #{$_phone-ref} * 1.5 * 1px) solid;
 	/* Inner radius: 52px at 1:1 */
 	border-radius: calc(var(--phone-w) / #{$_phone-ref} * 52 * 1px);
 	display: flex;
@@ -897,13 +933,6 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	flex: 1;
 	min-width: 0;
 	min-height: 0;
-
-	/* Default: dark */
-	border-color: rgba(0, 0, 0, 0.15);
-}
-
-.phone--light .phone__ring {
-	border-color: rgba(255, 255, 255, 0.17);
 }
 
 .phone__screen {
@@ -1126,7 +1155,16 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 }
 
 
-/* Divider spacing is handled by .post-section__divider — no extra padding on .divider itself */
+/* Standalone dividers inside post sections need inline padding */
+.post-section__body > .divider {
+	padding-inline: var(--grid-margin-xs);
+}
+
+@media (min-width: 768px) {
+	.post-section__body > .divider {
+		padding-inline: var(--grid-margin-md);
+	}
+}
 
 
 /* ─────────────────────────────────────────
@@ -1167,7 +1205,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacing-xxs);
-	text-align: center;
+	text-align: left;
 
 	&__titles {
 		display: flex;
@@ -1230,7 +1268,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 
 .article-cover {
 	grid-column: 1 / -1;
-	margin: 0 0 var(--spacing-xxl);
+	margin: 0 0 var(--spacing-md);
 
 	img {
 		width: 100%;
