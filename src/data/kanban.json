@@ -2,7 +2,8 @@
   "todo": [
     "Redesign homepage hero",
     "SINPHONY: add system message colors.",
-    "KANBAN: add ability for details in cards"
+    "KANBAN: add ability for details in cards",
+    "UI: close post button"
   ],
   "inprogress": [
     "Alf project page"
@@ -12,13 +13,13 @@
   ],
   "done": [
     "Redesign background section (staggered grid)",
+    "Create Card component",
     "Update type scale to match Figma",
-    "Redesign andamento index (4-col, cards)",
+    "KANBAN: ability to edit cards content",
+    "Optimize CLAUDE.md cascade",
+    "Apply contained card style to project cards",
     "Build kanban board",
     "Build visual sitemap",
-    "Create Card component",
-    "Apply contained card style to project cards",
-    "Optimize CLAUDE.md cascade",
-    "KANBAN: ability to edit cards content"
+    "Redesign andamento index (4-col, cards)"
   ]
 }

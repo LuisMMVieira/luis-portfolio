@@ -1,0 +1,35 @@
+---
+/**
+ * Phone — CSS-only mobile device frame.
+ *
+ * Figma: "Phone" component (node 1192:102274)
+ *   Bezel (12px border, 64px radius)
+ *     Ring (1.5px border, 52px radius)
+ *       Screen (overflow clip, 52px radius) ← slot content
+ *
+ * Wraps any screenshot/video in a realistic phone bezel.
+ * Sizing is controlled by the parent context (height or width constraint).
+ */
+interface Props {
+  /** Frame color mode — matches content background */
+  mode?: 'light' | 'dark';
+  /** Border intensity — strong for contrast, soft for subtle */
+  intensity?: 'strong' | 'soft';
+}
+
+const { mode = 'dark', intensity = 'strong' } = Astro.props;
+
+const classes = [
+  'phone',
+  `phone--${mode}`,
+  `phone--${intensity}`,
+].join(' ');
+---
+
+<div class={classes}>
+  <div class="phone__ring">
+    <div class="phone__screen">
+      <slot />
+    </div>
+  </div>
+</div>

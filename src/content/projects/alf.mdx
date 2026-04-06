@@ -9,37 +9,26 @@ draft: false
 
 {/* ── COVER ─────────────────────────────────────────────────────── */}
 
-<section class="post-cover post-subsection post-subsection--canvas post-subsection--media-center" style="--cover-bg: url('/assets/projects/alf/images/Cover/alf-cover-background.png')">
-  <div class="post-canvas" style="padding-block: var(--spacing-xxl)">
-    <div class="content-slot">
-      <figure class="post-figure--video">
-        <video src="/assets/projects/alf/videos/alf onboarding.mp4" autoplay loop muted playsinline></video>
-      </figure>
-    </div>
+<PostSection layout="canvas" media="full" padding="spacing-ml">
+  <div class="post-cover-phone" style="background-image: url('/assets/projects/alf/images/Cover/alf-cover-background.png'); background-size: cover; background-position: center;">
+    <Phone mode="dark" intensity="strong">
+      <video src="/assets/projects/alf/videos/alf onboarding.mp4" autoplay loop muted playsinline></video>
+    </Phone>
   </div>
-</section>
+</PostSection>
 
 {/* ── HEADER ────────────────────────────────────────────────────── */}
 
-<PostHeader title="Alf—Spaceship's AI Assistant">
-  <p>Alf is Spaceship's AI assistant—built to help users manage domains, set up services, and navigate their account through natural conversation. I designed the full iOS experience: information architecture, conversation mechanics, checkout flow, and browser fallback patterns.</p>
+<PostHeader title="Alf—Spaceship's AI assistant">
+  <p>Alf is Spaceship's AI assistant. Users manage domains, set up services, and navigate their account through conversation. The browser version came first—the app had to match it. I designed the full iOS experience from scratch with the web, brand, design system, mobile, and engineering teams.</p>
 </PostHeader>
 
-{/* ── BODY ──────────────────────────────────────────────────────── */}
+{/* ── SECTION 1: The conversation ──────────────────────────────── */}
 
-{/* App Store screens — right-wide horizontal scroll */}
-<PostSection media="right-wide" padding="spacing-xl" scroll caption="App Store visuals.">
-  <figure class="post-figure" style="display: flex; flex-direction: row; gap: var(--spacing-md); align-items: flex-end;">
-    <img src="/assets/projects/alf/images/App Store/alf-app-store-1.png" alt="Alf App Store screenshot 1" />
-    <img src="/assets/projects/alf/images/App Store/alf-app-store-2.png" alt="Alf App Store screenshot 2" />
-    <img src="/assets/projects/alf/images/App Store/alf-app-store-3.png" alt="Alf App Store screenshot 3" />
-    <img src="/assets/projects/alf/images/App Store/alf-app-store-4.png" alt="Alf App Store screenshot 4" />
-    <img src="/assets/projects/alf/images/App Store/alf-app-store-5.png" alt="Alf App Store screenshot 5" />
-  </figure>
-</PostSection>
+<PostSectionGroup title="The conversation">
 
-{/* Phones light — full canvas with gradient bg */}
-<PostSection layout="canvas" media="full" caption="Highlighted conversations in light skin.">
+{/* Phones light — full canvas with gradient bg, images include device frame */}
+<PostSection layout="canvas" media="full">
   <div style="background-image: url('/assets/projects/alf/images/Phones/alf-light-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
     <div class="post-phones-row">
       <img src="/assets/projects/alf/images/Phones/alf-phone-light-1.png" alt="Alf light mode — conversation" />
@@ -50,8 +39,8 @@ draft: false
   </div>
 </PostSection>
 
-{/* Phones dark — full canvas with gradient bg */}
-<PostSection layout="canvas" media="full" caption="Alf dark mode conversations and actions.">
+{/* Phones dark — full canvas with gradient bg, images include device frame */}
+<PostSection layout="canvas" media="full">
   <div style="background-image: url('/assets/projects/alf/images/Phones/alf-dark-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
     <div class="post-phones-row">
       <img src="/assets/projects/alf/images/Phones/alf-phone-dark-1.png" alt="Alf dark mode — conversation" />
@@ -62,41 +51,82 @@ draft: false
   </div>
 </PostSection>
 
-{/* Fallback — phone (left) + chart (right) */}
-<PostSection media="2-right" padding="spacing-xl">
-  <div class="content-slot">
-    <Figure src="/assets/projects/alf/images/alf-fallback-screen.png" alt="Alf browser fallback screen" />
-  </div>
-  <div class="content-slot">
-    <Figure src="/assets/projects/alf/images/alf-fallback-chart.png" alt="Alf fallback decision chart" />
+{/* Text paragraph — center column */}
+<PostSection media="center" padding="spacing-xl">
+  <PostText>
+    <p>Alf feels like talking to someone who actually wants to help—friendly, clear, no dead ends. Light and dark modes were built on top of our iOS design system. I shaped the native experience—every screen, every edge case.</p>
+  </PostText>
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── SECTION 2: Under the surface ─────────────────────────────── */}
+
+<PostSectionGroup title="Under the surface">
+
+{/* Fallback — phone + text side-by-side (row 1), chart full (row 2) */}
+<PostSection padding="spacing-lg">
+  <div id="alf-fallback" class="post-canvas">
+    <div class="alf-fallback__container">
+      <img src="/assets/projects/alf/images/alf-fallback-screen.png" alt="Alf browser fallback screen" class="alf-fallback__phone" />
+      <PostText heading="No dead ends">
+        <p>When Alf can't render a response natively, it doesn't leave the user stranded. The app tells them what happened and hands off to spaceship.com—same conversation, no dead ends.</p>
+      </PostText>
+    </div>
+    <Figure src="/assets/projects/alf/images/alf-fallback-chart.png" alt="Alf fallback decision chart" caption="Fallback flow—app to browser handoff." />
   </div>
 </PostSection>
 
-{/* Mechanics sketch — full */}
-<PostSection media="full" caption="Mapping the conversational AI system.">
+{/* Inner divider (no title) */}
+<Divider spaceAbove="ml" spaceBelow="ml" />
+
+{/* Handoff annotations */}
+<PostSection media="full" caption="Component handoff—design system, logic, and behaviours.">
+  <Figure src="/assets/projects/alf/images/alf-handoff-annotations.png" alt="Alf component handoff annotations" />
+</PostSection>
+
+{/* Mechanics sketch */}
+<PostSection media="full" caption="Defining the conversation mechanics—how chat behaves.">
   <Figure src="/assets/projects/alf/images/alf-mechanics-sketch.png" alt="Alf mechanics sketch" />
 </PostSection>
 
-{/* ── CLOSING ──────────────────────────────────────────────────── */}
+{/* App Store screens — scroll strip, bleeds right */}
+<PostSection padding="spacing-huge" caption="App Store assets.">
+  <div class="post-scroll-right-wide post-scroll-right-wide--app-store">
+    <img src="/assets/projects/alf/images/App Store/alf-app-store-1.png" alt="Alf App Store screenshot 1" />
+    <img src="/assets/projects/alf/images/App Store/alf-app-store-2.png" alt="Alf App Store screenshot 2" />
+    <img src="/assets/projects/alf/images/App Store/alf-app-store-3.png" alt="Alf App Store screenshot 3" />
+    <img src="/assets/projects/alf/images/App Store/alf-app-store-4.png" alt="Alf App Store screenshot 4" />
+    <img src="/assets/projects/alf/images/App Store/alf-app-store-5.png" alt="Alf App Store screenshot 5" />
+  </div>
+</PostSection>
+
+</PostSectionGroup>
+
+{/* ── SECTION 3: Summary (no title) ────────────────────────────── */}
 
 <PostSectionGroup>
 
 <PostSection media="center" padding="spacing-xxl" slotGap="spacing-xl">
   <PostText heading="Summary">
-    <p>Alf is Spaceship's AI assistant—an iOS app that turns natural conversation into real account actions. I designed the full experience end-to-end: onboarding, conversation mechanics, domain search and checkout, browser fallback patterns, and the system logic underneath. From first prompt to completed purchase, every surface went through my hands.</p>
+    <p>Alf is an iOS AI assistant that turns natural conversation into real account actions. I designed the full experience end-to-end—interaction model, commerce inside chat, fallback system, and the documentation that made handoff clean. Built from scratch across five teams.</p>
   </PostText>
   <dl class="post-meta">
     <div class="post-meta__row">
       <dt class="post-meta__label">Role</dt>
-      <dd class="post-meta__value">Lead Product Designer</dd>
+      <dd class="post-meta__value">Product Designer</dd>
     </div>
     <div class="post-meta__row">
       <dt class="post-meta__label">Focus</dt>
-      <dd class="post-meta__value">iOS design, conversation UX, information architecture, checkout flow, and browser fallback patterns.</dd>
+      <dd class="post-meta__value">iOS design, conversation UX, information architecture, fallback patterns</dd>
     </div>
     <div class="post-meta__row">
       <dt class="post-meta__label">Team</dt>
-      <dd class="post-meta__value">Product Platform UX team</dd>
+      <dd class="post-meta__value">Product Platform Design team</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Collaboration</dt>
+      <dd class="post-meta__value">Brand, Design System Team, and iOS Engineering Team</dd>
     </div>
     <div class="post-meta__row">
       <dt class="post-meta__label">Period</dt>

@@ -26,6 +26,7 @@ Registered in `src/pages/projects/[slug].astro`:
 - `Figure` — image + caption
 - `ImageCarousel` — multi-image carousel
 - `Video` — video + caption
+- `Phone` — CSS-only phone device frame (props: `mode` light|dark, `intensity` strong|soft)
 - `Divider` — visual separator
 
 ### PostSection Props Quick Reference

@@ -531,10 +531,9 @@ h6 {
 
 	img {
 		width: 100%;
-		height: auto;
+		height: 100%;
 		display: block;
 		object-fit: cover;
-		aspect-ratio: 1920 / 1200;
 	}
 }
 
@@ -556,12 +555,29 @@ h6 {
 	}
 }
 
+.card__text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxs);
+}
+
 .card__title {
 	font-family: var(--type-title-s-font-family);
 	font-size: var(--type-title-s-font-size);
 	line-height: var(--type-title-s-line-height);
 	letter-spacing: var(--type-title-s-letter-spacing);
+	font-feature-settings: var(--font-feature-settings-display);
 	color: var(--text-primary);
+	margin: 0;
+}
+
+.card__subtitle {
+	font-family: var(--type-text-m-font-family);
+	font-weight: var(--type-text-m-font-weight);
+	font-size: var(--type-text-m-font-size);
+	line-height: var(--type-text-m-line-height);
+	letter-spacing: var(--type-text-m-letter-spacing);
+	color: var(--text-secondary);
 	margin: 0;
 }
 

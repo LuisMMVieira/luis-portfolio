@@ -1,6 +1,7 @@
 ---
 interface Props {
   title: string;
+  subtitle?: string;
   href?: string;
   cover?: string;
   cta?: string;
@@ -9,6 +10,7 @@ interface Props {
 
 const {
   title,
+  subtitle,
   href,
   cover,
   cta = 'See project',
@@ -23,7 +25,10 @@ const {
     </div>
   )}
   <div class="card__info">
-    <h3 class="card__title">{title}</h3>
+    <div class="card__text">
+      <h3 class="card__title">{title}</h3>
+      {subtitle && <p class="card__subtitle">{subtitle}</p>}
+    </div>
     {href && (
       <a class="card__cta" href={href}>{cta}</a>
     )}

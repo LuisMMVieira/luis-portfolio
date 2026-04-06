@@ -10,6 +10,7 @@ import PostHeader from '../components/mdx/PostHeader.astro';
 import PostSection from '../components/mdx/PostSection.astro';
 import PostText from '../components/mdx/PostText.astro';
 import Figure from '../components/mdx/Figure.astro';
+import Phone from '../components/mdx/Phone.astro';
 ---
 
 <BaseLayout title="Components — Luis Vieira" description="Private design system reference page." hideHeader={true}>
@@ -68,6 +69,7 @@ import Figure from '../components/mdx/Figure.astro';
               <li><a href="#post-header" class="cp-sidebar__link" data-spy-target="post-header">PostHeader</a></li>
               <li><a href="#post-text-meta" class="cp-sidebar__link" data-spy-target="post-text-meta">PostText & PostMeta</a></li>
               <li><a href="#figure" class="cp-sidebar__link" data-spy-target="figure">Figure</a></li>
+              <li><a href="#phone" class="cp-sidebar__link" data-spy-target="phone">Phone</a></li>
               <li><a href="#post-subsection-layouts" class="cp-sidebar__link" data-spy-target="post-subsection-layouts">PostSection Layouts</a></li>
               <li><a href="#project-card" class="cp-sidebar__link" data-spy-target="project-card">ProjectCard</a></li>
               <li><a href="#card" class="cp-sidebar__link" data-spy-target="card">Card</a></li>
@@ -484,6 +486,57 @@ import Figure from '../components/mdx/Figure.astro';
                 </div>
                 <div data-variant-key="caption:without" hidden>
                   <Figure src="/images/Placeholder.png" alt="Placeholder image" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ── Phone ────────────────────────────── */}
+
+        <div id="phone">
+          <section class="cp-section">
+            <div class="cp-header">
+              <h2 class="cp-header__title">Phone</h2>
+              <p class="cp-header__desc">CSS-only device frame. Wraps any screenshot or video in a phone bezel.</p>
+            </div>
+            <div class="cp-card" data-playground>
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">mode</span>
+                  <div class="cp-pills" data-control="mode">
+                    <button class="cp-pill is-active" data-value="dark">dark</button>
+                    <button class="cp-pill" data-value="light">light</button>
+                  </div>
+                </div>
+                <div class="cp-control-group">
+                  <span class="cp-control-label">intensity</span>
+                  <div class="cp-pills" data-control="intensity">
+                    <button class="cp-pill is-active" data-value="strong">strong</button>
+                    <button class="cp-pill" data-value="soft">soft</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-card__preview" style="display: flex; justify-content: center; padding: var(--spacing-lg);">
+                <div data-variant-key="mode:dark|intensity:strong" style="height: 480px;">
+                  <Phone mode="dark" intensity="strong">
+                    <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
+                  </Phone>
+                </div>
+                <div data-variant-key="mode:dark|intensity:soft" style="height: 480px;" hidden>
+                  <Phone mode="dark" intensity="soft">
+                    <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
+                  </Phone>
+                </div>
+                <div data-variant-key="mode:light|intensity:strong" style="height: 480px; background: var(--color-light); border-radius: var(--radius-sm); padding: var(--spacing-lg);">
+                  <Phone mode="light" intensity="strong">
+                    <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
+                  </Phone>
+                </div>
+                <div data-variant-key="mode:light|intensity:soft" style="height: 480px; background: var(--color-light); border-radius: var(--radius-sm); padding: var(--spacing-lg);" hidden>
+                  <Phone mode="light" intensity="soft">
+                    <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
+                  </Phone>
                 </div>
               </div>
             </div>
