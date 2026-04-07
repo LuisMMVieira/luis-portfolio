@@ -1745,12 +1745,12 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	gap: var(--spacing-sm);
 
 	@media (min-width: 48rem) {
-		grid-column: 3 / 11;
+		grid-column: 2 / 7;
 		padding-block-start: var(--spacing-xxl);
 	}
 
 	@media (min-width: 75rem) {
-		grid-column: 4 / 10;
+		grid-column: 2 / 7;
 	}
 }
 
