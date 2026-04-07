@@ -2,7 +2,7 @@
 title: "Beliefs"
 ---
 
-<span class="emphasis">Flow & Taste</span> — the difference between good and the ones you remember
+<span class="emphasis">Flow & Taste</span>—the difference between good and the ones you remember
 
 How a product is built resonates in its usage. <span class="emphasis">Performance is essential</span> to good UX
 
