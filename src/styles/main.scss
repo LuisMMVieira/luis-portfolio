@@ -193,8 +193,12 @@
 
 .section#beliefs {
 	.flow {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xxl);
+
 		> * + * {
-			margin-top: var(--spacing-lg); /* 40px */
+			margin-top: 0;
 		}
 	}
 
@@ -253,7 +257,7 @@
 	font-weight: var(--type-title-xs-font-weight);
 	line-height: var(--type-title-xs-line-height);
 	letter-spacing: var(--type-title-xs-letter-spacing);
-	color: var(--text-secondary);
+	color: var(--text-shy);
 	white-space: nowrap;
 }
 
@@ -466,30 +470,19 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		grid-column: 2 / 12;
 	}
 
-	/* Beliefs: stagger grid at md (10-col inner grid) */
-	.section#beliefs .flow {
-		display: grid;
-		grid-template-columns: repeat(10, 1fr);
-		gap: var(--spacing-xl); /* 56px */
-		padding-block-end: var(--spacing-xxl); /* 80px */
+	/* Beliefs: linear layout, 8 page-grid cols */
+	.section#beliefs > .container--narrow {
+		grid-column: 2 / 10;
+	}
 
-		> * + * {
-			margin-top: 0;
-		}
+	.section#beliefs .flow {
+		padding-block-end: var(--spacing-xxl); /* 80px */
 	}
 
 	.section#beliefs p {
 		font-size: var(--type-title-m-font-size);
 		line-height: var(--type-title-m-line-height);
 		letter-spacing: var(--type-title-m-letter-spacing);
-	}
-
-	.section#beliefs p:nth-child(odd) {
-		grid-column: 3 / span 8;
-	}
-
-	.section#beliefs p:nth-child(even) {
-		grid-column: 1 / span 8;
 	}
 
 	.section#intro {
@@ -726,25 +719,14 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		padding-block-end: var(--spacing-huge);
 	}
 
-	/* Beliefs: xl → 8-col inner grid, wider stagger gap */
-	.section#beliefs .flow {
-		grid-template-columns: repeat(8, 1fr);
-		gap: var(--spacing-xxl); /* 80px */
+	.section#beliefs > .container--narrow {
+		grid-column: 4 / 12;
 	}
 
 	.section#beliefs p {
 		font-size: var(--type-title-l-font-size);
 		line-height: var(--type-title-l-line-height);
 		letter-spacing: var(--type-title-l-letter-spacing);
-		max-width: var(--text-max-width); /* 560px */
-	}
-
-	.section#beliefs p:nth-child(odd) {
-		grid-column: 1 / span 6;
-	}
-
-	.section#beliefs p:nth-child(even) {
-		grid-column: 3 / span 6;
 	}
 
 	/* Background: xl → flex-row layout with wider h3 col */
