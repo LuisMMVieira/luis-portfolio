@@ -8,7 +8,10 @@
     "KANBAN: add ability for details in cards",
     "SIN: dark and light optimized",
     "SITE: think about the footer",
-    "KANBAN: add tag system (apple notes like)"
+    "KANBAN: add tag system (apple notes like)",
+    "Cards: possibilidade de trocar a ordem da imagem pelo texto nos inline",
+    "Check https://vibeisland.app/#pricing test",
+    "BUG: spaceship unbox vertical scroll infinite"
   ],
   "inprogress": [],
   "onhold": [],
