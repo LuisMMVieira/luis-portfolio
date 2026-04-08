@@ -566,12 +566,12 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	.site-header {
 		--page-width: min(100vw, var(--site-max-width));
 		--page-offset: calc((100vw - var(--page-width)) / 2);
-		--col-width: calc((var(--page-width) - 2 * var(--grid-margin-md)) / 12);
+		--col-width: calc((var(--page-width) - 2 * var(--grid-margin-xl)) / 12);
 
 		display: block;
 		position: fixed;
 		top: var(--spacing-max);
-		left: calc(var(--page-offset) + var(--grid-margin-md));
+		left: calc(var(--page-offset) + var(--grid-margin-xl));
 		width: var(--col-width);
 		right: auto;
 		padding-inline: 0;
