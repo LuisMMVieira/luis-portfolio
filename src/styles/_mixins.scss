@@ -1,0 +1,20 @@
+/* ─────────────────────────────────────────
+   Type mixins — DRY wrappers for type tokens
+   ───────────────────────────────────────── */
+
+/// Full type scale: family + size + weight + line-height + letter-spacing
+@mixin type($scale) {
+	font-family: var(--type-#{$scale}-font-family);
+	font-size: var(--type-#{$scale}-font-size);
+	font-weight: var(--type-#{$scale}-font-weight);
+	line-height: var(--type-#{$scale}-line-height);
+	letter-spacing: var(--type-#{$scale}-letter-spacing);
+}
+
+/// Size-only override: font-size + line-height + letter-spacing
+/// Use when the family and weight are already set (e.g. responsive scale-ups)
+@mixin type-size($scale) {
+	font-size: var(--type-#{$scale}-font-size);
+	line-height: var(--type-#{$scale}-line-height);
+	letter-spacing: var(--type-#{$scale}-letter-spacing);
+}

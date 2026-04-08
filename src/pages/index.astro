@@ -45,8 +45,9 @@ const projects = (await getCollection('projects'))
   </Section>
 
   <Section id="about" bg="--color-emphasis">
-    <AboutContent />
-    <div class="about-contact">
+    <div class="about-canvas">
+      <AboutContent />
+      <div class="about-contact">
       <div class="about-contact__group">
         <span class="about-contact__label">Contact:</span>
         <span class="about-contact__email-wrap">
@@ -72,6 +73,7 @@ const projects = (await getCollection('projects'))
             rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
+    </div>
     </div>
   </Section>
 </BaseLayout>

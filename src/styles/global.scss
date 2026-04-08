@@ -143,15 +143,11 @@ h1 {
 }
 
 h2 {
-	font-size: var(--type-title-s-font-size);
-	line-height: var(--type-title-s-line-height);
-	letter-spacing: var(--type-title-s-letter-spacing);
+	@include type-size(title-s);
 }
 
 h3 {
-	font-size: var(--type-title-xs-font-size);
-	line-height: var(--type-title-xs-line-height);
-	letter-spacing: var(--type-title-xs-letter-spacing);
+	@include type-size(title-xs);
 }
 
 /* Text */
@@ -313,21 +309,15 @@ h6 {
 /* Tablet (md) — scale headings up */
 @media (min-width: 768px) {
 	h1 {
-		font-size: var(--type-title-l-font-size);
-		line-height: var(--type-title-l-line-height);
-		letter-spacing: var(--type-title-l-letter-spacing);
+		@include type-size(title-l);
 	}
 
 	h2 {
-		font-size: var(--type-title-l-font-size);
-		line-height: var(--type-title-l-line-height);
-		letter-spacing: var(--type-title-l-letter-spacing);
+		@include type-size(title-l);
 	}
 
 	h3 {
-		font-size: var(--type-title-m-font-size);
-		line-height: var(--type-title-m-line-height);
-		letter-spacing: var(--type-title-m-letter-spacing);
+		@include type-size(title-m);
 	}
 }
 

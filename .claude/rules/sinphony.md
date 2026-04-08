@@ -25,6 +25,7 @@ The token file defines: colors (with dark/light theme overrides via `[data-theme
 | File | Owns |
 |------|------|
 | `tokens.scss` | All design tokens |
+| `_mixins.scss` | Type mixins (`type`, `type-size`) |
 | `fonts.scss` | @font-face + Google Fonts imports |
 | `reset.scss` | CSS reset |
 | `grid.scss` | Grid variables and utilities |
@@ -32,6 +33,9 @@ The token file defines: colors (with dark/light theme overrides via `[data-theme
 | `global.scss` | CTA, base elements, project page container, design system utilities (`.cp-tag`, `.cp-nowrap`) |
 | `post.scss` | All post/sub-section/canvas/figure/text/meta styles |
 | `project-content.scss` | Project page layout |
+
+## Type Mixins
+`src/styles/_mixins.scss` provides `@include type($scale)` (all 5 props) and `@include type-size($scale)` (size-only override). Use these instead of writing title token properties by hand.
 
 ## Rules
 - BEM-style class names.

@@ -1,3 +1,5 @@
+@import './mixins';
+
 /* ─────────────────────────────────────────
    Project Content (Global Styles)
    These styles must be global because project
@@ -16,11 +18,7 @@
   padding-block: var(--spacing-md);
 
   h2 {
-    font-family: var(--type-title-m-font-family);
-    font-size: var(--type-title-m-font-size);
-    line-height: var(--type-title-m-line-height);
-    font-weight: var(--type-title-m-font-weight);
-    letter-spacing: var(--type-title-m-letter-spacing);
+    @include type(title-m);
     color: var(--text-primary);
     margin: 0 0 var(--spacing-md);
   }
@@ -76,11 +74,7 @@
     gap: var(--spacing-md);
 
     h2 {
-      font-family: var(--type-title-m-font-family);
-      font-size: var(--type-title-m-font-size);
-      line-height: var(--type-title-m-line-height);
-      font-weight: var(--type-title-m-font-weight);
-      letter-spacing: var(--type-title-m-letter-spacing);
+      @include type(title-m);
       color: var(--text-primary);
       margin: 0 0 var(--spacing-md);
     }

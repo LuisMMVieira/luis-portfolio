@@ -306,9 +306,9 @@ function initPage() {
       el.classList.add("reveal");
     });
 
-    // About: photo, paragraphs, contact
+    // About: photo, paragraphs (contact is always visible — no reveal)
     document.querySelectorAll(
-      ".about-photo, .about-paragraphs, .about-contact"
+      ".about-photo, .about-paragraphs"
     ).forEach(function (el) {
       el.classList.add("reveal");
     });
