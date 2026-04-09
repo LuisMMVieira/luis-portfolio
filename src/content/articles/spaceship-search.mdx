@@ -9,6 +9,8 @@ covers:
 draft: false
 ---
 
+Spaceship sells and manages domains. The homepage search bar is the start of the business—register a domain, or transfer one (or several) in. My job was to fix and enhance that core experience. It was a mess.
+
 <dl class="post-meta">
   <div class="post-meta__row">
     <dt class="post-meta__label">Role</dt>
@@ -28,15 +30,13 @@ draft: false
   </div>
 </dl>
 
-Spaceship sells domains. The homepage search bar is the entire business—register a domain, transfer one in. Two fundamentally different actions, funnelled through a single input with a dropdown nobody noticed. Every usability session confirmed it: users didn't know which mode they were in.
-
-Transfer success hovered around 5%. Not because transfers were hard—because people were triggering them by accident.
-
-I led the redesign end to end. Research, process, design, delivery. Four teams, eleven people, 2.5 months.
+---
 
 ## The front door was broken
 
 Spaceship's homepage search handled both domain registration and domain transfer. A small dropdown labelled "I want to…" switched between the two—silently, with no change to the input itself. The bar looked identical in both modes. The placeholder said "Search or transfer a domain" regardless.
+
+The search bar needed to handle three things: registration, single transfer, and bulk transfer. But in any given mode it wasn't clear what you could actually do with it. And it got worse when the bar was in focus—a dropdown appeared with two options that looked like links, not mode selectors: "Search or Transfer" and "Bulk transfer." What happens when you hit enter? Nobody knew.
 
 <figure class="post-figure article-finding--text-width">
   <img src="/assets/articles/spaceship-search/images/search-before.png" alt="The original Spaceship homepage search with the 'I want to...' dropdown—modes hidden behind a click" />
@@ -45,7 +45,7 @@ Spaceship's homepage search handled both domain registration and domain transfer
 
 The problem wasn't cosmetic. Registration and transfer are completely different workflows—different inputs, different expectations, different mental models. Registration is speculative: "Is this available?" Transfer is intentional: "I own this, move it here." Cramming both behind the same input meant neither worked properly.
 
-Users who wanted to register were accidentally initiating transfers. Users who wanted to transfer couldn't find how. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
+Users who wanted to transfer were accidentally initiating a search, and vice-versa. Users who wanted to transfer couldn't find how. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
 
 ---
 
@@ -83,6 +83,15 @@ The research told us what we suspected but needed proof for: this wasn't a UI po
 
 Four teams in the room from day one—Product Platform, Design System, Brand, and Research. A shared roadmap with milestones, research bookending the design work. Not research added at the end to validate decisions already made.
 
+When everyone sees the same timeline, owns their part, and knows where research fits in—the conversations become about the work, not about coordination. That alignment was deliberate. I set it up before any design work started.
+
+<figure class="post-figure article-finding--text-width">
+  <img src="/assets/articles/spaceship-search/images/roadmap-gantt.png" alt="Gantt-style roadmap showing all four team swim lanes across November 2023 to January 2024" />
+  <figcaption class="post-figure__caption">The roadmap I built and got approved before any design work started. Six weeks, a holiday in the middle, and a hard deadline.</figcaption>
+</figure>
+
+The roadmap was mine. I built it, got it approved, and used it to keep everyone honest for two months. It also defined the design critique structure—create two or three scenarios, make them interactive, gather individual notes before any group discussion, evaluate each prototype, vote preferred and justify why.
+
 I led the process and the roadmap while also being one of the designers. That dual role was intentional—when you're in the Figma file yourself, you have a different kind of authority in the conversations. You're not managing opinions. You're synthesizing while making.
 
 ---
@@ -111,8 +120,9 @@ Three designers—myself, David, and Mafalda—each took our own direction. Same
 
 Each proposal attacked the same problem differently. One separated the modes visually but kept them on the same surface. Another introduced progressive disclosure—reveal the mode only after engagement. The third broke them apart entirely into distinct flows.
 
-The design critique was structured: async analysis first, then a live discussion. No presenting, no defending—just talking about the work. What came out of that room was better than anything any of us had walked in with.
+### The design critique
 
+The design critique was structured: async analysis first, then a live discussion. No presenting, no defending—just talking about the work. What came out of that room was better than anything any of us had walked in with.
 
 ---
 
@@ -123,24 +133,25 @@ The core insight was simple once you said it out loud: registration and transfer
 The new component starts with a visible toggle—**Register** or **Transfer**—above the search bar. No dropdown, no hidden state. Switch to Transfer and the whole bar transforms: different placeholder, different CTA, different secondary action.
 
 <figure class="post-figure">
-  <img src="/assets/articles/spaceship-search/images/roadmap-gantt.png" alt="Gantt-style roadmap showing all four team swim lanes across November 2023 to January 2024" />
-  <figcaption class="post-figure__caption">The roadmap that kept everyone honest across 2.5 months.</figcaption>
-</figure>
-
-<figure class="post-figure">
   <img src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="The final search component showing Register and Transfer modes with the toggle always visible" />
-  <figcaption class="post-figure__caption">The background dims when the component is active — pulling focus without competing for it.</figcaption>
+  <figcaption class="post-figure__caption">Register and Transfer as distinct modes. Different placeholder, different CTA, different secondary action.</figcaption>
 </figure>
 
-**Bulk transfer** lives as a secondary action inside Transfer mode—accessible but not accidentally triggerable. A modal handles up to 500 domains with CSV upload. Power users get what they need. Casual users never see it.
+I talked about using the toggle early on, but in the first prototype it was still hidden—tucked inside the component, visible only after clicking into the search bar. Cleaner. More elegant. We prototyped it that way and brought it to the second round of testing.
 
-### The toggle that almost stayed hidden
+{/* TODO: Add screenshot of the prototype tested in the second round — toggle hidden inside the component */}
 
-One late decision worth naming. The refined prototype had the toggle living inside the component, visible only after clicking into the search bar. Cleaner. More elegant. We almost shipped it.
+---
+
+## What testing revealed
+
+The second round of usability testing ran on the prototype. The signal was different this time—the big confusion was gone, but new details surfaced. Removal of the subtitle for a cleaner hierarchy. Darkening of the background to give the main component more prominence.
+
+Worth naming: Figma prototypes aren't great for real testing. You can't type, you can't truly feel the interaction. They're far from the browser experience. We worked around it, but it's a constraint that matters.
 
 Then we caught ourselves. We'd spent the entire project removing hidden modes—and here we were introducing a subtler version of the exact same problem. The toggle moved outside. Always visible. No interaction required to discover it.
 
-> Sometimes the most honest design decision trades a bit of elegance for a lot of clarity. The whole project was about making hidden things visible—we couldn't end it by hiding one more.
+*Sometimes the most honest design decision trades a bit of elegance for a lot of clarity. The whole project was about making hidden things visible—we couldn't end it by hiding one more.*
 
 ---
 
@@ -148,33 +159,35 @@ Then we caught ourselves. We'd spent the entire project removing hidden modes—
 
 The final component needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
 
-{/* PLACEHOLDER: Screenshots showing the transfer mode states—empty, validating, error, success. These would demonstrate the attention to edge-case design that separates a component from a product. Ideal: a 2×2 grid of transfer mode states from Figma. */}
-
-<figure class="post-figure article-figure--full-width">
-  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-sm);">
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-1.png" alt="" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-2.png" alt="" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-3.png" alt="" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-  </div>
-  <figcaption class="post-figure__caption">The final homepage. Toggle always visible, modes immediately legible, transfer no longer accidental.</figcaption>
-</figure>
-
-<figure class="post-figure article-figure--full-width">
-  <img src="/assets/articles/spaceship-search/images/component-logic.png" alt="Component logic diagram showing the state tree for register mode, transfer mode, and bulk transfer" />
-</figure>
-
-The entrance choreography was deliberate—each element arrives with purpose, not decoration. The toggle, then the bar, then the suggestions. Sequence creates hierarchy.
-
 <figure class="post-figure post-figure--video">
   <video src="/assets/articles/spaceship-search/videos/entrance-choreography.mp4" autoplay muted loop playsinline></video>
   <figcaption class="post-figure__caption">Entrance choreography—each element arrives with intent, not all at once.</figcaption>
 </figure>
 
-{/* PLACEHOLDER: Mobile responsive views of both modes. Would show the component adapting across breakpoints—the toggle stacks, the bar simplifies. Use transfer-mobile-dark.png if it covers this. */}
+The choreography was deliberate—each element arrives with purpose, not decoration. The dimming of the background when the component is active was my push—it pulls focus without competing for it.
+
+<figure class="post-figure article-figure--full-width">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-sm);">
+    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-1.png" alt="Register mode — the default homepage state" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
+    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-2.png" alt="Transfer mode — different placeholder, different CTA" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
+    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-3.png" alt="Bulk transfer mode — modal with CSV upload" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
+  </div>
+  <figcaption class="post-figure__caption">The final homepage. Toggle always visible, modes immediately legible, transfer no longer accidental.</figcaption>
+</figure>
+
+**Bulk transfer** lives as a secondary action inside Transfer mode—accessible but not accidentally triggerable. A modal handles up to 500 domains with CSV upload. Power users get what they need. Casual users never see it.
+
+<figure class="post-figure article-figure--full-width">
+  <img src="/assets/articles/spaceship-search/images/component-logic.png" alt="Component logic diagram showing the state tree for register mode, transfer mode, and bulk transfer" />
+</figure>
+
+Mobile was carefully crafted—every decision needed to materialise on touch devices. The toggle, the focused search state with keyboard, the transfer modal. Same hierarchy, same clarity, adapted to the constraints of a smaller screen.
+
+{/* TODO: Add mobile screenshots — homepage, focused search with keyboard, transfer mode, bulk transfer modal */}
 
 ---
 
-## What the data showed
+## Outcome
 
 The design shipped April 2024. Weeks later, the BI team flagged an anomaly: widget interactions dropped roughly 95%. It looked like a disaster.
 
@@ -192,8 +205,6 @@ It was the design working as intended.
   </div>
   <figcaption class="post-figure__caption">Monthly interactions before and after the redesign. That cliff in April? That's 30,000 accidental clicks disappearing.</figcaption>
 </figure>
-
-The old widget sat one click from the homepage—most interactions were accidental. The new design put transfer behind an intentional toggle and bulk transfer behind a second deliberate action. Only users who actually wanted to transfer were reaching the widget.
 
 <figure class="post-figure article-finding article-finding--text-width">
   <div class="article-finding__stats">

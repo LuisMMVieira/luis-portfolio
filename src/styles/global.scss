@@ -466,6 +466,17 @@ h6 {
 	}
 }
 
+.card--inline-reversed {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+
+	@media (min-width: 48rem) {
+		flex-direction: row-reverse;
+		gap: var(--spacing-md);
+	}
+}
+
 .card--stacked {
 	display: flex;
 	flex-direction: column;
@@ -481,7 +492,8 @@ h6 {
 	text-decoration: none;
 	cursor: pointer;
 
-	.card--inline & {
+	.card--inline &,
+	.card--inline-reversed & {
 		@media (min-width: 48rem) {
 			flex-shrink: 0;
 			flex: 1 1 auto;
@@ -504,7 +516,8 @@ h6 {
 	padding-block-start: var(--spacing-md);
 	padding-block-end: var(--spacing-xl);
 
-	.card--inline & {
+	.card--inline &,
+	.card--inline-reversed & {
 		@media (min-width: 48rem) {
 			width: 240px;
 			max-width: 240px;

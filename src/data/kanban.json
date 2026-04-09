@@ -10,7 +10,9 @@
     "SITE: think about the footer. L—V",
     "Check https://vibeisland.app/#pricing test",
     "KANBAN: add tag system (apple notes like)",
-    "Redesign homepage hero"
+    "Redesign homepage hero",
+    "BUG: spaceship unbox vertical scroll infinite",
+    "Research custom MCPs"
   ],
   "inprogress": [
     "Fine tune Spaceship Search article"

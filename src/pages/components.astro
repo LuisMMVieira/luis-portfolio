@@ -844,7 +844,7 @@ import Phone from '../components/mdx/Phone.astro';
           <section class="cp-section">
             <div class="cp-header">
               <h2 class="cp-header__title">Card</h2>
-              <p class="cp-header__desc">Contained card with sunken background. Inline (horizontal) or stacked (vertical) layout.</p>
+              <p class="cp-header__desc">Contained card. Inline (horizontal), inline reversed (text left), or stacked (vertical) layout.</p>
             </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
@@ -852,6 +852,7 @@ import Phone from '../components/mdx/Phone.astro';
                   <span class="cp-control-label">layout</span>
                   <div class="cp-pills" data-control="layout">
                     <button class="cp-pill is-active" data-value="inline">inline</button>
+                    <button class="cp-pill" data-value="inline-reversed">inline reversed</button>
                     <button class="cp-pill" data-value="stacked">stacked</button>
                   </div>
                 </div>
@@ -884,6 +885,19 @@ import Phone from '../components/mdx/Phone.astro';
                 </div>
                 <div data-variant-key="layout:inline|image:without|cta:without" hidden>
                   <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="inline" />
+                </div>
+                {/* layout:inline-reversed | image:with | cta:with */}
+                <div data-variant-key="layout:inline-reversed|image:with|cta:with" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" href="#" layout="inline-reversed" />
+                </div>
+                <div data-variant-key="layout:inline-reversed|image:with|cta:without" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." cover="https://picsum.photos/1920/1200" layout="inline-reversed" />
+                </div>
+                <div data-variant-key="layout:inline-reversed|image:without|cta:with" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." href="#" layout="inline-reversed" />
+                </div>
+                <div data-variant-key="layout:inline-reversed|image:without|cta:without" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="inline-reversed" />
                 </div>
                 {/* layout:stacked | image:with | cta:with */}
                 <div data-variant-key="layout:stacked|image:with|cta:with" hidden>
