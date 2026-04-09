@@ -459,8 +459,6 @@ h6 {
 }
 
 .card--stacked {
-	width: fit-content;
-	max-width: 320px;
 }
 
 .card__media {
@@ -492,15 +490,12 @@ h6 {
 	gap: var(--spacing-md);
 	padding-inline: var(--spacing-sm);
 	padding-block-start: var(--spacing-md);
-	padding-block-end: var(--spacing-xl);
+	padding-block-end: var(--spacing-lg);
 
 	.card--inline &,
 	.card--inline-reversed & {
 		@media (min-width: 48rem) {
-			width: 240px;
-			max-width: 240px;
 			flex-shrink: 0;
-			padding-block-start: var(--spacing-sm);
 		}
 	}
 }
