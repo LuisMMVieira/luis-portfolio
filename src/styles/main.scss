@@ -39,11 +39,8 @@
 }
 
 .nav-link {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 	font-weight: var(--font-weight-medium);
-	letter-spacing: var(--type-text-m-letter-spacing);
 	color: var(--text-primary);
 	opacity: 0.30;
 	text-decoration: none;
@@ -125,10 +122,7 @@
 
 .intro-sub-content__paragraph {
 	max-width: 432px;
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type-size(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 
@@ -308,10 +302,7 @@
 	gap: var(--spacing-md);
 
 	p {
-		font-family: var(--type-text-m-font-family);
-		font-size: var(--type-text-m-font-size);
-		line-height: var(--type-text-m-line-height);
-		letter-spacing: var(--type-text-m-letter-spacing);
+		@include type-size(text-m);
 		color: var(--text-primary);
 		max-width: 650px;
 		margin: 0;
@@ -324,9 +315,7 @@
 	align-items: center;
 	gap: var(--spacing-xxs) var(--spacing-sm);
 	margin-top: auto;
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 }
 
 .about-contact__group {
@@ -356,11 +345,7 @@
 	bottom: calc(100% + var(--spacing-xxs));
 	transform: translateX(-50%);
 	padding: var(--spacing-xxs) var(--spacing-sm);
-	font-family: var(--type-text-s-font-family);
-	font-size: var(--type-text-s-font-size);
-	font-weight: var(--type-text-s-font-weight);
-	line-height: var(--type-text-s-line-height);
-	letter-spacing: var(--type-text-s-letter-spacing);
+	@include type(text-s);
 	color: var(--text-secondary);
 	background: var(--color-darkest);
 	border: var(--line-width) solid var(--border-default);
@@ -557,9 +542,12 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	.section#intro > .container--narrow,
 	.section#work > .container--narrow,
 	.section#beliefs > .container--narrow,
-	.section#background > .container--narrow,
-	.section#about > .container--narrow {
+	.section#background > .container--narrow {
 		grid-column: 4 / 12;
+	}
+
+	.section#about > .container--narrow {
+		grid-column: 4 / 10;
 	}
 
 	/* Desktop: sidebar nav at grid edge */
@@ -588,15 +576,10 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		gap: 0;
 	}
 
-	/* About: xl → 8-col grid on canvas */
-	.section#about .about-canvas {
-		display: grid;
-		grid-template-columns: repeat(8, 1fr);
-		column-gap: 0;
-	}
 
 	.section#about h3 {
-		grid-column: 1 / span 6;
+		position: relative;
+		top: -5px;
 	}
 
 	.section#about .about-photo {
@@ -739,9 +722,7 @@ body:has(.components-page) {
 }
 
 .cp-page-header__subtitle {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 }
@@ -1749,18 +1730,14 @@ body:has(.components-page) {
 
 .kanban__header {
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	gap: var(--spacing-md);
 	margin-block-end: var(--spacing-xl);
 }
 
 
 .kanban__title {
-	font-family: var(--font-family-display);
-	font-weight: var(--font-weight-semibold);
-	font-size: var(--type-title-m-font-size);
-	line-height: var(--type-title-m-line-height);
-	letter-spacing: var(--type-title-m-letter-spacing);
+	@include type(title-m);
 	color: var(--text-primary);
 }
 

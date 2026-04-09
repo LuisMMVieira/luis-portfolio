@@ -41,6 +41,10 @@ Index pages only show published content (`draft: false`). /andamento shows every
 - Use `/andamento/kanbandamento` to track and plan work. Check it regularly. Update it. Push Luis on it if it's going stale.
 - If Luis asks for work not on the Kanbandamento, flag it. Don't just do it — ask if it should replace what's in progress or go to the backlog.
 - When Luis pastes `kanban: {...}`, write the JSON to `src/data/kanban.json`, commit, and push. No questions.
+- **Kanban sync** — three ways to keep `kanban.json` in sync with the browser board:
+  1. **Dev server auto-save** (best): when `npm run dev` is running, every board change auto-saves to disk via `/api/kanban`.
+  2. **Chrome MCP**: if the Kanbandamento page is open in Chrome, read `localStorage.getItem('kanban-board')` via Chrome MCP JS execution.
+  3. **Copy JSON button**: the board header has a "Copy JSON" button — Luis clicks it, pastes `kanban: {...}` here.
 - Use `/andamento/sitemap` to understand the full site IA before structural changes.
 - Change flow is defined in `.claude/rules/templates.md` — follow it.
 - Design system rules live in `.claude/rules/sinphony.md` — read `src/styles/tokens.scss` before any visual work, critique, or CSS edit.

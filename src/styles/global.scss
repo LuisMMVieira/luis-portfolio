@@ -97,11 +97,7 @@ body {
 	overflow-x: clip;
 	width: 100%;
 
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
-	font-weight: var(--type-text-m-font-weight);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 }
 
 .page {
@@ -136,10 +132,7 @@ h6 {
 }
 
 h1 {
-	font-family: var(--type-title-m-font-family);
-	font-size: var(--type-title-m-font-size);
-	line-height: var(--type-title-m-line-height);
-	letter-spacing: var(--type-title-m-letter-spacing);
+	@include type-size(title-m);
 }
 
 h2 {
@@ -158,11 +151,7 @@ p {
 
 /* Small / captions */
 small {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
-	font-weight: var(--type-text-m-font-weight);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 }
 
@@ -178,11 +167,7 @@ small {
 	border-radius: var(--radius-sm);
 	border: none;
 	cursor: pointer;
-	font-family: var(--type-cta-font-family);
-	font-size: var(--type-cta-font-size);
-	font-weight: var(--type-cta-font-weight);
-	line-height: var(--type-cta-line-height);
-	letter-spacing: var(--type-cta-letter-spacing);
+	@include type(cta);
 	text-decoration: none;
 	white-space: nowrap;
 	text-align: center;
@@ -210,8 +195,7 @@ small {
 
 .btn--sm {
 	padding: var(--spacing-xxs) var(--spacing-xs);
-	font-size: var(--type-text-s-font-size);
-	line-height: var(--type-text-s-line-height);
+	@include type-size(text-s);
 	border-radius: var(--radius-xs);
 }
 
@@ -391,10 +375,7 @@ h6 {
 
 .project-page__close-text {
 	display: inline;
-	font-family: var(--type-text-s-font-family);
-	font-size: var(--type-text-s-font-size);
-	line-height: var(--type-text-s-line-height);
-	letter-spacing: var(--type-text-s-letter-spacing);
+	@include type-size(text-s);
 	color: var(--color-base);
 	text-transform: uppercase;
 }
@@ -534,29 +515,20 @@ h6 {
 }
 
 .card__title {
-	font-family: var(--type-title-s-font-family);
-	font-size: var(--type-title-s-font-size);
-	line-height: var(--type-title-s-line-height);
-	letter-spacing: var(--type-title-s-letter-spacing);
+	@include type(title-s);
 	font-feature-settings: var(--font-feature-settings-display);
 	color: var(--text-primary);
 	margin: 0;
 }
 
 .card__subtitle {
-	font-family: var(--type-text-m-font-family);
-	font-weight: var(--type-text-m-font-weight);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 }
 
 .card__status {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 	color: var(--text-shy);
 	margin: 0;
 }

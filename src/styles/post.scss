@@ -175,10 +175,7 @@
 	}
 
 	&__caption {
-		font-family: var(--type-text-m-font-family);
-		font-size: var(--type-text-m-font-size);
-		font-weight: var(--type-text-m-font-weight);
-		line-height: var(--type-text-m-line-height);
+		@include type(text-m);
 		color: var(--text-secondary);
 		padding-block: var(--spacing-sm);
 		max-width: 320px;
@@ -263,11 +260,7 @@
 }
 
 .post-header__subtitle {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 }
@@ -279,11 +272,7 @@
 }
 
 .post-header__intro p {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 }
@@ -336,10 +325,7 @@
 }
 
 .post-figure__caption {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 	color: var(--text-secondary);
 	padding-block-start: var(--spacing-sm);
 	padding-block-end: var(--spacing-none);
@@ -352,10 +338,7 @@
 }
 
 .post-subsection__caption {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
+	@include type(text-m);
 	color: var(--text-secondary);
 	padding-block-start: var(--spacing-sm);
 	padding-block-end: var(--spacing-none);
@@ -384,11 +367,7 @@
 }
 
 .post-text p {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 	margin: 0;
 }
@@ -423,11 +402,7 @@
 }
 
 .post-meta__label {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-primary);
 	min-width: 7.429rem; /* 104px — Figma Tight (xs) */
 	margin: 0;
@@ -438,11 +413,7 @@
 }
 
 .post-meta__value {
-	font-family: var(--type-text-m-font-family);
-	font-size: var(--type-text-m-font-size);
-	font-weight: var(--type-text-m-font-weight);
-	line-height: var(--type-text-m-line-height);
-	letter-spacing: var(--type-text-m-letter-spacing);
+	@include type(text-m);
 	color: var(--text-secondary);
 	flex: 1;
 	min-width: 0;
