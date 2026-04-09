@@ -27,7 +27,7 @@ const searchItems = [
   ...reports.map((r) => ({ title: r.data.title, path: `/reports/${r.slug}`, type: 'report' })),
   ...decks.map((d) => ({ title: d.title, path: `/decks/${d.slug}`, type: 'deck' })),
   { title: 'Components', path: '/components', type: 'tool' },
-  { title: 'Kanbandamento', path: '/andamento/kanban', type: 'tool' },
+  { title: 'Kanbandamento', path: '/andamento/kanbandamento', type: 'tool' },
   { title: 'Sitemap', path: '/andamento/sitemap', type: 'tool' },
   { title: 'Project Template', path: '/projects/project-template', type: 'template' },
   { title: 'Article Template', path: '/articles/article-template', type: 'template' },
@@ -161,7 +161,7 @@ function splitLastWord(title: string) {
         <section class="andamento__section">
           <h2 class="andamento__section-label">Tools</h2>
           <nav class="andamento__nav">
-            <a href="/andamento/kanban" class="andamento__link">Kanbandamento</a>
+            <a href="/andamento/kanbandamento" class="andamento__link">Kanbandamento</a>
             <a href="/andamento/sitemap" class="andamento__link">Sitemap</a>
           </nav>
         </section>

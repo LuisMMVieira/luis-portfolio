@@ -30,15 +30,15 @@ Work directly on `main`. No branches, no PRs. Solo project.
 
 ### Not Public
 - **/andamento** — private dev index: all content (inc. drafts), SINPHONY, Templates, Documents
-- **/andamento/kanban** — drag-and-drop Kanbandamento board (To Do, In Progress, On Hold, Done). Uses localStorage. Use this to track and plan work on this project.
+- **/andamento/kanbandamento** — drag-and-drop Kanbandamento board (To Do, In Progress, On Hold, Done). Uses localStorage. Use this to track and plan work on this project.
 - **/andamento/sitemap** — auto-generated visual sitemap / IA tree. Pulls from content collections at build time — always up to date.
 - **/components** — design system playground
 
 Index pages only show published content (`draft: false`). /andamento shows everything.
 
 ## Workflow
-- **Start every session** by reading `src/data/kanban.json` and telling Luis what's in progress. The Kanbandamento drives the work.
-- Use `/andamento/kanban` to track and plan work. Check it regularly. Update it. Push Luis on it if it's going stale.
+- **Start every session** by reading `src/data/kanban.json` from the **main repo** (not a worktree copy) and telling Luis what's in progress. The Kanbandamento drives the work. In worktrees, read from `/Users/luisvieira/Developer/luis-portfolio/src/data/kanban.json`.
+- Use `/andamento/kanbandamento` to track and plan work. Check it regularly. Update it. Push Luis on it if it's going stale.
 - If Luis asks for work not on the Kanbandamento, flag it. Don't just do it — ask if it should replace what's in progress or go to the backlog.
 - When Luis pastes `kanban: {...}`, write the JSON to `src/data/kanban.json`, commit, and push. No questions.
 - Use `/andamento/sitemap` to understand the full site IA before structural changes.

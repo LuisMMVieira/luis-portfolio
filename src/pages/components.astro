@@ -209,6 +209,18 @@ import Phone from '../components/mdx/Phone.astro';
                 <span class="cp-swatch__label">--color-neutral-transparency-mid</span>
               </div>
             </div>
+
+            {/* Lens demo */}
+            <div class="cp-lens-demo" id="lens-demo">
+              <img src="https://picsum.photos/1200/400" alt="" class="cp-lens-demo__photo" />
+              <div class="cp-lens-demo__overlay"></div>
+              <div class="cp-lens-demo__handle">
+                <div class="cp-lens-demo__handle-line"></div>
+                <div class="cp-lens-demo__handle-grip"></div>
+                <div class="cp-lens-demo__handle-line"></div>
+              </div>
+              <span class="cp-lens-demo__label">--bg-lens</span>
+            </div>
           </section>
         </div>
 
@@ -245,11 +257,6 @@ import Phone from '../components/mdx/Phone.astro';
                 <div class="cp-line-strip cp-line-strip--dark">
                   <span class="cp-line-strip__label">dark bg</span>
                   <div class="cp-line-sample" id="line-sample-dark"></div>
-                </div>
-                {/* Line on light bg */}
-                <div class="cp-line-strip cp-line-strip--light">
-                  <span class="cp-line-strip__label">light bg</span>
-                  <div class="cp-line-sample" id="line-sample-light"></div>
                 </div>
               </div>
             </div>
@@ -1201,7 +1208,6 @@ import Phone from '../components/mdx/Phone.astro';
     var pg = document.getElementById('lines-playground');
     if (!pg) return;
     var sampleDark = document.getElementById('line-sample-dark');
-    var sampleLight = document.getElementById('line-sample-light');
 
     function applyLine() {
       var widthPill = pg.querySelector('[data-control="line-width"] .is-active');
@@ -1209,10 +1215,8 @@ import Phone from '../components/mdx/Phone.astro';
       if (!widthPill || !colorPill) return;
       var w = 'var(--' + widthPill.getAttribute('data-value') + ')';
       var c = 'var(--' + colorPill.getAttribute('data-value') + ')';
-      [sampleDark, sampleLight].forEach(function (el) {
-        el.style.height = w;
-        el.style.backgroundColor = c;
-      });
+      sampleDark.style.height = w;
+      sampleDark.style.backgroundColor = c;
     }
 
     var observer = new MutationObserver(applyLine);
@@ -1401,6 +1405,52 @@ import Phone from '../components/mdx/Phone.astro';
 
     // Initial play
     play();
+  })();
+  </script>
+
+  {/* ── Lens demo drag ─────────── */}
+  <script is:inline>
+  (function () {
+    var demo = document.getElementById('lens-demo');
+    if (!demo) return;
+    var overlay = demo.querySelector('.cp-lens-demo__overlay');
+    var handle = demo.querySelector('.cp-lens-demo__handle');
+    var dragging = false;
+
+    function setPosition(x) {
+      var rect = demo.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+      overlay.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+      e.preventDefault();
+      var x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPosition(x);
+    }
+
+    function onUp() {
+      dragging = false;
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onUp);
+    }
+
+    handle.addEventListener('mousedown', function (e) {
+      e.preventDefault();
+      dragging = true;
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+
+    handle.addEventListener('touchstart', function (e) {
+      dragging = true;
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onUp);
+    });
   })();
   </script>
 
