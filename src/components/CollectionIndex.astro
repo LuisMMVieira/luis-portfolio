@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  basePath: string;
+  items: { slug: string; data: { title: string } }[];
+}
+
+const { title, basePath, items } = Astro.props;
+---
+
+<div class="andamento">
+  <header class="andamento__header">
+    <h1 class="andamento__title">{title}</h1>
+    <p class="andamento__desc">{items.length} {title.toLowerCase()}</p>
+  </header>
+
+  <nav class="andamento__nav">
+    {items.map((item) => (
+      <a href={`/${basePath}/${item.slug}`} class="andamento__link">
+        <span class="andamento__link-label">
+          {item.data.title}
+        </span>
+        <span class="andamento__link-path">/{basePath}/{item.slug}</span>
+      </a>
+    ))}
+  </nav>
+</div>

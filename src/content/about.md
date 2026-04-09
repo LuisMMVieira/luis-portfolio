@@ -5,7 +5,7 @@ title: "About"
 <h3><span class="about-greeting">I'm Luís,</span><span class="about-tagline">thank you for stopping by</span></h3>
 
 <div class="about-photo">
-  <img src="/assets/images/pro me.png" alt="Luís Vieira" />
+  <img src="/assets/images/pro-me.jpg" alt="Luís Vieira" />
 </div>
 
 <div class="about-paragraphs">

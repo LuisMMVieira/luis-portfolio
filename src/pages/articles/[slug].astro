@@ -5,6 +5,7 @@ import Figure from "../../components/mdx/Figure.astro";
 import Video from "../../components/mdx/Video.astro";
 import Divider from "../../components/Divider.astro";
 import ArticleHeader from "../../components/mdx/ArticleHeader.astro";
+import BackButton from "../../components/BackButton.astro";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
@@ -25,18 +26,7 @@ const isDraft = article.data.draft;
 
 <BaseLayout title={`${article.data.title} — Luis Vieira`} hideHeader={true} theme={article.data.theme}>
   <script slot="head" is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  {isDraft && (
-    <a href="/andamento" class="cp-home-btn" aria-label="Back to index">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-        <line x1="14" y1="4" x2="21" y2="4"></line>
-        <line x1="14" y1="8" x2="21" y2="8"></line>
-        <line x1="14" y1="15" x2="21" y2="15"></line>
-        <line x1="14" y1="19" x2="21" y2="19"></line>
-      </svg>
-    </a>
-  )}
+  {isDraft && <BackButton />}
   <div class="article-page">
     <ArticleHeader
       title={article.data.title}
@@ -60,21 +50,5 @@ const isDraft = article.data.draft;
       <Content components={{ Figure, Video, Divider }} />
     </div>
   </div>
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof Chart === 'undefined') return;
-      Chart.defaults.color = '#888896';
-      Chart.defaults.borderColor = '#2e2e38';
-      Chart.defaults.font.family = "'IBM Plex Sans', system-ui, sans-serif";
-      Chart.defaults.font.size = 12;
-      document.querySelectorAll('[data-chart-config]').forEach(function(canvas) {
-        try {
-          var config = JSON.parse(canvas.dataset.chartConfig);
-          new Chart(canvas, config);
-        } catch (e) {
-          console.warn('Chart init failed for', canvas.id, e);
-        }
-      });
-    });
-  </script>
+  <script is:inline src="/scripts/chart-init.js"></script>
 </BaseLayout>

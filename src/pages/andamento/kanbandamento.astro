@@ -1,15 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BackButton from '../../components/BackButton.astro';
 import kanbanData from '../../data/kanban.json';
 ---
 
 <BaseLayout title="Kanbandamento — Luis Vieira" description="Project kanban board." hideHeader={true}>
 
-  <a href="/andamento" class="cp-home-btn" aria-label="Back to Andamento">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </a>
+  <BackButton icon="chevron" />
 
   <div class="kanban">
     <header class="kanban__header">

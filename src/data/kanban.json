@@ -12,7 +12,8 @@
   "inprogress": [
     "BUG: spaceship post: size of the unbox diagram. fix to drag on all breakpoints",
     "BUG: replace images in carousel in post with the browsers because its changing the browser feel with transparency",
-    "BUG: spaceship unbox horz scroll infinite"
+    "BUG: spaceship unbox horz scroll infinite",
+    "BUG: no dead ends nudge up text in Alf"
   ],
   "onhold": [
     "Fine tune Spaceship Search article"

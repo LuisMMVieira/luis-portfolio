@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CollectionIndex from '../../components/CollectionIndex.astro';
 import { getCollection } from 'astro:content';
 
 const articles = (await getCollection('articles'))
@@ -8,23 +9,5 @@ const articles = (await getCollection('articles'))
 ---
 
 <BaseLayout title="Articles — Luis Vieira" description="All articles." hideHeader={true}>
-
-<div class="andamento">
-    <header class="andamento__header">
-      <h1 class="andamento__title">Articles</h1>
-      <p class="andamento__desc">{articles.length} articles</p>
-    </header>
-
-    <nav class="andamento__nav">
-      {articles.map((a) => (
-        <a href={`/articles/${a.slug}`} class="andamento__link">
-          <span class="andamento__link-label">
-            {a.data.title}
-          </span>
-          <span class="andamento__link-path">/articles/{a.slug}</span>
-        </a>
-      ))}
-    </nav>
-  </div>
-
+  <CollectionIndex title="Articles" basePath="articles" items={articles} />
 </BaseLayout>
