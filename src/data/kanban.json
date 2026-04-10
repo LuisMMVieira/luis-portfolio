@@ -1,13 +1,14 @@
 {
   "todo": [
     "design a better. close project button -- bottom right overflow round cross button",
+    "consolidate borders/lines: have 2. only 1 between shy and default -- that becoming the default",
     "optimize andamento search: first letter should match first letters lol",
-    "KANBAN: add ability for details in cards",
     "SIN: add system message colors.",
     "SITE: think about the footer. L—V",
     "Check https://vibeisland.app/#pricing test",
+    "KANBAN: add ability for details in cards",
     "KANBAN: add tag system (apple notes like)",
-    "Redesign homepage hero"
+    "homepage v2. go wild. layout, concept, photos? illustration concept?"
   ],
   "inprogress": [
     "BUG: spaceship post: size of the unbox diagram. fix to drag on all breakpoints",
