@@ -457,7 +457,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 	.section#beliefs p {
-		@include type-size(title-l);
+		@include type-size(title-m);
 	}
 
 	.section#intro {
@@ -485,7 +485,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	/* Background: md → staggered 10-col grid */
 	.section#background {
 		h3 {
-			@include type-size(title-m);
+			@include type-size(title-xs);
 		}
 	}
 
@@ -515,7 +515,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 	.bg-item__year {
-		top: 0;
+		top: var(--spacing-xxxs);
 		left: -12px;
 		transform: translateX(-100%);
 		text-align: right;
@@ -528,7 +528,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 
 	.section#about {
 		h3 {
-			@include type-size(title-l);
+			@include type-size(title-m);
 		}
 	}
 }
@@ -577,7 +577,16 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 
+	.section#beliefs p {
+		@include type-size(title-l);
+	}
+
+	.section#background h3 {
+		@include type-size(title-m);
+	}
+
 	.section#about h3 {
+		@include type-size(title-l);
 		position: relative;
 		top: -5px;
 	}

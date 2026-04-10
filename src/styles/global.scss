@@ -492,11 +492,17 @@ h6 {
 	padding-block-start: var(--spacing-md);
 	padding-block-end: var(--spacing-lg);
 
-	.card--inline &,
-	.card--inline-reversed & {
+	.card--inline:not(.card--no-cover) &,
+	.card--inline-reversed:not(.card--no-cover) & {
 		@media (min-width: 48rem) {
+			width: 240px;
+			max-width: 240px;
 			flex-shrink: 0;
 		}
+	}
+
+	.card--no-cover & {
+		width: 100%;
 	}
 }
 

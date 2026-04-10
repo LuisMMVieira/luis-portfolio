@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 ---
 
-<article class:list={['card', `card--${layout}`]}>
+<article class:list={['card', `card--${layout}`, { 'card--no-cover': !cover }]}>
   {cover && href ? (
     <a class="card__media" href={href} aria-label={title}>
       <img src={cover} alt="" loading="lazy" />
