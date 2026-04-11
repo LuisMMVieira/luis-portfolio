@@ -18,7 +18,22 @@
 	--color-emphasis-transparency-high: oklab(47.8% 0.104 -0.202 / 0.3);
 	--color-emphasis-transparency-mid: oklab(47.8% 0.104 -0.202 / 0.5);
 
-	/* Neutral transparency */
+	/* Emphasis opacity */
+	--color-emphasis-opacity-low: oklab(47.8% 0.104 -0.202 / 0.08);
+	--color-emphasis-opacity-mid: oklab(47.8% 0.104 -0.202 / 0.5);
+	--color-emphasis-opacity-high: oklab(47.8% 0.104 -0.202 / 0.8);
+
+	/* White opacity */
+	--color-white-opacity-low: oklab(100% 0 0 / 0.08);
+	--color-white-opacity-mid: oklab(100% 0 0 / 0.5);
+	--color-white-opacity-high: oklab(100% 0 0 / 0.8);
+
+	/* Black opacity */
+	--color-black-opacity-low: oklab(0% 0 0 / 0.08);
+	--color-black-opacity-mid: oklab(0% 0 0 / 0.5);
+	--color-black-opacity-high: oklab(0% 0 0 / 0.8);
+
+	/* Neutral transparency (legacy — to be replaced by white-opacity) */
 	--color-neutral-transparency-high: oklab(100% 0 0 / 0.07);
 	--color-neutral-transparency-mid: oklab(100% 0 0 / 0.2);
 
@@ -32,17 +47,17 @@
 	--bg-lens: oklab(from var(--color-superpastel-dark) l a b / 0.85);
 
 	--text-primary: var(--color-superpastel-light);
-	--text-secondary: var(--color-medium-light);
-	--text-shy: var(--color-medium-dark);
+	--text-secondary: var(--color-white-opacity-high);
+	--text-shy: var(--color-white-opacity-mid);
 
-	--border-default: var(--color-medium-dark);
-	--border-strong: var(--color-base);
+	--border-default: var(--color-white-opacity-low);
+	--border-strong: var(--color-white-opacity-mid);
 	--border-shy: var(--color-dark);
 
 	--button-primary-idle: var(--text-primary);
 	--button-primary-hover: white;
-	--button-secondary-idle: var(--color-neutral-transparency-high);
-	--button-secondary-hover: var(--color-neutral-transparency-mid);
+	--button-secondary-idle: var(--color-white-opacity-low);
+	--button-secondary-hover: var(--color-white-opacity-mid);
 
 	/* ─────────────────────────────────────────
 		 Spacing (Zeplin: spacing-*)
@@ -264,24 +279,24 @@
 	--bg-sunken: var(--color-light);
 	--bg-lens: oklab(from var(--color-superpastel-light) l a b / 0.85);
 
-	/* Text: symmetric contrast deltas */
+	/* Text */
 	--text-primary: var(--color-superpastel-dark);
-	--text-secondary: var(--color-medium-dark);
-	--text-shy: var(--color-medium-light);
+	--text-secondary: var(--color-black-opacity-high);
+	--text-shy: var(--color-black-opacity-mid);
 
-	/* Borders: symmetric contrast deltas */
-	--border-default: var(--color-medium-light);
-	--border-strong: var(--color-base);
+	/* Borders */
+	--border-default: var(--color-black-opacity-low);
+	--border-strong: var(--color-black-opacity-mid);
 	--border-shy: var(--color-light);
 
 	/* Buttons */
 	--button-primary-idle: var(--text-primary);
 	--button-primary-hover: var(--color-darkest);
-	--button-secondary-idle: oklab(0% 0 0 / 0.05);
-	--button-secondary-hover: oklab(0% 0 0 / 0.12);
+	--button-secondary-idle: var(--color-black-opacity-low);
+	--button-secondary-hover: var(--color-black-opacity-mid);
 
 	/* Neutral transparency (inverted: black instead of white) */
-	--color-neutral-transparency-high: oklab(0% 0 0 / 0.05);
-	--color-neutral-transparency-mid: oklab(0% 0 0 / 0.12);
+	--color-neutral-transparency-high: var(--color-black-opacity-low);
+	--color-neutral-transparency-mid: var(--color-black-opacity-mid);
 }
 

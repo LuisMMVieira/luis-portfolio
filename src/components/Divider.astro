@@ -1,12 +1,13 @@
 ---
 interface Props {
   label?: string;
+  description?: string;
   spaceAbove?: string;
   spaceBelow?: string;
   variant?: 'work';
 }
 
-const { label, spaceAbove, spaceBelow, variant } = Astro.props;
+const { label, description, spaceAbove, spaceBelow, variant } = Astro.props;
 
 const SPACING_TOKENS = new Set([
   'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'ml', 'lg', 'xl', 'xxl', 'huge', 'max',
@@ -25,5 +26,10 @@ const classList = ['divider', variant === 'work' ? 'divider--work' : '', aboveCl
 
 <div class={classList}>
   <div class="divider__line"></div>
-  {label && <p class="divider__label">{label}</p>}
+  {label && (
+    <div class="divider__header">
+      <p class="divider__label">{label}</p>
+      {description && <p class="divider__desc">{description}</p>}
+    </div>
+  )}
 </div>

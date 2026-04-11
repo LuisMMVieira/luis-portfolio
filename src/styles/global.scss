@@ -229,17 +229,29 @@ small {
 
 .switch__track {
 	position: relative;
-	width: 3.143rem; /* 44px */
-	height: 0.571rem; /* 8px */
+	width: 3.143rem;  /* 44px */
+	height: 1.429rem; /* 20px */
 	border-radius: var(--radius-infinite);
-	border: var(--line-width-thick) solid var(--border-default);
-	background: linear-gradient(to right, var(--color-light) 50%, var(--color-darkest) 50%);
+	/* Fixed colors — the switch visualises the two themes, so halves
+	   and border never react to the surrounding theme. */
+	border: var(--line-width-thick) solid var(--color-darkest);
+	background: linear-gradient(
+		to right,
+		var(--color-lightest) 50%,
+		var(--color-darkest) 50%
+	);
+	transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark state (checked) → white border */
+.switch__input:checked ~ .switch__track {
+	border-color: var(--color-lightest);
 }
 
 .switch__thumb {
 	position: absolute;
 	top: 50%;
-	width: 1.143rem; /* 16px */
+	width: 1.143rem;  /* 16px */
 	height: 1.143rem; /* 16px */
 	border-radius: 50%;
 	background-color: var(--color-emphasis);
@@ -249,12 +261,44 @@ small {
 
 /* Dark (checked = default) → thumb on right */
 .switch__input:checked ~ .switch__track .switch__thumb {
-	left: calc(100% - 1.143rem - 2px); /* track width minus thumb minus inset */
+	left: calc(100% - 1.143rem - 2px);
 }
 
 /* Light (unchecked) → thumb on left */
 .switch__input:not(:checked) ~ .switch__track .switch__thumb {
 	left: 2px;
+}
+
+/* ── Size: Small ── */
+.switch--small .switch__track {
+	height: 0.571rem; /* 8px — thumb overflows intentionally */
+}
+
+.switch--small .switch__input:checked ~ .switch__track .switch__thumb {
+	left: calc(100% - 1.143rem - 3px);
+}
+
+.switch--small .switch__input:not(:checked) ~ .switch__track .switch__thumb {
+	left: 3px;
+}
+
+/* ── Size: Big ── */
+.switch--big .switch__track {
+	width: 4.571rem;  /* 64px */
+	height: 2.286rem; /* 32px */
+}
+
+.switch--big .switch__thumb {
+	width: 1.714rem;  /* 24px */
+	height: 1.714rem; /* 24px */
+}
+
+.switch--big .switch__input:checked ~ .switch__track .switch__thumb {
+	left: calc(100% - 1.714rem - 4px);
+}
+
+.switch--big .switch__input:not(:checked) ~ .switch__track .switch__thumb {
+	left: 4px;
 }
 
 /* ─────────────────────────────────────────

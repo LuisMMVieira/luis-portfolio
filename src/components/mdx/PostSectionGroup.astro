@@ -18,7 +18,11 @@ const { title } = Astro.props;
   <div class="post-section__divider">
     <div class="divider">
       <div class="divider__line"></div>
-      {title && <p class="divider__label">{title}</p>}
+      {title && (
+        <div class="divider__header">
+          <p class="divider__label">{title}</p>
+        </div>
+      )}
     </div>
   </div>
   <div class="post-section__body">

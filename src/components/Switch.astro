@@ -1,12 +1,14 @@
 ---
 interface Props {
   id?: string;
+  size?: 'regular' | 'small' | 'big';
 }
 
-const { id = 'theme-switch' } = Astro.props;
+const { id = 'theme-switch', size = 'regular' } = Astro.props;
+const sizeClass = size !== 'regular' ? ` switch--${size}` : '';
 ---
 
-<label class="switch" for={id}>
+<label class={`switch${sizeClass}`} for={id}>
   <input class="switch__input" type="checkbox" id={id} checked />
   <span class="switch__track">
     <span class="switch__thumb"></span>

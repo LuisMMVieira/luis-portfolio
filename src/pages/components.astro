@@ -95,14 +95,12 @@ import Phone from '../components/mdx/Phone.astro';
           <div class="cp-grid-col"><span>12</span></div>
         </section>
 
+        <Divider label="Typography" description="Dazzed SemiBold for titles, IBM Plex Sans for body text." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Typography ──────────────────────── */}
 
         <div id="typography">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Typography</h2>
-              <p class="cp-header__desc">Dazzed SemiBold for titles, IBM Plex Sans for body text.</p>
-            </div>
             <div class="cp-card">
               <div class="cp-card__preview" style="display: flex; flex-direction: column; gap: var(--spacing-sm); padding: var(--spacing-lg);">
                 <div class="cp-type-row">
@@ -135,71 +133,192 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Colors" description="Base color palette. All values in oklab. Toggle theme in the dock bar to compare." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Colors ──────────────────────────── */}
 
         <div id="colors">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Colors</h2>
-              <p class="cp-header__desc">Base color palette. All values in oklab. Toggle theme in the dock bar to compare.</p>
-            </div>
-            <div class="cp-swatches">
-              <div class="cp-swatch cp-swatch--color-darkest">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-darkest</span>
+
+            <div class="cp-color-columns">
+
+              {/* Column 1 — Base */}
+              <div class="card cp-color-column">
+                <span class="cp-color-column__label">Base colors</span>
+                <div class="cp-swatch cp-swatch--color-lightest">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-lightest</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use cp-swatch__use--light">--bg-elevated</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-superpastel-light">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-superpastel-light</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--text-primary</span>
+                      <span class="cp-swatch__use cp-swatch__use--light">--bg-default</span>
+                      <span class="cp-swatch__use cp-swatch__use--light">--bg-lens</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-light">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-light</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use cp-swatch__use--light">--bg-sunken</span>
+                      <span class="cp-swatch__use cp-swatch__use--light">--border-shy</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-medium-light">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-medium-light</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-base">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-base</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-medium-dark">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-medium-dark</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-dark">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-dark</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--bg-elevated</span>
+                      <span class="cp-swatch__use">--border-shy</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-superpastel-dark">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-superpastel-dark</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--bg-default</span>
+                      <span class="cp-swatch__use">--bg-lens</span>
+                      <span class="cp-swatch__use cp-swatch__use--light">--text-primary</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-darkest">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-darkest</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--bg-sunken</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="cp-swatch cp-swatch--color-superpastel-dark">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-superpastel-dark</span>
+
+              {/* Column 2 — Opacity */}
+              <div class="card cp-color-column">
+                <span class="cp-color-column__label">Opacity colors</span>
+                <div class="cp-swatch cp-swatch--color-white-opacity-high">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-white-opacity-high</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--text-secondary</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-white-opacity-mid">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-white-opacity-mid</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--text-shy</span>
+                      <span class="cp-swatch__use">--border-strong</span>
+                      <span class="cp-swatch__use">--button-secondary-hover</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-white-opacity-low">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-white-opacity-low</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use">--border-default</span>
+                      <span class="cp-swatch__use">--button-secondary-idle</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-black-opacity-high">
+                    <div class="cp-swatch__preview"></div>
+                    <div class="cp-swatch__info">
+                      <span class="cp-swatch__label">--color-black-opacity-high</span>
+                      <div class="cp-swatch__uses">
+                        <span class="cp-swatch__use cp-swatch__use--light">--text-secondary</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cp-swatch cp-swatch--color-black-opacity-mid">
+                    <div class="cp-swatch__preview"></div>
+                    <div class="cp-swatch__info">
+                      <span class="cp-swatch__label">--color-black-opacity-mid</span>
+                      <div class="cp-swatch__uses">
+                        <span class="cp-swatch__use cp-swatch__use--light">--text-shy</span>
+                        <span class="cp-swatch__use cp-swatch__use--light">--border-strong</span>
+                        <span class="cp-swatch__use cp-swatch__use--light">--button-secondary-hover</span>
+                      </div>
+                    </div>
+                  </div>
+                <div class="cp-swatch cp-swatch--color-black-opacity-low">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-black-opacity-low</span>
+                    <div class="cp-swatch__uses">
+                      <span class="cp-swatch__use cp-swatch__use--light">--border-default</span>
+                      <span class="cp-swatch__use cp-swatch__use--light">--button-secondary-idle</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="cp-swatch cp-swatch--color-dark">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-dark</span>
+
+              {/* Column 3 — Emphasis */}
+              <div class="card cp-color-column">
+                <span class="cp-color-column__label">Emphasis color</span>
+                <div class="cp-swatch cp-swatch--color-emphasis">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-emphasis</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-emphasis-opacity-high">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-emphasis-opacity-high</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-emphasis-opacity-mid">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-emphasis-opacity-mid</span>
+                  </div>
+                </div>
+                <div class="cp-swatch cp-swatch--color-emphasis-opacity-low">
+                  <div class="cp-swatch__preview"></div>
+                  <div class="cp-swatch__info">
+                    <span class="cp-swatch__label">--color-emphasis-opacity-low</span>
+                  </div>
+                </div>
               </div>
-              <div class="cp-swatch cp-swatch--color-medium-dark">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-medium-dark</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-base">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-base</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-medium-light">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-medium-light</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-light">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-light</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-superpastel-light">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-superpastel-light</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-lightest">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-lightest</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-emphasis">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-emphasis</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-emphasis-transparency-high">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-emphasis-transparency-high</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-emphasis-transparency-mid">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-emphasis-transparency-mid</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-neutral-transparency-high">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-neutral-transparency-high</span>
-              </div>
-              <div class="cp-swatch cp-swatch--color-neutral-transparency-mid">
-                <div class="cp-swatch__preview"></div>
-                <span class="cp-swatch__label">--color-neutral-transparency-mid</span>
-              </div>
+
             </div>
 
             {/* Lens demo */}
@@ -216,14 +335,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Lines" description="Width × color matrix. Every combination rendered at actual size against contrasting backgrounds." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Lines ───────────────────────────── */}
 
         <div id="lines">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Lines</h2>
-              <p class="cp-header__desc">Width × color matrix. Every combination rendered at actual size against contrasting backgrounds.</p>
-            </div>
             <div class="cp-card" data-playground id="lines-playground">
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -286,14 +403,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Motion" description="Scroll reveal, fade transitions, durations, and easing curves." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Motion ──────────────────────────── */}
 
         <div id="motion">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Motion</h2>
-              <p class="cp-header__desc">Scroll reveal, fade transitions, durations, and easing curves.</p>
-            </div>
 
             {/* Tokens reference */}
             <div class="cp-card" style="margin-bottom: var(--spacing-lg);">
@@ -390,14 +505,12 @@ import Phone from '../components/mdx/Phone.astro';
             ELEMENTS
             ═══════════════════════════════════════ */}
 
+        <Divider label="Button" description="Primary and secondary variants. Pill-shaped with rounded corners." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Button ──────────────────────────── */}
 
         <div id="button">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Button</h2>
-              <p class="cp-header__desc">Primary and secondary variants. Pill-shaped with rounded corners.</p>
-            </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -432,14 +545,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Link" description="Plain text link. No background—underlines on hover." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Link ────────────────────────────── */}
 
         <div id="link">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Link</h2>
-              <p class="cp-header__desc">Plain text link. No background—underlines on hover.</p>
-            </div>
             <div class="cp-card">
               <div class="cp-card__preview" style="display: flex; gap: var(--spacing-xl); align-items: center;">
                 <a href="#" class="cp-link">Link Label</a>
@@ -448,33 +559,37 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Switch" description="Boolean toggle. Used for theme switching. All instances sync state automatically." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Switch ──────────────────────────── */}
 
         <div id="switch">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Switch</h2>
-              <p class="cp-header__desc">Boolean toggle. Used for theme switching. All instances sync state automatically.</p>
-            </div>
             <div class="cp-card">
               <div class="cp-card__preview">
                 <div class="cp-inline-demo">
-                  <span class="cp-inline-demo__label">Theme toggle</span>
-                  <Switch id="demo-switch" />
+                  <span class="cp-inline-demo__label">Regular</span>
+                  <Switch id="demo-switch-regular" />
+                </div>
+                <div class="cp-inline-demo">
+                  <span class="cp-inline-demo__label">Small</span>
+                  <Switch id="demo-switch-small" size="small" />
+                </div>
+                <div class="cp-inline-demo">
+                  <span class="cp-inline-demo__label">Big</span>
+                  <Switch id="demo-switch-big" size="big" />
                 </div>
               </div>
             </div>
           </section>
         </div>
 
+        <Divider label="Selector" description="Inline option picker. Single-select with emphasis background on active state." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Selector ────────────────────────── */}
 
         <div id="selector">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Selector</h2>
-              <p class="cp-header__desc">Inline option picker. Single-select with emphasis background on active state.</p>
-            </div>
             <div class="cp-card" data-playground id="selector-playground">
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -524,14 +639,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Divider" description="Horizontal separator with optional label. Used between post sections." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Divider ─────────────────────────── */}
 
         <div id="divider">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Divider</h2>
-              <p class="cp-header__desc">Horizontal separator with optional label. Used between post sections.</p>
-            </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -555,14 +668,12 @@ import Phone from '../components/mdx/Phone.astro';
             COMPOSITIONS
             ═══════════════════════════════════════ */}
 
+        <Divider label="PostHeader" description="Title group with optional subtitle and intro paragraph." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── PostHeader ──────────────────────── */}
 
         <div id="post-header">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">PostHeader</h2>
-              <p class="cp-header__desc">Title group with optional subtitle and intro paragraph.</p>
-            </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -597,14 +708,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="PostText" description="Content heading with paragraph body. Sits inside a PostSection." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── PostText ────────────────────────── */}
 
         <div id="post-text">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">PostText</h2>
-              <p class="cp-header__desc">Content heading with paragraph body. Sits inside a PostSection.</p>
-            </div>
             <div class="cp-card">
               <div class="cp-card__preview cp-card__preview--flush">
                 <div class="post-page cp-post-context">
@@ -619,14 +728,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="PostMeta" description="Key-value metadata grid. Role, Focus, Collaboration, Team, Period." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── PostMeta ────────────────────────── */}
 
         <div id="post-meta">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">PostMeta</h2>
-              <p class="cp-header__desc">Key-value metadata grid. Role, Focus, Collaboration, Team, Period.</p>
-            </div>
             <div class="cp-card">
               <div class="cp-card__preview cp-card__preview--flush">
                 <div class="post-page cp-post-context">
@@ -660,14 +767,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Figure" description="Image with optional caption." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Figure ──────────────────────────── */}
 
         <div id="figure">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Figure</h2>
-              <p class="cp-header__desc">Image with optional caption.</p>
-            </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -687,14 +792,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Phone" description="CSS-only device frame. Scales proportionally via --phone-w." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Phone ───────────────────────────── */}
 
         <div id="phone">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Phone</h2>
-              <p class="cp-header__desc">CSS-only device frame. Scales proportionally via <code>--phone-w</code>.</p>
-            </div>
             <div class="cp-card" data-playground id="phone-playground">
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -756,14 +859,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Layouts" description="Canvas wrapper for post content. Figures or text blocks positioned across breakpoints." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Layouts ─────────────────────────── */}
 
         <div id="layouts">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">PostSection Layouts</h2>
-              <p class="cp-header__desc">Canvas wrapper for post content. Figures or text blocks positioned across breakpoints.</p>
-            </div>
             <div class="cp-card" data-playground="layout-playground">
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -830,14 +931,12 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
+        <Divider label="Card" description="Contained card. Inline (horizontal), inline reversed (text left), or stacked (vertical) layout." spaceAbove="xl" spaceBelow="none" />
+
         {/* ── Card ────────────────────────────── */}
 
         <div id="card">
           <section class="cp-section">
-            <div class="cp-header">
-              <h2 class="cp-header__title">Card</h2>
-              <p class="cp-header__desc">Contained card. Inline (horizontal), inline reversed (text left), or stacked (vertical) layout.</p>
-            </div>
             <div class="cp-card" data-playground>
               <div class="cp-card__controls">
                 <div class="cp-control-group">
@@ -1265,30 +1364,23 @@ import Phone from '../components/mdx/Phone.astro';
 
     if (!sections.length || !links.length) return;
 
-    // Track the topmost visible section via scroll position
     var currentId = sections[0] ? sections[0].id : '';
 
     function updateSpy() {
-      var scrollY = window.scrollY + window.innerHeight * 0.2; // 20% from top
+      var scrollY = window.scrollY + window.innerHeight * 0.2;
       var found = '';
       sections.forEach(function (section) {
-        if (section.offsetTop <= scrollY) {
-          found = section.id;
-        }
+        if (section.offsetTop <= scrollY) found = section.id;
       });
       if (found && found !== currentId) {
         currentId = found;
-        links.forEach(function (link) {
-          link.classList.remove('is-active');
-        });
+        links.forEach(function (link) { link.classList.remove('is-active'); });
         var activeLink = document.querySelector(
           '.cp-docknav__link[data-spy-target="' + found + '"]'
         );
         if (activeLink) {
           activeLink.classList.add('is-active');
-          if (indicator) {
-            indicator.textContent = activeLink.textContent;
-          }
+          if (indicator) indicator.textContent = activeLink.textContent;
         }
       }
     }
@@ -1296,7 +1388,6 @@ import Phone from '../components/mdx/Phone.astro';
     window.addEventListener('scroll', updateSpy, { passive: true });
     updateSpy();
 
-    // Set first link active on load
     if (links.length > 0 && !document.querySelector('.cp-docknav__link.is-active')) {
       links[0].classList.add('is-active');
     }
@@ -1312,11 +1403,8 @@ import Phone from '../components/mdx/Phone.astro';
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           history.replaceState(null, '', '#' + targetId);
-          // Force-collapse the panel after click
           docknav.classList.add('is-collapsed');
-          setTimeout(function () {
-            docknav.classList.remove('is-collapsed');
-          }, 600);
+          setTimeout(function () { docknav.classList.remove('is-collapsed'); }, 600);
         }
       });
     }
