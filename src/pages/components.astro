@@ -41,14 +41,14 @@ import Phone from '../components/mdx/Phone.astro';
             <a href="#typography" class="cp-docknav__link" data-spy-target="typography">Typography</a>
             <a href="#colors" class="cp-docknav__link" data-spy-target="colors">Colors</a>
             <a href="#lines" class="cp-docknav__link" data-spy-target="lines">Lines</a>
+            <a href="#radius" class="cp-docknav__link" data-spy-target="radius">Radius</a>
             <a href="#motion" class="cp-docknav__link" data-spy-target="motion">Motion</a>
           </div>
         </div>
         <div class="cp-docknav__group">
           <span class="cp-docknav__label">Elements</span>
           <div class="cp-docknav__links">
-            <a href="#button" class="cp-docknav__link" data-spy-target="button">Button</a>
-            <a href="#link" class="cp-docknav__link" data-spy-target="link">Link</a>
+            <a href="#buttons" class="cp-docknav__link" data-spy-target="buttons">Buttons</a>
             <a href="#switch" class="cp-docknav__link" data-spy-target="switch">Switch</a>
             <a href="#selector" class="cp-docknav__link" data-spy-target="selector">Selector</a>
             <a href="#divider" class="cp-docknav__link" data-spy-target="divider">Divider</a>
@@ -123,11 +123,20 @@ import Phone from '../components/mdx/Phone.astro';
                   <span class="cp-type-token">--type-title-xs</span>
                   <p class="cp-type-xs">Title Extra Small</p>
                 </div>
-                <div style="margin-top: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-xxs);">
-                  <span class="cp-type-token">--type-text-m</span>
-                  <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style—secondary color, regular weight.</p>
-                  <p><strong>Bold text renders in semibold weight with primary color.</strong> This demonstrates the inline emphasis treatment.</p>
+                <div style="margin-top: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-md); align-self: stretch; padding-inline: var(--spacing-lg);">
+                  <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs);">
+                    <span class="cp-type-token">--type-text-m</span>
+                    <p>Paragraph text uses IBM Plex Sans at 14px with 185% line-height. This is the default body copy style—secondary color, regular weight.</p>
+                    <p><strong>Bold text renders in semibold weight with primary color.</strong> This demonstrates the inline emphasis treatment.</p>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: var(--spacing-xxs);">
+                    <span class="cp-type-token">--type-text-l</span>
+                    <p style="font-family: var(--type-text-l-font-family); font-size: var(--type-text-l-font-size); line-height: var(--type-text-l-line-height); letter-spacing: var(--type-text-l-letter-spacing); color: var(--text-secondary);">Body text L uses IBM Plex Sans at 18px with 165% line-height. Used for article prose and long-form reading.</p>
+                  </div>
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Dazzed SemiBold for titles and hierarchy. IBM Plex Sans for body, labels, and metadata. Title scales go from hero down to xs. Text scales go from l down to s.</p>
               </div>
             </div>
           </section>
@@ -332,6 +341,9 @@ import Phone from '../components/mdx/Phone.astro';
               </div>
               <span class="cp-lens-demo__label">--bg-lens</span>
             </div>
+            <div class="cp-card__usage">
+              <p>Base palette defined in oklab. Semantic aliases map each base colour to surface, text, and border roles. Toggle the theme switch in the dock to compare.</p>
+            </div>
           </section>
         </div>
 
@@ -364,6 +376,9 @@ import Phone from '../components/mdx/Phone.astro';
                   <div class="cp-line-sample" id="line-sample-dark"></div>
                 </div>
               </div>
+              <div class="cp-card__usage">
+                <p>Horizontal rules and borders. Used for section dividers, card outlines, and structural separation between content blocks.</p>
+              </div>
             </div>
 
             {/* Full matrix reference */}
@@ -384,6 +399,56 @@ import Phone from '../components/mdx/Phone.astro';
                   <div class="cp-line-matrix__label">--line-width-thick <span class="cp-type-token">1.5px</span></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-default);"></div></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-strong);"></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <Divider label="Radius" description="Corner rounding scale. Five tokens from subtle to fully round." spaceAbove="xl" spaceBelow="none" />
+
+        {/* ── Radius ─────────────────────────── */}
+
+        <div id="radius">
+          <section class="cp-section">
+            <div class="cp-card">
+              <div class="cp-card__preview" style="display: block; padding: var(--spacing-lg);">
+                <div class="cp-radius-list">
+                  <div class="cp-radius-item">
+                    <div class="cp-radius-swatch" style="border-radius: var(--radius-xs);"></div>
+                    <div class="cp-radius-info">
+                      <span class="cp-radius-name">--radius-xs <span class="cp-type-token">3px</span></span>
+                      <span class="cp-radius-desc">Pills, tags, code blocks, form inputs, small interactive elements.</span>
+                    </div>
+                  </div>
+                  <div class="cp-radius-item">
+                    <div class="cp-radius-swatch" style="border-radius: var(--radius-sm);"></div>
+                    <div class="cp-radius-info">
+                      <span class="cp-radius-name">--radius-sm <span class="cp-type-token">6px</span></span>
+                      <span class="cp-radius-desc">Cards, playground containers, search inputs, figure corners. The default container radius.</span>
+                    </div>
+                  </div>
+                  <div class="cp-radius-item">
+                    <div class="cp-radius-swatch" style="border-radius: var(--radius-md);"></div>
+                    <div class="cp-radius-info">
+                      <span class="cp-radius-name">--radius-md <span class="cp-type-token">12px</span></span>
+                      <span class="cp-radius-desc">Dock navigation, kanban items, sitemap cards. Larger containers.</span>
+                    </div>
+                  </div>
+                  <div class="cp-radius-item">
+                    <div class="cp-radius-swatch" style="border-radius: var(--radius-lg);"></div>
+                    <div class="cp-radius-info">
+                      <span class="cp-radius-name">--radius-lg <span class="cp-type-token">44px</span></span>
+                      <span class="cp-radius-desc">Reserved. Large soft-edged panels or dialogs. Currently unused.</span>
+                    </div>
+                  </div>
+                  <div class="cp-radius-item">
+                    <div class="cp-radius-swatch" style="border-radius: var(--radius-infinite);"></div>
+                    <div class="cp-radius-info">
+                      <span class="cp-radius-name">--radius-infinite <span class="cp-type-token">1000px</span></span>
+                      <span class="cp-radius-desc">Full pill shape. Buttons, CTAs, theme switcher track. Forces a capsule regardless of size.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -431,6 +496,9 @@ import Phone from '../components/mdx/Phone.astro';
                     </dl>
                   </div>
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Applied to scroll reveals, page transitions, and interactive state changes. Combine a duration, an easing, and a distance token for consistent animation.</p>
               </div>
             </div>
 
@@ -492,55 +560,66 @@ import Phone from '../components/mdx/Phone.astro';
             ELEMENTS
             ═══════════════════════════════════════ */}
 
-        <Divider label="Button" description="Primary and secondary variants. Pill-shaped with rounded corners." spaceAbove="xl" spaceBelow="none" />
+        <Divider label="Buttons" description="Two types: solid button for actions, and text link for inline navigation." spaceAbove="xl" spaceBelow="none" />
 
-        {/* ── Button ──────────────────────────── */}
+        {/* ── Buttons ─────────────────────────── */}
 
-        <div id="button">
+        <div id="buttons">
           <section class="cp-section">
-            <div class="cp-card" data-playground>
-              <div class="cp-card__controls">
-                <div class="cp-control-group">
-                  <span class="cp-control-label">variant</span>
-                  <div class="cp-pills" data-control="variant">
-                    <button class="cp-pill is-active" data-value="primary">primary</button>
-                    <button class="cp-pill" data-value="secondary">secondary</button>
+            <div class="cp-cols">
+              {/* Card 1: Button */}
+              <div class="cp-card" data-playground>
+                <div class="cp-card__controls">
+                  <div class="cp-control-group">
+                    <span class="cp-control-label" style="font-weight: var(--font-weight-semibold);">Button</span>
+                  </div>
+                  <div class="cp-control-divider"></div>
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">variant</span>
+                    <div class="cp-pills" data-control="variant">
+                      <button class="cp-pill is-active" data-value="primary">primary</button>
+                      <button class="cp-pill" data-value="secondary">secondary</button>
+                    </div>
+                  </div>
+                  <div class="cp-control-divider"></div>
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">size</span>
+                    <div class="cp-pills" data-control="size">
+                      <button class="cp-pill is-active" data-value="default">default</button>
+                      <button class="cp-pill" data-value="sm">sm</button>
+                    </div>
+                  </div>
+                  <div class="cp-control-divider"></div>
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">state</span>
+                    <div class="cp-pills" data-control="state">
+                      <button class="cp-pill is-active" data-value="idle">idle</button>
+                      <button class="cp-pill" data-value="hover">hover</button>
+                      <button class="cp-pill" data-value="disabled">disabled</button>
+                    </div>
                   </div>
                 </div>
-                <div class="cp-control-divider"></div>
-                <div class="cp-control-group">
-                  <span class="cp-control-label">size</span>
-                  <div class="cp-pills" data-control="size">
-                    <button class="cp-pill is-active" data-value="default">default</button>
-                    <button class="cp-pill" data-value="sm">sm</button>
-                  </div>
+                <div class="cp-card__preview">
+                  <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}' data-size-target>Button Label</button>
                 </div>
-                <div class="cp-control-divider"></div>
-                <div class="cp-control-group">
-                  <span class="cp-control-label">state</span>
-                  <div class="cp-pills" data-control="state">
-                    <button class="cp-pill is-active" data-value="idle">idle</button>
-                    <button class="cp-pill" data-value="hover">hover</button>
-                    <button class="cp-pill" data-value="disabled">disabled</button>
-                  </div>
+                <div class="cp-card__usage">
+                  <p>Primary for main actions—submit, navigate, confirm. Secondary for supporting actions—cancel, dismiss, filter. Always pill-shaped with infinite radius.</p>
                 </div>
               </div>
-              <div class="cp-card__preview">
-                <button class="btn btn--primary" data-class-target data-class-config='{"variant":"btn--"}' data-size-target>Button Label</button>
-              </div>
-            </div>
-          </section>
-        </div>
 
-        <Divider label="Link" description="Plain text link. No background—underlines on hover." spaceAbove="xl" spaceBelow="none" />
-
-        {/* ── Link ────────────────────────────── */}
-
-        <div id="link">
-          <section class="cp-section">
-            <div class="cp-card">
-              <div class="cp-card__preview" style="display: flex; gap: var(--spacing-xl); align-items: center;">
-                <a href="#" class="cp-link">Link Label</a>
+              {/* Card 2: Button Link */}
+              <div class="cp-card">
+                <div class="cp-card__controls">
+                  <div class="cp-control-group">
+                    <span class="cp-control-label" style="font-weight: var(--font-weight-semibold);">Button Link</span>
+                  </div>
+                </div>
+                <div class="cp-card__preview">
+                  <a href="#" class="cp-link">Link Label</a>
+                </div>
+                <div class="cp-card__usage">
+                  <p>Inline text navigation within prose or standalone. Underline visible by default, disappears on hover. No background treatment—relies on colour and underline alone.</p>
+                </div>
               </div>
             </div>
           </section>
@@ -572,6 +651,9 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-toggle cp-toggle--small" aria-label="Boolean toggle"></button>
                   </div>
                 </div>
+                <div class="cp-card__usage">
+                  <p>Generic boolean toggle for any on/off setting. Two sizes—regular and small.</p>
+                </div>
               </div>
 
               {/* Card 2: Theme Switcher with 3 sizes */}
@@ -597,6 +679,9 @@ import Phone from '../components/mdx/Phone.astro';
                     <Switch id="demo-theme-switcher-big" size="big" />
                   </div>
                 </div>
+                <div class="cp-card__usage">
+                  <p>Specialised toggle that switches between light and dark theme. All instances sync state automatically across the page.</p>
+                </div>
               </div>
             </div>
           </section>
@@ -618,27 +703,26 @@ import Phone from '../components/mdx/Phone.astro';
                   </div>
                 </div>
               </div>
-              <div class="cp-card__preview" style="display: flex; flex-direction: column; gap: var(--spacing-xl); padding: var(--spacing-lg); align-items: flex-start;">
+              <div class="cp-card__preview" style="display: flex; gap: var(--spacing-xl); padding: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap;">
 
-                {/* Single select — 3 options */}
-                <div data-variant-key="options:3">
+                {/* Single select */}
+                <div>
                   <p class="cp-type-xs" style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">Single select</p>
-                  <div class="cp-pills">
-                    <button class="cp-pill is-active">Option A</button>
-                    <button class="cp-pill">Option B</button>
-                    <button class="cp-pill">Option C</button>
+                  <div data-variant-key="options:3">
+                    <div class="cp-pills">
+                      <button class="cp-pill is-active">Option A</button>
+                      <button class="cp-pill">Option B</button>
+                      <button class="cp-pill">Option C</button>
+                    </div>
                   </div>
-                </div>
-
-                {/* Single select — 5 options */}
-                <div data-variant-key="options:5" hidden>
-                  <p class="cp-type-xs" style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">Single select</p>
-                  <div class="cp-pills">
-                    <button class="cp-pill is-active">First</button>
-                    <button class="cp-pill">Second</button>
-                    <button class="cp-pill">Third</button>
-                    <button class="cp-pill">Fourth</button>
-                    <button class="cp-pill">Fifth</button>
+                  <div data-variant-key="options:5" hidden>
+                    <div class="cp-pills">
+                      <button class="cp-pill is-active">First</button>
+                      <button class="cp-pill">Second</button>
+                      <button class="cp-pill">Third</button>
+                      <button class="cp-pill">Fourth</button>
+                      <button class="cp-pill">Fifth</button>
+                    </div>
                   </div>
                 </div>
 
@@ -652,6 +736,9 @@ import Phone from '../components/mdx/Phone.astro';
                   </div>
                 </div>
 
+              </div>
+              <div class="cp-card__usage">
+                <p>Single-select option groups for filtering or configuration. Active state uses emphasis background. Used in playground controls and navigation filters.</p>
               </div>
             </div>
           </section>
@@ -677,6 +764,9 @@ import Phone from '../components/mdx/Phone.astro';
                 <div data-variant-key="label:none" hidden>
                   <Divider spaceAbove="none" spaceBelow="none" />
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Section separators in post layouts. Optional label provides context for the content that follows. Use sparingly—headings usually provide enough structure.</p>
               </div>
             </div>
           </section>
@@ -722,6 +812,9 @@ import Phone from '../components/mdx/Phone.astro';
                   <PostHeader title="Post title" />
                 </div>
               </div>
+              <div class="cp-card__usage">
+                <p>Opening block of every project or article. Establishes the title hierarchy with optional subtitle and introductory paragraph.</p>
+              </div>
             </div>
           </section>
         </div>
@@ -741,6 +834,9 @@ import Phone from '../components/mdx/Phone.astro';
                     </PostText>
                   </PostSection>
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Running prose within post sections. Pairs a heading with body paragraphs inside the reading column.</p>
               </div>
             </div>
           </section>
@@ -781,6 +877,9 @@ import Phone from '../components/mdx/Phone.astro';
                   </PostSection>
                 </div>
               </div>
+              <div class="cp-card__usage">
+                <p>Structured metadata grid at the top of project posts. Displays role, focus area, collaboration model, team size, and timeline.</p>
+              </div>
             </div>
           </section>
         </div>
@@ -805,6 +904,9 @@ import Phone from '../components/mdx/Phone.astro';
                 <div data-variant-key="caption:without" hidden>
                   <Figure src="https://picsum.photos/1920/1200" alt="Placeholder image" />
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Image container with optional caption. Responds to layout position tokens—full, centre, left, right—within post canvases.</p>
               </div>
             </div>
           </section>
@@ -872,6 +974,9 @@ import Phone from '../components/mdx/Phone.astro';
                     <img src="https://picsum.photos/393/852" alt="Placeholder screen" />
                   </Phone>
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>CSS-only device frame for mobile screenshots. Scales proportionally via the --phone-w custom property. No images—pure CSS.</p>
               </div>
             </div>
           </section>
@@ -944,6 +1049,9 @@ import Phone from '../components/mdx/Phone.astro';
                   <span class="cp-bp-frame__label" data-bp-label>1200px</span>
                   <div class="post-page cp-post-context" data-layout-preview></div>
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Canvas composition system for arranging figures and text blocks. Supports multiple breakpoint-aware grid positions and 1- or 2-item configurations.</p>
               </div>
             </div>
           </section>
@@ -1029,6 +1137,9 @@ import Phone from '../components/mdx/Phone.astro';
                 <div data-variant-key="layout:no-image-wide|cta:without" hidden>
                   <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="no-image-wide" />
                 </div>
+              </div>
+              <div class="cp-card__usage">
+                <p>Content container for project and article listings. Four layout variants—inline, inline reversed, stacked, and no-image wide.</p>
               </div>
             </div>
           </section>

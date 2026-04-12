@@ -23,13 +23,39 @@
 	--color-emphasis-opacity-mid: oklab(47.8% 0.104 -0.202 / 0.5);
 	--color-emphasis-opacity-high: oklab(47.8% 0.104 -0.202 / 0.8);
 
+	/* ── Status colors ── */
+
+	/* Success — muted forest green */
+	--color-success: oklab(55% -0.14 0.1);
+	--color-success-opacity-low: oklab(55% -0.14 0.1 / 0.12);
+	--color-success-opacity-mid: oklab(55% -0.14 0.1 / 0.5);
+	--color-success-opacity-high: oklab(55% -0.14 0.1 / 0.8);
+
+	/* Warning — warm amber */
+	--color-warning: oklab(55% 0.05 0.12);
+	--color-warning-opacity-low: oklab(55% 0.05 0.12 / 0.12);
+	--color-warning-opacity-mid: oklab(55% 0.05 0.12 / 0.5);
+	--color-warning-opacity-high: oklab(55% 0.05 0.12 / 0.8);
+
+	/* Danger — serious red */
+	--color-danger: oklab(50% 0.16 0.08);
+	--color-danger-opacity-low: oklab(50% 0.16 0.08 / 0.12);
+	--color-danger-opacity-mid: oklab(50% 0.16 0.08 / 0.5);
+	--color-danger-opacity-high: oklab(50% 0.16 0.08 / 0.8);
+
+	/* Info — calm blue */
+	--color-info: oklab(50% -0.05 -0.15);
+	--color-info-opacity-low: oklab(50% -0.05 -0.15 / 0.12);
+	--color-info-opacity-mid: oklab(50% -0.05 -0.15 / 0.5);
+	--color-info-opacity-high: oklab(50% -0.05 -0.15 / 0.8);
+
 	/* White opacity */
-	--color-white-opacity-low: oklab(100% 0 0 / 0.12);
+	--color-white-opacity-low: oklab(100% 0 0 / 0.15);
 	--color-white-opacity-mid: oklab(100% 0 0 / 0.5);
 	--color-white-opacity-high: oklab(100% 0 0 / 0.8);
 
 	/* Black opacity */
-	--color-black-opacity-low: oklab(0% 0 0 / 0.12);
+	--color-black-opacity-low: oklab(0% 0 0 / 0.15);
 	--color-black-opacity-mid: oklab(0% 0 0 / 0.5);
 	--color-black-opacity-high: oklab(0% 0 0 / 0.8);
 
@@ -132,8 +158,8 @@
 		 Radius
 		 ───────────────────────────────────────── */
 
-	--radius-xs: 0.214rem;
-	/* 3px */
+	--radius-xs: 0.286rem;
+	/* 4px */
 	--radius-sm: 0.429rem;
 	/* 6px */
 	--radius-md: 0.857rem;

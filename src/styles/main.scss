@@ -411,7 +411,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
    default xl token (56px). Scoped so it doesn't affect articles,
    projects, or any other page that uses Divider. */
 .cp-content .divider--above-xl {
-	padding-block-start: var(--spacing-huge);
+	padding-block-start: var(--spacing-max);
 }
 
 .divider__line {
@@ -726,7 +726,7 @@ body:has(.components-page) {
 .components-page {
 	max-width: var(--site-max-width);
 	margin-inline: auto;
-	padding-block-end: var(--spacing-xxl);
+	padding-block-end: var(--spacing-max);
 
 	/* Ensure hidden attribute wins over display rules */
 	[hidden] {
@@ -938,6 +938,20 @@ body:has(.components-page) {
 .cp-card__preview--flush {
 	display: block;
 	padding-inline: var(--spacing-md);
+}
+
+/* Usage guidance — quiet text below the preview. Earns its place
+   by answering "where and when" without competing with the demo. */
+.cp-card__usage {
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-top: var(--line-width) solid var(--border-default);
+
+	p {
+		@include type(text-s);
+		color: var(--text-shy);
+		margin: 0;
+		max-width: var(--text-max-width);
+	}
 }
 
 /* ── Control pills ── */
@@ -2207,6 +2221,44 @@ body:has(.components-page) {
 .cp-line-matrix__sample {
 	width: 100%;
 	min-width: 80px;
+}
+
+/* ── Radius showcase ──────────────── */
+
+.cp-radius-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	width: 100%;
+}
+
+.cp-radius-item {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+}
+
+.cp-radius-swatch {
+	width: 64px;
+	height: 64px;
+	flex-shrink: 0;
+	background: var(--color-emphasis-transparency-high);
+}
+
+.cp-radius-info {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xxxs);
+}
+
+.cp-radius-name {
+	@include type(text-s);
+	color: var(--text-secondary);
+}
+
+.cp-radius-desc {
+	@include type(text-s);
+	color: var(--text-shy);
 }
 
 /* ── Motion playground ──────────────── */
