@@ -1,7 +1,6 @@
 {
   "todo": [
     "design a better. close project button -- bottom right overflow round cross button",
-    "consolidate borders/lines: have 2. only 1 between shy and default -- that becoming the default",
     "optimize andamento search: first letter should match first letters lol",
     "SIN: add system message colors.",
     "SITE: think about the footer. L—V",
@@ -20,6 +19,7 @@
     "Fine tune Spaceship Search article"
   ],
   "done": [
+    "consolidate borders/lines: have 2. only 1 between shy and default -- that becoming the default",
     "SIN: fix the layout of the components page!",
     "Cards: possibilidade de trocar a ordem da imagem pelo texto nos inline",
     "Alf project page",

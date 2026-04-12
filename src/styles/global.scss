@@ -474,7 +474,7 @@ h6 {
    ───────────────────────────────────────── */
 
 .card {
-	border: var(--border-width-default) solid var(--border-shy);
+	border: var(--line-width) solid var(--border-default);
 	border-radius: var(--radius-md);
 	padding: var(--spacing-sm);
 	overflow: hidden;
@@ -503,6 +503,36 @@ h6 {
 }
 
 .card--stacked {
+}
+
+/* Compact horizontal card with no media — title + subtitle on the
+   left, CTA bottom-aligned to the right. Figma: Layout=No image - Wide. */
+.card--no-image-wide {
+	max-width: 560px;
+	display: block;
+	padding: var(--spacing-sm); /* 12px */
+
+	.card__info {
+		flex-direction: row;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: var(--spacing-md);
+		padding: var(--spacing-sm);
+		width: 100%;
+	}
+
+	.card__text {
+		flex: 1 1 auto;
+		max-width: 320px;
+		min-width: 0;
+	}
+
+	/* Override the global card__info > .btn rule so the button respects
+	   the parent's items-end alignment. */
+	.card__info > .btn {
+		align-self: auto;
+		flex-shrink: 0;
+	}
 }
 
 .card__media {

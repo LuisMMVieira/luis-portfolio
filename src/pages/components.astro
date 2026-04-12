@@ -346,8 +346,7 @@ import Phone from '../components/mdx/Phone.astro';
                 <div class="cp-control-group">
                   <span class="cp-control-label">width</span>
                   <div class="cp-pills" data-control="line-width">
-                    <button class="cp-pill" data-value="line-width">line-width <span class="cp-type-token">0.5px</span></button>
-                    <button class="cp-pill is-active" data-value="border-width-default">border-width-default <span class="cp-type-token">1px</span></button>
+                    <button class="cp-pill is-active" data-value="line-width">line-width <span class="cp-type-token">0.5px</span></button>
                     <button class="cp-pill" data-value="line-width-thick">line-width-thick <span class="cp-type-token">1.5px</span></button>
                   </div>
                 </div>
@@ -355,16 +354,13 @@ import Phone from '../components/mdx/Phone.astro';
                 <div class="cp-control-group">
                   <span class="cp-control-label">color</span>
                   <div class="cp-pills" data-control="line-color">
-                    <button class="cp-pill" data-value="border-shy">shy</button>
                     <button class="cp-pill is-active" data-value="border-default">default</button>
                     <button class="cp-pill" data-value="border-strong">strong</button>
                   </div>
                 </div>
               </div>
               <div class="cp-card__preview" style="display: block; padding: 0; min-height: auto;">
-                {/* Line on dark bg */}
-                <div class="cp-line-strip cp-line-strip--dark">
-                  <span class="cp-line-strip__label">dark bg</span>
+                <div class="cp-line-strip">
                   <div class="cp-line-sample" id="line-sample-dark"></div>
                 </div>
               </div>
@@ -376,25 +372,16 @@ import Phone from '../components/mdx/Phone.astro';
                 <div class="cp-line-matrix">
                   {/* Column headers */}
                   <div class="cp-line-matrix__header"></div>
-                  <div class="cp-line-matrix__header">--border-shy</div>
                   <div class="cp-line-matrix__header">--border-default</div>
                   <div class="cp-line-matrix__header">--border-strong</div>
 
                   {/* Row 1: line-width (0.5px) */}
                   <div class="cp-line-matrix__label">--line-width <span class="cp-type-token">0.5px</span></div>
-                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-shy);"></div></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-default);"></div></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width); background: var(--border-strong);"></div></div>
 
-                  {/* Row 2: border-width-default (1px) */}
-                  <div class="cp-line-matrix__label">--border-width-default <span class="cp-type-token">1px</span></div>
-                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-shy);"></div></div>
-                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-default);"></div></div>
-                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--border-width-default); background: var(--border-strong);"></div></div>
-
-                  {/* Row 3: line-width-thick (1.5px) */}
+                  {/* Row 2: line-width-thick (1.5px) */}
                   <div class="cp-line-matrix__label">--line-width-thick <span class="cp-type-token">1.5px</span></div>
-                  <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-shy);"></div></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-default);"></div></div>
                   <div class="cp-line-matrix__cell"><div class="cp-line-matrix__sample" style="height: var(--line-width-thick); background: var(--border-strong);"></div></div>
                 </div>
@@ -565,18 +552,25 @@ import Phone from '../components/mdx/Phone.astro';
 
         <div id="switch">
           <section class="cp-section">
-            <div class="cp-card">
+            <div class="cp-card" data-playground id="switch-playground">
+              <div class="cp-card__controls">
+                <div class="cp-control-group">
+                  <span class="cp-control-label">size</span>
+                  <div class="cp-pills" data-control="size">
+                    <button class="cp-pill is-active" data-value="regular">regular</button>
+                    <button class="cp-pill" data-value="small">small</button>
+                    <button class="cp-pill" data-value="big">big</button>
+                  </div>
+                </div>
+              </div>
               <div class="cp-card__preview">
-                <div class="cp-inline-demo">
-                  <span class="cp-inline-demo__label">Regular</span>
+                <div data-variant-key="size:regular">
                   <Switch id="demo-switch-regular" />
                 </div>
-                <div class="cp-inline-demo">
-                  <span class="cp-inline-demo__label">Small</span>
+                <div data-variant-key="size:small" hidden>
                   <Switch id="demo-switch-small" size="small" />
                 </div>
-                <div class="cp-inline-demo">
-                  <span class="cp-inline-demo__label">Big</span>
+                <div data-variant-key="size:big" hidden>
                   <Switch id="demo-switch-big" size="big" />
                 </div>
               </div>
@@ -604,7 +598,7 @@ import Phone from '../components/mdx/Phone.astro';
 
                 {/* Single select — 3 options */}
                 <div data-variant-key="options:3">
-                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Single select</p>
+                  <p class="cp-type-xs" style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">Single select</p>
                   <div class="cp-pills">
                     <button class="cp-pill is-active">Option A</button>
                     <button class="cp-pill">Option B</button>
@@ -614,7 +608,7 @@ import Phone from '../components/mdx/Phone.astro';
 
                 {/* Single select — 5 options */}
                 <div data-variant-key="options:5" hidden>
-                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">Single select</p>
+                  <p class="cp-type-xs" style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">Single select</p>
                   <div class="cp-pills">
                     <button class="cp-pill is-active">First</button>
                     <button class="cp-pill">Second</button>
@@ -626,7 +620,7 @@ import Phone from '../components/mdx/Phone.astro';
 
                 {/* States */}
                 <div>
-                  <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-sm);">States</p>
+                  <p class="cp-type-xs" style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">States</p>
                   <div class="cp-pills">
                     <button class="cp-pill">Idle</button>
                     <button class="cp-pill" style="color: var(--text-primary); background: var(--color-neutral-transparency-high);">Hover</button>
@@ -945,6 +939,7 @@ import Phone from '../components/mdx/Phone.astro';
                     <button class="cp-pill is-active" data-value="inline">inline</button>
                     <button class="cp-pill" data-value="inline-reversed">inline reversed</button>
                     <button class="cp-pill" data-value="stacked">stacked</button>
+                    <button class="cp-pill" data-value="no-image-wide">no-image wide</button>
                   </div>
                 </div>
                 <div class="cp-control-divider"></div>
@@ -1003,6 +998,13 @@ import Phone from '../components/mdx/Phone.astro';
                 <div data-variant-key="layout:stacked|image:without|cta:without" hidden>
                   <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="stacked" />
                 </div>
+                {/* layout:no-image-wide | (image is irrelevant — variant has no media) */}
+                <div data-variant-key="layout:no-image-wide|cta:with" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." href="#" layout="no-image-wide" />
+                </div>
+                <div data-variant-key="layout:no-image-wide|cta:without" hidden>
+                  <Card title="Title of this card goes here" subtitle="Subtitle goes here and continues continues like so." layout="no-image-wide" />
+                </div>
               </div>
             </div>
           </section>
@@ -1025,6 +1027,13 @@ import Phone from '../components/mdx/Phone.astro';
     function val(name) {
       var g = lp.querySelector('[data-control="' + name + '"]');
       if (!g) return null;
+      // Toggle: the .is-active class sits on the element itself.
+      if (g.classList.contains('cp-toggle')) {
+        return g.classList.contains('is-active')
+          ? g.getAttribute('data-value-on')
+          : g.getAttribute('data-value-off');
+      }
+      // Pills group: look for the active child.
       var a = g.querySelector('.is-active');
       return a ? a.getAttribute('data-value') : null;
     }
@@ -1091,12 +1100,20 @@ import Phone from '../components/mdx/Phone.astro';
 
     lp.addEventListener('click', function (e) {
       var pill = e.target.closest('.cp-pill');
-      if (!pill) return;
-      e.stopPropagation();
-      var group = pill.closest('.cp-pills');
-      group.querySelectorAll('.cp-pill').forEach(function (p) { p.classList.remove('is-active'); });
-      pill.classList.add('is-active');
-      render();
+      if (pill) {
+        e.stopPropagation();
+        var group = pill.closest('.cp-pills');
+        group.querySelectorAll('.cp-pill').forEach(function (p) { p.classList.remove('is-active'); });
+        pill.classList.add('is-active');
+        render();
+        return;
+      }
+      var toggle = e.target.closest('.cp-toggle');
+      if (toggle) {
+        // The global toggle handler flips .is-active, but doesn't know
+        // about this playground's render(). Re-run after the flip.
+        requestAnimationFrame(render);
+      }
     });
   })();
   </script>
