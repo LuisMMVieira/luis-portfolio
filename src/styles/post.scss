@@ -324,6 +324,17 @@
 	object-fit: contain;
 }
 
+/* CSS-based placeholder — uses the same purple tint as the components
+   page (--color-emphasis-transparency-high / 30% purple). Rendered
+   when <Figure placeholder /> or when no src is provided. */
+.post-figure__placeholder {
+	display: block;
+	width: 100%;
+	aspect-ratio: 3 / 2;
+	background: var(--color-emphasis-transparency-high);
+	border-radius: var(--radius-sm);
+}
+
 .post-figure__caption {
 	@include type(text-m);
 	color: var(--text-secondary);
@@ -1264,12 +1275,6 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		grid-column: 1 / -1;
 	}
 
-	> hr {
-		border: none;
-		border-top: var(--line-width) solid var(--border-default);
-		margin-block: var(--spacing-xl);
-	}
-
 	> dl.post-meta {
 		margin-block-start: var(--spacing-ml);
 		margin-block-end: var(--spacing-xl);
@@ -1326,18 +1331,14 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	}
 
 	.article-finding__nameplate {
-		font-family: var(--font-family-sans);
-		font-size: var(--type-text-s-font-size);
-		color: var(--text-tertiary);
-		letter-spacing: 0.04em;
+		@include type(nameplate-s);
 		text-transform: uppercase;
+		color: var(--text-shy);
 		margin-block-end: var(--spacing-md);
 	}
 
 	.article-finding__text {
-		font-family: var(--font-family-sans);
-		font-size: var(--type-text-l-font-size);
-		line-height: var(--type-text-l-line-height);
+		@include type(text-l);
 		color: var(--text-primary);
 		margin: 0;
 		padding-block-end: var(--spacing-xs);
@@ -1366,9 +1367,8 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	}
 
 	.article-finding__stat-label {
-		font-family: var(--font-family-sans);
-		font-size: var(--type-text-s-font-size);
-		color: var(--text-tertiary);
+		@include type(text-s);
+		color: var(--text-shy);
 		margin-block-start: var(--spacing-xxs);
 	}
 
@@ -1425,10 +1425,9 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	}
 
 	.article-video-gallery__caption {
+		@include type(text-s);
 		display: block;
-		font-family: var(--font-family-sans);
-		font-size: var(--type-text-s-font-size);
-		color: var(--text-tertiary);
+		color: var(--text-shy);
 		margin-block-start: var(--spacing-sm);
 	}
 
@@ -1500,7 +1499,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		color: var(--color-superpastel-light);
 
 		.article-finding__nameplate {
-			color: var(--color-base);
+			color: var(--color-white-opacity-mid);
 		}
 
 		.article-finding__text {
@@ -1508,7 +1507,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		}
 
 		.post-figure__caption {
-			color: var(--color-base);
+			color: var(--color-white-opacity-mid);
 		}
 	}
 
@@ -1519,34 +1518,30 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 
 	/* ── Prose typography ── */
 
-	/* Body text — 16px, 185% line-height (article-only size) */
+	/* Body text — text-l token (18/165) per Figma. */
 	p {
-		font-family: var(--type-text-m-font-family);
-		font-size: 1.143rem; /* 16px */
-		line-height: var(--type-text-m-line-height); /* 185% */
-		letter-spacing: var(--type-text-m-letter-spacing);
+		@include type(text-l);
 		color: var(--text-secondary);
 		margin: 0 0 var(--spacing-md);
 	}
 
-	/* Headings */
+	/* Headings — proper scale: h2 > h3 > h4 */
 	h2 {
 		@include type(title-s);
 		color: var(--text-primary);
-		margin: var(--spacing-xxl) 0 var(--spacing-md);
+		margin: var(--spacing-xxl) 0 var(--spacing-lg);
 	}
 
 	h3 {
-		@include type(title-s);
+		@include type(title-xs);
 		color: var(--text-primary);
-		margin: var(--spacing-xl) 0 var(--spacing-lg);
+		margin: var(--spacing-xl) 0 var(--spacing-md);
+	}
 
-		@media (min-width: 48rem) {
-			font-family: var(--type-title-m-font-family);
-			font-size: var(--type-title-m-font-size);
-			line-height: var(--type-title-m-line-height);
-			letter-spacing: var(--type-title-m-letter-spacing);
-		}
+	h4 {
+		@include type(title-xs);
+		color: var(--text-primary);
+		margin: var(--spacing-lg) 0 var(--spacing-sm);
 	}
 
 	/* First element: no top margin */
@@ -1565,14 +1560,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	}
 
 	a {
-		color: var(--text-primary);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-		text-decoration-thickness: var(--border-width-default);
-
-		&:hover {
-			opacity: 0.7;
-		}
+		@include link-prose;
 	}
 
 	/* Blockquote */
@@ -1587,24 +1575,34 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		}
 	}
 
-	/* Lists */
-	ul, ol {
+	/* Lists — reset.scss strips list-style globally, restore it here. */
+	ul {
+		list-style: disc;
+		padding-left: var(--spacing-md);
+		margin: 0 0 var(--spacing-md);
+	}
+
+	ol {
+		list-style: decimal;
 		padding-left: var(--spacing-md);
 		margin: 0 0 var(--spacing-md);
 	}
 
 	li {
-		font-family: var(--type-text-m-font-family);
-		font-size: 1.143rem; /* 16px */
-		line-height: var(--type-text-m-line-height); /* 185% */
+		@include type(text-l);
 		color: var(--text-secondary);
 		margin-bottom: var(--spacing-xs);
+
+		&::marker {
+			color: var(--text-primary);
+		}
 	}
 
-	/* Horizontal rule */
+	/* Horizontal rule — matches .divider__line for consistency with
+	   the <Divider /> component. */
 	hr {
 		border: none;
-		border-top: var(--line-width) solid var(--border-strong);
+		border-top: var(--line-width) solid var(--border-default);
 		margin: var(--spacing-xl) 0;
 	}
 
@@ -1616,11 +1614,15 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		border-radius: var(--radius-xs);
 	}
 
-	/* Code block */
-	pre {
-		background: var(--bg-elevated);
+	/* Code block — Shiki output. Shiki's default syntax colours are
+	   designed for a dark background, so force a dark surface in both
+	   themes. Inline style from Shiki needs !important. */
+	pre,
+	pre.astro-code {
+		background-color: var(--color-superpastel-dark) !important;
 		padding: var(--spacing-md);
 		border-radius: var(--radius-sm);
+		border: var(--line-width) solid var(--color-white-opacity-low);
 		overflow-x: auto;
 		margin: 0 0 var(--spacing-md);
 
@@ -1633,13 +1635,17 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 
 	/* Figures — spacing set above (margin-block: --spacing-xxl) */
 
-	/* Responsive heading scale */
+	/* Responsive heading scale — h2 > h3 > h4 preserved. */
 	@media (min-width: 48rem) {
 		h2 {
 			@include type-size(title-m);
 		}
 
-		/* h3 scale set above (title-l at md+) */
+		h3 {
+			@include type-size(title-s);
+		}
+
+		/* h4 stays at title-xs */
 	}
 }
 

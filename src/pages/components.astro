@@ -31,7 +31,7 @@ import Phone from '../components/mdx/Phone.astro';
     <nav class="cp-docknav" aria-label="Components navigation">
       <div class="cp-docknav__bar">
         <span class="cp-docknav__indicator">Grid</span>
-        <Switch id="docknav-theme-switch" />
+        <Switch id="docknav-theme-switch" size="small" />
       </div>
       <div class="cp-docknav__panel">
         <div class="cp-docknav__group">
@@ -546,32 +546,56 @@ import Phone from '../components/mdx/Phone.astro';
           </section>
         </div>
 
-        <Divider label="Switch" description="Boolean toggle. Used for theme switching. All instances sync state automatically." spaceAbove="xl" spaceBelow="none" />
+        <Divider label="Switch" description="Two variants: a generic boolean toggle, and a theme switcher that toggles between light and dark mode. Both are part of the system." spaceAbove="xl" spaceBelow="none" />
 
         {/* ── Switch ──────────────────────────── */}
 
         <div id="switch">
           <section class="cp-section">
-            <div class="cp-card" data-playground id="switch-playground">
-              <div class="cp-card__controls">
-                <div class="cp-control-group">
-                  <span class="cp-control-label">size</span>
-                  <div class="cp-pills" data-control="size">
-                    <button class="cp-pill is-active" data-value="regular">regular</button>
-                    <button class="cp-pill" data-value="small">small</button>
-                    <button class="cp-pill" data-value="big">big</button>
+            <div class="cp-cols">
+              {/* Card 1: generic Switch with 2 sizes */}
+              <div class="cp-card" data-playground id="switch-playground">
+                <div class="cp-card__controls">
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">Switch size</span>
+                    <div class="cp-pills" data-control="size">
+                      <button class="cp-pill is-active" data-value="regular">regular</button>
+                      <button class="cp-pill" data-value="small">small</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cp-card__preview">
+                  <div data-variant-key="size:regular">
+                    <button class="cp-toggle" aria-label="Boolean toggle"></button>
+                  </div>
+                  <div data-variant-key="size:small" hidden>
+                    <button class="cp-toggle cp-toggle--small" aria-label="Boolean toggle"></button>
                   </div>
                 </div>
               </div>
-              <div class="cp-card__preview">
-                <div data-variant-key="size:regular">
-                  <Switch id="demo-switch-regular" />
+
+              {/* Card 2: Theme Switcher with 3 sizes */}
+              <div class="cp-card" data-playground id="theme-switcher-playground">
+                <div class="cp-card__controls">
+                  <div class="cp-control-group">
+                    <span class="cp-control-label">Theme Switcher size</span>
+                    <div class="cp-pills" data-control="size">
+                      <button class="cp-pill is-active" data-value="regular">regular</button>
+                      <button class="cp-pill" data-value="small">small</button>
+                      <button class="cp-pill" data-value="big">big</button>
+                    </div>
+                  </div>
                 </div>
-                <div data-variant-key="size:small" hidden>
-                  <Switch id="demo-switch-small" size="small" />
-                </div>
-                <div data-variant-key="size:big" hidden>
-                  <Switch id="demo-switch-big" size="big" />
+                <div class="cp-card__preview">
+                  <div data-variant-key="size:regular">
+                    <Switch id="demo-theme-switcher-regular" />
+                  </div>
+                  <div data-variant-key="size:small" hidden>
+                    <Switch id="demo-theme-switcher-small" size="small" />
+                  </div>
+                  <div data-variant-key="size:big" hidden>
+                    <Switch id="demo-theme-switcher-big" size="big" />
+                  </div>
                 </div>
               </div>
             </div>

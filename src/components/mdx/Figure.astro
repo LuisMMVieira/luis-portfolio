@@ -1,14 +1,20 @@
 ---
 interface Props {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   caption?: string;
+  /** Render a design-system placeholder box instead of an image. */
+  placeholder?: boolean;
 }
 
-const { src, alt, caption } = Astro.props;
+const { src, alt = '', caption, placeholder = false } = Astro.props;
 ---
 
 <figure class="post-figure">
-  <img src={src} alt={alt} loading="lazy" />
+  {placeholder || !src ? (
+    <div class="post-figure__placeholder" role="img" aria-label={alt}></div>
+  ) : (
+    <img src={src} alt={alt} loading="lazy" />
+  )}
   {caption && <figcaption class="post-figure__caption">{caption}</figcaption>}
 </figure>

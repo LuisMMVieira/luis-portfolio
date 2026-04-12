@@ -407,6 +407,13 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 }
 
+/* Components page only — section dividers want more air than the
+   default xl token (56px). Scoped so it doesn't affect articles,
+   projects, or any other page that uses Divider. */
+.cp-content .divider--above-xl {
+	padding-block-start: var(--spacing-huge);
+}
+
 .divider__line {
 	width: 100%;
 	height: var(--line-width);
@@ -893,7 +900,7 @@ body:has(.components-page) {
 	background: var(--color-superpastel-dark);
 
 	.cp-control-label {
-		color: var(--text-primary);
+		color: var(--text-secondary);
 	}
 
 	.cp-pill {
@@ -906,7 +913,7 @@ body:has(.components-page) {
 
 		&.is-active {
 			color: white;
-			background: var(--color-emphasis);
+			background: var(--color-emphasis-opacity-mid);
 		}
 	}
 
@@ -1005,8 +1012,8 @@ body:has(.components-page) {
 
 .cp-toggle {
 	position: relative;
-	width: 28px;
-	height: 16px;
+	width: 34px;
+	height: 20px;
 	/* 50% opacity so the off-state track stays visible on any
 	   sunken/tinted surface in both themes. */
 	background: var(--border-strong);
@@ -1020,10 +1027,10 @@ body:has(.components-page) {
 .cp-toggle::after {
 	content: '';
 	position: absolute;
-	top: 2px;
-	left: 2px;
-	width: 12px;
-	height: 12px;
+	top: 3px;
+	left: 3px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
 	background: var(--bg-elevated);
 	transition: transform var(--duration-fast) var(--ease-soft);
@@ -1034,7 +1041,24 @@ body:has(.components-page) {
 }
 
 .cp-toggle.is-active::after {
-	transform: translateX(12px);
+	transform: translateX(14px);
+}
+
+/* ── Size: Small ── */
+.cp-toggle--small {
+	width: 24px;
+	height: 14px;
+}
+
+.cp-toggle--small::after {
+	top: 2px;
+	left: 2px;
+	width: 10px;
+	height: 10px;
+}
+
+.cp-toggle--small.is-active::after {
+	transform: translateX(10px);
 }
 
 /* ── Control divider (vertical separator between control groups) ── */

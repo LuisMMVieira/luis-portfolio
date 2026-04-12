@@ -18,3 +18,18 @@
 	line-height: var(--type-#{$scale}-line-height);
 	letter-spacing: var(--type-#{$scale}-letter-spacing);
 }
+
+/// Prose link pattern — underline by default, disappears on hover.
+/// Colour stays constant (--text-primary). Used in article body and
+/// anywhere a "reading" link is needed.
+@mixin link-prose {
+	color: var(--text-primary);
+	text-decoration: underline;
+	text-decoration-thickness: var(--border-width-default);
+	text-underline-offset: 3px;
+	transition: text-decoration-color var(--duration-fast) var(--ease-soft);
+
+	&:hover {
+		text-decoration: none;
+	}
+}

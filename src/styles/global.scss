@@ -275,11 +275,11 @@ small {
 }
 
 .switch--small .switch__input:checked ~ .switch__track .switch__thumb {
-	left: calc(100% - 1.143rem - 3px);
+	left: calc(100% - 1.143rem - 2px);
 }
 
 .switch--small .switch__input:not(:checked) ~ .switch__track .switch__thumb {
-	left: 3px;
+	left: 2px;
 }
 
 /* ── Size: Big ── */

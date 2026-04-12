@@ -6,19 +6,19 @@ cover: "/images/Placeholder.png"
 draft: true
 ---
 
-This is a body paragraph in `text-l` (18px / 140%). Articles use a narrow measure for comfortable reading. **Bold text** for emphasis, *italic* for asides or titles. Both can combine: ***bold italic***. Inline `code` renders in monospace.
+This is a body paragraph in `text-l` (18px/165%). Articles use a narrow measure for comfortable reading. **Bold text** for emphasis, *italic* for asides or titles. Both can combine: ***bold italic***. Inline `code` renders in monospace.
 
 A second paragraph to show vertical rhythm between blocks. Links look [like this](#) within the flow of text. The article body supports all standard markdown plus the components listed below.
 
-## Heading 2 — Section Title
+## Heading 2—Section Title
 
 Use `##` for major sections. This is the primary structural heading inside the article body. The article title (h1) comes from frontmatter via ArticleHeader.
 
-### Heading 3 — Subsection
+### Heading 3—Subsection
 
 Use `###` for subsections within a section. Don't skip levels.
 
-#### Heading 4 — Minor Heading
+#### Heading 4—Minor Heading
 
 Use `####` sparingly. If you need this many levels, the article might need restructuring.
 
@@ -42,13 +42,13 @@ Ordered list:
 
 A paragraph after the quote to show spacing.
 
-## Figure — with Caption
+## Figure—with Caption
 
-<Figure src="/images/Placeholder.png" alt="Placeholder image showing where a real asset would go" caption="Figure with caption — use for images that need context or attribution." />
+<Figure placeholder alt="Placeholder image showing where a real asset would go" caption="Figure with caption—use for images that need context or attribution." />
 
-## Figure — without Caption
+## Figure—without Caption
 
-<Figure src="/images/Placeholder.png" alt="Placeholder image without caption" />
+<Figure placeholder alt="Placeholder image without caption" />
 
 ## Divider
 
@@ -56,9 +56,9 @@ A horizontal divider separates thematic sections:
 
 <Divider />
 
-Content continues after the divider. Use sparingly — headings usually provide enough structure.
+Content continues after the divider. Use sparingly—headings usually provide enough structure.
 
-## Divider — with Label
+## Divider—with Label
 
 <Divider label="Section label" />
 
@@ -85,13 +85,13 @@ Standard markdown `---` also produces a rule:
 
 A paragraph that sets up the image below. Notice the rhythm: text block, then figure, then text again. The alternation creates a reading pace.
 
-<Figure src="/images/Placeholder.png" alt="Another placeholder" caption="Figures break wider than the text column, creating visual contrast." />
+<Figure placeholder alt="Another placeholder" caption="Figures break wider than the text column, creating visual contrast." />
 
-A closing paragraph. The best articles feel like a conversation — each element leading naturally to the next.
+A closing paragraph. The best articles feel like a conversation—each element leading naturally to the next.
 
 ---
 
-**Frontmatter fields:** `title` (required), `subtitle` (optional), `date` (required), `cover` (optional — hero image above body), `draft` (boolean), `theme` (`"dark"` or `"light"`, defaults to light).
+**Frontmatter fields:** `title` (required), `subtitle` (optional), `date` (required), `cover` (optional—hero image above body), `draft` (boolean), `theme` (`"dark"` or `"light"`, defaults to light).
 
 **Components:** `Figure` (src, alt, caption?), `Divider` (label?, spaceAbove?, spaceBelow?, variant?).
 
