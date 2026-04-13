@@ -137,6 +137,10 @@
 	justify-content: center;
 	padding-block: var(--spacing-xl);
 
+	@media (max-width: 767px) {
+		padding-block: var(--spacing-ml);
+	}
+
 	.phone {
 		--phone-w: 228;
 	}
@@ -268,7 +272,7 @@
 .post-header__intro {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-sm);
+	gap: var(--spacing-xl);
 }
 
 .post-header__intro p {
@@ -300,12 +304,17 @@
    to fill it, pushing the bars outside overflow: hidden. */
 .post-figure--crop-sides {
 	overflow: hidden;
+	border-radius: var(--radius-xs);
 
 	video {
 		width: 100%;
 		aspect-ratio: 813 / 495;
 		object-fit: cover;
 	}
+}
+
+.post-figure--rounded video {
+	border-radius: var(--radius-xs);
 }
 
 .post-figure--video {
@@ -498,7 +507,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-	gap: var(--spacing-md);
+	gap: var(--spacing-xl);
 
 	img {
 		display: block;
@@ -899,6 +908,13 @@
 	}
 }
 
+/* Alf phone background containers — tighter padding at xs */
+@media (max-width: 767px) {
+	.alf-phones-bg {
+		padding-block: var(--spacing-xl) !important;
+	}
+}
+
 /* ─────────────────────────────────────────
    Phone Frame — CSS-only device bezel
    Figma: "Phone" (node 1192:102274)
@@ -992,7 +1008,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		}
 
 		img {
-			height: 320px;
+			height: 440px;
 		}
 	}
 }

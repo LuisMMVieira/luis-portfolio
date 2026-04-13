@@ -21,6 +21,28 @@ draft: false
 
 <PostHeader title="Alf—Spaceship's AI assistant">
   <p>Alf is Spaceship's AI assistant. Users manage domains, set up services, and navigate their account through conversation. The browser version came first—the app had to match it. I designed the full iOS experience from scratch with the web, brand, design system, mobile, and engineering teams.</p>
+  <dl class="post-meta">
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Role</dt>
+      <dd class="post-meta__value">Product Designer</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Focus</dt>
+      <dd class="post-meta__value">iOS design, conversation UX, information architecture, fallback patterns</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Team</dt>
+      <dd class="post-meta__value">Product Platform Design team</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Collaboration</dt>
+      <dd class="post-meta__value">Brand, Design System Team, and iOS Engineering Team</dd>
+    </div>
+    <div class="post-meta__row">
+      <dt class="post-meta__label">Period</dt>
+      <dd class="post-meta__value">2025</dd>
+    </div>
+  </dl>
 </PostHeader>
 
 {/* ── SECTION 1: The conversation ──────────────────────────────── */}
@@ -29,7 +51,7 @@ draft: false
 
 {/* Phones light — full canvas with gradient bg, images include device frame */}
 <PostSection layout="canvas" media="full">
-  <div style="background-image: url('/assets/projects/alf/images/Phones/alf-light-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
+  <div class="alf-phones-bg" style="background-image: url('/assets/projects/alf/images/Phones/alf-light-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
     <div class="post-phones-row">
       <img src="/assets/projects/alf/images/Phones/alf-phone-light-1.png" alt="Alf light mode — conversation" />
       <img src="/assets/projects/alf/images/Phones/alf-phone-light-2.png" alt="Alf light mode — actions" />
@@ -41,7 +63,7 @@ draft: false
 
 {/* Phones dark — full canvas with gradient bg, images include device frame */}
 <PostSection layout="canvas" media="full">
-  <div style="background-image: url('/assets/projects/alf/images/Phones/alf-dark-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
+  <div class="alf-phones-bg" style="background-image: url('/assets/projects/alf/images/Phones/alf-dark-background.png'); background-size: cover; background-position: center; padding-block: var(--spacing-huge)">
     <div class="post-phones-row">
       <img src="/assets/projects/alf/images/Phones/alf-phone-dark-1.png" alt="Alf dark mode — conversation" />
       <img src="/assets/projects/alf/images/Phones/alf-phone-dark-2.png" alt="Alf dark mode — actions" />
@@ -69,9 +91,11 @@ draft: false
   <div id="alf-fallback" class="post-canvas">
     <div class="alf-fallback__container">
       <img src="/assets/projects/alf/images/alf-fallback-screen.png" alt="Alf browser fallback screen" class="alf-fallback__phone" />
-      <PostText heading="No dead ends">
-        <p>When Alf can't render a response natively, it doesn't leave the user stranded. The app tells them what happened and hands off to spaceship.com—same conversation, no dead ends.</p>
-      </PostText>
+      <div style="margin-bottom: var(--spacing-xl);">
+        <PostText heading="No dead ends">
+          <p>When Alf can't render a response natively, it doesn't leave the user stranded. The app tells them what happened and hands off to spaceship.com—same conversation, no dead ends.</p>
+        </PostText>
+      </div>
     </div>
     <Figure src="/assets/projects/alf/images/alf-fallback-chart.png" alt="Alf fallback decision chart" caption="Fallback flow—app to browser handoff." />
   </div>
@@ -103,36 +127,15 @@ draft: false
 
 </PostSectionGroup>
 
-{/* ── SECTION 3: Summary (no title) ────────────────────────────── */}
+{/* ── CLOSING ──────────────────────────────────────────────────── */}
 
 <PostSectionGroup>
 
-<PostSection media="center" padding="spacing-xxl" slotGap="spacing-xl">
-  <PostText heading="Summary">
-    <p>Alf is an iOS AI assistant that turns natural conversation into real account actions. I designed the full experience end-to-end—interaction model, commerce inside chat, fallback system, and the documentation that made handoff clean. Built from scratch across five teams.</p>
+<PostSection media="center" padding="spacing-xxl">
+  <PostText>
+    <p>Alf started as a question—can we turn a full platform into a conversation? Five teams, one blank screen, and no playbook. We designed every interaction from scratch: how the assistant speaks, how it handles what it can't do, how commerce works inside chat, and how it all hands off to the browser when it needs to. The kind of project where every edge case teaches you something.</p>
+    <p>The app shipped, the App Store assets landed, and the experience holds up. That's the part that matters—it works the way it should, and it feels like someone actually thought about it.</p>
   </PostText>
-  <dl class="post-meta">
-    <div class="post-meta__row">
-      <dt class="post-meta__label">Role</dt>
-      <dd class="post-meta__value">Product Designer</dd>
-    </div>
-    <div class="post-meta__row">
-      <dt class="post-meta__label">Focus</dt>
-      <dd class="post-meta__value">iOS design, conversation UX, information architecture, fallback patterns</dd>
-    </div>
-    <div class="post-meta__row">
-      <dt class="post-meta__label">Collaboration</dt>
-      <dd class="post-meta__value">Brand, Design System Team, and iOS Engineering Team</dd>
-    </div>
-    <div class="post-meta__row">
-      <dt class="post-meta__label">Team</dt>
-      <dd class="post-meta__value">Product Platform Design team</dd>
-    </div>
-    <div class="post-meta__row">
-      <dt class="post-meta__label">Period</dt>
-      <dd class="post-meta__value">2025</dd>
-    </div>
-  </dl>
 </PostSection>
 
 </PostSectionGroup>

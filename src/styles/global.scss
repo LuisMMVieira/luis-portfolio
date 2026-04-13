@@ -396,42 +396,38 @@ h6 {
 	}
 }
 
+/* Close button — 40×40 frosted circle with cross icon.
+   Figma: Close Post (Theme=Dark / Theme=Light). */
 .project-page__close {
 	position: fixed;
-	top: var(--spacing-xxs);
-	right: var(--spacing-xs);
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: var(--spacing-xs);
-	padding: var(--spacing-xs);
-	border: none;
-	background: transparent;
-	border-radius: var(--radius-infinite);
-	cursor: pointer;
-	z-index: 1001;
-	text-decoration: none;
-
-	&:hover {
-		opacity: 0.7;
-	}
-}
-
-.project-page__close-text {
-	display: inline;
-	@include type-size(text-s);
-	color: var(--color-base);
-	text-transform: uppercase;
-}
-
-.project-page__close-icon {
+	bottom: var(--spacing-ml);
+	left: 50%;
+	transform: translateX(-50%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 24px;
-	height: 24px;
-	background: transparent;
-	color: var(--text-primary);
+	width: 40px;
+	height: 40px;
+	padding: var(--spacing-xs);
+	border: none;
+	background: var(--color-white-opacity-mid);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: var(--radius-infinite);
+	cursor: pointer;
+	z-index: 1001;
+	color: var(--color-darkest);
+	transition: background-color var(--duration-fast) var(--ease-soft);
+
+	&:hover {
+		background: var(--color-white-opacity-high);
+	}
+
+	svg {
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+	}
 }
 
 @media (min-width: 75rem) {

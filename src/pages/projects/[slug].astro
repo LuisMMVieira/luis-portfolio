@@ -58,13 +58,10 @@ const theme = project.data.theme ?? 'dark';
   <body>
     <div class="project-page">
       <button class="project-page__close" aria-label="Close" data-close>
-        <span class="project-page__close-text">ESC /</span>
-        <span class="project-page__close-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 2L22 22" stroke="currentColor" stroke-width="1.5"></path>
-            <path d="M22 2L2 22" stroke="currentColor" stroke-width="1.5"></path>
-          </svg>
-        </span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 5L19 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <path d="M19 5L5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
       </button>
       <div class="project-page__container">
         <div class:list={["post-page", { "post-page--draft": isTemplate }]}>
