@@ -400,7 +400,7 @@ h6 {
    Figma: Close Post (Theme=Dark / Theme=Light). */
 .project-page__close {
 	position: fixed;
-	bottom: var(--spacing-ml);
+	bottom: var(--spacing-lg);
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
@@ -409,10 +409,14 @@ h6 {
 	width: 40px;
 	height: 40px;
 	padding: var(--spacing-xs);
-	border: none;
+	border: var(--line-width) solid var(--color-black-opacity-low);
+	/* Inverted from the page theme — light frosted circle on dark
+	   pages, dark frosted circle on light pages. Same pattern as
+	   the dock nav on the components page. */
 	background: var(--color-white-opacity-mid);
 	backdrop-filter: blur(20px);
 	-webkit-backdrop-filter: blur(20px);
+	box-shadow: 0 8px 32px var(--color-black-opacity-low);
 	border-radius: var(--radius-infinite);
 	cursor: pointer;
 	z-index: 1001;

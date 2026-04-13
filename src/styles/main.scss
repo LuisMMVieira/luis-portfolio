@@ -1520,7 +1520,7 @@ body:has(.components-page) {
 	-webkit-backdrop-filter: blur(20px);
 	border: var(--line-width) solid var(--color-black-opacity-low);
 	border-radius: var(--radius-md);
-	box-shadow: 0 8px 32px var(--color-black-opacity-mid);
+	box-shadow: 0 8px 32px var(--color-black-opacity-low);
 
 	.cp-docknav__indicator {
 		/* Current section title — strongest contrast. */
