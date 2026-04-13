@@ -10,15 +10,15 @@
     "homepage v2. go wild. layout, concept, photos? illustration concept?"
   ],
   "inprogress": [
-    "BUG: spaceship post: size of the unbox diagram. fix to drag on all breakpoints",
     "BUG: replace images in carousel in post with the browsers because its changing the browser feel with transparency",
-    "BUG: spaceship unbox horz scroll infinite",
     "BUG: no dead ends nudge up text in Alf"
   ],
   "onhold": [
     "Fine tune Spaceship Search article"
   ],
   "done": [
+    "BUG: spaceship unbox horz scroll infinite",
+    "BUG: spaceship post: size of the unbox diagram. fix to drag on all breakpoints",
     "consolidate borders/lines: have 2. only 1 between shy and default -- that becoming the default",
     "SIN: fix the layout of the components page!",
     "Cards: possibilidade de trocar a ordem da imagem pelo texto nos inline",

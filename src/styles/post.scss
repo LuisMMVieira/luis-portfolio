@@ -295,6 +295,19 @@
 	display: block;
 }
 
+/* Crop black bars baked into a video file — aspect-ratio matches the
+   actual content area (813×495), object-fit: cover scales the video
+   to fill it, pushing the bars outside overflow: hidden. */
+.post-figure--crop-sides {
+	overflow: hidden;
+
+	video {
+		width: 100%;
+		aspect-ratio: 813 / 495;
+		object-fit: cover;
+	}
+}
+
 .post-figure--video {
 	width: fit-content;
 	max-width: 100%;

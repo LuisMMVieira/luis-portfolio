@@ -512,6 +512,11 @@ h6 {
 	display: block;
 	padding: var(--spacing-sm); /* 12px */
 
+	/* Inside post content slots, fill the column width. */
+	.content-slot & {
+		max-width: 100%;
+	}
+
 	.card__info {
 		flex-direction: row;
 		align-items: flex-end;
