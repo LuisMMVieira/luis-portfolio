@@ -439,6 +439,18 @@
 	&.is-dragging {
 		cursor: grabbing;
 	}
+
+	/* Touch devices: restore native swipe scroll, hide the
+	   grab cursor (finger IS the grab), keep scrollbar hidden. */
+	@media (pointer: coarse) {
+		overflow-x: auto;
+		cursor: default;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 }
 
 /* Panoramic figure + image — figure breaks out of slot, image keeps proportions */
