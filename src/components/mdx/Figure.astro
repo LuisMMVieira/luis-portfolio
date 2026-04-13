@@ -16,5 +16,5 @@ const { src, alt = '', caption, placeholder = false } = Astro.props;
   ) : (
     <img src={src} alt={alt} loading="lazy" />
   )}
-  {caption && <figcaption class="post-figure__caption">{caption}</figcaption>}
+  {caption && <figcaption class="post-figure__caption" set:html={caption} />}
 </figure>

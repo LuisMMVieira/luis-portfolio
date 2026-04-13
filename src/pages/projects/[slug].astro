@@ -88,6 +88,34 @@ const theme = project.data.theme ?? 'dark';
         if (e.key === 'Escape') goBack();
       });
     </script>
+
+    {/* Drag-to-scroll for panoramic images */}
+    <script is:inline>
+    (function () {
+      document.querySelectorAll('.post-canvas--scroll-x').forEach(function (el) {
+        var startX, scrollStart, isDragging = false;
+
+        el.addEventListener('mousedown', function (e) {
+          isDragging = true;
+          startX = e.clientX;
+          scrollStart = el.scrollLeft;
+          el.classList.add('is-dragging');
+          e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', function (e) {
+          if (!isDragging) return;
+          el.scrollLeft = scrollStart - (e.clientX - startX);
+        });
+
+        window.addEventListener('mouseup', function () {
+          if (!isDragging) return;
+          isDragging = false;
+          el.classList.remove('is-dragging');
+        });
+      });
+    })();
+    </script>
     <script type="module" src="/scripts/main.js"></script>
     {isDev && <AgentationToolbar client:only="react" />}
   </body>

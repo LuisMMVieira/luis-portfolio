@@ -74,5 +74,5 @@ const slotStyle = slotGap ? `gap: var(--${slotGap})` : undefined;
       <slot />
     )}
   </div>
-  {caption && <p class="post-subsection__caption">{caption}</p>}
+  {caption && <p class="post-subsection__caption" set:html={caption} />}
 </section>

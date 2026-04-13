@@ -41,9 +41,13 @@ const isDraft = article.data.draft;
           ))}
         </div>
       </figure>
-    ) : article.data.cover && (
+    ) : article.data.cover ? (
       <figure class="article-cover">
         <img src={article.data.cover} alt="" />
+      </figure>
+    ) : (
+      <figure class="article-cover">
+        <div class="article-cover__placeholder"></div>
       </figure>
     )}
     <div class="article-body">

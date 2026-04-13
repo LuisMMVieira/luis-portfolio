@@ -353,7 +353,6 @@
 	color: var(--text-secondary);
 	padding-block-start: var(--spacing-sm);
 	padding-block-end: var(--spacing-none);
-	max-width: 320px;
 	margin: 0;
 }
 
@@ -433,11 +432,12 @@
 
 /* Panoramic scroll — canvas scrolls horizontally, no visible scrollbar */
 .post-page .post-canvas--scroll-x {
-	overflow-x: auto;
-	scrollbar-width: none;
+	overflow-x: hidden;
+	cursor: grab;
+	user-select: none;
 
-	&::-webkit-scrollbar {
-		display: none;
+	&.is-dragging {
+		cursor: grabbing;
 	}
 }
 
@@ -449,8 +449,23 @@
 
 .post-page .post-canvas--scroll-x .content-slot--overflow .post-figure img {
 	width: auto;
-	height: 280px;
+	height: var(--scroll-img-height, 280px);
 	max-width: none;
+}
+
+/* Per-instance scroll height override via CSS custom property.
+   Set --scroll-img-height on a wrapper div in MDX to override the
+   default height at each breakpoint. */
+.scroll-flow-chart {
+	--scroll-img-height: 420px;
+
+	@media (min-width: 48rem) {
+		--scroll-img-height: 560px;
+	}
+
+	@media (min-width: 75rem) {
+		--scroll-img-height: 690px;
+	}
 }
 
 /* App Store strip — flex row of rounded screens inside scroll canvas */
@@ -650,7 +665,7 @@
 	}
 
 	.post-page .post-canvas--scroll-x .content-slot--overflow .post-figure img {
-		height: 320px;
+		height: var(--scroll-img-height, 320px);
 	}
 
 	.post-page .post-scroll-right-wide {
@@ -778,7 +793,7 @@
 	}
 
 	.post-page .post-canvas--scroll-x .content-slot--overflow .post-figure img {
-		height: 400px;
+		height: var(--scroll-img-height, 400px);
 	}
 
 	.post-page .post-scroll-right-wide {
@@ -1238,13 +1253,15 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		display: block;
 	}
 
-	@media (min-width: 48rem) {
-		grid-column: 2 / 12;
+	&__placeholder {
+		width: 100%;
+		aspect-ratio: 1920 / 1200;
+		background: var(--color-emphasis-transparency-high);
 	}
 
-	@media (min-width: 75rem) {
-		grid-column: 3 / 11;
-	}
+	/* Cover stays full grid width at all breakpoints — the width
+	   contrast with the narrow prose column (4/10) creates editorial
+	   drama. Page-level padding-inline handles side margins. */
 
 	&__carousel {
 		position: relative;
@@ -1521,7 +1538,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 
 	/* ── Prose typography ── */
 
-	/* Body text — text-l token (18/165) per Figma. */
+	/* Body text — text-l token (17/170) per Figma. */
 	p {
 		@include type(text-l);
 		color: var(--text-secondary);
