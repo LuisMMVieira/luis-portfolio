@@ -54,9 +54,9 @@ import kanbanData from '../../data/kanban.json';
   <Fragment set:html={`<script>window.__KANBAN_SEED__=${JSON.stringify(kanbanData)};</script>`} />
 
   <script is:inline>
-  // Load board: prefer localStorage, fall back to JSON seed
+  // Load board: always seed from kanban.json (file is source of truth)
   var STORAGE_KEY = 'kanban-board';
-  if (!localStorage.getItem(STORAGE_KEY) && window.__KANBAN_SEED__) {
+  if (window.__KANBAN_SEED__) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(window.__KANBAN_SEED__));
   }
 

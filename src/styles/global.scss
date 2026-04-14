@@ -400,15 +400,14 @@ h6 {
    Figma: Close Post (Theme=Dark / Theme=Light). */
 .project-page__close {
 	position: fixed;
-	bottom: var(--spacing-lg);
-	left: 50%;
-	transform: translateX(-50%);
+	bottom: var(--spacing-ml);
+	right: var(--spacing-ml);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
-	height: 40px;
-	padding: var(--spacing-xs);
+	width: 52px;
+	height: 52px;
+	padding: var(--spacing-sm);
 	border: var(--line-width) solid var(--color-black-opacity-low);
 	/* Inverted from the page theme — light frosted circle on dark
 	   pages, dark frosted circle on light pages. Same pattern as
@@ -428,9 +427,16 @@ h6 {
 	}
 
 	svg {
-		width: 24px;
-		height: 24px;
+		width: 28px;
+		height: 28px;
 		flex-shrink: 0;
+	}
+
+	/* Desktop (mouse-primary devices) — flip to top-right. Touch
+	   devices keep the thumb-reachable bottom-right base rule. */
+	@media (hover: hover) and (pointer: fine) {
+		top: var(--spacing-ml);
+		bottom: auto;
 	}
 }
 

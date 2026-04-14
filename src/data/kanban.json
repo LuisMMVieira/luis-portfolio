@@ -1,22 +1,24 @@
 {
   "todo": [
-    "design a better. close project button -- bottom right overflow round cross button",
+    "end posts with: Next Project: Alf... Prev pro... and so onn",
     "optimize andamento search: first letter should match first letters lol",
     "SIN: add system message colors.",
     "SITE: think about the footer. L—V",
     "Check https://vibeisland.app/#pricing test",
     "KANBAN: add ability for details in cards",
     "KANBAN: add tag system (apple notes like)",
-    "homepage v2. go wild. layout, concept, photos? illustration concept?"
+    "homepage v2. go wild. layout, concept, photos? illustration concept?",
+    "Fix close button. Bigger and position bottom right"
   ],
   "inprogress": [
-    "BUG: replace images in carousel in post with the browsers because its changing the browser feel with transparency",
-    "BUG: no dead ends nudge up text in Alf"
-  ],
-  "onhold": [
     "Fine tune Spaceship Search article"
   ],
+  "onhold": [],
   "done": [
+    "update close button for posts: bottom right and bigger",
+    "design a better. close project button -- bottom right overflow round cross button",
+    "BUG: no dead ends nudge up text in Alf",
+    "BUG: replace images in carousel in post with the browsers because its changing the browser feel with transparency",
     "BUG: spaceship unbox horz scroll infinite",
     "BUG: spaceship post: size of the unbox diagram. fix to drag on all breakpoints",
     "consolidate borders/lines: have 2. only 1 between shy and default -- that becoming the default",
