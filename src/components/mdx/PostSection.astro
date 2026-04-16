@@ -31,9 +31,11 @@ interface Props {
   slotGap?: string;
   /** Panoramic scroll — canvas scrolls horizontally, content-slot allows overflow */
   scroll?: boolean;
+  /** Drag-to-scroll — adds mouse drag behavior (only meaningful with scroll) */
+  drag?: boolean;
 }
 
-const { layout = 'big', bg, media, padding, caption, overflow, slotGap, scroll = false } = Astro.props;
+const { layout = 'big', bg, media, padding, caption, overflow, slotGap, scroll = false, drag = false } = Astro.props;
 
 const is2Col = media?.startsWith('2-');
 
@@ -63,7 +65,7 @@ const slotStyle = slotGap ? `gap: var(--${slotGap})` : undefined;
 ---
 
 <section class={classes}>
-  <div class={canvasClasses} style={canvasStyle}>
+  <div class={canvasClasses} style={canvasStyle} {...(drag ? { 'data-drag-scroll': '' } : {})}>
     {is2Col ? (
       <slot />
     ) : media ? (

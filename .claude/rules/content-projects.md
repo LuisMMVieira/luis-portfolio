@@ -38,6 +38,7 @@ Registered in `src/pages/projects/[slug].astro`:
 - **slotGap:** spacing token for gap between slot children
 - **overflow:** `clip` to contain overflow
 - **scroll:** enables horizontal scroll on canvas
+- **drag:** adds mouse drag-to-scroll behavior (use with `scroll`)
 
 ### Two-Column Layouts
 When `media="2-*"`, wrap each column in `<div class="content-slot">` manually.

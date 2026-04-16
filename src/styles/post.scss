@@ -454,6 +454,16 @@
 
 /* Panoramic scroll — canvas scrolls horizontally, no visible scrollbar */
 .post-page .post-canvas--scroll-x {
+	overflow-x: auto;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* Drag-to-scroll — mouse-drag behavior for specific panoramic canvases */
+.post-page [data-drag-scroll] {
 	overflow-x: hidden;
 	cursor: grab;
 	user-select: none;
@@ -462,16 +472,10 @@
 		cursor: grabbing;
 	}
 
-	/* Touch devices: restore native swipe scroll, hide the
-	   grab cursor (finger IS the grab), keep scrollbar hidden. */
+	/* Touch devices: restore native swipe scroll */
 	@media (pointer: coarse) {
 		overflow-x: auto;
 		cursor: default;
-		scrollbar-width: none;
-
-		&::-webkit-scrollbar {
-			display: none;
-		}
 	}
 }
 
@@ -1392,7 +1396,7 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 	}
 
 	.article-finding__nameplate {
-		@include type(nameplate-s);
+		@include type(nameplate);
 		text-transform: uppercase;
 		color: var(--text-shy);
 		margin-block-end: var(--spacing-md);

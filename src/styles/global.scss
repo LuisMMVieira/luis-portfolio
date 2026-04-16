@@ -396,17 +396,17 @@ h6 {
 	}
 }
 
-/* Close button — 40×40 frosted circle with cross icon.
+/* Close button — 48×48 frosted circle with cross icon.
    Figma: Close Post (Theme=Dark / Theme=Light). */
 .project-page__close {
 	position: fixed;
-	bottom: var(--spacing-ml);
+	bottom: var(--spacing-md);
 	right: var(--spacing-ml);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 52px;
-	height: 52px;
+	width: 48px;
+	height: 48px;
 	padding: var(--spacing-sm);
 	border: var(--line-width) solid var(--color-black-opacity-low);
 	/* Inverted from the page theme — light frosted circle on dark
@@ -427,8 +427,8 @@ h6 {
 	}
 
 	svg {
-		width: 28px;
-		height: 28px;
+		width: 16px;
+		height: 16px;
 		flex-shrink: 0;
 	}
 
@@ -460,7 +460,7 @@ h6 {
 .cp-tag {
 	display: inline-block;
 	font-family: var(--font-family-sans);
-	font-size: var(--type-nameplate-s-font-size);
+	font-size: var(--type-nameplate-font-size);
 	font-weight: var(--font-weight-medium);
 	line-height: 1;
 	letter-spacing: 0.06em;
@@ -525,6 +525,7 @@ h6 {
 
 	.card__info {
 		flex-direction: row;
+		flex-wrap: wrap;
 		align-items: flex-end;
 		justify-content: space-between;
 		gap: var(--spacing-md);
@@ -533,9 +534,9 @@ h6 {
 	}
 
 	.card__text {
-		flex: 1 1 auto;
+		flex: 1 0 0;
 		max-width: 320px;
-		min-width: 0;
+		min-width: 240px;
 	}
 
 	/* Override the global card__info > .btn rule so the button respects
@@ -594,7 +595,7 @@ h6 {
 .card__text {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xxs);
+	gap: var(--spacing-xs);
 }
 
 .card__title {

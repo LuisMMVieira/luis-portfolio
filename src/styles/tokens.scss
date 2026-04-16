@@ -206,11 +206,11 @@
 	--type-title-m-line-height: 1.1;
 	--type-title-m-letter-spacing: -0.02em;
 
-	/* Title S — 24px / 120% (Figma: title-s) */
+	/* Title S — 24px / 125% (Figma: title-s) */
 	--type-title-s-font-family: var(--font-family-display);
 	--type-title-s-font-weight: var(--font-weight-semibold);
 	--type-title-s-font-size: 1.714rem;
-	--type-title-s-line-height: 1.2;
+	--type-title-s-line-height: 1.25;
 	--type-title-s-letter-spacing: -0.015em;
 
 	/* Title XS — 18px / 125% (Figma: title-xs) */
@@ -231,10 +231,10 @@
 	--type-text-l-line-height: 1.7;
 	--type-text-l-letter-spacing: -0.005em;
 
-	/* Text M — 14px / 185% (Zeplin: text-m) */
+	/* Text M — 15px / 185% (Figma: text-m) */
 	--type-text-m-font-family: var(--font-family-sans);
 	--type-text-m-font-weight: var(--font-weight-regular);
-	--type-text-m-font-size: 1rem;
+	--type-text-m-font-size: 1.071rem;
 	--type-text-m-line-height: 1.85;
 	--type-text-m-letter-spacing: 0em;
 
@@ -245,21 +245,13 @@
 	--type-text-s-line-height: 1.6;
 	--type-text-s-letter-spacing: 0em;
 
-	/* Nameplate — 14px / 120% / 0.12em (structural label, uppercase) */
+	/* Nameplate — 10px / 160% / 0.25em SemiBold (dense uppercase label) */
 	--type-nameplate-font-family: var(--font-family-sans);
-	--type-nameplate-font-weight: var(--font-weight-medium);
-	--type-nameplate-font-size: var(--type-text-m-font-size);
-	--type-nameplate-line-height: 1.2;
-	--type-nameplate-letter-spacing: 0.12em;
+	--type-nameplate-font-weight: var(--font-weight-semibold);
+	--type-nameplate-font-size: 0.714rem;
+	--type-nameplate-line-height: 1.6;
+	--type-nameplate-letter-spacing: 0.25em;
 	--type-nameplate-text-transform: uppercase;
-
-	/* Nameplate S — 10px / 140% / 0.25em (dense label, uppercase) */
-	--type-nameplate-s-font-family: var(--font-family-sans);
-	--type-nameplate-s-font-weight: var(--font-weight-semibold);
-	--type-nameplate-s-font-size: 0.714rem;
-	--type-nameplate-s-line-height: 1.4;
-	--type-nameplate-s-letter-spacing: 0.25em;
-	--type-nameplate-s-text-transform: uppercase;
 
 	/* CTA — 14px / 120% (Buttons, CTAs) */
 	--type-cta-font-family: var(--font-family-sans);

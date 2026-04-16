@@ -58,9 +58,9 @@ const theme = project.data.theme ?? 'dark';
   <body>
     <div class="project-page">
       <button class="project-page__close" aria-label="Close" data-close>
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.66675 4.66699L23.3334 23.3337" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          <path d="M23.3333 4.66699L4.66659 23.3337" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M15 1L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
       </button>
       <div class="project-page__container">
@@ -89,7 +89,7 @@ const theme = project.data.theme ?? 'dark';
     {/* Drag-to-scroll for panoramic images */}
     <script is:inline>
     (function () {
-      document.querySelectorAll('.post-canvas--scroll-x').forEach(function (el) {
+      document.querySelectorAll('[data-drag-scroll]').forEach(function (el) {
         var startX, scrollStart, isDragging = false;
 
         el.addEventListener('mousedown', function (e) {
