@@ -10,7 +10,7 @@
 
 <div class="intro-sub-content">
   <p class="intro-sub-content__paragraph">
-    I've been designing digital products for over 15 years, long enough to have lived through most of the paradigm shifts: <strong>the web</strong>, <strong>mobile</strong>, <strong>social</strong>, <em>and now <strong>AI</strong></em>.
+    I've been designing for over 18 years. Went through the web, mobile, and the rise of design systems. Each one set up the next. AI is the question I'm on now, <em>and the one pulling me deepest</em>.
   </p>
 </div>
 

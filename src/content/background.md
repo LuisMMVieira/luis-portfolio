@@ -9,7 +9,7 @@ title: "Background"
 
 ### Early <br />years
 
-My first professional design years revolved around print. My first job was at a small graphic shop. Logos, visual identities, print for local businesses. Small clients, real pressure. Typography mattered. Grids mattered. Production details mattered. Then came magazines. Low budgets, limited resources, same standard. I treated them as if they were cultural artifacts.
+I worked at a small graphic shop—logos, identities, production for local businesses. Tiny budgets, same standard. Magazines came after. Typography and grids mattered. I treated them like cultural artifacts. Then the web started pulling.
 
 </div>
 
@@ -18,7 +18,7 @@ My first professional design years revolved around print. My first job was at a 
 
 ### Web design <br />deepdive
 
-In 2008 I made the first real shift to area which i fell in love with and put on a Web Designer suit. I 've lived nine years at **Portugalmail**—Portugal's first email provider—designing email platforms and blogging products. Dense, functional, content-heavy work. That's where I developed a deep respect for the browser as a medium. HTML and CSS weren't constraints, they were material. It's also where I learned to work properly with engineers. Not as handoff, but a shared surface.
+I spent nine years at Portugalmail, Portugal's first email provider. I designed email platforms and blogging products. Dense, functional, content-heavy work. I came to see the browser as a medium—HTML and CSS as material, not constraint. It's where I learned to work with engineers as a shared surface, not a handoff. Along the road UX started to take shape as a discipline.
 
 </div>
 
@@ -27,7 +27,16 @@ In 2008 I made the first real shift to area which i fell in love with and put on
 
 ### UX as <br />discipline
 
-In 2017, UX had matured as a discipline—formal methodologies, agile workflows, design systems at scale. And I was ready for it. Joined Namecheap as a founding designer to build **Spaceship**, a spin-off of Namecheap to inovate domains and online presence tools industry. Six years building it from the ground up. Design systems, cross-functional alignment, documentation that translates intent into buildable reality. The highest-leverage work of my career.
+I joined Namecheap as founding designer to build Spaceship, a spin-off built to rethink domains and online presence. Six years from zero. I built design systems, cross-functional alignment, documentation that turns intent into buildable reality. The highest-leverage work of my career. And then the ground shifted again.
+
+</div>
+
+<hr class="bg-divider" />
+
+<div class="bg-item bg-item--note">
+<span class="bg-item__year">'26</span>
+
+Now, AI is a tool unlike any before it. It carries intent. It extends taste. I want to design how it multiplies us—without flattening what makes us&nbsp;us.
 
 </div>
 

@@ -319,7 +319,7 @@ function initPage() {
   if (postPage) {
     // All content objects reveal on scroll — one rule for all
     postPage.querySelectorAll(
-      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip, .article-video-gallery"
+      ".post-figure, .post-subsection__cols, .post-text, .post-meta, .post-canvas-carousel, .post-managers-carousel, .post-scroll-right-wide, .post-unbox-strip, .article-video-gallery, .card"
     ).forEach(function (el) {
       el.classList.add("reveal");
     });

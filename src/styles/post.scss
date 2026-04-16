@@ -8,12 +8,14 @@
 .post-page {
 	display: block;
 
-	> .post-cover {
+	> .post-cover,
+	> .post-subsection:first-child {
 		padding-block-start: var(--grid-margin-xs);
 	}
 
 	@media (min-width: 768px) {
-		> .post-cover {
+		> .post-cover,
+		> .post-subsection:first-child {
 			padding-block-start: var(--grid-margin-md);
 		}
 	}
@@ -483,6 +485,18 @@
 .post-page .post-canvas--scroll-x .content-slot--overflow .post-figure {
 	width: fit-content;
 	max-width: none;
+}
+
+/* Panoramic reveal — slide in from the right instead of the default vertical drop.
+   Suggests horizontal scrollability the moment the section enters the viewport. */
+.post-page .post-canvas--scroll-x .reveal,
+.post-page [data-drag-scroll] .reveal {
+	--reveal-duration: 1s;
+	transform: translateX(var(--reveal-distance-x, 320px));
+
+	&.is-visible {
+		transform: translateX(0);
+	}
 }
 
 .post-page .post-canvas--scroll-x .content-slot--overflow .post-figure img {
