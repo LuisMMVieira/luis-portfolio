@@ -36,7 +36,7 @@ I joined Namecheap as founding designer to build Spaceship, a spin-off built to 
 <div class="bg-item bg-item--note">
 <span class="bg-item__year">'26</span>
 
-Now, AI is a tool unlike any before it. It carries intent. It extends taste. I want to design how it multiplies us—without flattening what makes us&nbsp;us.
+Now, AI is a tool unlike any before it. It carries intent. It extends taste. I want to design how it multiplies us, without flattening what makes us&nbsp;us.
 
 </div>
 

@@ -189,9 +189,12 @@
 		flex-direction: column;
 		gap: var(--spacing-xl);
 
+		> * {
+			text-wrap: balance;
+		}
+
 		> * + * {
 			margin-top: 0;
-			text-wrap: balance;
 		}
 	}
 
@@ -257,7 +260,7 @@
 	grid-column: 1 / -1;
 
 	p {
-		@include type(title-m);
+		@include type(title-s);
 		color: var(--text-primary);
 		max-width: none;
 	}
@@ -566,6 +569,10 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		left: -12px;
 		transform: translateX(-100%);
 		text-align: right;
+	}
+
+	.bg-item--note p {
+		@include type(title-m);
 	}
 
 	/* Work: md → horizontal cards */
