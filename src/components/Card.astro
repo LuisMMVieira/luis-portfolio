@@ -23,15 +23,11 @@ const {
 ---
 
 <article class:list={['card', `card--${layout}`, { 'card--no-cover': !cover }]}>
-  {cover && href ? (
-    <a class="card__media" href={href} aria-label={title}>
-      <img src={cover} alt="" loading="lazy" />
-    </a>
-  ) : cover ? (
+  {cover && (
     <div class="card__media">
       <img src={cover} alt={title} loading="lazy" />
     </div>
-  ) : null}
+  )}
   <div class="card__info">
     <div class="card__text">
       <h3 class="card__title">{title}</h3>

@@ -260,7 +260,7 @@
 	grid-column: 1 / -1;
 
 	p {
-		@include type(title-s);
+		@include type(title-m);
 		color: var(--text-primary);
 		max-width: none;
 	}
@@ -503,7 +503,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 	.section#beliefs p {
-		@include type-size(title-m);
+		@include type-size(title-l);
 	}
 
 	.section#intro {
@@ -535,7 +535,7 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	/* Background: md → staggered 10-col grid */
 	.section#background {
 		h3 {
-			@include type-size(title-xs);
+			@include type-size(title-m);
 		}
 	}
 
@@ -572,7 +572,11 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 	}
 
 	.bg-item--note p {
-		@include type(title-m);
+		@include type(title-l);
+	}
+
+	.bg-item--note .bg-item__year {
+		top: calc(var(--spacing-xxxs) + 2px);
 	}
 
 	/* Work: md → horizontal cards */
@@ -618,6 +622,8 @@ $spacing-keys: none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max;
 		right: auto;
 		padding-inline: 0;
 		background: transparent;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
 	}
 
 	.site-nav {
