@@ -1127,13 +1127,13 @@ body:has(.components-page) {
 /* ── Grid showcase ── */
 
 .cp-grid-showcase {
-	gap: var(--spacing-xxs);
+	gap: 0;
 }
 
 .cp-grid-col {
 	background: var(--bg-elevated);
 	border: var(--line-width) solid var(--border-default);
-	border-radius: var(--radius-xs);
+	border-radius: 0;
 	height: 3rem;
 	display: flex;
 	align-items: center;
@@ -2326,6 +2326,143 @@ body:has(.components-page) {
 		color: var(--text-shy);
 		margin: 0;
 	}
+}
+
+[data-token-editor] > div {
+	position: relative;
+}
+
+[data-token-editor] dd {
+	cursor: text;
+	border-radius: 2px;
+	padding: 0 2px;
+	transition: background 0.15s, color 0.15s;
+
+	&:hover {
+		background: var(--color-emphasis-opacity-low);
+		color: var(--text-primary);
+	}
+}
+
+.cp-ease-input {
+	background: var(--color-emphasis-opacity-low);
+	color: var(--text-primary);
+	border: none;
+	box-shadow: 0 0 0 1px var(--border-default);
+	border-radius: 2px;
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-s-font-size);
+	padding: 0 2px;
+	width: 10ch;
+	outline: none;
+}
+
+.cp-bezier-popover {
+	position: fixed;
+	z-index: 1000;
+	width: 280px;
+	padding: var(--spacing-sm);
+	background: var(--bg-elevated);
+	border: var(--border-width-default) solid var(--border-default);
+	border-radius: var(--radius-sm);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.cp-bezier-svg {
+	width: 100%;
+	aspect-ratio: 1;
+	display: block;
+}
+
+.cp-bezier-diag {
+	stroke: var(--border-default);
+	stroke-width: 0.006;
+}
+
+.cp-bezier-guide {
+	stroke: var(--border-strong);
+	stroke-width: 0.006;
+	stroke-dasharray: 0.025 0.02;
+}
+
+.cp-bezier-curve {
+	fill: none;
+	stroke: var(--text-primary);
+	stroke-width: 0.02;
+	stroke-linecap: round;
+}
+
+.cp-bezier-anchor {
+	fill: var(--bg-elevated);
+	stroke: var(--text-secondary);
+	stroke-width: 0.008;
+}
+
+.cp-bezier-handle {
+	fill: var(--text-primary);
+	stroke: var(--bg-elevated);
+	stroke-width: 0.01;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+.cp-bezier-field {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+.cp-bezier-field label {
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-s-font-size);
+	color: var(--text-shy);
+	min-width: 48px;
+}
+
+.cp-bezier-input {
+	flex: 1;
+	background: var(--color-emphasis-opacity-low);
+	color: var(--text-primary);
+	border: none;
+	box-shadow: 0 0 0 1px var(--border-default);
+	border-radius: 2px;
+	font-family: var(--font-family-sans);
+	font-size: var(--type-text-s-font-size);
+	padding: 4px 6px;
+	outline: none;
+
+	&:focus {
+		box-shadow: 0 0 0 1px var(--border-strong);
+	}
+}
+
+.cp-bezier-preview {
+	padding: var(--spacing-sm);
+	background: var(--bg-sunken);
+	border-radius: var(--radius-xs);
+}
+
+.cp-bezier-preview-track {
+	position: relative;
+	height: 2px;
+	background: var(--border-default);
+	border-radius: 1px;
+}
+
+.cp-bezier-preview-dot {
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--color-emphasis);
 }
 
 .cp-motion-preview {

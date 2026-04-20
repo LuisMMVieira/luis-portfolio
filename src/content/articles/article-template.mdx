@@ -1,33 +1,224 @@
 ---
-title: "Article Template"
-subtitle: "All available elements for article pages"
-date: 2025-01-01
+title: "Article template"
+subtitle: "Every pattern available inside an article body"
+date: 2026-04-19
 draft: true
 ---
 
-This is a body paragraph in `text-l` (18px/165%). Articles use a narrow measure for comfortable reading. **Bold text** for emphasis, *italic* for asides or titles. Both can combine: ***bold italic***. Inline `code` renders in monospace.
+<div class="article-subsection">
 
-A second paragraph to show vertical rhythm between blocks. Links look [like this](#) within the flow of text. The article body supports all standard markdown plus the components listed below.
+This is the intro paragraph. One or two sentences framing the piece—what it is, why it matters. It sits in the prose column before the Post Meta block.
 
-## Heading 2—Section Title
+<dl class="post-meta">
+  <div class="post-meta__row">
+    <dt class="post-meta__label">Role</dt>
+    <dd class="post-meta__value">This is where the role goes</dd>
+  </div>
+  <div class="post-meta__row">
+    <dt class="post-meta__label">Team</dt>
+    <dd class="post-meta__value">This is where the team goes</dd>
+  </div>
+  <div class="post-meta__row">
+    <dt class="post-meta__label">Timeline</dt>
+    <dd class="post-meta__value">This is where the timeline goes</dd>
+  </div>
+  <div class="post-meta__row">
+    <dt class="post-meta__label">Impact</dt>
+    <dd class="post-meta__value">This is where the impact goes</dd>
+  </div>
+</dl>
 
-Use `##` for major sections. This is the primary structural heading inside the article body. The article title (h1) comes from frontmatter via ArticleHeader.
+</div>
 
-### Heading 3—Subsection
+<div class="article-subsection">
+
+## This is a section with a text-width figure
+
+This is a body paragraph inside the prose column. Articles use a narrow measure for reading. **Bold** for emphasis, *italic* for asides, [links](#) inline. `Inline code` renders in monospace.
+
+<figure class="post-figure article-finding--text-width">
+  <div class="post-figure__placeholder" role="img" aria-label="Text-width figure"></div>
+  <figcaption class="post-figure__caption">This is a caption for a text-width figure—same column as the prose.</figcaption>
+</figure>
+
+This is the paragraph after the text-width figure. Use this width when the image belongs to the reading flow.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a wide figure
+
+This is the opening paragraph of the section.
+
+<Figure placeholder alt="Wide figure" caption="This is a caption for a wide figure—the default placement, wider than the prose column." />
+
+This is the closing paragraph after the figure.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a full-width figure
+
+This is the opening paragraph.
+
+<figure class="post-figure article-figure--full-width">
+  <div class="post-figure__placeholder" role="img" aria-label="Full-width figure"></div>
+  <figcaption class="post-figure__caption">This is a caption for a full-width figure—edge to edge of the article grid.</figcaption>
+</figure>
+
+This is the closing paragraph.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a research finding
+
+This is the paragraph that sets up the callout below.
+
+<figure class="post-figure article-finding article-finding--text-width article-card">
+  <div class="article-finding__nameplate">This is the finding nameplate</div>
+  <p class="article-finding__text">This is the finding text. Use this pattern for a pull-quote style callout that breaks the reading rhythm.</p>
+</figure>
+
+This is the paragraph after the callout.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a stats callout
+
+This is the paragraph that sets up the stats.
+
+<figure class="post-figure article-finding article-finding--text-width">
+  <div class="article-finding__stats">
+    <div class="article-finding__stat">
+      <span class="article-finding__stat-value">00%</span>
+      <span class="article-finding__stat-label">This is a stat label</span>
+    </div>
+    <div class="article-finding__stat">
+      <span class="article-finding__stat-value">→</span>
+      <span class="article-finding__stat-label">&nbsp;</span>
+    </div>
+    <div class="article-finding__stat">
+      <span class="article-finding__stat-value">00%</span>
+      <span class="article-finding__stat-label">This is a stat label</span>
+    </div>
+  </div>
+</figure>
+
+This is the paragraph after the stats.
+
+</div>
+
+<div class="article-subsection article-subsection--divider"></div>
+
+<div class="article-subsection">
+
+## This is a section with a 3-column image row
+
+This is the opening paragraph.
+
+<figure class="post-figure article-figure--full-width">
+  <div class="article-figure-row">
+    <div class="post-figure__placeholder" role="img" aria-label="Column 1"></div>
+    <div class="post-figure__placeholder" role="img" aria-label="Column 2"></div>
+    <div class="post-figure__placeholder" role="img" aria-label="Column 3"></div>
+  </div>
+  <figcaption class="post-figure__caption">This is a caption for a 3-column image row—stacks at mobile, rows at tablet and up.</figcaption>
+</figure>
+
+This is the paragraph after the row.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a figure + text block
+
+This is the paragraph that introduces the pattern below.
+
+<div class="article-figure-with-text">
+  <figure class="post-figure">
+    <div class="post-figure__placeholder" role="img" aria-label="Figure on the left" style="aspect-ratio: 4 / 3;"></div>
+  </figure>
+  <div class="article-figure-with-text__body">
+    <h3>This is a side heading</h3>
+    <p>This is the supporting paragraph that sits beside the figure at tablet and up. On mobile it stacks below the figure.</p>
+  </div>
+</div>
+
+This is the paragraph after the block.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a video gallery
+
+This is the paragraph that introduces the gallery.
+
+<div class="article-video-gallery" data-video-gallery>
+  <div class="article-video-gallery__main">
+    <div class="post-figure__placeholder" role="img" aria-label="Main video" style="aspect-ratio: 16 / 9;"></div>
+    <span class="article-video-gallery__caption">This is the caption for the main video.</span>
+  </div>
+  <div class="article-video-gallery__thumbs">
+    <button class="article-video-gallery__thumb article-video-gallery__thumb--active" type="button">
+      <div class="post-figure__placeholder" role="img" aria-label="Thumb 1" style="aspect-ratio: 16 / 9;"></div>
+    </button>
+    <button class="article-video-gallery__thumb" type="button">
+      <div class="post-figure__placeholder" role="img" aria-label="Thumb 2" style="aspect-ratio: 16 / 9;"></div>
+    </button>
+    <button class="article-video-gallery__thumb" type="button">
+      <div class="post-figure__placeholder" role="img" aria-label="Thumb 3" style="aspect-ratio: 16 / 9;"></div>
+    </button>
+  </div>
+</div>
+
+This is the paragraph after the gallery.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a section with a chart card
+
+This is the paragraph that introduces the chart.
+
+<figure class="post-figure article-finding--text-width">
+  <div class="report-chart-card" style="border-radius: var(--radius-l);">
+    <div class="report-chart-card__header">
+      <h3 class="report-chart-card__title" style="font-family: var(--font-family-sans); font-size: var(--type-text-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin: 0;">This is the chart title</h3>
+      <p class="report-chart-card__subtitle" style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin: var(--spacing-xxs) 0 0;">This is the chart subtitle.</p>
+    </div>
+    <div style="margin-block-start: var(--spacing-md);">
+      <canvas id="articleTemplateChart" data-chart-config='{"type":"bar","data":{"labels":["Label A","Label B","Label C","Label D"],"datasets":[{"label":"Example","data":[3,5,2,4],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.6)","rgba(91,79,207,0.35)","rgba(91,79,207,0.2)"],"borderRadius":4,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'></canvas>
+    </div>
+  </div>
+  <figcaption class="post-figure__caption">This is a caption for a chart card.</figcaption>
+</figure>
+
+This is the paragraph after the chart.
+
+</div>
+
+<div class="article-subsection">
+
+## This is a subsection pattern
+
+### This is a heading three
 
 Use `###` for subsections within a section. Don't skip levels.
-
-#### Heading 4—Minor Heading
-
-Use `####` sparingly. If you need this many levels, the article might need restructuring.
-
-## Lists
 
 Unordered list:
 
 - First item in the list
 - Second item with **bold** for emphasis
-- Third item with a longer body to show how wrapping works when text extends beyond a single line in the list
+- Third item with a longer body to show how wrapping works when text extends beyond a single line
 
 Ordered list:
 
@@ -35,63 +226,34 @@ Ordered list:
 2. Second step with *italic* reference
 3. Third step to complete the flow
 
-## Blockquote
-
-> A blockquote for pull quotes, external references, or key statements. Blockquotes stand apart from the body text and carry their own visual weight.
-
-A paragraph after the quote to show spacing.
-
-## Figure—with Caption
-
-<Figure placeholder alt="Placeholder image showing where a real asset would go" caption="Figure with caption—use for images that need context or attribution." />
-
-## Figure—without Caption
-
-<Figure placeholder alt="Placeholder image without caption" />
-
-## Divider
-
-A horizontal divider separates thematic sections:
-
-<Divider />
-
-Content continues after the divider. Use sparingly—headings usually provide enough structure.
-
-## Divider—with Label
-
-<Divider label="Section label" />
-
-Labelled dividers name a break point. Good for long-form pieces with distinct parts.
-
-## Code Block
+> A blockquote for pull quotes or external references. Blockquotes stand apart from the body text.
 
 ```js
 // Fenced code blocks render with syntax highlighting
 const tokens = {
   spacing: '--spacing-md',
-  type: '--type-text-l-font-size',
   color: '--text-primary',
 };
 ```
 
-## Horizontal Rule
+</div>
 
-Standard markdown `---` also produces a rule:
+<div class="article-subsection">
 
----
+## This is the conclusion section
 
-## Combined Elements
+This is the closing paragraph. No figure here—just a clean wrap.
 
-A paragraph that sets up the image below. Notice the rhythm: text block, then figure, then text again. The alternation creates a reading pace.
+A second paragraph to show vertical rhythm between final blocks.
 
-<Figure placeholder alt="Another placeholder" caption="Figures break wider than the text column, creating visual contrast." />
+</div>
 
-A closing paragraph. The best articles feel like a conversation—each element leading naturally to the next.
+<div class="article-subsection">
 
----
+**Frontmatter fields:** `title` (required), `subtitle?`, `date` (required), `cover?` (string—single hero), `covers?` (string[]—carousel), `draft?`, `theme?` (`"dark"` | `"light"`, default light).
 
-**Frontmatter fields:** `title` (required), `subtitle` (optional), `date` (required), `cover` (optional—hero image above body), `draft` (boolean), `theme` (`"dark"` or `"light"`, defaults to light).
+**Components:** `Figure` (src?, alt?, caption?, placeholder?), `Video` (src, caption?), `Divider` (label?, spaceAbove?, spaceBelow?).
 
-**Components:** `Figure` (src, alt, caption?), `Divider` (label?, spaceAbove?, spaceBelow?, variant?).
+**CSS hooks:** `article-subsection` (wraps each section), `article-subsection--divider` (84.5px visual rule), `post-meta`, `article-finding` + `--text-width` / `article-card` / `__nameplate` / `__text` / `__stats` / `__stat`, `article-figure--full-width`, `article-figure-row`, `article-figure-with-text`, `article-video-gallery`, `report-chart-card`.
 
-**Markdown:** Headings (h2–h4), paragraphs, bold, italic, links, unordered/ordered lists, blockquotes, fenced code blocks, inline code, horizontal rules.
+</div>

@@ -472,31 +472,31 @@ import Phone from '../components/mdx/Phone.astro';
                 <div style="display: flex; gap: var(--spacing-xl); flex-wrap: wrap;">
                   <div>
                     <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-xs);">Durations</p>
-                    <dl class="cp-motion-tokens">
-                      <div><dt>instant</dt><dd>0.1s</dd></div>
-                      <div><dt>fast</dt><dd>0.2s</dd></div>
-                      <div><dt>moderate</dt><dd>0.4s</dd></div>
-                      <div><dt>slow</dt><dd>0.65s</dd></div>
-                      <div><dt>deliberate</dt><dd>1s</dd></div>
+                    <dl class="cp-motion-tokens" data-token-editor>
+                      <div data-token="--duration-instant"><dt>instant</dt><dd>0.1s</dd></div>
+                      <div data-token="--duration-fast"><dt>fast</dt><dd>0.2s</dd></div>
+                      <div data-token="--duration-moderate"><dt>moderate</dt><dd>0.4s</dd></div>
+                      <div data-token="--duration-slow"><dt>slow</dt><dd>0.65s</dd></div>
+                      <div data-token="--duration-deliberate"><dt>deliberate</dt><dd>1s</dd></div>
                     </dl>
                   </div>
                   <div>
                     <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-xs);">Easings</p>
-                    <dl class="cp-motion-tokens">
-                      <div><dt>linear</dt><dd>(.25,.25,.75,.75)</dd></div>
-                      <div><dt>soft</dt><dd>(.25,.25,.35,1)</dd></div>
-                      <div><dt>ease-out</dt><dd>(0,0,.2,1)</dd></div>
-                      <div><dt>ease-in</dt><dd>(.4,0,1,1)</dd></div>
-                      <div><dt>ease-in-out</dt><dd>(.4,0,.2,1)</dd></div>
-                      <div><dt>bounce</dt><dd>(.34,1.56,.64,1)</dd></div>
+                    <dl class="cp-motion-tokens" data-token-editor>
+                      <div data-token="--ease-linear"><dt>linear</dt><dd>(0,0,1,1)</dd></div>
+                      <div data-token="--ease-soft"><dt>soft</dt><dd>(.4,.3,.6,.8)</dd></div>
+                      <div data-token="--ease-out"><dt>ease-out</dt><dd>(.2,.5,.5,1)</dd></div>
+                      <div data-token="--ease-in"><dt>ease-in</dt><dd>(.5,0,.8,.5)</dd></div>
+                      <div data-token="--ease-in-out"><dt>ease-in-out</dt><dd>(.5,.2,.5,.8)</dd></div>
+                      <div data-token="--ease-bounce"><dt>bounce</dt><dd>(.34,1.4,.6,1)</dd></div>
                     </dl>
                   </div>
                   <div>
                     <p class="cp-type-xs" style="color: var(--text-shy); margin-bottom: var(--spacing-xs);">Distances</p>
-                    <dl class="cp-motion-tokens">
-                      <div><dt>subtle</dt><dd>20px</dd></div>
-                      <div><dt>default</dt><dd>80px</dd></div>
-                      <div><dt>dramatic</dt><dd>160px</dd></div>
+                    <dl class="cp-motion-tokens" data-token-editor>
+                      <div data-token="--distance-subtle"><dt>subtle</dt><dd>20px</dd></div>
+                      <div data-token="--distance-default"><dt>default</dt><dd>80px</dd></div>
+                      <div data-token="--distance-dramatic"><dt>dramatic</dt><dd>160px</dd></div>
                     </dl>
                   </div>
                 </div>
@@ -1614,6 +1614,14 @@ import Phone from '../components/mdx/Phone.astro';
     function play() {
       getState();
 
+      // Apply any pending token edits before animating
+      document.querySelectorAll('[data-token][data-token-pending]').forEach(function (row) {
+        document.documentElement.style.setProperty(
+          row.getAttribute('data-token'),
+          row.getAttribute('data-token-pending')
+        );
+      });
+
       // Kill transitions, reset to hidden state
       target.style.transition = 'none';
       target.className = 'cp-motion-box';
@@ -1655,6 +1663,236 @@ import Phone from '../components/mdx/Phone.astro';
 
     // Initial play
     play();
+  })();
+  </script>
+
+  {/* ── Motion token inline editor ─────────── */}
+  <script is:inline>
+  (function () {
+    function parseCubic(raw) {
+      var s = raw.trim().replace(/^\(|\)$/g, '');
+      var parts = s.split(',').map(function (n) { return parseFloat(n.trim()); });
+      if (parts.length === 4 && parts.every(function (n) { return !isNaN(n); })) return parts;
+      return null;
+    }
+
+    function fmt(n) {
+      return (Math.round(n * 1000) / 1000).toString();
+    }
+
+    function parseSimple(token, raw) {
+      var s = raw.trim();
+      if (token.indexOf('--duration-') === 0) return /^\d*\.?\d+s$/.test(s) ? s : null;
+      if (token.indexOf('--distance-') === 0) return /^\d*\.?\d+px$/.test(s) ? s : null;
+      return null;
+    }
+
+    var activePopover = null;
+    function closePopover() {
+      if (activePopover) {
+        activePopover.cleanup();
+        activePopover.el.remove();
+        activePopover = null;
+      }
+    }
+
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-replay]')) closePopover();
+    });
+
+    function openBezierPopover(dd, row) {
+      closePopover();
+      var initParts = parseCubic(dd.textContent) || [0, 0, 0.5, 1];
+      var state = { x1: initParts[0], y1: initParts[1], x2: initParts[2], y2: initParts[3] };
+
+      var pop = document.createElement('div');
+      pop.className = 'cp-bezier-popover';
+      pop.innerHTML = [
+        '<svg class="cp-bezier-svg" viewBox="-0.3 -0.35 1.6 1.7">',
+          '<line class="cp-bezier-diag" x1="0" y1="1" x2="1" y2="0" />',
+          '<line class="cp-bezier-guide" data-guide="1" />',
+          '<line class="cp-bezier-guide" data-guide="2" />',
+          '<path class="cp-bezier-curve" />',
+          '<circle class="cp-bezier-anchor" cx="0" cy="1" r="0.022" />',
+          '<circle class="cp-bezier-anchor" cx="1" cy="0" r="0.022" />',
+          '<circle class="cp-bezier-handle" data-handle="1" r="0.045" />',
+          '<circle class="cp-bezier-handle" data-handle="2" r="0.045" />',
+        '</svg>',
+        '<div class="cp-bezier-field">',
+          '<label>Bezier</label>',
+          '<input class="cp-bezier-input" type="text" spellcheck="false" />',
+        '</div>',
+        '<div class="cp-bezier-preview">',
+          '<div class="cp-bezier-preview-track"><div class="cp-bezier-preview-dot"></div></div>',
+        '</div>'
+      ].join('');
+
+      document.body.appendChild(pop);
+      var ddRect = dd.getBoundingClientRect();
+      var popWidth = 280;
+      var left = ddRect.left;
+      var maxLeft = window.innerWidth - popWidth - 8;
+      if (left > maxLeft) left = maxLeft;
+      if (left < 8) left = 8;
+      pop.style.left = left + 'px';
+      pop.style.top = (ddRect.bottom + 6) + 'px';
+      var popH = pop.offsetHeight;
+      if (ddRect.bottom + 6 + popH > window.innerHeight - 8) {
+        var above = ddRect.top - 6 - popH;
+        pop.style.top = Math.max(8, above) + 'px';
+      }
+      var svg = pop.querySelector('svg');
+      var curve = pop.querySelector('.cp-bezier-curve');
+      var h1 = pop.querySelector('[data-handle="1"]');
+      var h2 = pop.querySelector('[data-handle="2"]');
+      var g1 = pop.querySelector('[data-guide="1"]');
+      var g2 = pop.querySelector('[data-guide="2"]');
+      var input = pop.querySelector('.cp-bezier-input');
+      var dot = pop.querySelector('.cp-bezier-preview-dot');
+
+      function renderSvg() {
+        var x1 = state.x1, y1 = state.y1, x2 = state.x2, y2 = state.y2;
+        var sy1 = 1 - y1, sy2 = 1 - y2;
+        h1.setAttribute('cx', x1); h1.setAttribute('cy', sy1);
+        h2.setAttribute('cx', x2); h2.setAttribute('cy', sy2);
+        g1.setAttribute('x1', 0); g1.setAttribute('y1', 1);
+        g1.setAttribute('x2', x1); g1.setAttribute('y2', sy1);
+        g2.setAttribute('x1', 1); g2.setAttribute('y1', 0);
+        g2.setAttribute('x2', x2); g2.setAttribute('y2', sy2);
+        curve.setAttribute('d', 'M 0,1 C ' + x1 + ',' + sy1 + ' ' + x2 + ',' + sy2 + ' 1,0');
+      }
+
+      function renderInput() {
+        input.value = [fmt(state.x1), fmt(state.y1), fmt(state.x2), fmt(state.y2)].join(', ');
+      }
+
+      function runPreview() {
+        dot.style.transition = 'none';
+        dot.style.left = '0';
+        void dot.offsetWidth;
+        var ease = 'cubic-bezier(' + state.x1 + ',' + state.y1 + ',' + state.x2 + ',' + state.y2 + ')';
+        dot.style.transition = 'left 1s ' + ease;
+        dot.style.left = 'calc(100% - 12px)';
+      }
+
+      var previewTimer = setInterval(runPreview, 1400);
+
+      function render(fromInput) {
+        renderSvg();
+        if (!fromInput) renderInput();
+      }
+
+      function svgPt(e) {
+        var pt = svg.createSVGPoint();
+        pt.x = e.clientX; pt.y = e.clientY;
+        return pt.matrixTransform(svg.getScreenCTM().inverse());
+      }
+
+      var dragging = null;
+      function onDown(e) {
+        var handle = e.target.closest('[data-handle]');
+        if (!handle) return;
+        dragging = handle.getAttribute('data-handle');
+        handle.setPointerCapture && handle.setPointerCapture(e.pointerId);
+        e.preventDefault();
+      }
+      function onMove(e) {
+        if (!dragging) return;
+        var p = svgPt(e);
+        var x = Math.max(0, Math.min(1, p.x));
+        var y = 1 - p.y;
+        if (dragging === '1') { state.x1 = x; state.y1 = y; }
+        else { state.x2 = x; state.y2 = y; }
+        render();
+      }
+      function onUp() { dragging = null; }
+
+      svg.addEventListener('pointerdown', onDown);
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+
+      input.addEventListener('input', function () {
+        var parts = parseCubic(input.value);
+        if (parts) {
+          state.x1 = Math.max(0, Math.min(1, parts[0]));
+          state.y1 = parts[1];
+          state.x2 = Math.max(0, Math.min(1, parts[2]));
+          state.y2 = parts[3];
+          render(true);
+        }
+      });
+
+      function commit() {
+        var cssVal = 'cubic-bezier(' + state.x1 + ', ' + state.y1 + ', ' + state.x2 + ', ' + state.y2 + ')';
+        dd.textContent = '(' + [fmt(state.x1), fmt(state.y1), fmt(state.x2), fmt(state.y2)].join(',') + ')';
+        row.setAttribute('data-token-pending', cssVal);
+        closePopover();
+      }
+
+      pop.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); commit(); }
+        if (e.key === 'Escape') { e.preventDefault(); closePopover(); }
+      });
+
+      function onOutside(e) {
+        if (!pop.contains(e.target) && !dd.contains(e.target)) commit();
+      }
+      setTimeout(function () { document.addEventListener('pointerdown', onOutside); }, 0);
+
+      activePopover = {
+        el: pop,
+        cleanup: function () {
+          document.removeEventListener('pointermove', onMove);
+          document.removeEventListener('pointerup', onUp);
+          document.removeEventListener('pointerdown', onOutside);
+          clearInterval(previewTimer);
+        }
+      };
+
+      render();
+      runPreview();
+    }
+
+    function openSimpleInput(dd, row, token) {
+      if (dd.querySelector('input')) return;
+      var current = dd.textContent.trim();
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.value = current;
+      input.className = 'cp-ease-input';
+      dd.textContent = '';
+      dd.appendChild(input);
+      input.focus();
+      input.select();
+
+      function commit() {
+        var val = parseSimple(token, input.value);
+        if (val) {
+          dd.textContent = input.value.trim();
+          row.setAttribute('data-token-pending', val);
+        } else {
+          dd.textContent = current;
+          row.removeAttribute('data-token-pending');
+        }
+      }
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); commit(); }
+        if (e.key === 'Escape') { dd.textContent = current; }
+      });
+      input.addEventListener('blur', commit);
+    }
+
+    document.querySelectorAll('[data-token-editor]').forEach(function (dl) {
+      dl.querySelectorAll('[data-token]').forEach(function (row) {
+        var token = row.getAttribute('data-token');
+        var dd = row.querySelector('dd');
+        dd.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (token.indexOf('--ease-') === 0) openBezierPopover(dd, row);
+          else openSimpleInput(dd, row, token);
+        });
+      });
+    });
   })();
   </script>
 

@@ -84,9 +84,9 @@ h1, h2, h3, h4, h5, h6,
 .motion--bounce { --reveal-ease: var(--ease-bounce); }
 
 /* Distance modifiers (reveal only) */
-.motion--subtle { --reveal-distance: 20px; }
-.motion--default { --reveal-distance: 80px; }
-.motion--dramatic { --reveal-distance: 160px; }
+.motion--subtle { --reveal-distance: var(--distance-subtle, 20px); }
+.motion--default { --reveal-distance: var(--distance-default, 80px); }
+.motion--dramatic { --reveal-distance: var(--distance-dramatic, 160px); }
 
 
 

@@ -259,11 +259,14 @@ function initPage() {
     var scrollHint = document.querySelector(".intro-scroll-hint");
 
     // Step 1: Hide everything immediately
-    [introContent, introParagraph].forEach(function (el) {
-      if (!el) return;
-      el.style.opacity = "0";
-      el.style.transform = "translateY(200px)";
-    });
+    if (introContent) {
+      introContent.style.opacity = "0";
+      introContent.style.transform = "translateY(200px)";
+    }
+    if (introParagraph) {
+      introParagraph.style.opacity = "0";
+      introParagraph.style.transform = "translateY(80px)";
+    }
     [siteHeader, scrollHint].forEach(function (el) {
       if (!el) return;
       el.style.opacity = "0";
@@ -271,15 +274,21 @@ function initPage() {
 
     var ease = "cubic-bezier(0.0, 0.0, 0.05, 1)";
 
-    // Step 2: Reveal intro content (slide up)
+    // Step 2a: Reveal headline (slide up)
     setTimeout(function () {
-      [introContent, introParagraph].forEach(function (el) {
-        if (!el) return;
-        el.style.transition = "opacity 0.6s " + ease + ", transform 0.6s " + ease;
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      });
+      if (!introContent) return;
+      introContent.style.transition = "opacity 0.6s " + ease + ", transform 0.6s " + ease;
+      introContent.style.opacity = "1";
+      introContent.style.transform = "translateY(0)";
     }, 50);
+
+    // Step 2b: Reveal sub paragraph — slight delay so they read as two pieces
+    setTimeout(function () {
+      if (!introParagraph) return;
+      introParagraph.style.transition = "opacity 0.4s " + ease + ", transform 0.4s " + ease;
+      introParagraph.style.opacity = "1";
+      introParagraph.style.transform = "translateY(0)";
+    }, 400);
 
     // Step 3: After reveal is done, fade in nav + scroll hint
     setTimeout(function () {
@@ -288,7 +297,7 @@ function initPage() {
         el.style.transition = "opacity 0.2s " + ease;
         el.style.opacity = "1";
       });
-    }, 700);
+    }, 1000);
 
 
     // Work: each project entry
