@@ -27,7 +27,7 @@ I spent nine years at Portugalmail, Portugal's first email provider. I designed 
 
 ### UX as <br />discipline
 
-I joined Namecheap as founding designer to build Spaceship, a spin-off built to rethink domains and online presence. Six years from zero. I built design systems, cross-functional alignment, documentation that turns intent into buildable reality. The highest-leverage work of my career. And then the ground shifted again.
+I joined Namecheap as one of the first designers to build Spaceship, a spin-off built to rethink domains and online presence. Six years from zero. Worked concepts, user centered design, design systems, UI challenges, UX research, and documentation that turns intent into buildable reality.
 
 </div>
 
