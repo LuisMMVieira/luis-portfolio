@@ -1,7 +1,7 @@
 ---
-title: "When search is the product"
-subtitle: "How redesigning one component quadrupled transfer success."
-date: 2026-03-26
+title: "Two intentions, one input"
+subtitle: "How redesigning one component quadrupled Spaceship's transfer success."
+date: 2026-06-01
 covers:
   - "/assets/articles/spaceship-search/images/cover/sps-search-article-cover-1.png"
   - "/assets/articles/spaceship-search/images/cover/sps-search-article-cover-2.png"
@@ -9,7 +9,12 @@ covers:
 draft: false
 ---
 
-Spaceship sells and manages domains. The homepage search bar is the start of the business—register a domain, or transfer one (or several) in. My job was to fix and enhance that core experience. It was a mess.
+<ArticleSection divider={false}>
+<ArticleSubsection>
+
+Spaceship sells domains. The homepage search bar is the start of the business—register one, or transfer one (or several) in. Two different intentions, one input. Transfer success hovered around 5%. Most of them accidental.
+
+I led the redesign end to end. Four disciplines, 8 people, 2.5 months.
 
 <dl class="post-meta">
   <div class="post-meta__row">
@@ -18,11 +23,11 @@ Spaceship sells and manages domains. The homepage search bar is the start of the
   </div>
   <div class="post-meta__row">
     <dt class="post-meta__label">Team</dt>
-    <dd class="post-meta__value">11 people—UX, Design System, Brand, Research</dd>
+    <dd class="post-meta__value">UX, Design System, Brand, Research (8 people)</dd>
   </div>
   <div class="post-meta__row">
-    <dt class="post-meta__label">Timeline</dt>
-    <dd class="post-meta__value">November 2023 – January 2024</dd>
+    <dt class="post-meta__label">Period</dt>
+    <dd class="post-meta__value">November 2023–January 2024</dd>
   </div>
   <div class="post-meta__row">
     <dt class="post-meta__label">Impact</dt>
@@ -30,30 +35,55 @@ Spaceship sells and manages domains. The homepage search bar is the start of the
   </div>
 </dl>
 
----
+</ArticleSubsection>
+</ArticleSection>
+
+<ArticleSection label="Problem">
+<ArticleSubsection>
 
 ## The front door was broken
 
-Spaceship's homepage search handled both domain registration and domain transfer. A small dropdown labelled "I want to…" switched between the two—silently, with no change to the input itself. The bar looked identical in both modes. The placeholder said "Search or transfer a domain" regardless.
+The bar had one job: help you register a domain or transfer one (or more) in. It treated both as variants of the same action, switched by a dropdown labelled "I want to…" that most people missed.
 
-The search bar needed to handle three things: registration, single transfer, and bulk transfer. But in any given mode it wasn't clear what you could actually do with it. And it got worse when the bar was in focus—a dropdown appeared with two options that looked like links, not mode selectors: "Search or Transfer" and "Bulk transfer." What happens when you hit enter? Nobody knew.
+When the bar was focused, a dropdown appeared: "Search or Transfer" and "Bulk transfer." They looked like links, not mode selectors, leaving users confused on what to do. Also, what happened when you hit enter? Search or transfer? A mess...
 
-<figure class="post-figure article-finding--text-width">
-  <img src="/assets/articles/spaceship-search/images/search-before.png" alt="The original Spaceship homepage search with the 'I want to...' dropdown—modes hidden behind a click" />
-  <figcaption class="post-figure__caption">The original search widget. Modes hidden behind a dropdown. Transfer was one accidental click away from registration.</figcaption>
+<figure class="post-figure">
+  <img src="/assets/articles/spaceship-search/images/search-before-new.png" alt="The original Spaceship homepage search widget with the 'I want to…' dropdown" />
+  <figcaption class="post-figure__caption">The before search widget.</figcaption>
 </figure>
 
-The problem wasn't cosmetic. Registration and transfer are completely different workflows—different inputs, different expectations, different mental models. Registration is speculative: "Is this available?" Transfer is intentional: "I own this, move it here." Cramming both behind the same input meant neither worked properly.
+The problem wasn't cosmetic. Registration and transfer are completely different intentions. Registration is speculative: "Is this available?" Transfer is intentional: "I own this, move it here." Cramming both behind the same input meant neither worked properly. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
 
-Users who wanted to transfer were accidentally initiating a search, and vice-versa. Users who wanted to transfer couldn't find how. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
+</ArticleSubsection>
+</ArticleSection>
 
----
+<ArticleSection label="Process">
+<ArticleSubsection>
+
+## Four teams, one roadmap
+
+Four teams in the room from day one—Product Platform, Design System, Brand, and Research. One shared roadmap. Research bookending the design work, not bolted on at the end to validate decisions already made.
+
+This was my first time leading process at this scale. I built the roadmap and got it approved before any design work started. Everyone was on board as it made sense from the start.
+
+<figure class="post-figure article-figure--full-width">
+  <img src="/assets/articles/spaceship-search/images/roadmap-new.png" alt="The project roadmap — swim lanes across four teams over two months" />
+  <figcaption class="post-figure__caption">The roadmap. Built before any design started.</figcaption>
+</figure>
+
+With some minor tweaks along the way, it became the anchor for the whole project. Every conversation over the two months that followed pointed back to it—six weeks on paper, a bit longer in practice with the holidays sitting in the middle.
+
+</ArticleSubsection>
+</ArticleSection>
+
+<ArticleSection label="Research">
+<ArticleSubsection>
 
 ## What research actually said
 
-First round of usability testing ran on the live product, in the browser. No prototype comfort blanket. The signal was clean—six issues ranked by severity, the number-one problem affecting every single participant.
+First round of usability testing ran on the live product, in the browser. No prototype comfort blanket. The signal was clean—six issues ranked by severity, the number one problem affecting every single participant.
 
-<figure class="post-figure article-finding article-finding--text-width article-card">
+<figure class="post-figure article-finding article-card">
   <div class="article-finding__nameplate">Research finding #1</div>
   <p class="article-finding__text">"Search or transfer a domain" placeholder creates confusion—users don't understand the difference between search and transfer, especially with the dropdown open.</p>
 </figure>
@@ -61,184 +91,74 @@ First round of usability testing ran on the live product, in the browser. No pro
 Every participant. Not most—every one. That's not a usability issue, that's a broken product.
 
 <figure class="post-figure article-finding--text-width">
-  <div class="report-chart-card" style="border-radius: var(--radius-l);">
-    <div class="report-chart-card__header">
-      <h3 class="report-chart-card__title" style="font-family: var(--font-family-sans); font-size: var(--type-text-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin: 0;">Issues ranked by severity</h3>
-      <p class="report-chart-card__subtitle" style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin: var(--spacing-xxs) 0 0;">Six issues across three task areas. #1 affected every participant.</p>
-    </div>
-    <div style="margin-block-start: var(--spacing-md);">
-      <canvas id="articleChartIssues" data-chart-config='{"type":"bar","data":{"labels":["#1 Search/transfer confusion","#2 Bulk: field click bug","#3 Bulk: silent errors","#4 Transfer: hard to find","#5 Transfer: no results CTA","#6 Bulk: unclear auth step"],"datasets":[{"label":"Severity","data":[6,4,2,1,1,1],"backgroundColor":["#5B4FCF","rgba(91,79,207,0.6)","rgba(91,79,207,0.35)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)"],"borderRadius":4,"borderSkipped":false}]},"options":{"responsive":true,"indexAxis":"y","plugins":{"legend":{"display":false}},"scales":{"x":{"max":6,"ticks":{"stepSize":1},"grid":{"color":"#2e2e38"}},"y":{"grid":{"display":false}}}}}'></canvas>
-    </div>
-  </div>
+  <img src="/assets/articles/spaceship-search/images/research-findings.png" alt="Severity table of six issues from the first usability round" />
   <figcaption class="post-figure__caption">Six issues surfaced from the first usability round. The top one was universal.</figcaption>
 </figure>
 
 The research told us what we suspected but needed proof for: this wasn't a UI polish problem. The entire information architecture of the search component was wrong. Two distinct user intentions were being treated as variants of the same action.
 
-[Full usability report →](/reports/usability-round-1)
+</ArticleSubsection>
+</ArticleSection>
 
----
-
-## The room, not just the work
-
-Four teams in the room from day one—Product Platform, Design System, Brand, and Research. A shared roadmap with milestones, research bookending the design work. Not research added at the end to validate decisions already made.
-
-When everyone sees the same timeline, owns their part, and knows where research fits in—the conversations become about the work, not about coordination. That alignment was deliberate. I set it up before any design work started.
-
-<figure class="post-figure article-finding--text-width">
-  <img src="/assets/articles/spaceship-search/images/roadmap-gantt.png" alt="Gantt-style roadmap showing all four team swim lanes across November 2023 to January 2024" />
-  <figcaption class="post-figure__caption">The roadmap I built and got approved before any design work started. Six weeks, a holiday in the middle, and a hard deadline.</figcaption>
-</figure>
-
-The roadmap was mine. I built it, got it approved, and used it to keep everyone honest for two months. It also defined the design critique structure—create two or three scenarios, make them interactive, gather individual notes before any group discussion, evaluate each prototype, vote preferred and justify why.
-
-I led the process and the roadmap while also being one of the designers. That dual role was intentional—when you're in the Figma file yourself, you have a different kind of authority in the conversations. You're not managing opinions. You're synthesizing while making.
-
----
+<ArticleSection label="Exploration">
+<ArticleSubsection>
 
 ## Three directions, one conversation
 
-Three designers—myself, David, and Mafalda—each took our own direction. Same brief. The goal wasn't to pick a winner but to generate a real conversation about the problem space.
+Three designers—myself, David, and Mafalda—each took their own directions. We got together first, talked through the problem, agreed on a structure, then split to prototype three directions.
 
-<div class="article-video-gallery" data-video-gallery>
-  <div class="article-video-gallery__main">
+<figure class="post-figure article-figure--full-width">
+  <div class="article-figure-row">
     <video src="/assets/articles/spaceship-search/videos/proposal-1.mp4" autoplay muted loop playsinline></video>
-    <span class="article-video-gallery__caption">Proposal 1—functional split</span>
+    <video src="/assets/articles/spaceship-search/videos/proposal-2.mp4" autoplay muted loop playsinline></video>
+    <video src="/assets/articles/spaceship-search/videos/proposal-3.mp4" autoplay muted loop playsinline></video>
   </div>
-  <div class="article-video-gallery__thumbs">
-    <button class="article-video-gallery__thumb article-video-gallery__thumb--active" data-video-src="/assets/articles/spaceship-search/videos/proposal-1.mp4" data-label="Proposal 1—functional split" type="button">
-      <video src="/assets/articles/spaceship-search/videos/proposal-1.mp4#t=0.5" muted preload="metadata" playsinline></video>
-    </button>
-    <button class="article-video-gallery__thumb" data-video-src="/assets/articles/spaceship-search/videos/proposal-2.mp4" data-label="Proposal 2—contextual reveal" type="button">
-      <video src="/assets/articles/spaceship-search/videos/proposal-2.mp4#t=0.5" muted preload="metadata" playsinline></video>
-    </button>
-    <button class="article-video-gallery__thumb" data-video-src="/assets/articles/spaceship-search/videos/proposal-3.mp4" data-label="Proposal 3—modal approach" type="button">
-      <video src="/assets/articles/spaceship-search/videos/proposal-3.mp4#t=0.5" muted preload="metadata" playsinline></video>
-    </button>
+  <figcaption class="post-figure__caption">David's — Mafalda's — Mine.</figcaption>
+</figure>
+
+Prototypes were done, now just needed to prepare the Design Critique session. The idea was straight forward: prepare a Figma file in advance with the 3 directions, invite 4 designers, and give them the prototypes one day in advance to give them time to sit with them and take notes. Worth flagging—the prototypes used handshake domains as examples. A small way to show the bar could scale to other modes.
+
+<div class="article-figure-with-text">
+  <figure class="post-figure">
+    <div class="post-figure__placeholder" role="img" aria-label="Design critique framework in Figma" style="aspect-ratio: 572 / 512;"></div>
+    <figcaption class="post-figure__caption">Design critique framework in Figma. Delivered 1 day in advance.</figcaption>
+  </figure>
+  <div class="article-figure-with-text__body">
+    <h3>The critique session</h3>
+    <p>A rich session with pure design talk. No presenting. No defending. 4 outside perspectives, one problem on the table. What came out of it was sharper than anything any of us had walked in with.</p>
   </div>
 </div>
 
-Each proposal attacked the same problem differently. One separated the modes visually but kept them on the same surface. Another introduced progressive disclosure—reveal the mode only after engagement. The third broke them apart entirely into distinct flows.
+We left leaning toward David's direction. I started building on it while the next stage was being set.
 
-### The design critique
+</ArticleSubsection>
+</ArticleSection>
 
-The design critique was structured: async analysis first, then a live discussion. No presenting, no defending—just talking about the work. What came out of that room was better than anything any of us had walked in with.
-
----
+<ArticleSection label="Decisions">
+<ArticleSubsection>
 
 ## The decisions that shaped the final
 
-The core insight was simple once you said it out loud: registration and transfer are two different intentions. They shouldn't share a mode. They shouldn't even look the same.
-
-The new component starts with a visible toggle—**Register** or **Transfer**—above the search bar. No dropdown, no hidden state. Switch to Transfer and the whole bar transforms: different placeholder, different CTA, different secondary action.
+Research confirmed it. Registration and Transfer are 2 different intentions. They shouldn't share a mode.
 
 <figure class="post-figure">
-  <img src="/assets/projects/spaceship/images/homepage/sps-search-modes.png" alt="The final search component showing Register and Transfer modes with the toggle always visible" />
-  <figcaption class="post-figure__caption">Register and Transfer as distinct modes. Different placeholder, different CTA, different secondary action.</figcaption>
+  <div class="post-figure__placeholder" role="img" aria-label="The Figma prototype tested — David's direction with toggle inside the bar"></div>
+  <figcaption class="post-figure__caption">The Figma prototype we tested—David's direction, toggle inside the bar.</figcaption>
 </figure>
 
-I talked about using the toggle early on, but in the first prototype it was still hidden—tucked inside the component, visible only after clicking into the search bar. Cleaner. More elegant. We prototyped it that way and brought it to the second round of testing.
+Still, the session caught real things. The search/transfer confusion from Round 1 didn't resurface once. But 3 of 4 participants looked for transfer in the navigation menu—not the search bar. One put it plainly: "It doesn't seem normal to use a search input for a transfer." The component worked. It just didn't announce itself.
 
-{/* TODO: Add screenshot of the prototype tested in the second round — toggle hidden inside the component */}
+From the sessions I also picked up one interesting thing: participants weren't focusing on the component as naturally as they should.
 
----
+</ArticleSubsection>
+</ArticleSection>
 
-## What testing revealed
-
-The second round of usability testing ran on the prototype. The signal was different this time—the big confusion was gone, but new details surfaced. Removal of the subtitle for a cleaner hierarchy. Darkening of the background to give the main component more prominence.
-
-Worth naming: Figma prototypes aren't great for real testing. You can't type, you can't truly feel the interaction. They're far from the browser experience. We worked around it, but it's a constraint that matters.
-
-Then we caught ourselves. We'd spent the entire project removing hidden modes—and here we were introducing a subtler version of the exact same problem. The toggle moved outside. Always visible. No interaction required to discover it.
-
-*Sometimes the most honest design decision trades a bit of elegance for a lot of clarity. The whole project was about making hidden things visible—we couldn't end it by hiding one more.*
-
----
+<ArticleSection label="Craft">
+<ArticleSubsection>
 
 ## Craft—the details that earn trust
 
-The final component needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
+The final definition gathered all the issues and findings into one component that needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
 
-<figure class="post-figure post-figure--video">
-  <video src="/assets/articles/spaceship-search/videos/entrance-choreography.mp4" autoplay muted loop playsinline></video>
-  <figcaption class="post-figure__caption">Entrance choreography—each element arrives with intent, not all at once.</figcaption>
-</figure>
-
-The choreography was deliberate—each element arrives with purpose, not decoration. The dimming of the background when the component is active was my push—it pulls focus without competing for it.
-
-<figure class="post-figure article-figure--full-width">
-  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-sm);">
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-1.png" alt="Register mode — the default homepage state" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-2.png" alt="Transfer mode — different placeholder, different CTA" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-    <img src="/assets/articles/spaceship-search/images/cover/sps-search-article-cover-3.png" alt="Bulk transfer mode — modal with CSV upload" style="width: 100%; height: auto; display: block; border-radius: var(--radius-xs);" />
-  </div>
-  <figcaption class="post-figure__caption">The final homepage. Toggle always visible, modes immediately legible, transfer no longer accidental.</figcaption>
-</figure>
-
-**Bulk transfer** lives as a secondary action inside Transfer mode—accessible but not accidentally triggerable. A modal handles up to 500 domains with CSV upload. Power users get what they need. Casual users never see it.
-
-<figure class="post-figure article-figure--full-width">
-  <img src="/assets/articles/spaceship-search/images/component-logic.png" alt="Component logic diagram showing the state tree for register mode, transfer mode, and bulk transfer" />
-</figure>
-
-Mobile was carefully crafted—every decision needed to materialise on touch devices. The toggle, the focused search state with keyboard, the transfer modal. Same hierarchy, same clarity, adapted to the constraints of a smaller screen.
-
-{/* TODO: Add mobile screenshots — homepage, focused search with keyboard, transfer mode, bulk transfer modal */}
-
----
-
-## Outcome
-
-The design shipped April 2024. Weeks later, the BI team flagged an anomaly: widget interactions dropped roughly 95%. It looked like a disaster.
-
-It was the design working as intended.
-
-<figure class="post-figure article-finding--text-width">
-  <div class="report-chart-card" style="border-radius: var(--radius-l);">
-    <div class="report-chart-card__header">
-      <h3 class="report-chart-card__title" style="font-family: var(--font-family-sans); font-size: var(--type-text-m-font-size); font-weight: var(--font-weight-semibold); color: var(--text-primary); margin: 0;">Monthly widget interactions</h3>
-      <p class="report-chart-card__subtitle" style="font-family: var(--font-family-sans); font-size: var(--type-text-s-font-size); color: var(--text-tertiary); margin: var(--spacing-xxs) 0 0;">The April cliff is the noise disappearing.</p>
-    </div>
-    <div style="margin-block-start: var(--spacing-md);">
-      <canvas id="articleChartMonthly" data-chart-config='{"type":"bar","data":{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"datasets":[{"label":"Widget Interactions","data":[28918,31184,30491,12716,1277,1208,1712,1520],"backgroundColor":["#5B4FCF","#5B4FCF","#5B4FCF","rgba(91,79,207,0.4)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)","rgba(91,79,207,0.2)"],"borderRadius":5,"borderSkipped":false}]},"options":{"responsive":true,"plugins":{"legend":{"display":false}},"scales":{"y":{"grid":{"color":"#2e2e38"}},"x":{"grid":{"display":false}}}}}'></canvas>
-    </div>
-  </div>
-  <figcaption class="post-figure__caption">Monthly interactions before and after the redesign. That cliff in April? That's 30,000 accidental clicks disappearing.</figcaption>
-</figure>
-
-<figure class="post-figure article-finding article-finding--text-width">
-  <div class="article-finding__stats">
-    <div class="article-finding__stat">
-      <span class="article-finding__stat-value">~5%</span>
-      <span class="article-finding__stat-label">Transfer success before</span>
-    </div>
-    <div class="article-finding__stat">
-      <span class="article-finding__stat-value">→</span>
-      <span class="article-finding__stat-label">&nbsp;</span>
-    </div>
-    <div class="article-finding__stat">
-      <span class="article-finding__stat-value">21%</span>
-      <span class="article-finding__stat-label">Transfer success after</span>
-    </div>
-  </div>
-</figure>
-
-**Transfer success rate: ~5% to 21%.** Four times higher. Volume down, intent up. Fewer people reaching the widget, but the ones who did were actually trying to transfer—and succeeding.
-
-A 95% interaction drop that quadruples success. That's not a metric going the wrong way. That's noise disappearing and signal emerging.
-
-[Full data breakdown →](/reports/search-transfer-overview)
-
----
-
-## What it taught me
-
-**Research before and after, not just before.** Two rounds of usability testing—one on the live product, one on the prototype—kept the team honest. The first round surfaced problems. The second confirmed we'd actually solved them. Most teams skip the second round. That's where the confidence comes from.
-
-**Competing proposals beat consensus.** Three designers working independently produced a richer conversation than any brainstorm. The final design wasn't a compromise—it was a synthesis none of us would have reached alone. The critique format mattered: async first, then live. No pitch decks. No defending. Just the work.
-
-**Clarity over elegance, every time.** The toggle could have been sleeker tucked inside the component. We chose visible over clever—because the entire project was about making hidden things visible. When you catch yourself reintroducing the problem you set out to solve, that's design maturity. Recognising it. Correcting it. Shipping the honest version.
-
-**Fewer interactions can mean better outcomes.** A 95% drop in widget interactions looked like a disaster until you paired it with the transfer success rate. Removing accidental clicks revealed the real signal. The people who meant to transfer were succeeding four times more often. Sometimes the best thing a redesign can do is make the wrong path harder to stumble into.
-
-**Lead the process and the pixels.** Being both the process lead and a designer gave me a different kind of authority in conversations. Not because of the title—because I was in the file. When you're making the work, you earn the right to synthesize the room.
+</ArticleSubsection>
+</ArticleSection>

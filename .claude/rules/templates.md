@@ -19,7 +19,7 @@ Templates are the source of truth for all content types. Every project, article,
 ## Figma → Code Architecture
 The post system mirrors the Figma component hierarchy. Class names match Figma layer names so a designer inspecting the browser sees familiar names.
 
-### Layer Mapping
+### Layer Mapping — Projects
 | Figma layer | HTML class | Astro component |
 |---|---|---|
 | **Section** | `post-section` | `PostSectionGroup` |
@@ -31,6 +31,20 @@ The post system mirrors the Figma component hierarchy. Class names match Figma l
 | **Content (Place on section grid)** | `content-slot` | *(auto-generated)* |
 | **Content/Figure** | `post-figure` | `Figure` |
 | **Post Template: Header** | `post-header` | `PostHeader` |
+
+### Layer Mapping — Articles
+Articles use a parallel component system (narrower measure, text-focused). Classes mirror Figma layer names here too.
+
+| Figma layer | HTML class | Astro component |
+|---|---|---|
+| **Section** | `article-section` | `ArticleSection` |
+| **Section Divider** | `article-section__divider` | *(inside ArticleSection, via `divider` / `label` props)* |
+| **Divider (line)** | `article-section__divider-line` | *(inside divider)* |
+| **Section title (small label)** | `article-section__divider-label` | *(inside divider, optional)* |
+| **Sub Section** | `article-subsection` | `ArticleSubsection` |
+| **Canvas (css grid)** | — grid declared on `.article-subsection` itself | *(inside ArticleSubsection)* |
+| **Content/Figure** | `post-figure` | `Figure` (shared with projects) |
+| **Article Template: Header** | `article-header` | `ArticleHeader` |
 
 ## Shared Components (`src/components/mdx/`)
 - **PostSectionGroup** — wraps chapter: divider + body with sub-sections

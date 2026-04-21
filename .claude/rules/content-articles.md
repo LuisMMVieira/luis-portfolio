@@ -18,6 +18,8 @@ Defined in `src/content/config.ts`. Fields: `title`, `subtitle?`, `date`, `cover
 `/articles/[slug]` — rendered by `src/pages/articles/[slug].astro`.
 
 ## Available Components
+- `ArticleSection` — outer section wrapper (Figma "Section"). Props: `divider?` (default true, renders 0.5px rule on top), `label?` (optional small 15px label under the rule).
+- `ArticleSubsection` — inner content block (Figma "Sub Section"). Wraps one chunk of content on the 12-col grid. No props.
 - `Figure` — image + caption
 - `Video` — video + caption
 - `Divider` — visual separator
@@ -26,8 +28,8 @@ Defined in `src/content/config.ts`. Fields: `title`, `subtitle?`, `date`, `cover
 ## Available Patterns
 Every pattern below appears once in `article-template.mdx` with placeholder copy — copy the markup from there verbatim.
 
-- **Sub Section wrapper** — every `##`-led section is wrapped in `<div class="article-subsection">`. Mirrors Figma's Sub Section frame: 56px top padding, 28px bottom padding, 56px inner row-gap. Net spacing between two consecutive sections = 84px (28 bottom + 56 top). Add `.article-subsection--divider` (empty wrapper) for a dedicated visual rule between major section groups.
-- **Post Meta** — `<dl class="post-meta">` with `.post-meta__row` / `__label` / `__value` rows. Goes right after the intro paragraph, before the first Sub Section.
+- **Section → Sub Section nesting** — every article body is a sequence of `<ArticleSection>` → `<ArticleSubsection>` pairs. Mirrors Figma's `Section → Sub Section` hierarchy. Three divider variants: `<ArticleSection divider={false}>` (no rule, used for the intro/post-meta section), `<ArticleSection>` (0.5px rule only — the default), `<ArticleSection label="Label">` (rule + small 15px label). Section owns the 28px top/bottom padding; Subsection owns its own 28px inner padding and the 12-col content grid (prose centered in col 4–9 at xl, figures col 3–10 at xl).
+- **Post Meta** — `<dl class="post-meta">` with `.post-meta__row` / `__label` / `__value` rows. Goes right after the intro paragraph, inside the first Sub Section.
 - **Figure widths** — three variants:
   - *Text-width* — `<figure class="post-figure article-finding--text-width">` (same column as prose)
   - *Wide* — `<Figure />` or `<figure class="post-figure">` (default, wider than prose)

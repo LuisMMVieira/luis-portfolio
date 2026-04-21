@@ -1,0 +1,17 @@
+---
+/**
+ * ArticleSubsection — inner content block inside an ArticleSection.
+ * Mirrors Figma layer "Sub Section" (node 2444:1759 / 2564:3234).
+ *
+ * Thin wrapper around <div class="article-subsection"> — carries the 12-col
+ * canvas grid and all column-placement rules (prose centered in col 4–9 at xl,
+ * figures col 3–10 at xl). Authors write regular MDX inside (H2, paragraphs,
+ * figures, callouts, post-meta, etc.) and children drop onto the grid.
+ *
+ * No props — all variation comes from children.
+ */
+---
+
+<div class="article-subsection">
+  <slot />
+</div>

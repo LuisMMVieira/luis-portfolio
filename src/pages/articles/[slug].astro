@@ -5,6 +5,8 @@ import Figure from "../../components/mdx/Figure.astro";
 import Video from "../../components/mdx/Video.astro";
 import Divider from "../../components/Divider.astro";
 import ArticleHeader from "../../components/mdx/ArticleHeader.astro";
+import ArticleSection from "../../components/mdx/ArticleSection.astro";
+import ArticleSubsection from "../../components/mdx/ArticleSubsection.astro";
 import BackButton from "../../components/BackButton.astro";
 
 export async function getStaticPaths() {
@@ -51,7 +53,7 @@ const isDraft = article.data.draft;
       </figure>
     )}
     <div class="article-body">
-      <Content components={{ Figure, Video, Divider }} />
+      <Content components={{ Figure, Video, Divider, ArticleSection, ArticleSubsection }} />
     </div>
   </div>
   <script is:inline src="/scripts/chart-init.js"></script>

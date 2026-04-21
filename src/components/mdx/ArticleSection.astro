@@ -1,0 +1,32 @@
+---
+/**
+ * ArticleSection — outer section wrapper for article body.
+ * Mirrors Figma layer "Section" (node 2444:1757).
+ *
+ * - Always has 28px top/bottom padding (Figma Section py).
+ * - Optional Section Divider on top: a 0.5px rule, with optional small label under it.
+ *
+ * Usage:
+ *   <ArticleSection divider={false}>    — no divider (first section)
+ *   <ArticleSection>                    — line only (default)
+ *   <ArticleSection label="Research">   — line + small label
+ */
+
+interface Props {
+  divider?: boolean;
+  label?: string;
+}
+
+const { divider = true, label } = Astro.props;
+const showDivider = divider || Boolean(label);
+---
+
+<section class="article-section">
+  {showDivider && (
+    <header class="article-section__divider">
+      <hr class="article-section__divider-line" />
+      {label && <p class="article-section__divider-label">{label}</p>}
+    </header>
+  )}
+  <slot />
+</section>

@@ -1,11 +1,12 @@
 ---
 title: "Article template"
 subtitle: "Every pattern available inside an article body"
-date: 2026-04-19
+date: 2026-04-21
 draft: true
 ---
 
-<div class="article-subsection">
+<ArticleSection divider={false}>
+<ArticleSubsection>
 
 This is the intro paragraph. One or two sentences framing the piece—what it is, why it matters. It sits in the prose column before the Post Meta block.
 
@@ -15,22 +16,29 @@ This is the intro paragraph. One or two sentences framing the piece—what it is
     <dd class="post-meta__value">This is where the role goes</dd>
   </div>
   <div class="post-meta__row">
+    <dt class="post-meta__label">Focus</dt>
+    <dd class="post-meta__value">This is where the focus goes</dd>
+  </div>
+  <div class="post-meta__row">
     <dt class="post-meta__label">Team</dt>
     <dd class="post-meta__value">This is where the team goes</dd>
   </div>
   <div class="post-meta__row">
-    <dt class="post-meta__label">Timeline</dt>
-    <dd class="post-meta__value">This is where the timeline goes</dd>
+    <dt class="post-meta__label">Collaboration</dt>
+    <dd class="post-meta__value">This is where the collaboration goes</dd>
   </div>
   <div class="post-meta__row">
-    <dt class="post-meta__label">Impact</dt>
-    <dd class="post-meta__value">This is where the impact goes</dd>
+    <dt class="post-meta__label">Period</dt>
+    <dd class="post-meta__value">This is where the period goes</dd>
   </div>
 </dl>
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+{/* Section with divider line only — no label */}
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a text-width figure
 
@@ -43,9 +51,12 @@ This is a body paragraph inside the prose column. Articles use a narrow measure 
 
 This is the paragraph after the text-width figure. Use this width when the image belongs to the reading flow.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+{/* Section with divider line + small label */}
+<ArticleSection label="Section label">
+<ArticleSubsection>
 
 ## This is a section with a wide figure
 
@@ -55,9 +66,11 @@ This is the opening paragraph of the section.
 
 This is the closing paragraph after the figure.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a full-width figure
 
@@ -70,9 +83,11 @@ This is the opening paragraph.
 
 This is the closing paragraph.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a research finding
 
@@ -85,9 +100,11 @@ This is the paragraph that sets up the callout below.
 
 This is the paragraph after the callout.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a stats callout
 
@@ -112,11 +129,11 @@ This is the paragraph that sets up the stats.
 
 This is the paragraph after the stats.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection article-subsection--divider"></div>
-
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a 3-column image row
 
@@ -133,9 +150,11 @@ This is the opening paragraph.
 
 This is the paragraph after the row.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a figure + text block
 
@@ -153,9 +172,11 @@ This is the paragraph that introduces the pattern below.
 
 This is the paragraph after the block.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a video gallery
 
@@ -181,9 +202,11 @@ This is the paragraph that introduces the gallery.
 
 This is the paragraph after the gallery.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a section with a chart card
 
@@ -204,9 +227,11 @@ This is the paragraph that introduces the chart.
 
 This is the paragraph after the chart.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is a subsection pattern
 
@@ -236,9 +261,11 @@ const tokens = {
 };
 ```
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 ## This is the conclusion section
 
@@ -246,14 +273,19 @@ This is the closing paragraph. No figure here—just a clean wrap.
 
 A second paragraph to show vertical rhythm between final blocks.
 
-</div>
+</ArticleSubsection>
+</ArticleSection>
 
-<div class="article-subsection">
+<ArticleSection>
+<ArticleSubsection>
 
 **Frontmatter fields:** `title` (required), `subtitle?`, `date` (required), `cover?` (string—single hero), `covers?` (string[]—carousel), `draft?`, `theme?` (`"dark"` | `"light"`, default light).
 
-**Components:** `Figure` (src?, alt?, caption?, placeholder?), `Video` (src, caption?), `Divider` (label?, spaceAbove?, spaceBelow?).
+**Components:** `ArticleSection` (divider?, label?), `ArticleSubsection`, `Figure` (src?, alt?, caption?, placeholder?), `Video` (src, caption?), `Divider` (label?, spaceAbove?, spaceBelow?).
 
-**CSS hooks:** `article-subsection` (wraps each section), `article-subsection--divider` (84.5px visual rule), `post-meta`, `article-finding` + `--text-width` / `article-card` / `__nameplate` / `__text` / `__stats` / `__stat`, `article-figure--full-width`, `article-figure-row`, `article-figure-with-text`, `article-video-gallery`, `report-chart-card`.
+**Section variants:** `<ArticleSection divider={false}>` (no rule, for the intro section), `<ArticleSection>` (0.5px rule only), `<ArticleSection label="Label">` (rule + small 15px label).
 
-</div>
+**CSS hooks:** `article-section`, `article-section__divider`, `article-section__divider-line`, `article-section__divider-label`, `article-subsection`, `post-meta`, `article-finding` + `--text-width` / `article-card` / `__nameplate` / `__text` / `__stats` / `__stat`, `article-figure--full-width`, `article-figure-row`, `article-figure-with-text`, `article-video-gallery`, `report-chart-card`.
+
+</ArticleSubsection>
+</ArticleSection>

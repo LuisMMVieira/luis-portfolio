@@ -1553,21 +1553,71 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 		}
 	}
 
+	/* ── Article Section ──
+	   Mirrors Figma "Section" frame (node 2444:1757).
+	   Outer wrapper with 28px top/bottom padding. Holds optional Section Divider
+	   + one or more .article-subsection children. Section owns the between-section
+	   rhythm so Sub Sections only own their own 28px inner buffer. */
+
+	.article-section {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		padding-block: var(--spacing-ml); /* 28px — Figma Section py */
+		padding-inline: var(--spacing-ml); /* 28px — Figma applies px on both Section
+		                                     Divider and Sub Section; we apply once on
+		                                     the parent so divider + subsection share
+		                                     the same inset. */
+	}
+
+	/* ── Section Divider (optional, sits at top of a Section) ──
+	   Mirrors Figma "Section Divider" frame (2564:3195). 0.5px rule, optional
+	   small label underneath (Text/M 15px). Use `label` prop on <ArticleSection>
+	   to render the text; omit for line-only. Use divider={false} to omit entirely.
+	   Horizontal inset is handled by the parent .article-section. */
+
+	.article-section__divider {
+		/* no own padding — .article-section handles horizontal inset */
+	}
+
+	.article-section__divider-line {
+		block-size: var(--line-width);
+		inline-size: 100%;
+		background-color: var(--border-default);
+		border: 0;
+		margin: 0;
+	}
+
+	.article-section__divider-label {
+		padding-block: var(--spacing-sm); /* 12px — Figma Wrapper py */
+		margin: 0;
+		@include type(text-m);
+		color: var(--text-primary);
+	}
+
 	/* ── Sub Section wrapper ──
-	   Mirrors Figma "Sub Section" frame (node 0:48).
-	   Vertical rhythm: 56px top / 28px bottom padding, 56px inner row-gap.
-	   Net between-section spacing: 84px (28 bottom + 56 top). */
+	   Mirrors Figma "Sub Section" frame (2444:1759).
+	   Sits inside an .article-section. Owns the 12-col canvas that centers
+	   prose in col 4/9 at xl and places figures in col 3/10.
+	   Vertical rhythm: 28px top/bottom padding, 56px inner row-gap. */
 
 	.article-subsection {
 		grid-column: 1 / -1;
 		display: grid;
 		grid-template-columns: $grid-2;
-		row-gap: var(--spacing-xl); /* 56px — Figma Canvas row-gap */
-		padding-block: var(--spacing-xl) 2rem; /* 56 / 28 — 28px has no scale token (root font-size = 14px) */
+		row-gap: var(--spacing-xl); /* 56px — Figma Canvas row-gap (between content blocks) */
+		padding-block: var(--spacing-ml); /* 28px — Figma Sub Section py */
 
 		> * {
 			grid-column: 1 / -1;
 			margin-block: 0; /* row-gap controls section rhythm */
+		}
+
+		/* Consecutive paragraphs group tighter (20px gap, Figma Paragraph instance
+		   stacks multiple text nodes with this spacing). Negative margin offsets
+		   the default 56px row-gap: 20 − 56 = −36px. */
+		> p + p {
+			margin-top: calc(var(--spacing-md) - var(--spacing-xl));
 		}
 
 		@media (min-width: 48rem) {
@@ -1612,18 +1662,6 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 				&.article-figure--full-width {
 					grid-column: 1 / -1;
 				}
-			}
-		}
-
-		/* Divider variant: 56 top + 0.5 rule + 28 bottom = 84.5px */
-		&--divider {
-			row-gap: 0;
-
-			&::after {
-				content: "";
-				grid-column: 1 / -1;
-				block-size: var(--line-width);
-				background-color: var(--border-default);
 			}
 		}
 	}
