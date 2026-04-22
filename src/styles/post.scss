@@ -1551,6 +1551,37 @@ $_phone-ref: 417; /* Figma reference width — do not change */
 				padding-block-start: var(--spacing-sm);
 			}
 		}
+
+		/* ── Dark card variant (Figma: Critique Session block) ──
+		   Inherits background + padding + radius from the base .article-card rule.
+		   Only overrides text colors for the 2-col figure-with-text body. */
+		&.article-card {
+			.article-figure-with-text__body {
+				h3 { color: var(--color-superpastel-light); }
+				p { color: var(--color-white-opacity-high); }
+			}
+
+			.post-figure__caption { color: var(--color-white-opacity-mid); }
+		}
+	}
+
+	/* ── 2-column figure pair (full-width, each child = <figure> with its own <figcaption>) ──
+	   Stacks at xs, 2-up at md+. Mirrors Figma "two-input-state" pattern in the Problem section. */
+
+	> .article-figure-pair {
+		grid-column: 1 / -1;
+	}
+
+	.article-figure-pair {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+
+		> .post-figure { margin: 0; }
+
+		@media (min-width: 48rem) {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	/* ── Article Section ──

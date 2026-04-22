@@ -1,6 +1,6 @@
 ---
 title: "Two intentions, one input"
-subtitle: "How redesigning one component quadrupled Spaceship's transfer success."
+subtitle: "How redesigning one component quadrupled Spaceship's domain transfer success."
 date: 2026-06-01
 covers:
   - "/assets/articles/spaceship-search/images/cover/sps-search-article-cover-1.png"
@@ -12,9 +12,9 @@ draft: false
 <ArticleSection divider={false}>
 <ArticleSubsection>
 
-Spaceship sells domains. The homepage search bar is the start of the business—register one, or transfer one (or several) in. Two different intentions, one input. Transfer success hovered around 5%. Most of them accidental.
+Spaceship sells and manages domains. The homepage input bar is the start of the business where you can register or transfer domains.
 
-I led the redesign end to end. Four disciplines, 8 people, 2.5 months.
+The goal was to improve the component in an informed manner and to improve the user experience. I led the redesign end to end—4 Teams, 8 people, 2 months.
 
 <dl class="post-meta">
   <div class="post-meta__row">
@@ -22,8 +22,8 @@ I led the redesign end to end. Four disciplines, 8 people, 2.5 months.
     <dd class="post-meta__value">Process Lead & UX Designer, Product Platform</dd>
   </div>
   <div class="post-meta__row">
-    <dt class="post-meta__label">Team</dt>
-    <dd class="post-meta__value">UX, Design System, Brand, Research (8 people)</dd>
+    <dt class="post-meta__label">Teams</dt>
+    <dd class="post-meta__value">Product Platform, Design System, Brand, UX Research</dd>
   </div>
   <div class="post-meta__row">
     <dt class="post-meta__label">Period</dt>
@@ -38,64 +38,67 @@ I led the redesign end to end. Four disciplines, 8 people, 2.5 months.
 </ArticleSubsection>
 </ArticleSection>
 
-<ArticleSection label="Problem">
+<ArticleSection label="The problem">
 <ArticleSubsection>
 
 ## The front door was broken
 
-The bar had one job: help you register a domain or transfer one (or more) in. It treated both as variants of the same action, switched by a dropdown labelled "I want to…" that most people missed.
+The bar had one job. To be an entry point to get your domain(s) managed by Spaceship. That could be done in two ways: by registering available domains, or transferring ones you already own managed by an external registrar. The numbers were short and that meant the design of the experience was broken.
 
-When the bar was focused, a dropdown appeared: "Search or Transfer" and "Bulk transfer." They looked like links, not mode selectors, leaving users confused on what to do. Also, what happened when you hit enter? Search or transfer? A mess...
+<div class="article-figure-pair">
+  <figure class="post-figure">
+    <div class="post-figure__placeholder" role="img" aria-label="Input in its idle state"></div>
+    <figcaption class="post-figure__caption">Input in its idle state.</figcaption>
+  </figure>
+  <figure class="post-figure">
+    <div class="post-figure__placeholder" role="img" aria-label="Input in focus with the options visible"></div>
+    <figcaption class="post-figure__caption">Input in focus with the options visible.</figcaption>
+  </figure>
+</div>
 
-<figure class="post-figure">
-  <img src="/assets/articles/spaceship-search/images/search-before-new.png" alt="The original Spaceship homepage search widget with the 'I want to…' dropdown" />
-  <figcaption class="post-figure__caption">The before search widget.</figcaption>
-</figure>
+The input was confusing users on how to achieve each. The idle state inferred searching and transferring could be made in the same place. The placeholder and the buttons available suggested it. But what was really the primary action? What would happen when you hit enter?
 
-The problem wasn't cosmetic. Registration and transfer are completely different intentions. Registration is speculative: "Is this available?" Transfer is intentional: "I own this, move it here." Cramming both behind the same input meant neither worked properly. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
+It got even more confusing when the input got into focus. A dropdown appeared with two options: Search or Transfer and Bulk transfer. A couple of problems with this: Bulk transfer was in its own place isolated from the transfer mode, and they looked like links, not mode selectors.
 
 </ArticleSubsection>
 </ArticleSection>
 
-<ArticleSection label="Process">
+<ArticleSection>
+<ArticleSubsection>
+
+## What research actually said
+
+First round of usability testing ran on the live product, in the browser. The signal was clean: six issues ranked by severity, the number one problem affecting every single participant.
+
+<figure class="post-figure article-finding article-card">
+  <div class="article-finding__nameplate">Research finding #1</div>
+  <p class="article-finding__text">Search or transfer a domain placeholder creates confusion—users don't understand the difference between search and transfer, especially with the dropdown open.</p>
+</figure>
+
+The research told us what we suspected but needed proof for: registration and transfer are completely different intentions.
+
+Registration is speculative: "Is this available?"
+
+Transfer is intentional: "I own this, move it here."
+
+Cramming both behind the same input meant neither worked properly. The dropdown was doing double duty as both a mode switcher and an explanation of what those modes meant—and failing at both.
+
+</ArticleSubsection>
+</ArticleSection>
+
+<ArticleSection label="Kickstart">
 <ArticleSubsection>
 
 ## Four teams, one roadmap
 
-Four teams in the room from day one—Product Platform, Design System, Brand, and Research. One shared roadmap. Research bookending the design work, not bolted on at the end to validate decisions already made.
+For this type of project it's important to keep everyone aligned from day one. The Kickoff was the first step of that requirement.
 
-This was my first time leading process at this scale. I built the roadmap and got it approved before any design work started. Everyone was on board as it made sense from the start.
+Product Platform (my team), Design System, Brand, and UX Research were the teams needed for this journey. I built a roadmap that served as a blueprint for the road ahead. After approval everyone knew when to step in and plan their work accordingly.
 
 <figure class="post-figure article-figure--full-width">
   <img src="/assets/articles/spaceship-search/images/roadmap-new.png" alt="The project roadmap — swim lanes across four teams over two months" />
   <figcaption class="post-figure__caption">The roadmap. Built before any design started.</figcaption>
 </figure>
-
-With some minor tweaks along the way, it became the anchor for the whole project. Every conversation over the two months that followed pointed back to it—six weeks on paper, a bit longer in practice with the holidays sitting in the middle.
-
-</ArticleSubsection>
-</ArticleSection>
-
-<ArticleSection label="Research">
-<ArticleSubsection>
-
-## What research actually said
-
-First round of usability testing ran on the live product, in the browser. No prototype comfort blanket. The signal was clean—six issues ranked by severity, the number one problem affecting every single participant.
-
-<figure class="post-figure article-finding article-card">
-  <div class="article-finding__nameplate">Research finding #1</div>
-  <p class="article-finding__text">"Search or transfer a domain" placeholder creates confusion—users don't understand the difference between search and transfer, especially with the dropdown open.</p>
-</figure>
-
-Every participant. Not most—every one. That's not a usability issue, that's a broken product.
-
-<figure class="post-figure article-finding--text-width">
-  <img src="/assets/articles/spaceship-search/images/research-findings.png" alt="Severity table of six issues from the first usability round" />
-  <figcaption class="post-figure__caption">Six issues surfaced from the first usability round. The top one was universal.</figcaption>
-</figure>
-
-The research told us what we suspected but needed proof for: this wasn't a UI polish problem. The entire information architecture of the search component was wrong. Two distinct user intentions were being treated as variants of the same action.
 
 </ArticleSubsection>
 </ArticleSection>
@@ -118,13 +121,13 @@ Three designers—myself, David, and Mafalda—each took their own directions. W
 
 Prototypes were done, now just needed to prepare the Design Critique session. The idea was straight forward: prepare a Figma file in advance with the 3 directions, invite 4 designers, and give them the prototypes one day in advance to give them time to sit with them and take notes. Worth flagging—the prototypes used handshake domains as examples. A small way to show the bar could scale to other modes.
 
-<div class="article-figure-with-text">
+<div class="article-figure-with-text article-card">
   <figure class="post-figure">
     <div class="post-figure__placeholder" role="img" aria-label="Design critique framework in Figma" style="aspect-ratio: 572 / 512;"></div>
     <figcaption class="post-figure__caption">Design critique framework in Figma. Delivered 1 day in advance.</figcaption>
   </figure>
   <div class="article-figure-with-text__body">
-    <h3>The critique session</h3>
+    <h3>The design critique session</h3>
     <p>A rich session with pure design talk. No presenting. No defending. 4 outside perspectives, one problem on the table. What came out of it was sharper than anything any of us had walked in with.</p>
   </div>
 </div>
@@ -134,21 +137,23 @@ We left leaning toward David's direction. I started building on it while the nex
 </ArticleSubsection>
 </ArticleSection>
 
-<ArticleSection label="Decisions">
+<ArticleSection label="User testing">
 <ArticleSubsection>
 
-## The decisions that shaped the final
+## Testing the prototype
 
-Research confirmed it. Registration and Transfer are 2 different intentions. They shouldn't share a mode.
+Research confirmed it. Registration and Transfer are 2 different intentions. They shouldn't share a mode. We needed a clear ways to toggle between modes, and the prototype was almost fully successful on that. Almost...
 
 <figure class="post-figure">
   <div class="post-figure__placeholder" role="img" aria-label="The Figma prototype tested — David's direction with toggle inside the bar"></div>
   <figcaption class="post-figure__caption">The Figma prototype we tested—David's direction, toggle inside the bar.</figcaption>
 </figure>
 
-Still, the session caught real things. The search/transfer confusion from Round 1 didn't resurface once. But 3 of 4 participants looked for transfer in the navigation menu—not the search bar. One put it plainly: "It doesn't seem normal to use a search input for a transfer." The component worked. It just didn't announce itself.
+Testing with Figma prototypes is not ideal. They're far away from the browser experience. Especially when you have to input text.
 
-From the sessions I also picked up one interesting thing: participants weren't focusing on the component as naturally as they should.
+Still, the sessions caught real things. The search/transfer confusion from Round 1 didn't resurface once. But 3 of 4 participants looked for transfer in the navigation menu—not the search bar. One put it plainly: "It doesn't seem normal to use a search input for a transfer." The component worked. It just didn't announce itself.
+
+From the sessions I also picked up one interesting thing: participants weren't focusing on the component as naturally as they should—that stayed with me as we moved forward.
 
 </ArticleSubsection>
 </ArticleSection>
@@ -156,7 +161,13 @@ From the sessions I also picked up one interesting thing: participants weren't f
 <ArticleSection label="Craft">
 <ArticleSubsection>
 
-## Craft—the details that earn trust
+## Definition, UI, and motion design
+
+The final definition gathered all the issues and findings into one component that needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
+
+### The toggle that almost stayed hidden
+
+The final definition gathered all the issues and findings into one component that needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
 
 The final definition gathered all the issues and findings into one component that needed to feel intentional at every state. Not just the happy path—the edge cases, the transitions, the moments between actions.
 
