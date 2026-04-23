@@ -1,4 +1,54 @@
 ---
+// CLAUDE REFERENCE — Read until // END CLAUDE REFERENCE. Stop there unless you need visual examples.
+//
+// ── Foundations ───────────────────────────────────────────────────────────────────
+// Grid        12-col (md+), 2-col (xs). Gap: 0. Max-width: --site-max-width.
+//             Breakpoints: xs=default · md=48rem (768px) · xl=75rem (1200px). Hardcoded in media queries.
+// Typography  title-hero | title-l | title-m | title-s | title-xs — Dazzed SemiBold.
+//             type-nameplate | type-text-l/m/s — IBM Plex Sans.
+//             All values in tokens.scss. Use @include type($scale) — never write props by hand.
+// Colors      Monochrome (black → white, all oklab). One accent: #7026C9 — use sparingly.
+// Spacing     none, xxxs, xxs, xs, sm, md, ml, lg, xl, xxl, huge, max
+//
+// ── Elements ──────────────────────────────────────────────────────────────────────
+// Button             text, variant?(primary|secondary), size?(default|sm), disabled?, href?
+// Card               title, subtitle?, href?, cover?, cta?
+//                    layout?(inline|inline-reversed|stacked|no-image-wide), status?
+// Divider            label?, description?, spaceAbove?, spaceBelow?, variant?
+// Switch             id?, size?(regular|small|big)
+//
+// ── Compositions ──────────────────────────────────────────────────────────────────
+// ArticleHeader      title, subtitle?, date
+// ArticleSection     divider?, label?
+// ArticleSubsection
+// Figure             src?, alt?, caption?, placeholder?
+// ImageCarousel      images, interval?, caption?
+// Phone              mode?(light|dark), intensity?(strong|soft)
+// PostHeader         title, subtitle?
+// PostSection        layout?(small|big|canvas|full), bg?
+//                    media?(full|center-wide|center|left|left-wide|right|right-wide|right-small|2-left|2-right|2-center)
+//                    padding?, caption?, overflow?, slotGap?, scroll?, drag?
+// PostSectionGroup   title?
+// PostText           heading?, title?
+// Video              src, caption?
+//
+// ── Report Components ─────────────────────────────────────────────────────────────
+// Annotation         number, title, text
+// Callout            title?
+// ChartCard          title, subtitle?, chartId, chartConfig
+// DataTable          caption?
+// KpiCard            label, value, sub?
+// KpiGrid            cols?
+// ReportHeader       title, subtitle?, date
+// ReportSection      number, title, description?
+//
+// ── Notes ─────────────────────────────────────────────────────────────────────────
+// 2-col layouts: wrap each column in <div class="content-slot"> manually.
+// Captions: figure-level (Figure caption prop) vs section-level (PostSection caption prop).
+// New element classes must be registered in public/scripts/main.js for scroll reveal.
+// draft: true in frontmatter hides from public index — page still builds.
+//
+// END CLAUDE REFERENCE
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BackButton from '../components/BackButton.astro';
 import Button from '../components/Button.astro';
