@@ -7,6 +7,9 @@ paths:
 
 # SINPHONY — Design System Rules
 
+## Taste
+For brand taste and principles — composition instincts, typographic feel, what "looks like Luis" — invoke the `sinphony` skill. This file owns the code rules; the skill owns the taste.
+
 ## Tokens
 `src/styles/tokens.scss` is the single source of truth for all visual values — read it before writing any CSS. Never hardcode values that exist as tokens.
 

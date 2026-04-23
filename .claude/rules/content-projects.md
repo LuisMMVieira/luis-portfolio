@@ -7,6 +7,9 @@ paths:
 
 Template: `src/content/projects/project-template.mdx` — read it before creating or editing any project.
 
+## Voice
+For narrative prose and project descriptions, invoke the `draft-in-luis-voice` skill.
+
 ## Components & Design System
 Read `src/pages/components.astro` — stop at `// END CLAUDE REFERENCE`. Everything you need is in that block.
 For design decisions — bg tokens, spacing, layout choices — read `.claude/rules/sinphony.md`.

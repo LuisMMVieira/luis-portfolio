@@ -24,3 +24,11 @@ Work directly on `main`. No branches, no PRs. Solo project.
 ## Rules
 - Before creating or editing any content file, read the matching rule in `.claude/rules/`.
 - For any visual decision — bg tokens, spacing, layout, type — read `.claude/rules/sinphony.md`.
+
+## Figma intake
+When a Figma URL is shared, before generating any code:
+1. Use `figma-design-weaver` to read the design (MCP: `get_design_context`, `get_metadata`, `get_variable_defs`).
+2. Check `src/components/` for an existing match — don't rebuild what exists.
+3. Check `src/styles/tokens.scss` for any value you're about to hardcode.
+4. Output `.astro` + SCSS (never raw HTML/CSS). Follow the Component → Template → Content flow in `.claude/rules/templates.md`.
+5. For taste, invoke the `sinphony` skill alongside `.claude/rules/sinphony.md`.
