@@ -10,6 +10,8 @@ paths:
 ## Taste
 For brand taste and principles — composition instincts, typographic feel, what "looks like Luis" — invoke the `sinphony` skill. This file owns the code rules; the skill owns the taste.
 
+For peer pushback on visual work — critique, elevation, challenging tentative decisions with principle — invoke the `graphic-design-taste` skill (sparring partner, not judge).
+
 ## Tokens
 `src/styles/tokens.scss` is the single source of truth for all visual values — read it before writing any CSS. Never hardcode values that exist as tokens.
 

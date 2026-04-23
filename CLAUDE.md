@@ -3,6 +3,8 @@
 ## Goal
 This is a portfolio, not a product. The design leads — the code follows.
 
+**Design leads. Taste over rules. 70% ships.**
+
 These files point to sources of truth — they don't replace them. When in doubt, read the actual file.
 
 ## Stack & Commands
