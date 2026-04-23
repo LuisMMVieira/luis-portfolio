@@ -16,17 +16,8 @@ Templates are the source of truth for all content types. Every project, article,
 ## Change Flow
 **Component → Template → Content.** Structural changes go to the Astro component first, verify in the template, then apply to real content. Never change content without the component/template reflecting it first.
 
-## Shared Components (`src/components/mdx/`)
-- **PostSectionGroup** — wraps a chapter: divider + body with sub-sections
-- **PostSection** — single sub-section (canvas + optional caption)
-- **PostHeader** — title area below cover
-- **PostText** — text block with optional heading
-- **Figure** — image + optional caption
-- **Video** — video + optional caption
-- **ImageCarousel** — image carousel
-- **Phone** — phone frame wrapper
-
-Read each component file for the full props interface.
+## Components
+See the CLAUDE REFERENCE block in `src/pages/components.astro` (auto-generated). Read the component file itself for the full props interface.
 
 ## Draft System
 - `draft: true` in frontmatter = hidden from public index pages

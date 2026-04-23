@@ -8,7 +8,7 @@ paths:
 Template: `src/content/articles/article-template.mdx` — read it before creating or editing any article. Every pattern is in there with real markup.
 
 ## Schema
-Defined in `src/content/config.ts`. Fields: `title`, `subtitle?`, `date`, `cover?`, `covers?` (array for carousel), `draft?`, `theme?` (dark|light, default light).
+`src/content/config.ts` — `articles` collection.
 
 ## Route
 `/articles/[slug]` — rendered by `src/pages/articles/[slug].astro`.
