@@ -11,6 +11,7 @@ import Video from "../../components/mdx/Video.astro";
 import Phone from "../../components/mdx/Phone.astro";
 import Divider from "../../components/Divider.astro";
 import Card from "../../components/Card.astro";
+import PasswordGate from "../../components/PasswordGate.astro";
 import AgentationToolbar from "../../components/AgentationToolbar";
 
 const isDev = import.meta.env.DEV;
@@ -56,6 +57,7 @@ const theme = project.data.theme ?? 'dark';
     </script>
   </head>
   <body>
+    {project.data.nda && <PasswordGate />}
     <div class="project-page">
       <button class="project-page__close" aria-label="Close" data-close>
         <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

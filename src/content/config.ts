@@ -12,6 +12,7 @@ const projects = defineCollection({
     order: z.number(),
     period: z.string().optional(),
     draft: z.boolean().optional().default(false),
+    nda: z.boolean().optional().default(false),
     theme: themeField("dark"),
   }),
 });
@@ -25,6 +26,7 @@ const articles = defineCollection({
     cover: z.string().optional(),
     covers: z.array(z.string()).optional(),
     draft: z.boolean().optional().default(false),
+    nda: z.boolean().optional().default(false),
     theme: themeField("light"),
   }),
 });
