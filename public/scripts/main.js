@@ -300,8 +300,8 @@ function initPage() {
     }, 1000);
 
 
-    // Work: each project entry
-    document.querySelectorAll(".project-entry").forEach(function (el) {
+    // Work: each project card
+    document.querySelectorAll(".projects-list > .card").forEach(function (el) {
       el.classList.add("reveal");
     });
 
@@ -310,8 +310,8 @@ function initPage() {
       el.classList.add("reveal");
     });
 
-    // Background: each chapter individually
-    document.querySelectorAll(".bg-chapter").forEach(function (el) {
+    // Background: each item + the divider
+    document.querySelectorAll(".bg-canvas > *").forEach(function (el) {
       el.classList.add("reveal");
     });
 
